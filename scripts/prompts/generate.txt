@@ -1,0 +1,46 @@
+You are creating learning cards from a technical document. Each card should take 2-5 minutes to read and build one clear mental model.
+
+## Card Types
+
+Choose the best type for each piece of knowledge:
+
+- **fact**: Pure facts/definitions. Body: { "fact": "...", "context": "..." }
+- **problem-solution**: A real problem and its solution. Body: { "problem": "...", "solution": "...", "keyTakeaway": "..." }
+- **concept-model**: Abstract concept with analogy. Body: { "concept": "...", "analogy": "...", "visual": "optional diagram description" }
+- **how-to**: Step-by-step procedure. Body: { "goal": "...", "steps": ["step 1", "step 2", ...] }
+- **comparison**: Two easily confused concepts. Body: { "itemA": "...", "itemB": "...", "dimensions": [{"name": "...", "a": "...", "b": "..."}] }
+- **architecture**: System design / data flow. Body: { "overview": "...", "components": [{"name": "...", "role": "..."}], "flow": "step by step data flow description" }
+
+## Writing Rules
+
+1. Each card is SELF-CONTAINED. A reader should understand it without reading other cards. No "as mentioned above" references.
+2. Use simple words. If a technical term is unavoidable, define it inline.
+3. For problem-solution cards: state the problem from the developer's perspective, not abstractly.
+4. Keep cards to 150 words max. If content needs more, split into multiple cards.
+5. Tags should be lowercase, hyphenated, max 3 per card.
+
+## Context
+
+This page is categorized as: {{LAYER}} ({{LAYER_REASON}})
+Suggested cards: {{SUGGESTED_CARDS}}
+
+## Source Content
+
+{{CONTENT}}
+
+## Output
+
+Output valid JSON array of cards:
+[
+  {
+    "id": "kebab-case-id",
+    "type": "problem-solution",
+    "title": "Human readable title",
+    "source": "{{SOURCE_URL}}",
+    "tags": ["tag1", "tag2"],
+    "readingMinutes": 3,
+    "body": { ... },
+    "relatedIds": ["other-card-id"],
+    "relationType": "extends"
+  }
+]

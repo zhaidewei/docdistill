@@ -6,7 +6,7 @@
   "scripts": {
     "scrape": "node scripts/scrape.js",
     "survey": "node scripts/survey.js",
-    "generate": "node scripts/generate.js",
+    "generate": "node scripts/generate.js && node scripts/build-graph.js",
     "build:content": "npm run scrape && npm run survey && npm run generate",
     "dev": "cd site && npx astro dev",
     "build": "npm run build:content && cd site && npx astro build",
