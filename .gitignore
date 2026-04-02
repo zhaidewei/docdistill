@@ -1,3 +1,6 @@
-.superpowers/
 cache/
 node_modules/
+.superpowers/
+site/dist/
+site/.astro/
+.DS_Store

@@ -1,0 +1,18 @@
+{
+  "name": "anthropic-learn",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "scrape": "node scripts/scrape.js",
+    "survey": "node scripts/survey.js",
+    "generate": "node scripts/generate.js",
+    "build:content": "npm run scrape && npm run survey && npm run generate",
+    "dev": "cd site && npx astro dev",
+    "build": "npm run build:content && cd site && npx astro build",
+    "preview": "cd site && npx astro preview"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}
