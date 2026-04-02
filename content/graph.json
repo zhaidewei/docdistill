@@ -1,1 +1,11 @@
-{ "nodes": [], "edges": [] }
+{
+  "nodes": [
+    { "id": "tool-use-basics", "label": "Tool Use", "group": "agent", "type": "problem-solution", "cardCount": 3 },
+    { "id": "context-window-fact", "label": "Context Window", "group": "model", "type": "fact", "cardCount": 1 },
+    { "id": "prompt-caching-vs-context", "label": "Prompt Caching", "group": "performance", "type": "comparison", "cardCount": 2 }
+  ],
+  "edges": [
+    { "from": "prompt-caching-vs-context", "to": "context-window-fact", "relation": "requires" },
+    { "from": "tool-use-basics", "to": "context-window-fact", "relation": "related" }
+  ]
+}

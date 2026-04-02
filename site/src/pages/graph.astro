@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+import KnowledgeGraph from "../components/KnowledgeGraph.tsx";
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
+
+const graphPath = join(process.cwd(), "../content/graph.json");
+let graph = { nodes: [], edges: [] };
+try {
+  graph = JSON.parse(readFileSync(graphPath, "utf-8"));
+} catch {}
+
+const cardsDir = join(process.cwd(), "../content/cards");
+let cards = [];
+try {
+  const files = readdirSync(cardsDir).filter((f) => f.endsWith(".json"));
+  cards = files.map((f) =>
+    JSON.parse(readFileSync(join(cardsDir, f), "utf-8"))
+  );
+} catch {}
+---
+
+<Base title="知识图谱" activePage="graph">
+  <KnowledgeGraph client:only="preact" graph={graph} cards={cards} />
+</Base>
