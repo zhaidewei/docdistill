@@ -1,0 +1,38 @@
+You are analyzing a collection of Anthropic documentation and blog pages to plan a fragmented learning curriculum.
+
+Below is a list of pages with their titles and content summaries. For each page, decide:
+
+1. **Layer**: L0 (core mental model, ~15-20 cards total), L1 (practical skills, ~30-40 cards), L2 (deep/edge cases), or SKIP
+2. **Dependencies**: which other pages must be understood first
+3. **Suggested card types**: fact, problem-solution, concept-model, how-to, comparison, architecture
+
+SKIP criteria — do NOT make cards for:
+- Pure API reference (parameter lists, return value enums)
+- Installation/setup steps
+- Changelogs / version updates
+- Content that duplicates another page (mark the less useful one as SKIP)
+
+Layer criteria:
+- L0: Concepts you MUST understand before anything else makes sense (e.g., Messages API structure, what Tool Use is, what an Agent loop is)
+- L1: Practical knowledge for building with Claude (e.g., prompt caching usage, streaming config, error handling patterns)
+- L2: Specialized or edge-case knowledge (e.g., Batch API, Admin API, specific SDK wrappers)
+
+Output valid JSON with this structure:
+{
+  "pages": [
+    {
+      "url": "...",
+      "title": "...",
+      "layer": "L0" | "L1" | "L2" | "SKIP",
+      "reason": "one sentence why this layer",
+      "dependencies": ["url of prerequisite page", ...],
+      "suggestedCards": [
+        { "type": "problem-solution", "title": "short card title" }
+      ]
+    }
+  ]
+}
+
+Here are the pages:
+
+{{PAGES}}
