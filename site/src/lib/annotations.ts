@@ -2,18 +2,23 @@ import type { Annotation } from "./types";
 
 const PREFIX = "annotations:";
 
+const isBrowser = typeof localStorage !== "undefined";
+
 export function getAnnotation(cardId: string): Annotation {
+  if (!isBrowser) return { starred: false, comments: [], questions: [] };
   const raw = localStorage.getItem(PREFIX + cardId);
   if (!raw) return { starred: false, comments: [], questions: [] };
   return JSON.parse(raw);
 }
 
 export function saveAnnotation(cardId: string, annotation: Annotation) {
+  if (!isBrowser) return;
   localStorage.setItem(PREFIX + cardId, JSON.stringify(annotation));
 }
 
 export function getAllAnnotations(): Record<string, Annotation> {
   const result: Record<string, Annotation> = {};
+  if (!isBrowser) return result;
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     if (key?.startsWith(PREFIX)) {

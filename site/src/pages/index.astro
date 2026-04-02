@@ -1,7 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
+import CardBrowser from "../components/CardBrowser.tsx";
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
+
+const cardsDir = join(process.cwd(), "../content/cards");
+let cards = [];
+try {
+  const files = readdirSync(cardsDir).filter((f) => f.endsWith(".json"));
+  cards = files.map((f) =>
+    JSON.parse(readFileSync(join(cardsDir, f), "utf-8"))
+  );
+} catch {}
 ---
 
 <Base title="卡片" activePage="cards">
-  <div class="p-8 text-gray-400">Loading cards...</div>
+  <CardBrowser client:load cards={cards} />
 </Base>

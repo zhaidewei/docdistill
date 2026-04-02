@@ -1,0 +1,12 @@
+{
+  "id": "context-window-fact",
+  "type": "fact",
+  "title": "Claude 的 Context Window",
+  "source": "https://platform.claude.com/docs/en/model/overview",
+  "tags": ["model", "limits"],
+  "readingMinutes": 1,
+  "body": {
+    "fact": "Claude Opus 4 支持最大 200K tokens 的 context window（约 15 万个英文单词或 50 万个中文字符）。Sonnet 和 Haiku 同样支持 200K。",
+    "context": "Context window 是单次对话中 Claude 能「看到」的全部内容——包括你的系统提示、历史消息、工具定义和 Claude 的回复。超出限制的内容会被截断。"
+  }
+}
