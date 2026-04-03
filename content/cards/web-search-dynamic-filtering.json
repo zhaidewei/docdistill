@@ -12,17 +12,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "基础 web search 会把完整的搜索结果 HTML 全部拉进 context window，大量无关内容既浪费 token 又降低回答质量。Dynamic filtering 让 Claude 编写并执行代码来后处理搜索结果——只保留相关信息，丢弃其余部分，再进行推理。需要 web_search_20260209 版本 + code_execution tool 同时启用，仅 Opus 4.6 和 Sonnet 4.6 支持。",
-    "analogy": "想象你在图书馆查资料。基础搜索 = 把搜到的十本书全文复印带回桌上阅读。Dynamic filtering = 先快速翻阅目录和摘要，只复印最相关的几页带回。你读得更快、更准确，还省了复印费（token）。",
-    "visual": "搜索结果(10个网页) → Claude 编写过滤代码 → 代码执行，筛选相关片段 → 精简结果进入 context → Claude 基于精简内容生成回答"
+    "analogy": "想象你在图书馆查资料。基础搜索 = 把搜到的十本书全文复印带回桌上阅读。Dynamic filtering = 先快速翻阅目录和摘要，只复印最相关的几页带回。你读得更快、更准确，还省了复印费（token）。"
   },
   "body_en": {
     "concept": "Basic web search pulls entire HTML from search results into the context window. Much of it is irrelevant, wasting tokens and degrading quality. Dynamic filtering lets Claude write and execute code to post-process search results — keeping only relevant information before reasoning. Requires web_search_20260209 + code_execution tool enabled. Only available on Opus 4.6 and Sonnet 4.6.",
-    "analogy": "Imagine researching at a library. Basic search = photocopying all 10 books in full and reading at your desk. Dynamic filtering = skimming tables of contents first and photocopying only the relevant pages. You read faster, more accurately, and save on photocopying costs (tokens).",
-    "visual": "Search results (10 pages) → Claude writes filter code → Code executes, extracts relevant snippets → Filtered results enter context → Claude generates answer from condensed content"
+    "analogy": "Imagine researching at a library. Basic search = photocopying all 10 books in full and reading at your desk. Dynamic filtering = skimming tables of contents first and photocopying only the relevant pages. You read faster, more accurately, and save on photocopying costs (tokens)."
   },
   "relatedIds": [
     "web-search-tool-enable-and-usage",
     "web-search-basic-vs-dynamic"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Search Results\\n10 pages]) --> B[Claude writes filter code]\n    B --> C[Code executes]\n    C --> D[Extract relevant snippets]\n    D --> E[Filtered results enter context]\n    E --> F[Claude generates answer]"
 }

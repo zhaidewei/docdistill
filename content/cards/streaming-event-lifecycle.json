@@ -12,16 +12,15 @@
   "readingMinutes": 3,
   "body": {
     "concept": "一次 streaming 响应由一系列 SSE 事件组成，遵循固定的生命周期：message_start → content_block_start → content_block_delta（重复多次，每次携带一小段文本）→ content_block_stop → message_delta（携带 stop_reason 和 usage）→ message_stop。每个 content block 对应 Message 里的一个内容块（文本或 tool_use）。如果 Claude 返回多个 content block（如先文本后工具调用），会看到多轮 start/delta/stop 序列。",
-    "analogy": "像快递追踪：message_start 是「订单已创建」，content_block_delta 是不断更新的「运输中」状态，message_stop 是「已签收」。你不必等包裹到了才知道它的状态——每个节点实时推送。",
-    "visual": "message_start → [block_start → delta → delta → ... → block_stop] × N → message_delta → message_stop"
+    "analogy": "像快递追踪：message_start 是「订单已创建」，content_block_delta 是不断更新的「运输中」状态，message_stop 是「已签收」。你不必等包裹到了才知道它的状态——每个节点实时推送。"
   },
   "body_en": {
     "concept": "A streaming response is a sequence of SSE events following a fixed lifecycle: message_start → content_block_start → content_block_delta (repeated, each carrying a text chunk) → content_block_stop → message_delta (with stop_reason and usage) → message_stop. Each content block maps to one entry in the Message's content array (text or tool_use). If Claude returns multiple blocks (e.g., text then a tool call), you'll see multiple start/delta/stop sequences.",
-    "analogy": "Like package tracking: message_start is 'order placed', content_block_delta is the 'in transit' updates, and message_stop is 'delivered'. You don't wait for the package to arrive to know its status — each checkpoint pushes in real time.",
-    "visual": "message_start → [block_start → delta → delta → ... → block_stop] × N → message_delta → message_stop"
+    "analogy": "Like package tracking: message_start is 'order placed', content_block_delta is the 'in transit' updates, and message_stop is 'delivered'. You don't wait for the package to arrive to know its status — each checkpoint pushes in real time."
   },
   "relatedIds": [
     "streaming-enable-sse-sdk"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "```mermaid\nflowchart LR\n    A([message_start]) --> B[block_start]\n    B --> C[delta]\n    C --> D[delta ...]\n    D --> E[block_stop]\n    E -->|repeat × N| B\n    E --> F[message_delta]\n    F --> G([message_stop])\n```"
 }

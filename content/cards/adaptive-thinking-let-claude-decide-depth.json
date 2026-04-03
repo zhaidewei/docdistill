@@ -12,17 +12,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "Adaptive thinking 是 Claude 4.6 系列推荐的 extended thinking 使用方式。开发者不再手动设定思考 token 预算，而是让 Claude 根据问题复杂度自行决定是否思考、思考多少。通过 effort 参数（low / medium / high）控制思考倾向：high（默认）几乎总会思考；low 对简单问题可能跳过思考。它还自动启用 interleaved thinking，即 Claude 可以在多次 tool call 之间穿插思考，非常适合 agentic 工作流。",
-    "analogy": "就像一位经验丰富的厨师：你不用告诉他每道菜花多少分钟准备（固定预算），只需说「这顿饭要精致」或「随便吃吃就行」（effort 级别），他自己会判断哪道菜需要花心思、哪道菜简单处理即可。",
-    "visual": "请求 → Claude 评估复杂度 → [简单：直接回答 | 复杂：深度思考后回答] → 响应"
+    "analogy": "就像一位经验丰富的厨师：你不用告诉他每道菜花多少分钟准备（固定预算），只需说「这顿饭要精致」或「随便吃吃就行」（effort 级别），他自己会判断哪道菜需要花心思、哪道菜简单处理即可。"
   },
   "body_en": {
     "concept": "Adaptive thinking is the recommended way to use extended thinking with Claude 4.6 models. Instead of manually setting a thinking token budget, Claude dynamically decides whether and how deeply to think based on request complexity. The effort parameter (low / medium / high) controls this tendency: high (default) almost always thinks; low may skip thinking for simple problems. It also auto-enables interleaved thinking — Claude can think between tool calls, making it ideal for agentic workflows.",
-    "analogy": "Like an experienced chef: you don't tell them how many minutes to spend on each dish (fixed budget). You just say 'make it fancy' or 'keep it casual' (effort level), and they decide which dishes need care and which don't.",
-    "visual": "Request → Claude evaluates complexity → [Simple: answer directly | Complex: deep thinking then answer] → Response"
+    "analogy": "Like an experienced chef: you don't tell them how many minutes to spend on each dish (fixed budget). You just say 'make it fancy' or 'keep it casual' (effort level), and they decide which dishes need care and which don't."
   },
   "relatedIds": [
     "extended-thinking-concept",
     "enable-extended-thinking-budget-tokens"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Request]) --> B{Complexity?}\n    B -->|Simple| C[Answer directly]\n    B -->|Complex| D[Deep thinking]\n    D --> E[Answer]\n    C --> F([Response])\n    E --> F"
 }

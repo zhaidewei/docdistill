@@ -12,16 +12,15 @@
   "readingMinutes": 2,
   "body": {
     "concept": "effort 参数让你控制 Claude 在回复时愿意花费多少 token。它像一个「认真程度」旋钮，有四档：low、medium、high（默认）、max。调低 effort 意味着更快、更省钱，但回答可能不够深入；调高则相反。与 budget_tokens 不同，effort 影响所有 token 输出——包括文本回复、tool call 和 extended thinking。",
-    "analogy": "想象你请一位顾问做调研。high 是正常工作模式，max 是「不计成本、做到最好」，medium 是「给个大概就行」，low 是「一句话回答我」。你不需要指定具体工时（budget_tokens），只需告诉他认真程度。",
-    "visual": "一个水平滑块，从左到右标注 low → medium → high → max。滑块下方两个箭头：左侧指向「省钱、快速」，右侧指向「深入、高质量」。"
+    "analogy": "想象你请一位顾问做调研。high 是正常工作模式，max 是「不计成本、做到最好」，medium 是「给个大概就行」，low 是「一句话回答我」。你不需要指定具体工时（budget_tokens），只需告诉他认真程度。"
   },
   "body_en": {
     "concept": "The effort parameter controls how many tokens Claude is willing to spend on a response. It acts as a 'thoroughness dial' with four levels: low, medium, high (default), and max. Lower effort means faster, cheaper responses at the cost of depth; higher effort means the opposite. Unlike budget_tokens, effort affects all output tokens—text, tool calls, and extended thinking alike.",
-    "analogy": "Imagine hiring a consultant for research. 'high' is normal working mode, 'max' is 'spare no expense,' 'medium' is 'just give me the gist,' and 'low' is 'answer in one sentence.' You don't specify exact hours (budget_tokens)—just the level of diligence.",
-    "visual": "A horizontal slider labeled low → medium → high → max. Below it, two arrows: left pointing to 'cheaper, faster' and right pointing to 'deeper, higher quality'."
+    "analogy": "Imagine hiring a consultant for research. 'high' is normal working mode, 'max' is 'spare no expense,' 'medium' is 'just give me the gist,' and 'low' is 'answer in one sentence.' You don't specify exact hours (budget_tokens)—just the level of diligence."
   },
   "relatedIds": [
     "effort-reduce-cost-simple-tasks"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    low --> medium --> high --> max\n    low -->|cheaper, faster| L[ ]\n    max -->|deeper, higher quality| R[ ]"
 }

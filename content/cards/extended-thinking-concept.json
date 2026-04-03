@@ -12,17 +12,16 @@
   "readingMinutes": 2,
   "body": {
     "concept": "Extended thinking 让 Claude 在给出最终回答之前，先进行一轮深度推理。就像考试时先在草稿纸上演算，再把答案写到答题卡上。开启后，API 响应会包含两部分：thinking blocks（思考过程）和最终回答。思考过程展示 Claude 如何一步步分析问题，帮助开发者理解模型的推理路径。",
-    "analogy": "想象一位数学老师解题：不开启 extended thinking 时，老师直接说出答案；开启后，老师会先在黑板上写出完整的推导步骤，然后再圈出最终答案。你既能看到结果，也能看到思路。",
-    "visual": "输入 → [thinking block: 逐步推理过程] → [最终回答]"
+    "analogy": "想象一位数学老师解题：不开启 extended thinking 时，老师直接说出答案；开启后，老师会先在黑板上写出完整的推导步骤，然后再圈出最终答案。你既能看到结果，也能看到思路。"
   },
   "body_en": {
     "concept": "Extended thinking lets Claude perform deep reasoning before delivering its final answer. When enabled, the API response includes two parts: thinking blocks (the step-by-step thought process) and the final response. This gives developers transparency into how Claude reasons through complex problems.",
-    "analogy": "Imagine a math teacher solving a problem: without extended thinking, they just state the answer. With it, they show all the work on the whiteboard first, then circle the final answer. You get both the result and the reasoning.",
-    "visual": "Input → [thinking block: step-by-step reasoning] → [final answer]"
+    "analogy": "Imagine a math teacher solving a problem: without extended thinking, they just state the answer. With it, they show all the work on the whiteboard first, then circle the final answer. You get both the result and the reasoning."
   },
   "relatedIds": [
     "enable-extended-thinking-budget-tokens",
     "extended-thinking-vs-standard"
   ],
-  "relationType": "introduces"
+  "relationType": "introduces",
+  "diagram": "flowchart LR\n    A([Input]) --> B[Thinking: step-by-step]\n    B --> C[Final Answer]"
 }

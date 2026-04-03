@@ -12,17 +12,16 @@
   "readingMinutes": 2,
   "body": {
     "concept": "Agent loop 结束时，SDK 产出 ResultMessage，其 `subtype` 字段标明终止原因。共 5 种 subtype：(1) `success`——Claude 的响应不含工具调用，任务正常完成，`result` 字段包含最终文本；(2) `error_max_turns`——触达 maxTurns 上限；(3) `error_max_budget_usd`——累计费用超出 maxBudgetUsd 限制；(4) `error_during_execution`——执行过程中出错（如 API 故障或请求被取消）；(5) `error_max_structured_output_retries`——结构化输出校验在重试上限后仍然失败。只有 `success` 时 `result` 字段可用，其余 subtype 均不含最终文本。注意：hook 的 PreToolUse 回调可以拒绝某次工具调用（Claude 会收到拒绝消息并尝试其他方式），但这不构成独立的终止 subtype。",
-    "analogy": "想象一个厨师在厨房做菜。success = 菜做好了端上桌；error_max_turns = 只允许翻炒 N 次，次数用完必须停；error_max_budget_usd = 食材预算用完；error_during_execution = 灶台突然坏了；error_max_structured_output_retries = 反复摆盘都不达标。经理走进来拦下某个动作（hook rejection）不会直接关厨房，厨师会换个做法继续。",
-    "visual": "循环运行 → Claude 响应 → [无工具调用？] → 是 → ResultMessage(success)。否 → [达到 maxTurns？] → 是 → ResultMessage(error_max_turns)。否 → [超出 maxBudgetUsd？] → 是 → ResultMessage(error_max_budget_usd)。否 → [执行出错？] → 是 → ResultMessage(error_during_execution)。否 → 继续下一个 turn。"
+    "analogy": "想象一个厨师在厨房做菜。success = 菜做好了端上桌；error_max_turns = 只允许翻炒 N 次，次数用完必须停；error_max_budget_usd = 食材预算用完；error_during_execution = 灶台突然坏了；error_max_structured_output_retries = 反复摆盘都不达标。经理走进来拦下某个动作（hook rejection）不会直接关厨房，厨师会换个做法继续。"
   },
   "body_en": {
     "concept": "When the agent loop ends, the SDK yields a ResultMessage whose `subtype` field indicates why. There are 5 subtypes: (1) `success` — Claude's response has no tool calls, task completed normally, `result` field contains final text; (2) `error_max_turns` — hit the maxTurns limit; (3) `error_max_budget_usd` — cumulative cost exceeded maxBudgetUsd; (4) `error_during_execution` — an error interrupted the loop (e.g., API failure or cancelled request); (5) `error_max_structured_output_retries` — structured output validation failed after the configured retry limit. Only `success` carries the `result` field; all other subtypes do not contain final text. Note: a PreToolUse hook can reject a specific tool call (Claude receives the rejection and tries a different approach), but this is not a separate termination subtype.",
-    "analogy": "Imagine a chef cooking in a kitchen. success = dish is done, serve it. error_max_turns = only allowed N stir-fry rounds, must stop when used up. error_max_budget_usd = ingredient budget ran out. error_during_execution = stove suddenly broke. error_max_structured_output_retries = repeated plating attempts all failed quality check. A manager blocking one specific action (hook rejection) doesn't shut down the kitchen — the chef switches to a different approach.",
-    "visual": "Loop running → Claude responds → [No tool calls?] → Yes → ResultMessage(success). No → [Hit maxTurns?] → Yes → ResultMessage(error_max_turns). No → [Exceeded maxBudgetUsd?] → Yes → ResultMessage(error_max_budget_usd). No → [Execution error?] → Yes → ResultMessage(error_during_execution). No → Continue to next turn."
+    "analogy": "Imagine a chef cooking in a kitchen. success = dish is done, serve it. error_max_turns = only allowed N stir-fry rounds, must stop when used up. error_max_budget_usd = ingredient budget ran out. error_during_execution = stove suddenly broke. error_max_structured_output_retries = repeated plating attempts all failed quality check. A manager blocking one specific action (hook rejection) doesn't shut down the kitchen — the chef switches to a different approach."
   },
   "relatedIds": [
     "agent-sdk-loop-message-flow",
     "agent-sdk-loop-turns-and-guardrails"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Loop running]) --> B[Claude responds]\n    B --> C{No tool calls?}\n    C -->|Yes| D[ResultMessage: success]\n    C -->|No| E{Hit maxTurns?}\n    E -->|Yes| F[ResultMessage: error_max_turns]\n    E -->|No| G{Exceeded maxBudgetUsd?}\n    G -->|Yes| H[ResultMessage: error_max_budget_usd]\n    G -->|No| I{Execution error?}\n    I -->|Yes| J[ResultMessage: error_during_execution]\n    I -->|No| A"
 }

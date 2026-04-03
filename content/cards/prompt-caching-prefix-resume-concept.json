@@ -12,17 +12,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "Prompt caching 让 API 记住你发过的 prompt 前缀。下次请求如果前缀相同，系统直接复用已处理的结果，跳过重复计算。这对包含大量固定内容（如 system prompt、长文档）的场景特别有效。",
-    "analogy": "就像你每天坐同一班地铁上班。Prompt caching 相当于在你家楼下放了一辆直达车——前半段路不用再走，直接从中间站上车。前缀就是那段固定路线，只要路线没变，就能省下重复行驶的时间和油费。",
-    "visual": "完整 prompt = [system prompt | 长文档 | 历史消息 | 新问题]。缓存前缀覆盖前三段，只有「新问题」需要从头处理。"
+    "analogy": "就像你每天坐同一班地铁上班。Prompt caching 相当于在你家楼下放了一辆直达车——前半段路不用再走，直接从中间站上车。前缀就是那段固定路线，只要路线没变，就能省下重复行驶的时间和油费。"
   },
   "body_en": {
     "concept": "Prompt caching lets the API remember a previously processed prompt prefix. If a subsequent request shares the same prefix, the system reuses the cached result and skips redundant computation. This is especially effective for requests with large fixed content like system prompts or long documents.",
-    "analogy": "It's like commuting on the same subway line every day. Prompt caching parks a shuttle at your doorstep that skips the first half of the route. As long as the route (prefix) stays the same, you save time and fuel on the repeated portion.",
-    "visual": "Full prompt = [system prompt | long doc | chat history | new question]. The cache covers the first three segments; only the new question needs fresh processing."
+    "analogy": "It's like commuting on the same subway line every day. Prompt caching parks a shuttle at your doorstep that skips the first half of the route. As long as the route (prefix) stays the same, you save time and fuel on the repeated portion."
   },
   "relatedIds": [
     "prompt-caching-set-cache-breakpoints",
     "cached-tokens-cost-90-percent-less"
   ],
-  "relationType": "introduces"
+  "relationType": "introduces",
+  "diagram": "flowchart LR\n    A([Full Prompt]) --> B[System Prompt]\n    A --> C[Long Doc]\n    A --> D[Chat History]\n    A --> E[New Question]\n    B --> F[Cached]\n    C --> F\n    D --> F\n    E --> G[Fresh Processing]"
 }
