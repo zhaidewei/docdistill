@@ -28,7 +28,7 @@ const sources = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anthropic Learn — 碎片时间，系统学习</title>
+    <title>Doc Distill — 碎片时间，系统学习</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -362,7 +362,7 @@ const sources = [
   <body>
     <!-- Nav -->
     <nav class="nav">
-      <a href="/" class="nav-logo">Anthropic <span>Learn</span></a>
+      <a href="/" class="nav-logo">Doc <span>Distill</span></a>
       <div class="nav-right">
         <a href="/cards" class="nav-link">Cards</a>
         <a href="/graph" class="nav-link">Graph</a>
@@ -373,11 +373,11 @@ const sources = [
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-badge">Open Source Learning Tool</div>
+      <div class="hero-badge">把任何文档蒸馏成知识卡片</div>
       <h1>碎片时间<br /><em>系统学习</em></h1>
       <p class="hero-sub">
-        112 篇 Anthropic 官方文档和博客，拆解为 {cardCount} 张原子化学习卡片。<br />
-        每张 2-5 分钟，中英双语，建立一个清晰的心智模型。
+        任何技术文档，AI 自动拆解为原子化学习卡片。<br />
+        每张 2-5 分钟，中英双语，手机刷卡片建心智模型。
       </p>
       <div>
         <a href="/cards" class="hero-cta">开始学习 →</a>
@@ -406,22 +406,22 @@ const sources = [
     <!-- How it works -->
     <section class="section">
       <div class="section-title">How it works</div>
-      <h2>把文档变成你能记住的东西</h2>
+      <h2>把文档蒸馏成你能记住的东西</h2>
       <div class="features">
         <div class="feature">
           <div class="feature-icon" style="background: rgba(217,119,87,0.08);">📥</div>
-          <h3>抓取 & 分析</h3>
-          <p>从 Anthropic 官方文档和 Engineering Blog 抓取全部内容，AI 自动分层——核心概念、实用技能、深入话题。</p>
+          <h3>输入任何文档</h3>
+          <p>给一个 URL 或一批文档页面。AI 自动抓取内容，分层筛选——核心概念、实用技能、深入话题，跳过不值得记忆的部分。</p>
         </div>
         <div class="feature">
           <div class="feature-icon" style="background: rgba(34,197,94,0.08);">✂️</div>
-          <h3>原子化拆解</h3>
-          <p>每个知识点拆成独立卡片，不依赖上下文就能读懂。用 Problem→Solution、Concept→Analogy 等 6 种结构表达。</p>
+          <h3>原子化蒸馏</h3>
+          <p>每个知识点拆成独立卡片，不依赖上下文就能读懂。用 Problem→Solution、Concept→Analogy 等 6 种结构，适配不同认知需求。</p>
         </div>
         <div class="feature">
           <div class="feature-icon" style="background: rgba(59,130,246,0.08);">🧠</div>
-          <h3>碎片学习</h3>
-          <p>手机上像刷 Tinder 一样左右滑动——掌握了左滑，没记住右滑。系统追踪进度，优先推荐关联知识。</p>
+          <h3>碎片刷卡</h3>
+          <p>手机上像刷 Tinder 一样左右滑动——掌握了左滑，没记住右滑。知识图谱追踪关联，优先推荐相关概念。</p>
         </div>
       </div>
     </section>
@@ -464,13 +464,14 @@ const sources = [
 
     <!-- Sources -->
     <section class="section">
-      <div class="section-title">Data Sources</div>
-      <h2>来自 Anthropic 官方</h2>
+      <div class="section-title">Current Collection</div>
+      <h2>当前已蒸馏：Claude 开发文档</h2>
+      <p style="color: var(--slate); margin-top: -2rem; margin-bottom: 2rem; font-size: 0.9rem;">基于公开发布的文档和博客整理，非官方项目</p>
       <div class="sources">
         <div class="source">
           <div class="source-icon">📖</div>
           <div>
-            <h3>Platform Documentation</h3>
+            <h3>Claude Platform Docs</h3>
             <p>platform.claude.com/docs</p>
             <div class="source-count">90 pages → API, Tool Use, Agent SDK, Prompt Engineering...</div>
           </div>
@@ -478,7 +479,7 @@ const sources = [
         <div class="source">
           <div class="source-icon">🔬</div>
           <div>
-            <h3>Engineering Blog</h3>
+            <h3>Anthropic Engineering Blog</h3>
             <p>anthropic.com/engineering</p>
             <div class="source-count">22 posts → Best practices, case studies, design patterns...</div>
           </div>
@@ -490,15 +491,15 @@ const sources = [
 
     <!-- Footer CTA -->
     <section class="footer-cta">
-      <h2>每天 5 分钟，一周掌握 Claude 全貌</h2>
-      <p>中英双语 · 手机友好 · 进度本地保存 · 完全免费</p>
+      <h2>每天 5 分钟，碎片时间系统学习</h2>
+      <p>中英双语 · 手机刷卡 · 进度本地保存 · 完全免费</p>
       <a href="/cards" class="hero-cta">开始学习 →</a>
     </section>
 
     <!-- Footer -->
     <hr class="divider" />
     <footer class="footer">
-      <div>Built with Claude · Content from <a href="https://platform.claude.com/docs/en/" target="_blank">Anthropic Docs</a> & <a href="https://www.anthropic.com/engineering" target="_blank">Engineering Blog</a></div>
+      <div>Doc Distill · 非官方项目 · 内容基于 <a href="https://platform.claude.com/docs/en/" target="_blank">公开文档</a> 和 <a href="https://www.anthropic.com/engineering" target="_blank">博客</a> 整理</div>
       <div>{cardCount} cards · {topicCount} topics · 中/EN</div>
     </footer>
   </body>

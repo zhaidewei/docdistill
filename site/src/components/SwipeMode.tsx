@@ -146,7 +146,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
       {/* Header */}
       <div class="px-4 pt-4 pb-2">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-accent-orange font-bold text-sm">Anthropic Learn</span>
+          <span class="text-accent-orange font-bold text-sm">Doc Distill</span>
           <div class="flex items-center gap-3">
             <span class="text-slate-light text-xs">
               {stats.mastered}/{total} {t("swipe.progress", lang)}
