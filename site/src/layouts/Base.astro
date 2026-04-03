@@ -1,6 +1,10 @@
 ---
 import LangToggle from "../components/LangToggle.tsx";
 import NavLinks from "../components/NavLinks.tsx";
+import MobileNav from "../components/MobileNav.tsx";
+import ProgressBar from "../components/ProgressBar.tsx";
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
 
 interface Props {
   title: string;
@@ -8,6 +12,13 @@ interface Props {
 }
 
 const { title, activePage } = Astro.props;
+
+const cardsDir = join(process.cwd(), "../content/cards");
+let cards: any[] = [];
+try {
+  const files = readdirSync(cardsDir).filter((f: string) => f.endsWith(".json"));
+  cards = files.map((f: string) => JSON.parse(readFileSync(join(cardsDir, f), "utf-8")));
+} catch {}
 ---
 
 <!doctype html>
@@ -17,7 +28,7 @@ const { title, activePage } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} · Doc Distill</title>
   </head>
-  <body class="bg-surface text-charcoal min-h-screen flex flex-col">
+  <body class="bg-surface text-charcoal min-h-screen flex flex-col pb-16 md:pb-0">
     <nav class="flex items-center gap-4 px-6 py-3 border-b border-surface-border bg-surface-raised">
       <a href="/" class="text-accent-orange font-bold text-lg hover:opacity-80 transition-opacity shrink-0">Doc Distill</a>
       <NavLinks client:load activePage={activePage} />
@@ -25,8 +36,10 @@ const { title, activePage } = Astro.props;
         <LangToggle client:load />
       </div>
     </nav>
+    <ProgressBar client:load cards={cards} />
     <main class="flex-1 overflow-hidden">
       <slot />
     </main>
+    <MobileNav client:load activePage={activePage} />
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
 import LangToggle from "../components/LangToggle.tsx";
+import HomepageDashboard from "../components/HomepageDashboard.tsx";
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 
@@ -15,6 +16,12 @@ try {
     for (const tag of c.tags) topicSet.add(tag);
   }
   topicCount = topicSet.size;
+} catch {}
+
+let allCards: any[] = [];
+try {
+  const cardFiles = readdirSync(cardsDir).filter((f) => f.endsWith(".json"));
+  allCards = cardFiles.map((f) => JSON.parse(readFileSync(join(cardsDir, f), "utf-8")));
 } catch {}
 
 const sources = [
@@ -473,6 +480,7 @@ const sources = [
         <a href="/cards" class="hero-cta">开始学习 →</a>
         <a href="/graph" class="hero-cta-secondary">浏览知识图谱</a>
       </div>
+      <HomepageDashboard client:only="preact" cards={allCards} />
     </section>
 
     <!-- Stats -->

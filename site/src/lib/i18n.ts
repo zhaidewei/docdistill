@@ -103,6 +103,18 @@ const strings = {
   "graph.requires": { zh: "需要先了解", en: "Requires" },
   "graph.extends": { zh: "延伸", en: "Extends" },
   "graph.viewCards": { zh: "查看相关卡片 →", en: "View related cards →" },
+
+  // Progress bar
+  "progress.mastered": { zh: "已掌握", en: "mastered" },
+
+  // Homepage dashboard
+  "home.progress.title": { zh: "学习进度", en: "Learning Progress" },
+  "home.progress.continue": { zh: "继续学习", en: "Continue" },
+  "home.progress.start": { zh: "开始学习", en: "Start Learning" },
+  "home.progress.mastered": { zh: "已掌握", en: "mastered" },
+  "home.progress.review": { zh: "待复习", en: "to review" },
+  "home.progress.unseen": { zh: "未学习", en: "unseen" },
+  "home.progress.allDone": { zh: "全部掌握！去复习巩固吧", en: "All done! Time to review." },
 } as const;
 
 // Helper to pick localized card content
