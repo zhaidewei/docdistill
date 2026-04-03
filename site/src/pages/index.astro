@@ -301,6 +301,91 @@ const sources = [
       .type-pill:hover { transform: translateY(-2px); }
       .type-emoji { font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
 
+      /* Pipeline */
+      .pipeline {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .pipe-step {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+      .pipe-num {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--charcoal);
+        color: var(--cream);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .pipe-body {
+        flex: 1;
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem 2rem;
+      }
+      .pipe-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .pipe-header h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .pipe-tag {
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 0.2rem 0.5rem;
+        border-radius: 100px;
+        background: rgba(217, 119, 87, 0.1);
+        color: var(--terracotta);
+      }
+      .pipe-body p {
+        font-size: 0.875rem;
+        color: var(--slate);
+        line-height: 1.65;
+        margin-bottom: 1rem;
+      }
+      .pipe-io {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      .pipe-in {
+        color: var(--slate);
+        background: var(--cream);
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+      }
+      .pipe-arrow { color: var(--terracotta); font-weight: 700; }
+      .pipe-out {
+        color: var(--terracotta);
+        background: rgba(217, 119, 87, 0.08);
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        font-weight: 500;
+      }
+      .pipe-connector {
+        width: 2px;
+        height: 24px;
+        background: var(--cream-dark);
+        margin-left: 19px;
+      }
+
       /* Footer CTA */
       .footer-cta {
         text-align: center;
@@ -356,6 +441,11 @@ const sources = [
         .types { grid-template-columns: repeat(3, 1fr); }
         .footer-cta { padding: 3rem 1.5rem; }
         .footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+        .pipe-step { gap: 0.75rem; }
+        .pipe-num { width: 32px; height: 32px; font-size: 0.85rem; border-radius: 8px; }
+        .pipe-body { padding: 1rem 1.25rem; }
+        .pipe-connector { margin-left: 15px; }
+        .pipe-io { flex-wrap: wrap; }
       }
     </style>
   </head>
@@ -403,25 +493,103 @@ const sources = [
 
     <hr class="divider" />
 
-    <!-- How it works -->
+    <!-- Pipeline -->
     <section class="section">
-      <div class="section-title">How it works</div>
-      <h2>把文档蒸馏成你能记住的东西</h2>
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon" style="background: rgba(217,119,87,0.08);">📥</div>
-          <h3>输入任何文档</h3>
-          <p>给一个 URL 或一批文档页面。AI 自动抓取内容，分层筛选——核心概念、实用技能、深入话题，跳过不值得记忆的部分。</p>
+      <div class="section-title">Distillation Pipeline</div>
+      <h2>从原始文档到知识卡片的 5 步蒸馏</h2>
+
+      <div class="pipeline">
+        <!-- Step 1 -->
+        <div class="pipe-step">
+          <div class="pipe-num">1</div>
+          <div class="pipe-body">
+            <div class="pipe-header">
+              <h3>Scrape — 抓取原始内容</h3>
+              <span class="pipe-tag">自动化</span>
+            </div>
+            <p>输入文档站 URL，自动发现所有页面并抓取。对 SPA 站点用 headless browser 渲染。本地缓存 + content hash 比对，只处理新增和变化的页面。</p>
+            <div class="pipe-io">
+              <span class="pipe-in">IN: URLs</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-out">OUT: 112 pages HTML</span>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-          <div class="feature-icon" style="background: rgba(34,197,94,0.08);">✂️</div>
-          <h3>原子化蒸馏</h3>
-          <p>每个知识点拆成独立卡片，不依赖上下文就能读懂。用 Problem→Solution、Concept→Analogy 等 6 种结构，适配不同认知需求。</p>
+
+        <div class="pipe-connector"></div>
+
+        <!-- Step 2 -->
+        <div class="pipe-step">
+          <div class="pipe-num">2</div>
+          <div class="pipe-body">
+            <div class="pipe-header">
+              <h3>Survey — AI 全局扫描分层</h3>
+              <span class="pipe-tag">AI</span>
+            </div>
+            <p>把所有页面标题和摘要一次性交给 AI，做三件事：按重要性分层（L0 核心 / L1 实用 / L2 深入），标记依赖关系（A 需要先懂 B），跳过不值得记忆的内容（changelog、纯 API 参数列表、安装步骤）。</p>
+            <div class="pipe-io">
+              <span class="pipe-in">IN: 112 页摘要</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-out">OUT: 79 页保留，33 页跳过</span>
+            </div>
+          </div>
         </div>
-        <div class="feature">
-          <div class="feature-icon" style="background: rgba(59,130,246,0.08);">🧠</div>
-          <h3>碎片刷卡</h3>
-          <p>手机上像刷 Tinder 一样左右滑动——掌握了左滑，没记住右滑。知识图谱追踪关联，优先推荐相关概念。</p>
+
+        <div class="pipe-connector"></div>
+
+        <!-- Step 3 -->
+        <div class="pipe-step">
+          <div class="pipe-num">3</div>
+          <div class="pipe-body">
+            <div class="pipe-header">
+              <h3>Generate — 原子化拆解 + 双语生成</h3>
+              <span class="pipe-tag">AI</span>
+            </div>
+            <p>逐页分析，AI 决定每页拆成几张卡片、每张用哪种知识结构（Fact / Problem→Solution / Concept→Model / How-to / Comparison / Architecture）。同时生成中英双语内容，每张卡片控制在 150 词以内，自包含——不需要上下文就能读懂。</p>
+            <div class="pipe-io">
+              <span class="pipe-in">IN: 79 页原文</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-out">OUT: {cardCount} 张双语卡片</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-connector"></div>
+
+        <!-- Step 4 -->
+        <div class="pipe-step">
+          <div class="pipe-num">4</div>
+          <div class="pipe-body">
+            <div class="pipe-header">
+              <h3>Dedup — 去重与合并</h3>
+              <span class="pipe-tag">自动化</span>
+            </div>
+            <p>不同源页面可能讲同一件事。通过 content hash 清除完全重复，再用 title/tag 相似度检测语义重叠。旧版卡片（schema 变更后的残留）自动清理。保证每张卡片是一个原子知识点，没有冗余。</p>
+            <div class="pipe-io">
+              <span class="pipe-in">IN: 150 张原始卡片</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-out">OUT: {cardCount} 张去重卡片</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pipe-connector"></div>
+
+        <!-- Step 5 -->
+        <div class="pipe-step">
+          <div class="pipe-num">5</div>
+          <div class="pipe-body">
+            <div class="pipe-header">
+              <h3>Graph — 构建知识图谱</h3>
+              <span class="pipe-tag">自动化</span>
+            </div>
+            <p>扫描所有卡片的关联声明（requires / extends / related / compares），构建知识图谱。按主题聚类，计算连接强度。图谱驱动手机端的智能推荐——刷完一张卡片，优先推送关联知识点。</p>
+            <div class="pipe-io">
+              <span class="pipe-in">IN: {cardCount} 张卡片</span>
+              <span class="pipe-arrow">→</span>
+              <span class="pipe-out">OUT: 知识图谱（185 条关系）</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
