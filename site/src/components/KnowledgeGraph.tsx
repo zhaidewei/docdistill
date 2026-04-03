@@ -143,17 +143,20 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
         .on("zoom", (event) => g.attr("transform", event.transform))
     );
 
-    const simNodes = nodes.map((n) => ({ ...n }));
+    const r = Math.min(width, height) * 0.38;
+    const simNodes = nodes.map((n, i) => {
+      const angle = (i / nodes.length) * 2 * Math.PI;
+      return { ...n, x: width / 2 + r * Math.cos(angle), y: height / 2 + r * Math.sin(angle), ix: width / 2 + r * Math.cos(angle), iy: height / 2 + r * Math.sin(angle) };
+    });
     const simEdges = edges.map((e) => ({ ...e }));
 
     const simulation = d3
       .forceSimulation(simNodes as any)
-      .force("link", d3.forceLink(simEdges as any).id((d: any) => d.id).distance(80))
-      .force("charge", d3.forceManyBody().strength(-150))
-      .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("x", d3.forceX(width / 2).strength(0.08))
-      .force("y", d3.forceY(height / 2).strength(0.08))
-      .force("collision", d3.forceCollide().radius((d: any) => 16 + d.cardCount * 4));
+      .force("link", d3.forceLink(simEdges as any).id((d: any) => d.id).distance(100))
+      .force("charge", d3.forceManyBody().strength(-120))
+      .force("x", d3.forceX((d: any) => d.ix).strength(0.12))
+      .force("y", d3.forceY((d: any) => d.iy).strength(0.12))
+      .force("collision", d3.forceCollide().radius((d: any) => 18 + d.cardCount * 4));
 
     const link = g.selectAll("line").data(simEdges).join("line")
       .attr("stroke", "#4b5563")
