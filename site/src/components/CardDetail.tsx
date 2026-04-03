@@ -10,12 +10,12 @@ import ComparisonCard from "./card-renderers/ComparisonCard";
 import ArchitectureCard from "./card-renderers/ArchitectureCard";
 
 const TYPE_COLORS: Record<string, string> = {
-  fact: "text-blue-400",
+  fact: "text-accent-blue",
   "problem-solution": "text-accent-orange",
-  "concept-model": "text-purple-400",
+  "concept-model": "text-purple-600",
   "how-to": "text-accent-green",
-  comparison: "text-yellow-400",
-  architecture: "text-cyan-400",
+  comparison: "text-amber-600",
+  architecture: "text-cyan-600",
 };
 
 function renderBody(card: Card, lang: Lang) {
@@ -56,11 +56,11 @@ export default function CardDetail({ card }: { card: Card }) {
   return (
     <div class="h-full flex flex-col">
       <div class="p-5 border-b border-surface-border">
-        <span class={`text-[11px] tracking-wider ${TYPE_COLORS[card.type] || "text-gray-400"}`}>
+        <span class={`text-[11px] tracking-wider ${TYPE_COLORS[card.type] || "text-slate"}`}>
           {t(`type.${card.type}` as any, lang)}
         </span>
         <h2 class="text-lg font-medium mt-1">{cardTitle(card, lang)}</h2>
-        <div class="text-xs text-gray-500 mt-1">
+        <div class="text-xs text-slate-light mt-1">
           {card.readingMinutes} min · {card.tags.join(", ")} ·{" "}
           <a href={card.source} target="_blank" class="text-accent-orange hover:underline">{t("label.source", lang)}</a>
         </div>
@@ -69,24 +69,24 @@ export default function CardDetail({ card }: { card: Card }) {
       {(annotation.comments.length > 0 || annotation.questions.length > 0) && (
         <div class="px-5 pb-3 space-y-2">
           {annotation.comments.map((c, i) => (
-            <div key={`c${i}`} class="text-xs bg-surface-raised p-2 rounded text-gray-400">💬 {c}</div>
+            <div key={`c${i}`} class="text-xs bg-surface-raised p-2 rounded text-slate">💬 {c}</div>
           ))}
           {annotation.questions.map((q, i) => (
-            <div key={`q${i}`} class="text-xs bg-surface-raised p-2 rounded text-yellow-400/70">❓ {q}</div>
+            <div key={`q${i}`} class="text-xs bg-surface-raised p-2 rounded text-amber-600">❓ {q}</div>
           ))}
         </div>
       )}
       {inputMode && (
         <div class="px-5 pb-3 flex gap-2">
-          <input type="text" value={input} onInput={(e) => setInput((e.target as HTMLInputElement).value)} onKeyDown={(e) => e.key === "Enter" && submitInput()} placeholder={inputMode === "comment" ? t("anno.writeNote", lang) : t("anno.writeQuestion", lang)} class="flex-1 bg-surface-raised border border-surface-border rounded px-3 py-1.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-accent-orange" autoFocus />
+          <input type="text" value={input} onInput={(e) => setInput((e.target as HTMLInputElement).value)} onKeyDown={(e) => e.key === "Enter" && submitInput()} placeholder={inputMode === "comment" ? t("anno.writeNote", lang) : t("anno.writeQuestion", lang)} class="flex-1 bg-surface border border-surface-border rounded px-3 py-1.5 text-sm text-charcoal placeholder-slate-light focus:outline-none focus:border-accent-orange" autoFocus />
           <button onClick={submitInput} class="px-3 py-1.5 bg-accent-orange text-white rounded text-sm hover:bg-accent-orange/80">{t("anno.save", lang)}</button>
-          <button onClick={() => { setInputMode(null); setInput(""); }} class="px-3 py-1.5 text-gray-400 text-sm hover:text-gray-200">{t("anno.cancel", lang)}</button>
+          <button onClick={() => { setInputMode(null); setInput(""); }} class="px-3 py-1.5 text-slate text-sm hover:text-charcoal">{t("anno.cancel", lang)}</button>
         </div>
       )}
       <div class="flex gap-2 p-3 border-t border-surface-border">
-        <button onClick={() => update({ starred: !annotation.starred })} class={`px-3 py-1.5 rounded text-sm transition-colors ${annotation.starred ? "bg-yellow-500/20 text-yellow-400" : "bg-surface-raised text-gray-400 hover:text-gray-200"}`}>{t("anno.star", lang)}</button>
-        <button onClick={() => setInputMode("comment")} class="px-3 py-1.5 rounded text-sm bg-surface-raised text-gray-400 hover:text-gray-200">{t("anno.comment", lang)}</button>
-        <button onClick={() => setInputMode("question")} class="px-3 py-1.5 rounded text-sm bg-surface-raised text-gray-400 hover:text-gray-200">{t("anno.question", lang)}</button>
+        <button onClick={() => update({ starred: !annotation.starred })} class={`px-3 py-1.5 rounded text-sm transition-colors ${annotation.starred ? "bg-accent-orange/10 text-accent-orange" : "bg-surface-muted text-slate hover:text-charcoal"}`}>{t("anno.star", lang)}</button>
+        <button onClick={() => setInputMode("comment")} class="px-3 py-1.5 rounded text-sm bg-surface-muted text-slate hover:text-charcoal">{t("anno.comment", lang)}</button>
+        <button onClick={() => setInputMode("question")} class="px-3 py-1.5 rounded text-sm bg-surface-muted text-slate hover:text-charcoal">{t("anno.question", lang)}</button>
       </div>
     </div>
   );

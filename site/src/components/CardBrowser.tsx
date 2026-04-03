@@ -36,7 +36,7 @@ export default function CardBrowser({ cards }: { cards: Card[] }) {
             <div class="absolute top-4 right-4">
               <LangToggle />
             </div>
-            <div class="text-gray-500">{t("browser.select", lang)}</div>
+            <div class="text-slate">{t("browser.select", lang)}</div>
           </div>
         )}
       </div>

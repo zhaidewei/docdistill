@@ -3,9 +3,9 @@ import type { Graph, Card, GraphNode } from "../lib/types";
 import { useLang, t, cardTitle } from "../lib/i18n";
 
 const GROUP_COLORS: string[] = [
-  "#f97316", "#22c55e", "#3b82f6", "#a855f7", "#eab308",
-  "#06b6d4", "#ec4899", "#84cc16", "#f43f5e", "#8b5cf6",
-  "#14b8a6", "#f59e0b", "#6366f1", "#10b981", "#ef4444",
+  "#d97757", "#2d8659", "#4a7fb5", "#9333ea", "#d97706",
+  "#0891b2", "#db2777", "#65a30d", "#e11d48", "#7c3aed",
+  "#0d9488", "#d97706", "#4f46e5", "#059669", "#dc2626",
 ];
 
 const RELATION_COLORS: Record<string, string> = {
@@ -191,7 +191,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       .text((d: any) => d.label)
       .attr("text-anchor", "middle")
       .attr("dy", "-0.2em")
-      .attr("fill", "white")
+      .attr("fill", "#1a1a18")
       .attr("font-size", "12px")
       .attr("font-weight", "600");
 
@@ -199,7 +199,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       .text((d: any) => `${d.cardCount} cards`)
       .attr("text-anchor", "middle")
       .attr("dy", "1.2em")
-      .attr("fill", "rgba(255,255,255,0.5)")
+      .attr("fill", "rgba(0,0,0,0.4)")
       .attr("font-size", "10px");
 
     node.on("click", (event: any, d: any) => {
@@ -274,7 +274,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       })
       .attr("text-anchor", "middle")
       .attr("dy", "0.35em")
-      .attr("fill", "white")
+      .attr("fill", "#1a1a18")
       .attr("font-size", "10px");
     textSelRef.current = texts;
 
@@ -309,7 +309,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       {expandedGroup && (
         <button
           onClick={() => { setExpandedGroup(null); setSelected(null); }}
-          class="absolute top-4 left-4 px-3 py-1.5 bg-surface-raised border border-surface-border rounded text-sm text-gray-300 hover:text-white transition-colors"
+          class="absolute top-4 left-4 px-3 py-1.5 bg-white border border-surface-border rounded text-sm text-slate hover:text-charcoal transition-colors shadow-sm"
         >
           ← {lang === "zh" ? "返回总览" : "Back to overview"}
         </button>
@@ -317,51 +317,51 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
 
       {/* Group title when expanded */}
       {expandedGroup && (
-        <div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-surface-raised border border-surface-border rounded text-sm text-gray-200">
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-white border border-surface-border rounded text-sm text-charcoal shadow-sm">
           {expandedGroup}
         </div>
       )}
 
       {/* Hint when in overview */}
       {!expandedGroup && !selected && (
-        <div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-surface-raised/80 border border-surface-border rounded text-xs text-gray-400">
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-white/80 border border-surface-border rounded text-xs text-slate shadow-sm">
           {lang === "zh" ? "点击主题圆圈展开查看具体卡片" : "Click a topic circle to expand"}
         </div>
       )}
 
       {/* Selected card info panel (detail view only) */}
       {selected && expandedGroup && (
-        <div class="absolute top-4 right-4 w-60 bg-black/80 border border-accent-orange/30 rounded-lg p-4 text-sm">
+        <div class="absolute top-4 right-4 w-60 bg-white/95 shadow-lg border border-surface-border rounded-lg p-4 text-sm">
           <div class="text-[11px] text-accent-orange tracking-wider mb-1">{t("graph.selectedNode", lang)}</div>
-          <div class="font-medium text-base mb-2">{getNodeLabel(selected.id)}</div>
-          <div class="text-gray-500 text-xs mb-3">{selected.group}</div>
+          <div class="font-medium text-base mb-2 text-charcoal">{getNodeLabel(selected.id)}</div>
+          <div class="text-slate-light text-xs mb-3">{selected.group}</div>
           {requires.length > 0 && (
-            <div class="text-gray-400 text-xs mb-1">
+            <div class="text-slate text-xs mb-1">
               <span class="text-accent-orange">←</span> {t("graph.requires", lang)}: {requires.join(", ")}
             </div>
           )}
           {extends_.length > 0 && (
-            <div class="text-gray-400 text-xs mb-3">
+            <div class="text-slate text-xs mb-3">
               <span class="text-accent-green">→</span> {t("graph.extends", lang)}: {extends_.join(", ")}
             </div>
           )}
-          <a href={`/?card=${selected.id}`} class="block text-center bg-surface-raised text-gray-200 px-3 py-1.5 rounded text-xs hover:bg-surface-raised/80">
+          <a href={`/?card=${selected.id}`} class="block text-center bg-surface-muted text-charcoal px-3 py-1.5 rounded text-xs hover:bg-surface-border">
             {t("graph.viewCards", lang)}
           </a>
         </div>
       )}
 
       {/* Legend */}
-      <div class="absolute bottom-4 left-4 bg-black/60 rounded-lg p-3 text-xs space-y-1">
+      <div class="absolute bottom-4 left-4 bg-white/80 shadow-sm border border-surface-border rounded-lg p-3 text-xs space-y-1">
         {expandedGroup ? (
           Object.entries(RELATION_COLORS).map(([rel, color]) => (
             <div key={rel} class="flex items-center gap-2">
               <div class="w-4 h-0.5" style={{ backgroundColor: color }} />
-              <span class="text-gray-400">{rel}</span>
+              <span class="text-slate">{rel}</span>
             </div>
           ))
         ) : (
-          <div class="text-gray-400">
+          <div class="text-slate">
             {lang === "zh" ? "线条粗细 = 关联强度" : "Line thickness = connection strength"}
           </div>
         )}

@@ -72,7 +72,7 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
         <div class="flex gap-1">
           {tabs.map((tabItem) => (
             <button key={tabItem.id} onClick={() => { setTab(tabItem.id); setSelected(new Set()); }}
-              class={`px-4 py-2 rounded text-sm transition-colors ${tab === tabItem.id ? "bg-accent-orange text-white" : "bg-surface-raised text-gray-400 hover:text-gray-200"}`}>
+              class={`px-4 py-2 rounded text-sm transition-colors ${tab === tabItem.id ? "bg-accent-orange text-white" : "bg-surface-muted text-slate hover:text-charcoal"}`}>
               {tabItem.icon} {t(tabItem.labelKey, lang)}
             </button>
           ))}
@@ -81,7 +81,7 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
       </div>
 
       <div class="flex items-center justify-between mb-4">
-        <label class="flex items-center gap-2 text-sm text-gray-400">
+        <label class="flex items-center gap-2 text-sm text-slate">
           <input type="checkbox" checked={filteredCards.length > 0 && selected.size === filteredCards.length} onChange={selectAll} class="rounded" />
           {t("notes.selectAll", lang)} ({filteredCards.length})
         </label>
@@ -92,7 +92,7 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
       </div>
 
       {filteredCards.length === 0 ? (
-        <div class="text-center text-gray-500 py-16">
+        <div class="text-center text-slate py-16">
           {t(emptyKeys[tab], lang)}
         </div>
       ) : (
@@ -106,10 +106,10 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
                 <div class="flex-1 min-w-0">
                   <div class="font-medium text-sm">{(lang === "en" && card.title_en) ? card.title_en : card.title}</div>
                   {tab === "comments" && a.comments.map((c, i) => (
-                    <div key={i} class="text-xs text-gray-400 mt-1">💬 {c}</div>
+                    <div key={i} class="text-xs text-slate mt-1">💬 {c}</div>
                   ))}
                   {tab === "questions" && a.questions.map((q, i) => (
-                    <div key={i} class="text-xs text-yellow-400/70 mt-1">❓ {q}</div>
+                    <div key={i} class="text-xs text-amber-600 mt-1">❓ {q}</div>
                   ))}
                 </div>
               </div>

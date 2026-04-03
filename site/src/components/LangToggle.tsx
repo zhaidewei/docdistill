@@ -6,7 +6,7 @@ export default function LangToggle() {
   return (
     <button
       onClick={() => setLang(lang === "zh" ? "en" : "zh")}
-      class="px-2 py-1 rounded text-xs bg-surface-raised text-gray-400 hover:text-gray-200 transition-colors"
+      class="px-2 py-1 rounded text-xs bg-surface-muted text-slate hover:text-charcoal transition-colors"
     >
       {lang === "zh" ? "EN" : "中"}
     </button>

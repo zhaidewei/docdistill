@@ -16,8 +16,8 @@ export default function NavLinks({ activePage }: { activePage: string }) {
           href={item.href}
           class={`px-3 py-1.5 rounded text-sm transition-colors ${
             activePage === item.id
-              ? "bg-surface-raised text-white"
-              : "text-gray-400 hover:text-gray-200"
+              ? "bg-surface-muted text-charcoal"
+              : "text-slate hover:text-charcoal"
           }`}
         >
           {t(item.key, lang)}

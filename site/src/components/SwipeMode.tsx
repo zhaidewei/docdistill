@@ -11,12 +11,12 @@ import ComparisonCard from "./card-renderers/ComparisonCard";
 import ArchitectureCard from "./card-renderers/ArchitectureCard";
 
 const TYPE_COLORS: Record<string, string> = {
-  fact: "#3b82f6",
-  "problem-solution": "#f97316",
-  "concept-model": "#a855f7",
+  fact: "#4a7fb5",
+  "problem-solution": "#d97757",
+  "concept-model": "#9333ea",
   "how-to": "#22c55e",
-  comparison: "#eab308",
-  architecture: "#06b6d4",
+  comparison: "#d97706",
+  architecture: "#0891b2",
 };
 
 export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Graph }) {
@@ -111,8 +111,8 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
     return (
       <div class="flex flex-col items-center justify-center h-screen bg-surface px-6 text-center">
         <div class="text-4xl mb-4">🎉</div>
-        <div class="text-xl font-medium mb-2">{t("swipe.allDone", lang)}</div>
-        <div class="text-gray-500 text-sm mb-6">
+        <div class="text-xl font-medium mb-2 text-charcoal">{t("swipe.allDone", lang)}</div>
+        <div class="text-slate-light text-sm mb-6">
           {stats.mastered} {t("swipe.allDoneDesc", lang)}
           {stats.review > 0 && `，${stats.review} ${t("swipe.reviewPending", lang)}`}
         </div>
@@ -148,7 +148,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
         <div class="flex items-center justify-between mb-2">
           <span class="text-accent-orange font-bold text-sm">Anthropic Learn</span>
           <div class="flex items-center gap-3">
-            <span class="text-gray-500 text-xs">
+            <span class="text-slate-light text-xs">
               {stats.mastered}/{total} {t("swipe.progress", lang)}
             </span>
             <LangToggle />
@@ -199,17 +199,17 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
                 class="text-[10px] tracking-wider font-medium px-2 py-0.5 rounded"
                 style={{
                   color: TYPE_COLORS[current.type] || "#9ca3af",
-                  backgroundColor: (TYPE_COLORS[current.type] || "#9ca3af") + "15",
+                  backgroundColor: (TYPE_COLORS[current.type] || "#9ca3af") + "12",
                 }}
               >
                 {t(`type.${current.type}` as any, lang)}
               </span>
-              <span class="text-gray-600 text-[10px]">{current.readingMinutes} min</span>
+              <span class="text-slate text-[10px]">{current.readingMinutes} min</span>
             </div>
             <h2 class="text-lg font-medium leading-snug">{cardTitle(current, lang)}</h2>
             <div class="flex gap-1 mt-2">
               {current.tags.map((tag) => (
-                <span key={tag} class="text-[10px] text-gray-500 bg-surface px-1.5 py-0.5 rounded">
+                <span key={tag} class="text-[10px] text-slate bg-surface-muted px-1.5 py-0.5 rounded">
                   {tag}
                 </span>
               ))}
