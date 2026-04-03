@@ -25,7 +25,7 @@ export function getAllAnnotations(): Record<string, Annotation> {
     const key = localStorage.key(i);
     if (key?.startsWith(PREFIX)) {
       const cardId = key.slice(PREFIX.length);
-      result[cardId] = JSON.parse(localStorage.getItem(key)!);
+      result[cardId] = { reported: false, ...JSON.parse(localStorage.getItem(key)!) };
     }
   }
   return result;

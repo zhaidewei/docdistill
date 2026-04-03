@@ -78,4 +78,17 @@ describe("annotations", () => {
     saveAnnotation("card-reported", annotation);
     expect(getAnnotation("card-reported").reported).toBe(true);
   });
+
+  it("backfills reported: false for old annotations without the field", () => {
+    localStorage.setItem(
+      "annotations:legacy-card",
+      JSON.stringify({ starred: true, comments: ["note"], questions: [] })
+    );
+    expect(getAnnotation("legacy-card")).toEqual({
+      starred: true,
+      comments: ["note"],
+      questions: [],
+      reported: false,
+    });
+  });
 });
