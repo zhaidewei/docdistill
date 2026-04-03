@@ -1,0 +1,20 @@
+{
+  "id": "agent-sdk-claude-code-loop-as-library",
+  "type": "concept-model",
+  "title": "Agent SDK: Claude Code's agent loop as a library",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/overview",
+  "tags": [
+    "agent-sdk",
+    "agentic-loop"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "The Claude Agent SDK packages the same agent loop, tools, and context management that power Claude Code into a Python/TypeScript library. You call `query()` with a prompt and options, and get back a streaming async iterator of messages — Claude autonomously reads files, runs commands, edits code, and more, just like it does inside Claude Code.",
+    "analogy": "Think of Claude Code as a fully assembled car you drive from the driver's seat. The Agent SDK is the same engine, transmission, and wheels sold as a crate kit — you bolt them into your own chassis (your application) and control the steering programmatically.",
+    "visual": "Your App → query(prompt, options) → Agent Loop [Read → Think → Edit → Bash → ...] → streamed messages back to your app"
+  },
+  "relatedIds": [
+    "agent-sdk-vs-raw-messages-api"
+  ],
+  "relationType": "extends"
+}

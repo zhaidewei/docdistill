@@ -63,7 +63,7 @@ function main() {
     {
       encoding: "utf-8",
       maxBuffer: 10 * 1024 * 1024,
-      timeout: 300000,
+      timeout: 600000, // 10 min for large page sets
     }
   );
 

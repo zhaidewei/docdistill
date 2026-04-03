@@ -1,0 +1,22 @@
+{
+  "id": "claude-decides-tools-never-executes",
+  "type": "concept-model",
+  "title": "Claude decides when to call tools, never executes them",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+  "tags": [
+    "tool-use",
+    "agent",
+    "safety"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "Claude's role in tool use is strictly decision-making: it reads the user's request and the available tool descriptions, then decides IF and WHICH tool to call and WITH WHAT arguments. Claude never runs any code itself. For client tools, your application is the executor. For server tools, Anthropic's infrastructure is the executor. This separation means you control the security boundary — Claude can only suggest actions, never take them directly.",
+    "analogy": "Like an air traffic controller (Claude) who tells planes where to go but never flies one. The controller decides which runway to use (which tool to call) and gives precise instructions (structured arguments), but the pilot (your app or Anthropic's server) actually lands the plane.",
+    "visual": "Claude = brain (decides tool + args) → Your app = hands (executes). Claude never touches the keyboard."
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps",
+    "client-tools-vs-server-tools"
+  ],
+  "relationType": "extends"
+}

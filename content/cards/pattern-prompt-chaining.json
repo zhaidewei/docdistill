@@ -1,0 +1,26 @@
+{
+  "id": "pattern-prompt-chaining",
+  "type": "how-to",
+  "title": "Prompt chaining: trade latency for accuracy",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "prompt-chaining",
+    "workflows",
+    "patterns"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "Break a complex task into a sequence of simpler LLM calls, each building on the last, with optional quality gates between steps.",
+    "steps": [
+      "Decompose the task into fixed, sequential subtasks (e.g., 'generate outline' → 'check outline' → 'write document')",
+      "Each LLM call takes the output of the previous step as input",
+      "Add programmatic 'gate' checks between steps to verify the process is on track (e.g., does the outline meet criteria?)",
+      "If a gate fails, you can retry that step or abort early — saving cost on doomed chains"
+    ]
+  },
+  "relatedIds": [
+    "five-agentic-workflow-patterns",
+    "pattern-routing"
+  ],
+  "relationType": "sibling"
+}

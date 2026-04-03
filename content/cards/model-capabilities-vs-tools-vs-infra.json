@@ -1,0 +1,20 @@
+{
+  "id": "model-capabilities-vs-tools-vs-infra",
+  "type": "concept-model",
+  "title": "能力 vs 工具 vs 基础设施：三层理解 Claude API",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/overview",
+  "tags": [
+    "api-surface",
+    "mental-model"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Claude API 的前三个区域容易混淆。Model capabilities 是 Claude 大脑本身的能力（怎么想、看什么、输出什么格式）；Tools 是 Claude 的「手」（能对外界做什么动作）；Tool infrastructure 是「工具箱的管理系统」（怎么发现、注册、编排大量工具）。",
+    "analogy": "把 Claude 想象成一位医生：Model capabilities = 医学知识和诊断能力；Tools = 听诊器、血压计等具体器械；Tool infrastructure = 医院的器械管理系统——负责采购、消毒、分发器械到各科室。",
+    "visual": "三层同心圆：最内层「能力」（大脑图标），中间层「工具」（扳手图标），最外层「基础设施」（齿轮网络图标）"
+  },
+  "relatedIds": [
+    "claude-api-surface-five-areas"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "when-not-to-use-agents",
+  "type": "concept-model",
+  "title": "When NOT to use an agent: simpler approaches first",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "agents",
+    "simplicity",
+    "decision-making"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "Agentic systems trade latency and cost for better task performance. Before reaching for agents, ask: can a single optimized LLM call with retrieval and in-context examples solve this? If yes, stop there. If you need more structure, use a workflow (predefined code paths). Only use a true agent (model-driven decisions) when flexibility is needed at scale.",
+    "analogy": "Like choosing transport: don't rent a helicopter (agent) when a bicycle (single LLM call) gets you there. A bus route (workflow) is the middle ground — predictable, efficient, covers most needs.",
+    "visual": "A ladder with three rungs, bottom to top: '1. Single LLM call + retrieval' → '2. Workflow (predefined paths)' → '3. Agent (model-driven)'. An arrow labeled 'Add complexity only when needed' points upward."
+  },
+  "relatedIds": [
+    "agents-simple-patterns-over-frameworks"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "context-window-is-working-memory",
+  "type": "concept-model",
+  "title": "Context window is Claude's working memory, not its knowledge",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+  "tags": [
+    "context-window",
+    "mental-model"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "The context window is all the text Claude can reference when generating a response — including the response itself. It is NOT the large corpus Claude was trained on. Think of it as a finite 'working memory' that holds the current conversation, system prompt, and tool results. Claude's max context window is up to 1M tokens.",
+    "analogy": "Training data is like everything you learned in school over many years. The context window is like your desk: it can only hold so many papers at once. No matter how much you learned in school, you can only work with what's physically on your desk right now.",
+    "visual": "A desk (context window) with limited surface area. Papers pile up as conversation turns grow. The bookshelf behind (training data) is vast but you can't read from it directly — only what's on the desk."
+  },
+  "relatedIds": [
+    "context-window-token-accounting"
+  ],
+  "relationType": "extends"
+}

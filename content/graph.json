@@ -1,11 +1,822 @@
 {
   "nodes": [
-    { "id": "tool-use-basics", "label": "Tool Use", "group": "agent", "type": "problem-solution", "cardCount": 3 },
-    { "id": "context-window-fact", "label": "Context Window", "group": "model", "type": "fact", "cardCount": 1 },
-    { "id": "prompt-caching-vs-context", "label": "Prompt Caching", "group": "performance", "type": "comparison", "cardCount": 2 }
+    {
+      "id": "agent-sdk-claude-code-loop-as-library",
+      "label": "Agent SDK: Claude Code's agent loop as a library",
+      "group": "agent-sdk",
+      "type": "concept-model",
+      "cardCount": 5
+    },
+    {
+      "id": "agent-sdk-loop-five-phases",
+      "label": "Agent SDK loop: 5 phases from prompt to result",
+      "group": "agent-sdk",
+      "type": "architecture",
+      "cardCount": 5
+    },
+    {
+      "id": "agent-sdk-loop-turns-and-guardrails",
+      "label": "Turns, permissions, and cost limits in the agent loop",
+      "group": "agent-sdk",
+      "type": "concept-model",
+      "cardCount": 5
+    },
+    {
+      "id": "agent-sdk-minimal-query-pattern",
+      "label": "Minimal Agent SDK: run a task in 10 lines",
+      "group": "agent-sdk",
+      "type": "how-to",
+      "cardCount": 5
+    },
+    {
+      "id": "agent-sdk-vs-raw-messages-api",
+      "label": "Agent SDK vs raw Messages API for building agents",
+      "group": "agent-sdk",
+      "type": "comparison",
+      "cardCount": 5
+    },
+    {
+      "id": "agentic-loop-architecture",
+      "label": "The agentic loop: request → tool_use → tool_result → repeat",
+      "group": "tool-use",
+      "type": "architecture",
+      "cardCount": 8
+    },
+    {
+      "id": "agents-simple-patterns-over-frameworks",
+      "label": "Agents = LLM + tools in a loop, not frameworks",
+      "group": "agents",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "anthropic-schema-tools-trained-in",
+      "label": "Why use Anthropic-schema tools instead of custom equivalents",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 8
+    },
+    {
+      "id": "augmented-llm-building-block",
+      "label": "The augmented LLM: foundation of all agent patterns",
+      "group": "augmented-llm",
+      "type": "architecture",
+      "cardCount": 1
+    },
+    {
+      "id": "claude-api-feature-availability",
+      "label": "API 功能的 4 种状态：Beta → GA → Deprecated → Retired",
+      "group": "api-surface",
+      "type": "comparison",
+      "cardCount": 4
+    },
+    {
+      "id": "claude-api-surface-five-areas",
+      "label": "Claude API 的 5 大区域",
+      "group": "api-surface",
+      "type": "architecture",
+      "cardCount": 4
+    },
+    {
+      "id": "claude-decides-tools-never-executes",
+      "label": "Claude decides when to call tools, never executes them",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 8
+    },
+    {
+      "id": "claude-model-capability-tiers",
+      "label": "Claude model capability tiers",
+      "group": "claude-models",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "claude-model-haiku-fast-tier",
+      "label": "Haiku: the speed-first model",
+      "group": "claude-models",
+      "type": "fact",
+      "cardCount": 2
+    },
+    {
+      "id": "claude-model-ids-by-platform",
+      "label": "Find the right Claude model ID for your platform",
+      "group": "claude-api",
+      "type": "how-to",
+      "cardCount": 1
+    },
+    {
+      "id": "claude-models-api-discovery",
+      "label": "用 Models API 查询模型支持的能力",
+      "group": "api-surface",
+      "type": "how-to",
+      "cardCount": 4
+    },
+    {
+      "id": "claude-text-capabilities-overview",
+      "label": "Claude's eight text capabilities at a glance",
+      "group": "text-generation",
+      "type": "concept-model",
+      "cardCount": 1
+    },
+    {
+      "id": "client-tools-vs-server-tools",
+      "label": "Client tools vs server tools",
+      "group": "tool-use",
+      "type": "comparison",
+      "cardCount": 8
+    },
+    {
+      "id": "context-engineering-curating-what-model-sees",
+      "label": "Context engineering: curating what the model sees",
+      "group": "context-engineering",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "context-rot-attention-budget",
+      "label": "Context rot: why more tokens isn't always better",
+      "group": "context-engineering",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "context-rot-more-isnt-better",
+      "label": "Context rot: why stuffing the context window hurts accuracy",
+      "group": "context-window",
+      "type": "problem-solution",
+      "cardCount": 3
+    },
+    {
+      "id": "context-window-fact",
+      "label": "Claude 的 Context Window",
+      "group": "model",
+      "type": "fact",
+      "cardCount": 1
+    },
+    {
+      "id": "context-window-is-working-memory",
+      "label": "Context window is Claude's working memory, not its knowledge",
+      "group": "context-window",
+      "type": "concept-model",
+      "cardCount": 3
+    },
+    {
+      "id": "context-window-token-accounting",
+      "label": "How tokens fill the context window: input + output = total",
+      "group": "context-window",
+      "type": "concept-model",
+      "cardCount": 3
+    },
+    {
+      "id": "effective-context-smallest-highest-signal",
+      "label": "Good context = smallest set of highest-signal tokens",
+      "group": "context-engineering",
+      "type": "fact",
+      "cardCount": 6
+    },
+    {
+      "id": "enable-extended-thinking-budget-tokens",
+      "label": "Enable extended thinking with budget_tokens",
+      "group": "extended-thinking",
+      "type": "how-to",
+      "cardCount": 4
+    },
+    {
+      "id": "extended-thinking-concept",
+      "label": "What extended thinking is and when it helps",
+      "group": "extended-thinking",
+      "type": "concept-model",
+      "cardCount": 4
+    },
+    {
+      "id": "extended-thinking-context-behavior",
+      "label": "Extended thinking uses context window space but gets auto-cleaned",
+      "group": "extended-thinking",
+      "type": "concept-model",
+      "cardCount": 4
+    },
+    {
+      "id": "extended-thinking-vs-standard",
+      "label": "Extended thinking vs standard responses",
+      "group": "extended-thinking",
+      "type": "comparison",
+      "cardCount": 4
+    },
+    {
+      "id": "five-agentic-workflow-patterns",
+      "label": "Five workflow patterns from simple to complex",
+      "group": "workflows",
+      "type": "architecture",
+      "cardCount": 2
+    },
+    {
+      "id": "frameworks-understand-the-code-beneath",
+      "label": "Frameworks hide prompts — understand what's underneath",
+      "group": "frameworks",
+      "type": "problem-solution",
+      "cardCount": 1
+    },
+    {
+      "id": "model-capabilities-vs-tools-vs-infra",
+      "label": "能力 vs 工具 vs 基础设施：三层理解 Claude API",
+      "group": "api-surface",
+      "type": "concept-model",
+      "cardCount": 4
+    },
+    {
+      "id": "opus-sonnet-haiku-when-to-use",
+      "label": "Opus vs Sonnet vs Haiku: when to use each",
+      "group": "model-selection",
+      "type": "comparison",
+      "cardCount": 1
+    },
+    {
+      "id": "pattern-evaluator-optimizer",
+      "label": "Evaluator-optimizer: generate then critique in a loop",
+      "group": "evaluator",
+      "type": "concept-model",
+      "cardCount": 1
+    },
+    {
+      "id": "pattern-orchestrator-workers",
+      "label": "Orchestrator-workers: when subtasks are unpredictable",
+      "group": "orchestrator",
+      "type": "concept-model",
+      "cardCount": 1
+    },
+    {
+      "id": "pattern-parallelization",
+      "label": "Parallelization: sectioning vs voting",
+      "group": "parallelization",
+      "type": "comparison",
+      "cardCount": 1
+    },
+    {
+      "id": "pattern-prompt-chaining",
+      "label": "Prompt chaining: trade latency for accuracy",
+      "group": "prompt-chaining",
+      "type": "how-to",
+      "cardCount": 1
+    },
+    {
+      "id": "pattern-routing",
+      "label": "Routing: one prompt can't serve all input types",
+      "group": "routing",
+      "type": "problem-solution",
+      "cardCount": 1
+    },
+    {
+      "id": "prompt-add-context",
+      "label": "提供上下文让 Claude 理解「为什么」",
+      "group": "prompt-engineering",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-caching-vs-context",
+      "label": "Prompt Caching vs Context Window",
+      "group": "prompt-caching",
+      "type": "comparison",
+      "cardCount": 1
+    },
+    {
+      "id": "prompt-chain-of-thought",
+      "label": "Chain of Thought：让 Claude 先想再答",
+      "group": "prompt-engineering",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-clear-and-direct",
+      "label": "给 Claude 一个角色和明确任务",
+      "group": "prompt-engineering",
+      "type": "how-to",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-engineering-vs-context-engineering",
+      "label": "Prompt engineering vs context engineering",
+      "group": "context-engineering",
+      "type": "comparison",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-few-shot-examples",
+      "label": "用示例（few-shot）提升输出质量",
+      "group": "prompt-engineering",
+      "type": "how-to",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-natural-language-with-detail",
+      "label": "Write effective prompts using natural language with detail",
+      "group": "prompting",
+      "type": "how-to",
+      "cardCount": 1
+    },
+    {
+      "id": "prompt-system-vs-user-message",
+      "label": "什么时候用 system prompt，什么时候用 user message",
+      "group": "prompt-engineering",
+      "type": "problem-solution",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-xml-tags-structure",
+      "label": "用 XML 标签组织复杂 prompt",
+      "group": "prompt-engineering",
+      "type": "how-to",
+      "cardCount": 6
+    },
+    {
+      "id": "structured-outputs-json-how-to",
+      "label": "Get guaranteed JSON output with output_config",
+      "group": "structured-outputs",
+      "type": "how-to",
+      "cardCount": 3
+    },
+    {
+      "id": "structured-outputs-two-modes",
+      "label": "Two structured output modes: JSON outputs vs strict tool use",
+      "group": "structured-outputs",
+      "type": "concept-model",
+      "cardCount": 3
+    },
+    {
+      "id": "structured-outputs-vs-prompt-json",
+      "label": "Structured outputs vs prompt-based JSON extraction",
+      "group": "structured-outputs",
+      "type": "comparison",
+      "cardCount": 3
+    },
+    {
+      "id": "system-prompt-right-altitude",
+      "label": "System prompts: finding the right altitude",
+      "group": "context-engineering",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "tool-use-basics",
+      "label": "让 Claude 调用外部工具",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 8
+    },
+    {
+      "id": "tool-use-contract-typed-interface",
+      "label": "The tool-use contract: you define, Claude decides, you execute",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 8
+    },
+    {
+      "id": "tool-use-lifecycle-four-steps",
+      "label": "Tool use lifecycle: define, call, execute, return",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 8
+    },
+    {
+      "id": "tools-minimal-viable-set",
+      "label": "Bloated tool sets confuse agents",
+      "group": "context-engineering",
+      "type": "problem-solution",
+      "cardCount": 6
+    },
+    {
+      "id": "when-not-to-use-agents",
+      "label": "When NOT to use an agent: simpler approaches first",
+      "group": "agents",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "when-tool-use-vs-prompt-only",
+      "label": "When tool use is the right approach vs prompt-only",
+      "group": "tool-use",
+      "type": "comparison",
+      "cardCount": 8
+    },
+    {
+      "id": "workflows-vs-agents-decision",
+      "label": "Workflows vs agents: predictability vs flexibility",
+      "group": "workflows",
+      "type": "comparison",
+      "cardCount": 2
+    }
   ],
   "edges": [
-    { "from": "prompt-caching-vs-context", "to": "context-window-fact", "relation": "requires" },
-    { "from": "tool-use-basics", "to": "context-window-fact", "relation": "related" }
+    {
+      "from": "agent-sdk-claude-code-loop-as-library",
+      "to": "agent-sdk-vs-raw-messages-api",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-five-phases",
+      "to": "agentic-loop-architecture",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-five-phases",
+      "to": "agent-sdk-claude-code-loop-as-library",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-turns-and-guardrails",
+      "to": "agent-sdk-loop-five-phases",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-minimal-query-pattern",
+      "to": "agent-sdk-claude-code-loop-as-library",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-vs-raw-messages-api",
+      "to": "agent-sdk-claude-code-loop-as-library",
+      "relation": "extends"
+    },
+    {
+      "from": "agentic-loop-architecture",
+      "to": "tool-use-contract-typed-interface",
+      "relation": "extends"
+    },
+    {
+      "from": "agentic-loop-architecture",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "agents-simple-patterns-over-frameworks",
+      "to": "when-not-to-use-agents",
+      "relation": "foundational"
+    },
+    {
+      "from": "agents-simple-patterns-over-frameworks",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "foundational"
+    },
+    {
+      "from": "anthropic-schema-tools-trained-in",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "anthropic-schema-tools-trained-in",
+      "to": "tool-use-contract-typed-interface",
+      "relation": "extends"
+    },
+    {
+      "from": "augmented-llm-building-block",
+      "to": "agents-simple-patterns-over-frameworks",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-api-feature-availability",
+      "to": "claude-api-surface-five-areas",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-api-surface-five-areas",
+      "to": "model-capabilities-vs-tools-vs-infra",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-decides-tools-never-executes",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-decides-tools-never-executes",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-model-capability-tiers",
+      "to": "opus-sonnet-haiku-when-to-use",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-model-haiku-fast-tier",
+      "to": "claude-model-capability-tiers",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-model-ids-by-platform",
+      "to": "claude-model-capability-tiers",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-models-api-discovery",
+      "to": "claude-api-surface-five-areas",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-text-capabilities-overview",
+      "to": "prompt-natural-language-with-detail",
+      "relation": "extends"
+    },
+    {
+      "from": "client-tools-vs-server-tools",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "client-tools-vs-server-tools",
+      "to": "claude-decides-tools-never-executes",
+      "relation": "extends"
+    },
+    {
+      "from": "context-engineering-curating-what-model-sees",
+      "to": "prompt-engineering-vs-context-engineering",
+      "relation": "foundational"
+    },
+    {
+      "from": "context-engineering-curating-what-model-sees",
+      "to": "context-rot-attention-budget",
+      "relation": "foundational"
+    },
+    {
+      "from": "context-rot-attention-budget",
+      "to": "context-engineering-curating-what-model-sees",
+      "relation": "extends"
+    },
+    {
+      "from": "context-rot-attention-budget",
+      "to": "system-prompt-right-altitude",
+      "relation": "extends"
+    },
+    {
+      "from": "context-rot-more-isnt-better",
+      "to": "context-window-is-working-memory",
+      "relation": "extends"
+    },
+    {
+      "from": "context-window-is-working-memory",
+      "to": "context-window-token-accounting",
+      "relation": "extends"
+    },
+    {
+      "from": "context-window-token-accounting",
+      "to": "context-window-is-working-memory",
+      "relation": "extends"
+    },
+    {
+      "from": "effective-context-smallest-highest-signal",
+      "to": "context-rot-attention-budget",
+      "relation": "extends"
+    },
+    {
+      "from": "effective-context-smallest-highest-signal",
+      "to": "context-engineering-curating-what-model-sees",
+      "relation": "extends"
+    },
+    {
+      "from": "enable-extended-thinking-budget-tokens",
+      "to": "extended-thinking-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "enable-extended-thinking-budget-tokens",
+      "to": "extended-thinking-vs-standard",
+      "relation": "extends"
+    },
+    {
+      "from": "extended-thinking-concept",
+      "to": "enable-extended-thinking-budget-tokens",
+      "relation": "extends"
+    },
+    {
+      "from": "extended-thinking-concept",
+      "to": "extended-thinking-vs-standard",
+      "relation": "extends"
+    },
+    {
+      "from": "extended-thinking-context-behavior",
+      "to": "context-window-token-accounting",
+      "relation": "extends"
+    },
+    {
+      "from": "extended-thinking-vs-standard",
+      "to": "extended-thinking-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "extended-thinking-vs-standard",
+      "to": "enable-extended-thinking-budget-tokens",
+      "relation": "extends"
+    },
+    {
+      "from": "five-agentic-workflow-patterns",
+      "to": "agents-simple-patterns-over-frameworks",
+      "relation": "extends"
+    },
+    {
+      "from": "five-agentic-workflow-patterns",
+      "to": "pattern-prompt-chaining",
+      "relation": "extends"
+    },
+    {
+      "from": "five-agentic-workflow-patterns",
+      "to": "pattern-routing",
+      "relation": "extends"
+    },
+    {
+      "from": "frameworks-understand-the-code-beneath",
+      "to": "agents-simple-patterns-over-frameworks",
+      "relation": "extends"
+    },
+    {
+      "from": "model-capabilities-vs-tools-vs-infra",
+      "to": "claude-api-surface-five-areas",
+      "relation": "extends"
+    },
+    {
+      "from": "opus-sonnet-haiku-when-to-use",
+      "to": "claude-model-capability-tiers",
+      "relation": "extends"
+    },
+    {
+      "from": "pattern-evaluator-optimizer",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-evaluator-optimizer",
+      "to": "pattern-orchestrator-workers",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-orchestrator-workers",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-orchestrator-workers",
+      "to": "pattern-evaluator-optimizer",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-parallelization",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "extends"
+    },
+    {
+      "from": "pattern-prompt-chaining",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-prompt-chaining",
+      "to": "pattern-routing",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-routing",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "sibling"
+    },
+    {
+      "from": "pattern-routing",
+      "to": "pattern-prompt-chaining",
+      "relation": "sibling"
+    },
+    {
+      "from": "prompt-add-context",
+      "to": "prompt-clear-and-direct",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-chain-of-thought",
+      "to": "prompt-clear-and-direct",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-clear-and-direct",
+      "to": "prompt-add-context",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-engineering-vs-context-engineering",
+      "to": "context-engineering-curating-what-model-sees",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-few-shot-examples",
+      "to": "prompt-xml-tags-structure",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-natural-language-with-detail",
+      "to": "claude-text-capabilities-overview",
+      "relation": "supports"
+    },
+    {
+      "from": "prompt-system-vs-user-message",
+      "to": "prompt-clear-and-direct",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-xml-tags-structure",
+      "to": "prompt-few-shot-examples",
+      "relation": "extends"
+    },
+    {
+      "from": "structured-outputs-json-how-to",
+      "to": "structured-outputs-two-modes",
+      "relation": "extends"
+    },
+    {
+      "from": "structured-outputs-json-how-to",
+      "to": "structured-outputs-vs-prompt-json",
+      "relation": "extends"
+    },
+    {
+      "from": "structured-outputs-two-modes",
+      "to": "structured-outputs-json-how-to",
+      "relation": "extends"
+    },
+    {
+      "from": "structured-outputs-two-modes",
+      "to": "structured-outputs-vs-prompt-json",
+      "relation": "extends"
+    },
+    {
+      "from": "structured-outputs-vs-prompt-json",
+      "to": "structured-outputs-two-modes",
+      "relation": "extends"
+    },
+    {
+      "from": "structured-outputs-vs-prompt-json",
+      "to": "structured-outputs-json-how-to",
+      "relation": "extends"
+    },
+    {
+      "from": "system-prompt-right-altitude",
+      "to": "context-engineering-curating-what-model-sees",
+      "relation": "extends"
+    },
+    {
+      "from": "system-prompt-right-altitude",
+      "to": "tools-minimal-viable-set",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-contract-typed-interface",
+      "to": "claude-decides-tools-never-executes",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-contract-typed-interface",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-lifecycle-four-steps",
+      "to": "tool-use-basics",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-lifecycle-four-steps",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "tools-minimal-viable-set",
+      "to": "context-rot-attention-budget",
+      "relation": "extends"
+    },
+    {
+      "from": "tools-minimal-viable-set",
+      "to": "system-prompt-right-altitude",
+      "relation": "extends"
+    },
+    {
+      "from": "when-not-to-use-agents",
+      "to": "agents-simple-patterns-over-frameworks",
+      "relation": "extends"
+    },
+    {
+      "from": "when-tool-use-vs-prompt-only",
+      "to": "tool-use-contract-typed-interface",
+      "relation": "extends"
+    },
+    {
+      "from": "when-tool-use-vs-prompt-only",
+      "to": "agentic-loop-architecture",
+      "relation": "extends"
+    },
+    {
+      "from": "workflows-vs-agents-decision",
+      "to": "when-not-to-use-agents",
+      "relation": "extends"
+    },
+    {
+      "from": "workflows-vs-agents-decision",
+      "to": "five-agentic-workflow-patterns",
+      "relation": "extends"
+    }
   ]
 }

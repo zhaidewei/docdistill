@@ -1,0 +1,53 @@
+{
+  "id": "extended-thinking-vs-standard",
+  "type": "comparison",
+  "title": "Extended thinking vs standard responses",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
+  "tags": [
+    "extended-thinking",
+    "claude-api",
+    "comparison"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Standard response (no thinking)",
+    "itemB": "Extended thinking enabled",
+    "dimensions": [
+      {
+        "name": "Reasoning",
+        "a": "Claude reasons internally with no visibility",
+        "b": "Explicit thinking block shows step-by-step reasoning"
+      },
+      {
+        "name": "Best for",
+        "a": "Simple Q&A, creative writing, quick tasks",
+        "b": "Math, coding, analysis, multi-step logic, complex instructions"
+      },
+      {
+        "name": "Token cost",
+        "a": "Only output tokens charged",
+        "b": "Thinking tokens + output tokens both charged"
+      },
+      {
+        "name": "Latency",
+        "a": "Faster — no extra reasoning step",
+        "b": "Slower — Claude spends time thinking before responding"
+      },
+      {
+        "name": "Temperature",
+        "a": "Adjustable (0–1)",
+        "b": "Must be exactly 1"
+      },
+      {
+        "name": "Streaming",
+        "a": "Optional",
+        "b": "Required"
+      }
+    ]
+  },
+  "relatedIds": [
+    "extended-thinking-concept",
+    "enable-extended-thinking-budget-tokens"
+  ],
+  "relationType": "extends"
+}

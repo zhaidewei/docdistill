@@ -1,0 +1,25 @@
+{
+  "id": "prompt-clear-and-direct",
+  "type": "how-to",
+  "title": "给 Claude 一个角色和明确任务",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+  "tags": [
+    "prompt-engineering",
+    "basics"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "写出让 Claude 准确执行的 prompt",
+    "steps": [
+      "把 Claude 当成一个聪明但刚入职的新员工——他缺少你的业务上下文，需要你明确告知",
+      "在 system prompt 中给 Claude 一个角色，例如 'You are a senior code reviewer'",
+      "用具体的指令说明期望的输出格式和约束条件，不要让 Claude 猜",
+      "如果任务有多个步骤，用编号列表按顺序写出来",
+      "黄金法则：把你的 prompt 给一个不了解背景的同事看，如果他们会困惑，Claude 也会"
+    ]
+  },
+  "relatedIds": [
+    "prompt-add-context"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "prompt-few-shot-examples",
+  "type": "how-to",
+  "title": "用示例（few-shot）提升输出质量",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
+  "tags": [
+    "prompt-engineering",
+    "few-shot"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "通过提供输入-输出示例，让 Claude 精确模仿你期望的格式、风格和推理方式",
+    "steps": [
+      "准备 2-5 个「输入 → 期望输出」配对，覆盖常见情况和边界情况",
+      "示例应该多样化——如果所有示例都是同一种模式，Claude 可能过度拟合",
+      "把示例放在 <examples> 标签内，每个用 <example> 包裹，包含 <input> 和 <output>",
+      "示例的输出要和你真正期望的格式完全一致（包括 JSON 结构、换行风格等）",
+      "如果输出需要推理过程，在示例的 output 中展示推理步骤，Claude 会学习这个模式"
+    ]
+  },
+  "relatedIds": [
+    "prompt-xml-tags-structure"
+  ],
+  "relationType": "extends"
+}

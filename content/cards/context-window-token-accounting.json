@@ -1,0 +1,20 @@
+{
+  "id": "context-window-token-accounting",
+  "type": "concept-model",
+  "title": "How tokens fill the context window: input + output = total",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+  "tags": [
+    "context-window",
+    "tokens"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Each API turn has two phases. Input phase: all previous conversation history plus the new user message. Output phase: Claude's generated response. Both consume context window space. Because previous turns are preserved completely, usage grows linearly — every new turn adds the previous response as input, plus the new message, plus the new response.",
+    "analogy": "Imagine a whiteboard in a meeting room. Each round, you copy everything already on the board (input), then add new notes (output). The board fills up fast because nothing is erased. Turn 5 includes everything from turns 1–4 plus new content.",
+    "visual": "A stacked bar chart growing left to right. Each bar = one turn. The bottom portion (input) gets taller each turn because it includes all prior turns. The top portion (output) is the new response. Total height approaches the context window ceiling."
+  },
+  "relatedIds": [
+    "context-window-is-working-memory"
+  ],
+  "relationType": "extends"
+}

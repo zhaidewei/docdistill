@@ -1,0 +1,21 @@
+{
+  "id": "system-prompt-right-altitude",
+  "type": "concept-model",
+  "title": "System prompts: finding the right altitude",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "prompt-engineering"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Good system prompts live in a Goldilocks zone between two failure modes. Too specific: hardcoded if-else logic in the prompt creates brittle behavior that breaks on edge cases and is hard to maintain. Too vague: high-level guidance like 'be helpful' fails to give the model concrete signals and falsely assumes shared context. The optimal altitude is specific enough to guide behavior, yet flexible enough to give the model strong heuristics. Start with the best model and a minimal prompt, then add instructions based on observed failure modes. Organize prompts into distinct sections using XML tags or Markdown headers.",
+    "analogy": "Like managing a smart new employee: saying 'handle all customer complaints using steps 1-47' is micromanagement that breaks when step 23 doesn't apply. Saying 'just do a good job' gives no direction. The sweet spot: 'Here's our refund policy, here's how we handle escalations, use your judgment for edge cases.'",
+    "visual": "A horizontal spectrum bar. Left end: 'Too rigid — brittle if-else logic'. Right end: 'Too vague — assumes shared context'. A green zone in the middle labeled 'Right altitude: specific heuristics + flexible judgment'."
+  },
+  "relatedIds": [
+    "context-engineering-curating-what-model-sees",
+    "tools-minimal-viable-set"
+  ],
+  "relationType": "extends"
+}

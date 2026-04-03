@@ -1,0 +1,22 @@
+{
+  "id": "tool-use-lifecycle-four-steps",
+  "type": "concept-model",
+  "title": "Tool use lifecycle: define, call, execute, return",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+  "tags": [
+    "tool-use",
+    "claude-api",
+    "agent"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Tool use follows a four-step cycle. (1) Define: you describe tools via JSON Schema (name, parameters, description) and send them in the API request. (2) Call: Claude analyzes the user's request and decides which tool(s) to call, returning tool_use blocks with structured arguments. (3) Execute: your application runs the actual code (for client tools) or Anthropic runs it (for server tools). (4) Return: the tool result is sent back as a tool_result message, and Claude uses it to produce its final answer. This cycle can repeat — Claude may chain multiple tool calls before answering.",
+    "analogy": "Like a doctor (Claude) writing a prescription (tool_use). The doctor decides what tests to order but never draws blood — the lab (your app) runs the test and sends results back. The doctor then interprets the results and advises the patient.",
+    "visual": "You → [tools + user message] → Claude → [tool_use block] → Your app executes → [tool_result] → Claude → [final answer]. Loop back to tool_use if more calls needed."
+  },
+  "relatedIds": [
+    "tool-use-basics",
+    "client-tools-vs-server-tools"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "agent-sdk-vs-raw-messages-api",
+  "type": "comparison",
+  "title": "Agent SDK vs raw Messages API for building agents",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/overview",
+  "tags": [
+    "agent-sdk",
+    "messages-api",
+    "architecture"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Claude Agent SDK",
+    "itemB": "Raw Messages API",
+    "dimensions": [
+      {
+        "name": "Tool execution",
+        "a": "Built-in: Read, Edit, Bash, etc. are provided and executed for you",
+        "b": "DIY: you define tool schemas, receive tool_use blocks, execute them yourself, and send results back"
+      },
+      {
+        "name": "Agent loop",
+        "a": "Managed: the SDK runs the think → act → observe loop automatically until the task is done",
+        "b": "Manual: you write the while-loop, handle stop reasons, and decide when to keep going"
+      },
+      {
+        "name": "Context management",
+        "a": "Handled: the SDK manages conversation history, token budgets, and context window internally",
+        "b": "Your responsibility: you track messages, count tokens, and truncate or summarize as needed"
+      },
+      {
+        "name": "When to choose",
+        "a": "You want a capable autonomous agent fast, and Claude Code's tool set fits your use case",
+        "b": "You need full control over tools, loop logic, or want to use non-Claude-Code tools"
+      }
+    ]
+  },
+  "relatedIds": [
+    "agent-sdk-claude-code-loop-as-library"
+  ],
+  "relationType": "extends"
+}

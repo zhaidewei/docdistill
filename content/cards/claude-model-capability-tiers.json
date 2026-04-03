@@ -1,0 +1,20 @@
+{
+  "id": "claude-model-capability-tiers",
+  "type": "concept-model",
+  "title": "Claude model capability tiers",
+  "source": "https://platform.claude.com/docs/en/about-claude/models/overview",
+  "tags": [
+    "claude-models",
+    "model-selection"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "Claude models form a 3-tier system trading intelligence for speed and cost. All tiers share the same capabilities (text/image input, text output, multilingual, vision) — they differ only in how smart and fast they are.",
+    "analogy": "Think of it like car rental tiers: Economy (Haiku) gets you there fast and cheap, Mid-size (Sonnet) is comfortable for most trips, and Luxury (Opus) handles the toughest terrain. All cars drive on the same roads — you're choosing how much power you need.",
+    "visual": "A triangle with three horizontal layers. Top (smallest): Opus — max intelligence. Middle: Sonnet — balanced. Bottom (widest): Haiku — max speed/throughput. Arrow on left labeled 'Intelligence ↑', arrow on right labeled 'Speed & Cost-efficiency ↑' pointing down."
+  },
+  "relatedIds": [
+    "opus-sonnet-haiku-when-to-use"
+  ],
+  "relationType": "extends"
+}

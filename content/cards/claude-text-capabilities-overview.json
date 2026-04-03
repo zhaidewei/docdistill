@@ -1,0 +1,20 @@
+{
+  "id": "claude-text-capabilities-overview",
+  "type": "concept-model",
+  "title": "Claude's eight text capabilities at a glance",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/text-generation",
+  "tags": [
+    "text-generation",
+    "capabilities"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Claude handles text tasks in eight categories: (1) Summarization — distill long content into key points; (2) Content Generation — create blog posts, emails, marketing copy; (3) Data/Entity Extraction — pull structured data from unstructured text; (4) Question Answering — power chatbots and tutors; (5) Translation — convert between languages; (6) Text Analysis & Recommendations — detect sentiment and personalize experiences; (7) Dialogue & Conversation — build context-aware interactions; (8) Code Explanation & Generation — review, generate, and explain code.",
+    "analogy": "Think of Claude as a Swiss Army knife for text. Each blade is a different capability. You don't need separate tools — one model handles summarizing a report, extracting names from it, translating the summary, and drafting a follow-up email.",
+    "visual": "A hub-and-spoke diagram: Claude in the center, eight spokes radiating out to icons representing each capability (scissors for summarization, pen for generation, magnifying glass for extraction, speech bubble for Q&A, globe for translation, chart for analysis, chat bubbles for dialogue, angle brackets for code)."
+  },
+  "relatedIds": [
+    "prompt-natural-language-with-detail"
+  ],
+  "relationType": "extends"
+}

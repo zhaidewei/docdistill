@@ -1,0 +1,19 @@
+{
+  "id": "claude-model-haiku-fast-tier",
+  "type": "fact",
+  "title": "Haiku: the speed-first model",
+  "source": "https://platform.claude.com/docs/en/about-claude/models/overview",
+  "tags": [
+    "claude-models",
+    "haiku"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "Claude Haiku 4.5 is the fastest Claude model with 'near-frontier intelligence.' It's designed for high-throughput tasks where speed and cost matter more than peak reasoning ability — like classification, extraction, or simple Q&A at scale.",
+    "context": "API ID: claude-haiku-4-5-20251001 (alias: claude-haiku-4-5). Unlike Opus and Sonnet which are generation 4.6, Haiku is still generation 4.5. All three models share the same input/output capabilities (text, images, multilingual)."
+  },
+  "relatedIds": [
+    "claude-model-capability-tiers"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "claude-api-surface-five-areas",
+  "type": "architecture",
+  "title": "Claude API 的 5 大区域",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/overview",
+  "tags": [
+    "api-surface",
+    "architecture"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "Claude API 按职责划分为 5 个区域，从「Claude 能做什么」到「怎么高效管理」逐层展开。新手先掌握前两个，其余在优化阶段按需学习。",
+    "components": [
+      {
+        "name": "Model capabilities",
+        "role": "控制 Claude 的推理方式和输出格式——思考深度、输入模态（文本/图片/PDF）、响应格式等"
+      },
+      {
+        "name": "Tools",
+        "role": "让 Claude 执行动作——调用外部 API、搜索网页、操作代码环境"
+      },
+      {
+        "name": "Tool infrastructure",
+        "role": "大规模场景下的工具发现与编排——MCP 协议、批量调用等"
+      },
+      {
+        "name": "Context management",
+        "role": "让长对话保持高效——缓存、上下文裁剪、token 计数"
+      },
+      {
+        "name": "Files and assets",
+        "role": "管理你提供给 Claude 的文档和数据——文件上传、引用"
+      }
+    ],
+    "flow": "开发者定义 model capabilities → 注册 tools → 通过 tool infrastructure 编排 → 用 context management 控制成本 → 用 files 管理输入数据"
+  },
+  "relatedIds": [
+    "model-capabilities-vs-tools-vs-infra"
+  ],
+  "relationType": "extends"
+}

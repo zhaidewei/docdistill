@@ -1,0 +1,22 @@
+{
+  "id": "pattern-evaluator-optimizer",
+  "type": "concept-model",
+  "title": "Evaluator-optimizer: generate then critique in a loop",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "evaluator",
+    "workflows",
+    "patterns"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "One LLM generates output, a second LLM evaluates it against quality criteria, and feedback loops back until the output passes. This is valuable when you have clear evaluation criteria and iterative refinement measurably improves quality — like code that must pass tests, or translations that must meet fluency scores.",
+    "analogy": "Like a writer-editor pair. The writer drafts, the editor marks it up, the writer revises. They loop until the editor says 'ship it.' The key: you need an editor who can clearly articulate what's wrong.",
+    "visual": "Two boxes: 'Generator LLM' → output → 'Evaluator LLM' → feedback arrow looping back to Generator. A 'pass' exit from Evaluator leads to 'Final Output'."
+  },
+  "relatedIds": [
+    "five-agentic-workflow-patterns",
+    "pattern-orchestrator-workers"
+  ],
+  "relationType": "sibling"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "extended-thinking-concept",
+  "type": "concept-model",
+  "title": "What extended thinking is and when it helps",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
+  "tags": [
+    "extended-thinking",
+    "reasoning",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Extended thinking lets Claude 'think out loud' in a dedicated thinking block before producing its final answer. You allocate a token budget for this internal reasoning step. Claude uses that budget to break down complex problems, consider edge cases, and plan its response — then delivers a polished final answer. The thinking content is returned in the API response so you can inspect Claude's reasoning chain.",
+    "analogy": "Like a math exam where you get scratch paper. The scratch paper (thinking block) is where you work through the problem step-by-step. The answer sheet (final response) is the clean result. The teacher (you, via the API) can review both the scratch work and the final answer.",
+    "visual": "User prompt → [thinking block: internal reasoning, up to budget_tokens] → [final response: polished answer]. Both blocks returned in API response."
+  },
+  "relatedIds": [
+    "enable-extended-thinking-budget-tokens",
+    "extended-thinking-vs-standard"
+  ],
+  "relationType": "extends"
+}

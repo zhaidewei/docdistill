@@ -1,0 +1,44 @@
+{
+  "id": "five-agentic-workflow-patterns",
+  "type": "architecture",
+  "title": "Five workflow patterns from simple to complex",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "workflows",
+    "architecture",
+    "patterns"
+  ],
+  "readingMinutes": 4,
+  "body": {
+    "overview": "Anthropic identifies five workflow patterns of increasing complexity. Each is built from augmented LLMs composed together. Pick the simplest pattern that fits your task.",
+    "components": [
+      {
+        "name": "Prompt Chaining",
+        "role": "Sequential LLM calls where each processes the previous output. Use when a task decomposes into fixed subtasks (e.g., draft → translate)."
+      },
+      {
+        "name": "Routing",
+        "role": "Classify input, then direct to a specialized handler. Use when distinct categories need different prompts/tools (e.g., customer service triage)."
+      },
+      {
+        "name": "Parallelization",
+        "role": "Run LLM calls simultaneously, aggregate results. Two variants: sectioning (split task) and voting (same task, multiple attempts)."
+      },
+      {
+        "name": "Orchestrator-Workers",
+        "role": "A central LLM dynamically breaks down tasks and delegates to worker LLMs. Use when subtasks can't be predicted in advance."
+      },
+      {
+        "name": "Evaluator-Optimizer",
+        "role": "One LLM generates, another evaluates in a loop. Use when there are clear quality criteria and iterative refinement adds value."
+      }
+    ],
+    "flow": "Assess task → Can it be a single LLM call? Stop. → Fixed subtasks? Prompt chain. → Distinct categories? Route. → Independent subtasks or need confidence? Parallelize. → Unpredictable subtasks? Orchestrator. → Clear quality criteria? Evaluator loop."
+  },
+  "relatedIds": [
+    "agents-simple-patterns-over-frameworks",
+    "pattern-prompt-chaining",
+    "pattern-routing"
+  ],
+  "relationType": "extends"
+}

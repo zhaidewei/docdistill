@@ -13,6 +13,7 @@
     "preview": "cd site && npx astro preview"
   },
   "dependencies": {
-    "cheerio": "^1.2.0"
+    "cheerio": "^1.2.0",
+    "playwright": "^1.59.1"
   }
 }

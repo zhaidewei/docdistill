@@ -1,0 +1,21 @@
+{
+  "id": "context-engineering-curating-what-model-sees",
+  "type": "concept-model",
+  "title": "Context engineering: curating what the model sees",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "llm-fundamentals"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Context engineering is the art of curating the optimal set of tokens fed to an LLM at inference time. 'Context' means everything the model sees: system prompts, tools, MCP, external data, and message history. The engineering challenge is maximizing the utility of those tokens against inherent LLM constraints to consistently produce the desired behavior. Building effective agents requires 'thinking in context' — considering the holistic state available to the model at any given time and what behaviors that state might yield.",
+    "analogy": "Think of context like a chef's mise en place — the precisely selected and arranged ingredients on the counter before cooking. The kitchen (context window) is finite. Every unnecessary ingredient takes up counter space and makes it harder to find what you actually need. The chef's skill isn't just in the recipe (prompt), but in deciding what goes on the counter and what stays in the pantry.",
+    "visual": "A funnel diagram: at the top, a large cloud labeled 'universe of possible information' (tool results, history, external data, instructions). The funnel narrows into a box labeled 'context window' containing only high-signal tokens. An arrow from the box points to 'model output'."
+  },
+  "relatedIds": [
+    "prompt-engineering-vs-context-engineering",
+    "context-rot-attention-budget"
+  ],
+  "relationType": "foundational"
+}

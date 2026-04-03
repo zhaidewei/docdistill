@@ -1,0 +1,21 @@
+{
+  "id": "tools-minimal-viable-set",
+  "type": "problem-solution",
+  "title": "Bloated tool sets confuse agents",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "tool-design"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "Your agent has access to many tools with overlapping functionality. It frequently picks the wrong tool or wastes turns trying different tools. Adding more tool descriptions also eats into the finite context window, reducing attention available for the actual task.",
+    "solution": "Curate a minimal viable set of tools. Each tool should be self-contained, have no functional overlap with others, and be unambiguous about when to use it. A simple test: if a human engineer can't definitively say which tool should be used in a given situation, an AI agent can't be expected to do better. Tool descriptions and input parameters must be descriptive and unambiguous. Return token-efficient results to avoid bloating context further.",
+    "keyTakeaway": "Tools define the contract between agents and their action space. Fewer, clearer tools beat many overlapping ones — both for decision quality and for preserving the attention budget."
+  },
+  "relatedIds": [
+    "context-rot-attention-budget",
+    "system-prompt-right-altitude"
+  ],
+  "relationType": "extends"
+}

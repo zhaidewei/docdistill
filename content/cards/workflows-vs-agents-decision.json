@@ -1,0 +1,43 @@
+{
+  "id": "workflows-vs-agents-decision",
+  "type": "comparison",
+  "title": "Workflows vs agents: predictability vs flexibility",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "workflows",
+    "agents",
+    "decision-making"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "itemA": "Workflows",
+    "itemB": "Agents",
+    "dimensions": [
+      {
+        "name": "Control",
+        "a": "LLMs orchestrated through predefined code paths",
+        "b": "LLM dynamically directs its own processes and tool usage"
+      },
+      {
+        "name": "Best for",
+        "a": "Well-defined tasks needing predictability and consistency",
+        "b": "Open-ended tasks needing flexibility and model-driven decisions"
+      },
+      {
+        "name": "Trade-off",
+        "a": "Less flexible, but reliable and debuggable",
+        "b": "More capable, but higher latency, cost, and unpredictability"
+      },
+      {
+        "name": "When to pick",
+        "a": "You can decompose the task into known steps in advance",
+        "b": "The task requires adaptive decision-making that can't be predetermined"
+      }
+    ]
+  },
+  "relatedIds": [
+    "when-not-to-use-agents",
+    "five-agentic-workflow-patterns"
+  ],
+  "relationType": "extends"
+}

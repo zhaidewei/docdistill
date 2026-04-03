@@ -1,0 +1,36 @@
+{
+  "id": "claude-api-feature-availability",
+  "type": "comparison",
+  "title": "API 功能的 4 种状态：Beta → GA → Deprecated → Retired",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/overview",
+  "tags": [
+    "api-surface",
+    "lifecycle"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "itemA": "Beta / GA（可用状态）",
+    "itemB": "Deprecated / Retired（退出状态）",
+    "dimensions": [
+      {
+        "name": "能否生产使用",
+        "a": "Beta 不建议依赖（可能大改或下线）；GA 稳定可用",
+        "b": "Deprecated 仍可用但应迁移；Retired 已不可用"
+      },
+      {
+        "name": "API 调用方式",
+        "a": "Beta 需要在请求中加 beta header；GA 无需额外标记",
+        "b": "Deprecated 有迁移路径和下线时间表；Retired 直接报错"
+      },
+      {
+        "name": "版本保证",
+        "a": "Beta 可能有 breaking changes；GA 受标准版本策略保护",
+        "b": "两者都不再获得新功能"
+      }
+    ]
+  },
+  "relatedIds": [
+    "claude-api-surface-five-areas"
+  ],
+  "relationType": "extends"
+}

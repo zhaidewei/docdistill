@@ -1,0 +1,41 @@
+{
+  "id": "prompt-engineering-vs-context-engineering",
+  "type": "comparison",
+  "title": "Prompt engineering vs context engineering",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "prompt-engineering"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "itemA": "Prompt engineering",
+    "itemB": "Context engineering",
+    "dimensions": [
+      {
+        "name": "Focus",
+        "a": "How to write effective prompts, especially system prompts",
+        "b": "Curating and maintaining the entire set of tokens during inference"
+      },
+      {
+        "name": "Scope",
+        "a": "Discrete task — write good instructions once",
+        "b": "Iterative — curation happens every time you decide what to pass to the model"
+      },
+      {
+        "name": "Era",
+        "a": "Early LLM use: one-shot classification or text generation",
+        "b": "Agentic era: multi-turn loops over longer time horizons"
+      },
+      {
+        "name": "What you manage",
+        "a": "Wording, structure, and examples in the prompt",
+        "b": "System prompts + tools + MCP + external data + message history + tool results"
+      }
+    ]
+  },
+  "relatedIds": [
+    "context-engineering-curating-what-model-sees"
+  ],
+  "relationType": "extends"
+}

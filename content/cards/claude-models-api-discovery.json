@@ -1,0 +1,24 @@
+{
+  "id": "claude-models-api-discovery",
+  "type": "how-to",
+  "title": "用 Models API 查询模型支持的能力",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/overview",
+  "tags": [
+    "api-surface",
+    "models-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "在代码中动态判断某个模型支持哪些功能（而不是硬编码）",
+    "steps": [
+      "调用 Models API（GET /v1/models 或 GET /v1/models/{model_id}）",
+      "从响应中读取 max_input_tokens 和 max_tokens 了解 token 限制",
+      "读取 capabilities 对象，查看该模型支持的具体能力（如 vision、tool_use 等）",
+      "根据 capabilities 动态启用或禁用你应用中的功能"
+    ]
+  },
+  "relatedIds": [
+    "claude-api-surface-five-areas"
+  ],
+  "relationType": "extends"
+}

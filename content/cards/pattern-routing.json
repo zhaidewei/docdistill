@@ -1,0 +1,22 @@
+{
+  "id": "pattern-routing",
+  "type": "problem-solution",
+  "title": "Routing: one prompt can't serve all input types",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "routing",
+    "workflows",
+    "patterns"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "You have a single LLM prompt handling diverse inputs (e.g., customer service queries). Optimizing the prompt for one type (refund requests) hurts performance on others (technical support). A monolithic prompt becomes a compromise that excels at nothing.",
+    "solution": "Add a classification step that routes each input to a specialized handler. The classifier (LLM or traditional model) categorizes the input, then a dedicated prompt/tool chain handles each category. Example: route easy questions to Haiku (cheap, fast) and hard questions to Sonnet (capable).",
+    "keyTakeaway": "Routing lets you optimize each path independently without cross-type interference. Use it when you have distinct input categories that benefit from different handling."
+  },
+  "relatedIds": [
+    "five-agentic-workflow-patterns",
+    "pattern-prompt-chaining"
+  ],
+  "relationType": "sibling"
+}

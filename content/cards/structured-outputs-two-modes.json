@@ -1,0 +1,22 @@
+{
+  "id": "structured-outputs-two-modes",
+  "type": "concept-model",
+  "title": "Two structured output modes: JSON outputs vs strict tool use",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+  "tags": [
+    "structured-outputs",
+    "json",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Claude offers two ways to guarantee structured output. (1) JSON outputs via output_config.format: forces Claude's entire response to be valid JSON matching a JSON Schema you provide. Use this when you want Claude to return data directly — no tool calling involved. (2) Strict tool use with strict: true on a tool definition: guarantees the tool_input object matches the tool's input_schema exactly. Use this when Claude is calling tools and you need the arguments to be schema-valid. Both use 'constrained decoding' — the model is physically prevented from emitting tokens that would violate the schema, so compliance is 100%, not best-effort.",
+    "analogy": "Think of a form-filling kiosk vs a vending machine. JSON outputs (output_config) is the kiosk: you design the form, and the user can only type valid data. Strict tool use is the vending machine: you define which buttons exist and what each accepts, and the machine only allows valid button presses.",
+    "visual": "Two parallel paths: Path A (JSON outputs): Request with output_config.format + JSON Schema → Claude → guaranteed JSON response. Path B (Strict tool use): Request with tools[].strict: true → Claude → guaranteed valid tool_input. Both share the same engine: constrained decoding."
+  },
+  "relatedIds": [
+    "structured-outputs-json-how-to",
+    "structured-outputs-vs-prompt-json"
+  ],
+  "relationType": "extends"
+}

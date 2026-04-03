@@ -1,0 +1,21 @@
+{
+  "id": "anthropic-schema-tools-trained-in",
+  "type": "problem-solution",
+  "title": "Why use Anthropic-schema tools instead of custom equivalents",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works",
+  "tags": [
+    "tool-use",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "You could define your own 'run_shell_command' or 'edit_file' tool with a custom schema. But Claude might call it with unexpected argument formats, handle errors poorly, or use it in suboptimal ways — because it has never been trained on your custom schema.",
+    "solution": "Use Anthropic-schema tools (bash, text_editor, computer, memory) for these common operations. Claude has been optimized on thousands of successful trajectories using these exact tool signatures. It calls them more reliably and recovers from errors more gracefully. You still execute the tools client-side — Anthropic only provides the schema, not the runtime.",
+    "keyTakeaway": "Anthropic-schema tools are 'trained-in': same execution model as custom tools, but Claude is more skilled at using them because the schemas are baked into its training data."
+  },
+  "relatedIds": [
+    "client-tools-vs-server-tools",
+    "tool-use-contract-typed-interface"
+  ],
+  "relationType": "extends"
+}

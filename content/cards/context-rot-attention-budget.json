@@ -1,0 +1,21 @@
+{
+  "id": "context-rot-attention-budget",
+  "type": "concept-model",
+  "title": "Context rot: why more tokens isn't always better",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "llm-limitations"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Context rot means that as the number of tokens in the context window increases, the model's ability to accurately recall information from that context decreases. This happens because transformers let every token attend to every other token, creating n² pairwise relationships. As context grows, the model's ability to capture these relationships gets stretched thin. Models also trained more on shorter sequences, so they have fewer specialized parameters for long-range dependencies. The result is a performance gradient — not a hard cliff, but reduced precision for retrieval and reasoning at longer contexts.",
+    "analogy": "Like human working memory: you can hold about 7 items in your head at once. Ask someone to remember 50 items, and they won't forget everything — but accuracy drops steadily. LLMs have a similar 'attention budget'. Every new token depletes it, making careful curation essential.",
+    "visual": "A graph with x-axis 'tokens in context' and y-axis 'recall accuracy'. The line starts high and slopes gently downward — a gradient, not a cliff. A dotted vertical line marks 'diminishing returns zone'."
+  },
+  "relatedIds": [
+    "context-engineering-curating-what-model-sees",
+    "system-prompt-right-altitude"
+  ],
+  "relationType": "extends"
+}

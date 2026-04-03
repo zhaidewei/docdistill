@@ -1,0 +1,43 @@
+{
+  "id": "client-tools-vs-server-tools",
+  "type": "comparison",
+  "title": "Client tools vs server tools",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+  "tags": [
+    "tool-use",
+    "claude-api",
+    "agent"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Client tools: tools that run in YOUR application. Includes user-defined tools (custom functions you write) and Anthropic-schema tools (bash, text_editor). Claude returns a tool_use block, you execute it locally, and send back a tool_result.",
+    "itemB": "Server tools: tools that run on Anthropic's infrastructure. Includes web_search, code_execution, web_fetch, and tool_search. You just declare them in the request — Anthropic handles execution and returns results directly in the response.",
+    "dimensions": [
+      {
+        "name": "Who executes",
+        "a": "Your application",
+        "b": "Anthropic's servers"
+      },
+      {
+        "name": "You handle tool_result?",
+        "a": "Yes — you must send results back",
+        "b": "No — results appear automatically"
+      },
+      {
+        "name": "Examples",
+        "a": "Custom functions, bash, text_editor",
+        "b": "web_search, code_execution, web_fetch"
+      },
+      {
+        "name": "Setup effort",
+        "a": "You write execution logic",
+        "b": "Just declare the tool type in the request"
+      }
+    ]
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps",
+    "claude-decides-tools-never-executes"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "agent-sdk-loop-five-phases",
+  "type": "architecture",
+  "title": "Agent SDK loop: 5 phases from prompt to result",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
+  "tags": [
+    "agent-sdk",
+    "agentic-loop",
+    "architecture"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "The Agent SDK runs a managed loop that handles tool execution automatically. You send a prompt; the SDK drives Claude through evaluate → tool-call → result cycles until Claude has nothing left to do, then delivers a final result with cost and usage stats.",
+    "components": [
+      {
+        "name": "SystemMessage (init)",
+        "role": "Yielded once at the start with session metadata (session ID, config)"
+      },
+      {
+        "name": "AssistantMessage",
+        "role": "Yielded each time Claude responds — contains text and/or tool call requests"
+      },
+      {
+        "name": "UserMessage (tool results)",
+        "role": "Yielded when the SDK feeds tool execution output back to Claude automatically"
+      },
+      {
+        "name": "ResultMessage",
+        "role": "Yielded once at the end with final text, token usage, cost, and session ID"
+      }
+    ],
+    "flow": "1. SDK sends prompt + tool definitions + history to Claude → yields SystemMessage. 2. Claude evaluates and responds → SDK yields AssistantMessage (may include tool calls). 3. If tool calls exist: SDK executes them, yields UserMessage with results, feeds results back to Claude. 4. Steps 2–3 repeat (each cycle = one 'turn'). 5. When Claude responds with no tool calls → SDK yields final AssistantMessage + ResultMessage. Loop ends."
+  },
+  "relatedIds": [
+    "agentic-loop-architecture",
+    "agent-sdk-claude-code-loop-as-library"
+  ],
+  "relationType": "extends"
+}

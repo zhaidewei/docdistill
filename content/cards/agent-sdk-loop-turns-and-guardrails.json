@@ -1,0 +1,21 @@
+{
+  "id": "agent-sdk-loop-turns-and-guardrails",
+  "type": "concept-model",
+  "title": "Turns, permissions, and cost limits in the agent loop",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
+  "tags": [
+    "agent-sdk",
+    "agentic-loop",
+    "guardrails"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "A 'turn' is one round trip: Claude requests tool calls → SDK executes them → results feed back. Turns repeat automatically without returning control to your code. A simple query ('list files') may take 1–2 turns; a complex task ('refactor auth + update tests') can chain dozens. The SDK provides three guardrails: permission checks (allow/deny tool calls before they run), hooks (intercept or modify calls mid-flight), and cost/token limits that halt the loop if exceeded.",
+    "analogy": "Think of the agent loop as a self-driving car on a highway. Each turn is one lane change or maneuver — the car handles them autonomously. Permissions are the guardrails on the road, hooks are your ability to grab the wheel mid-maneuver, and cost limits are the fuel gauge that forces the car to pull over.",
+    "visual": "Prompt → [Turn 1: tool call → execute → result] → [Turn 2: tool call → execute → result] → ... → Final answer. Guardrails: permissions gate each tool call, hooks can intercept, cost limit can halt."
+  },
+  "relatedIds": [
+    "agent-sdk-loop-five-phases"
+  ],
+  "relationType": "extends"
+}

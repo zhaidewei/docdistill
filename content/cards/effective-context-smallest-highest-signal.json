@@ -1,0 +1,20 @@
+{
+  "id": "effective-context-smallest-highest-signal",
+  "type": "fact",
+  "title": "Good context = smallest set of highest-signal tokens",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "design-principle"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "Good context engineering means finding the smallest possible set of high-signal tokens that maximize the likelihood of the desired outcome. Minimal does not mean short — you still need sufficient information for the agent to adhere to desired behavior. But every unnecessary token depletes the model's finite attention budget with diminishing marginal returns.",
+    "context": "This is the guiding principle for all context engineering decisions: system prompts, tool design, example selection, and conversation history management. It applies because transformer attention creates n² pairwise relationships between tokens — more tokens means each relationship gets less attention."
+  },
+  "relatedIds": [
+    "context-rot-attention-budget",
+    "context-engineering-curating-what-model-sees"
+  ],
+  "relationType": "extends"
+}

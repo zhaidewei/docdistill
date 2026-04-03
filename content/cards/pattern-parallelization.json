@@ -1,0 +1,42 @@
+{
+  "id": "pattern-parallelization",
+  "type": "comparison",
+  "title": "Parallelization: sectioning vs voting",
+  "source": "https://www.anthropic.com/engineering/building-effective-agents",
+  "tags": [
+    "parallelization",
+    "workflows",
+    "patterns"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "itemA": "Sectioning",
+    "itemB": "Voting",
+    "dimensions": [
+      {
+        "name": "What it does",
+        "a": "Splits one task into independent subtasks, runs them in parallel",
+        "b": "Runs the same task multiple times, aggregates diverse outputs"
+      },
+      {
+        "name": "Why use it",
+        "a": "Speed — subtasks don't depend on each other",
+        "b": "Confidence — multiple perspectives reduce error"
+      },
+      {
+        "name": "Example",
+        "a": "Review code for security, style, and correctness simultaneously with three specialized LLM calls",
+        "b": "Run content moderation 5 times, flag if any run detects a violation"
+      },
+      {
+        "name": "Aggregation",
+        "a": "Merge results (e.g., combine all findings into one report)",
+        "b": "Majority vote, any-flag, or scoring"
+      }
+    ]
+  },
+  "relatedIds": [
+    "five-agentic-workflow-patterns"
+  ],
+  "relationType": "extends"
+}
