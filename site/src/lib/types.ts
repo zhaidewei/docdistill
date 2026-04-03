@@ -20,7 +20,6 @@ export interface ProblemSolutionBody {
 export interface ConceptModelBody {
   concept: string;
   analogy: string;
-  visual?: string;
 }
 
 export interface HowToBody {
@@ -67,6 +66,7 @@ export interface Card {
   source: string;
   tags: string[];
   readingMinutes: number;
+  diagram?: string;
   body: CardBody;
   body_en?: CardBody;
 }

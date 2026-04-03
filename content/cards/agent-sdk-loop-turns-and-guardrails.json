@@ -12,16 +12,15 @@
   "readingMinutes": 2,
   "body": {
     "concept": "一个 turn 是一次往返：Claude 请求工具调用 → SDK 执行 → 结果回传。Turn 自动重复，不会把控制权交还给你的代码。简单查询（'列出文件'）可能只需 1-2 个 turn；复杂任务（'重构 auth 并更新测试'）可能连续跑几十个。SDK 提供三道护栏：权限检查（工具调用前允许/拒绝）、hooks（运行中拦截或修改调用）、费用/token 上限（超出则中止循环）。",
-    "analogy": "把 agent loop 想成高速公路上的自动驾驶汽车。每个 turn 是一次变道或操作——车子自主完成。权限是公路护栏，hooks 是你随时可以抢方向盘的能力，费用上限是油量表——油用完了车必须靠边停。",
-    "visual": "Prompt → [Turn 1: 工具调用 → 执行 → 结果] → [Turn 2: 工具调用 → 执行 → 结果] → ... → 最终回答。护栏：权限检查把关每次工具调用，hooks 可拦截，费用上限可中止。"
+    "analogy": "把 agent loop 想成高速公路上的自动驾驶汽车。每个 turn 是一次变道或操作——车子自主完成。权限是公路护栏，hooks 是你随时可以抢方向盘的能力，费用上限是油量表——油用完了车必须靠边停。"
   },
   "body_en": {
     "concept": "A 'turn' is one round trip: Claude requests tool calls → SDK executes them → results feed back. Turns repeat automatically without returning control to your code. A simple query ('list files') may take 1–2 turns; a complex task ('refactor auth + update tests') can chain dozens. The SDK provides three guardrails: permission checks (allow/deny tool calls before they run), hooks (intercept or modify calls mid-flight), and cost/token limits that halt the loop if exceeded.",
-    "analogy": "Think of the agent loop as a self-driving car on a highway. Each turn is one lane change or maneuver — the car handles them autonomously. Permissions are the guardrails on the road, hooks are your ability to grab the wheel mid-maneuver, and cost limits are the fuel gauge that forces the car to pull over.",
-    "visual": "Prompt → [Turn 1: tool call → execute → result] → [Turn 2: tool call → execute → result] → ... → Final answer. Guardrails: permissions gate each tool call, hooks can intercept, cost limit can halt."
+    "analogy": "Think of the agent loop as a self-driving car on a highway. Each turn is one lane change or maneuver — the car handles them autonomously. Permissions are the guardrails on the road, hooks are your ability to grab the wheel mid-maneuver, and cost limits are the fuel gauge that forces the car to pull over."
   },
   "relatedIds": [
     "agent-sdk-loop-five-phases"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Prompt]) --> B[Tool call]\n    B --> C{Permissions gate}\n    C -->|denied| F([Halt])\n    C -->|allowed| D[Execute tool]\n    D --> E{Hooks intercept?}\n    E -->|yes| F\n    E -->|no| G[Tool result]\n    G --> H{Cost limit hit?}\n    H -->|yes| F\n    H -->|no| I{More turns?}\n    I -->|yes| B\n    I -->|no| J([Final answer])"
 }

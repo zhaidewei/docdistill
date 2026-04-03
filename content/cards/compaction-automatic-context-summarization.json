@@ -12,17 +12,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "Compaction（压实）是 Anthropic 提供的服务端功能，当对话接近 context window 上限时，自动将较早的对话内容总结为精简摘要。它解决的不仅是 token 数量限制——随着对话变长，模型在全部历史上保持注意力的能力会下降（即 context rot）。Compaction 用简洁的摘要替换过时内容，让活跃 context 保持聚焦、高效。",
-    "analogy": "像会议记录员：你不需要保留 3 小时会议的逐字稿，记录员帮你把讨论压缩成关键决策和行动项。Compaction 就是 Claude 的自动记录员——在对话变得太长之前，把旧内容压缩成要点摘要。",
-    "visual": "左侧：一长列对话消息，越靠上的越暗淡；右侧：顶部是一个小方块标注「摘要」，下方是最近的鲜亮消息。箭头从左到右，表示压缩过程。"
+    "analogy": "像会议记录员：你不需要保留 3 小时会议的逐字稿，记录员帮你把讨论压缩成关键决策和行动项。Compaction 就是 Claude 的自动记录员——在对话变得太长之前，把旧内容压缩成要点摘要。"
   },
   "body_en": {
     "concept": "Compaction is a server-side feature from Anthropic that automatically summarizes older conversation content when approaching the context window limit. It doesn't just prevent hitting a token cap—as conversations grow longer, models struggle to maintain focus across the full history (context rot). Compaction replaces stale content with concise summaries, keeping the active context focused and performant.",
-    "analogy": "Like a meeting note-taker: you don't need the full 3-hour transcript. The note-taker condenses discussions into key decisions and action items. Compaction is Claude's automatic note-taker—compressing old content into summary highlights before the conversation grows too long.",
-    "visual": "Left side: a long column of conversation messages, older ones faded. Right side: a small block labeled 'Summary' at top, followed by bright recent messages. An arrow from left to right shows the compaction process."
+    "analogy": "Like a meeting note-taker: you don't need the full 3-hour transcript. The note-taker condenses discussions into key decisions and action items. Compaction is Claude's automatic note-taker—compressing old content into summary highlights before the conversation grows too long."
   },
   "relatedIds": [
     "context-rot-attention-budget",
     "context-engineering-curating-what-model-sees"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Older messages]) --> B[Faded messages...]\n    B --> C[More messages...]\n    C --> D[Recent messages]\n    D -->|compaction| E[Summary]\n    E --> F[Recent message 1]\n    F --> G[Recent message 2]\n    G --> H([Latest message])"
 }

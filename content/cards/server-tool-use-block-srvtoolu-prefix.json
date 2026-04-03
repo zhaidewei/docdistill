@@ -12,16 +12,15 @@
   "readingMinutes": 3,
   "body": {
     "concept": "当 Claude 调用由 Anthropic 服务器执行的工具（如 web_search）时，响应中会出现 `server_tool_use` block，其 id 以 `srvtoolu_` 开头。与客户端工具（client tool_use）不同，你不需要自己执行工具，也不需要返回 `tool_result`——API 在服务端自动执行，结果直接出现在同一个 assistant turn 中。",
-    "analogy": "好比你在餐厅点餐：客户端工具像外卖——服务员把菜单递给你，你自己去取。服务器工具像堂食——你只需要点菜，厨房做好直接端上来，你看到菜名（server_tool_use）和成品（result）出现在同一张桌上。",
-    "visual": "API 响应流：[text block] → [server_tool_use block (srvtoolu_xxx)] → [server_tool_result block] → [text block]，全部在同一个 assistant message 内。"
+    "analogy": "好比你在餐厅点餐：客户端工具像外卖——服务员把菜单递给你，你自己去取。服务器工具像堂食——你只需要点菜，厨房做好直接端上来，你看到菜名（server_tool_use）和成品（result）出现在同一张桌上。"
   },
   "body_en": {
     "concept": "When Claude invokes a tool executed by Anthropic's servers (e.g., web_search), the response contains a `server_tool_use` block whose id starts with `srvtoolu_`. Unlike client `tool_use` blocks, you don't execute the tool or return a `tool_result`—the API runs it server-side and the result appears in the same assistant turn automatically.",
-    "analogy": "Think of it like dining in vs. takeout: client tools are takeout—the waiter hands you the order slip and you go pick it up yourself. Server tools are dine-in—you just order, the kitchen prepares it, and the dish (result) arrives at your table alongside the order ticket (server_tool_use).",
-    "visual": "Response flow: [text block] → [server_tool_use block (srvtoolu_xxx)] → [server_tool_result block] → [text block], all within one assistant message."
+    "analogy": "Think of it like dining in vs. takeout: client tools are takeout—the waiter hands you the order slip and you go pick it up yourself. Server tools are dine-in—you just order, the kitchen prepares it, and the dish (result) arrives at your table alongside the order ticket (server_tool_use)."
   },
   "relatedIds": [
     "client-tools-vs-server-tools"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Start]) --> B[text block]\n    B --> C[server_tool_use block\\nsrvtoolu_xxx]\n    C --> D[server_tool_result block]\n    D --> E[text block]\n    E --> F([End\\none assistant message])"
 }

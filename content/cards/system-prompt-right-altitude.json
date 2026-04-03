@@ -11,17 +11,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "好的 system prompt 处于两种失败模式之间的 Goldilocks 区间。过于具体：在 prompt 中硬编码 if-else 逻辑，行为脆弱、维护困难。过于模糊：高层级的指导如「做得好一点」无法给模型具体信号，且错误地假设模型有共享上下文。最优「高度」是：足够具体以引导行为，又足够灵活以提供启发式规则。建议从最好的模型和最小 prompt 开始测试，再根据观察到的失败模式逐步添加指令。用 XML 标签或 Markdown 标题将 prompt 分成清晰的段落。",
-    "analogy": "就像管理一个聪明的新员工：说「按步骤 1-47 处理所有客户投诉」是微管理，步骤 23 不适用时就会出错。说「做好工作就行」则毫无方向。最佳方式：「这是退款政策，这是升级处理流程，边界情况请自行判断。」",
-    "visual": "一条水平光谱条。左端：「过于僵化——脆弱的 if-else 逻辑」。右端：「过于模糊——假设共享上下文」。中间的绿色区域标注「正确高度：具体的启发式 + 灵活的判断」。"
+    "analogy": "就像管理一个聪明的新员工：说「按步骤 1-47 处理所有客户投诉」是微管理，步骤 23 不适用时就会出错。说「做好工作就行」则毫无方向。最佳方式：「这是退款政策，这是升级处理流程，边界情况请自行判断。」"
   },
   "body_en": {
     "concept": "Good system prompts live in a Goldilocks zone between two failure modes. Too specific: hardcoded if-else logic creates brittle behavior that breaks on edge cases and is hard to maintain. Too vague: high-level guidance like 'be helpful' fails to give the model concrete signals and falsely assumes shared context. The optimal altitude is specific enough to guide behavior, yet flexible enough to give the model strong heuristics. Start with the best model and a minimal prompt, then add instructions based on observed failure modes. Organize prompts into distinct sections using XML tags or Markdown headers.",
-    "analogy": "Like managing a smart new employee: saying 'handle all customer complaints using steps 1-47' is micromanagement that breaks when step 23 doesn't apply. Saying 'just do a good job' gives no direction. The sweet spot: 'Here's our refund policy, here's how we handle escalations, use your judgment for edge cases.'",
-    "visual": "A horizontal spectrum bar. Left end: 'Too rigid—brittle if-else logic'. Right end: 'Too vague—assumes shared context'. A green zone in the middle labeled 'Right altitude: specific heuristics + flexible judgment'."
+    "analogy": "Like managing a smart new employee: saying 'handle all customer complaints using steps 1-47' is micromanagement that breaks when step 23 doesn't apply. Saying 'just do a good job' gives no direction. The sweet spot: 'Here's our refund policy, here's how we handle escalations, use your judgment for edge cases.'"
   },
   "relatedIds": [
     "context-engineering-curating-what-model-sees",
     "tools-minimal-viable-set"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Too rigid: brittle if-else]) --> B[Right altitude:\\nspecific heuristics\\n+ flexible judgment]\n    B --> C([Too vague: assumes\\nshared context])\n    style B fill:#4caf50,color:#fff,stroke:#388e3c"
 }

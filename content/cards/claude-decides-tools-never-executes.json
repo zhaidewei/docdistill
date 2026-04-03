@@ -12,17 +12,16 @@
   "readingMinutes": 2,
   "body": {
     "concept": "Claude 在 tool use 中的角色严格限于决策：它读取用户请求和可用工具描述，然后决定是否调用、调用哪个工具、用什么参数。Claude 从不执行任何代码。对于 client tools，你的应用是执行者；对于 server tools，Anthropic 的基础设施是执行者。这种分离意味着你控制着安全边界——Claude 只能建议动作，永远不能直接执行。",
-    "analogy": "像空管员（Claude）指挥飞机去哪里，但从不驾驶飞机。空管员决定用哪条跑道（调用哪个工具）并给出精确指令（结构化参数），但飞行员（你的应用或 Anthropic 服务器）才是实际操作的人。",
-    "visual": "Claude = 大脑（决定工具 + 参数）→ 你的应用 = 双手（执行）。Claude 永远不碰键盘。"
+    "analogy": "像空管员（Claude）指挥飞机去哪里，但从不驾驶飞机。空管员决定用哪条跑道（调用哪个工具）并给出精确指令（结构化参数），但飞行员（你的应用或 Anthropic 服务器）才是实际操作的人。"
   },
   "body_en": {
     "concept": "Claude's role in tool use is strictly decision-making: it reads the user's request and available tool descriptions, then decides IF and WHICH tool to call and WITH WHAT arguments. Claude never runs any code itself. For client tools, your application is the executor. For server tools, Anthropic's infrastructure is the executor. This separation means you control the security boundary — Claude can only suggest actions, never take them directly.",
-    "analogy": "Like an air traffic controller (Claude) who tells planes where to go but never flies one. The controller decides which runway to use (which tool to call) and gives precise instructions (structured arguments), but the pilot (your app or Anthropic's server) actually lands the plane.",
-    "visual": "Claude = brain (decides tool + args) → Your app = hands (executes). Claude never touches the keyboard."
+    "analogy": "Like an air traffic controller (Claude) who tells planes where to go but never flies one. The controller decides which runway to use (which tool to call) and gives precise instructions (structured arguments), but the pilot (your app or Anthropic's server) actually lands the plane."
   },
   "relatedIds": [
     "tool-use-lifecycle-four-steps",
     "client-tools-vs-server-tools"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    C([Claude: brain]) -->|decides tool + args| A([Your app: hands])\n    A -->|executes tool| T[Tool / System]\n    T -->|result| C\n    C -.->|never directly| KB[Keyboard / System]"
 }
