@@ -1,8 +1,8 @@
 {
   "id": "agent-sdk-loop-message-flow",
   "type": "architecture",
-  "title": "Agent loop 消息流：4 种消息类型驱动整个循环",
-  "title_en": "Agent Loop Message Flow: 4 Message Types Drive the Entire Cycle",
+  "title": "Agent loop 消息流：5 种核心消息类型驱动整个循环",
+  "title_en": "Agent Loop Message Flow: 5 Core Message Types Drive the Entire Cycle",
   "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
   "tags": [
     "agent-sdk",
@@ -11,11 +11,11 @@
   ],
   "readingMinutes": 3,
   "body": {
-    "overview": "Agent loop 通过 4 种消息类型与你的代码通信。SDK 以异步流的方式产出（yield）这些消息，你的代码监听它们来了解循环进度。理解这 4 种消息就能读懂 agent 的完整生命周期。",
+    "overview": "Agent loop 通过 5 种核心消息类型与你的代码通信。SDK 以异步流的方式产出（yield）这些消息，你的代码监听它们来了解循环进度。理解这 5 种消息就能读懂 agent 的完整生命周期。",
     "components": [
       {
-        "name": "SystemMessage (subtype: init)",
-        "role": "循环启动时产出一次。携带 session ID 和配置元数据，标志 agent 开始工作。"
+        "name": "SystemMessage",
+        "role": "会话生命周期事件。subtype 字段区分类型：`init` 在循环启动时产出一次，携带 session ID 和配置元数据；`compact_boundary` 在 compaction 发生后触发。注意：TypeScript SDK 中 compact boundary 是独立的 `SDKCompactBoundaryMessage` 类型，而非 SystemMessage 的 subtype。"
       },
       {
         "name": "AssistantMessage",
@@ -26,18 +26,22 @@
         "role": "SDK 执行完工具后，自动将结果包装为 UserMessage 回传给 Claude。你的代码不需要手动发送——这是 SDK 托管循环的核心。"
       },
       {
+        "name": "StreamEvent",
+        "role": "仅在启用 partial messages 时产出。包含原始 API 流式事件（文本 delta、工具输入 chunk 等），用于实时展示 agent 的输出进度。"
+      },
+      {
         "name": "ResultMessage",
-        "role": "循环结束时产出。包含最终文本、累计 token 用量、总费用和 session ID。用它来获取计费信息和判断任务是否完成。"
+        "role": "循环结束时产出，永远是最后一条消息。包含最终文本、累计 token 用量、总费用和 session ID。通过 `subtype` 字段判断任务是成功完成还是触发了限制。"
       }
     ],
     "flow": "SDK 启动 → yield SystemMessage(init) → Claude 响应 → yield AssistantMessage（含工具调用）→ SDK 执行工具 → yield UserMessage（工具结果）→ 结果自动回传 Claude → Claude 再次响应 → ... 循环 ... → Claude 响应纯文本（无工具调用）→ yield 最终 AssistantMessage → yield ResultMessage → 循环结束。"
   },
   "body_en": {
-    "overview": "The agent loop communicates with your code through 4 message types. The SDK yields them as an async stream; your code listens to understand loop progress. Knowing these 4 messages lets you read an agent's full lifecycle.",
+    "overview": "The agent loop communicates with your code through 5 core message types. The SDK yields them as an async stream; your code listens to understand loop progress. Knowing these 5 messages lets you read an agent's full lifecycle.",
     "components": [
       {
-        "name": "SystemMessage (subtype: init)",
-        "role": "Yielded once at loop start. Carries session ID and config metadata, signaling the agent has begun work."
+        "name": "SystemMessage",
+        "role": "Session lifecycle events. The `subtype` field distinguishes them: `init` is yielded once at loop start (carries session ID and config metadata); `compact_boundary` fires after compaction. Note: in TypeScript, the compact boundary is a separate `SDKCompactBoundaryMessage` type rather than a SystemMessage subtype."
       },
       {
         "name": "AssistantMessage",
@@ -48,8 +52,12 @@
         "role": "After the SDK executes tools, it automatically wraps results into a UserMessage and feeds it back to Claude. Your code doesn't send this manually — this is the core of the SDK's managed loop."
       },
       {
+        "name": "StreamEvent",
+        "role": "Only yielded when partial messages are enabled. Contains raw API streaming events (text deltas, tool input chunks) for real-time display of agent output progress."
+      },
+      {
         "name": "ResultMessage",
-        "role": "Yielded when the loop ends. Contains final text, cumulative token usage, total cost, and session ID. Use it for billing info and task completion status."
+        "role": "Yielded when the loop ends — always the last message. Contains final text, cumulative token usage, total cost, and session ID. Check the `subtype` field to determine whether the task succeeded or hit a limit."
       }
     ],
     "flow": "SDK starts → yield SystemMessage(init) → Claude responds → yield AssistantMessage (with tool calls) → SDK executes tools → yield UserMessage (tool results) → results auto-fed to Claude → Claude responds again → ... loop ... → Claude responds with text only (no tool calls) → yield final AssistantMessage → yield ResultMessage → loop ends."

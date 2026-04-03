@@ -1,0 +1,34 @@
+{
+  "id": "compaction-how-it-works-four-steps",
+  "type": "how-to",
+  "title": "Compaction 工作流程：四步自动压缩",
+  "title_en": "How Compaction Works: Four Automatic Steps",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/compaction",
+  "tags": [
+    "compaction",
+    "api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "理解 compaction 的自动触发和执行流程",
+    "steps": [
+      "检测：API 检测到输入 token 数超过你设置的 trigger threshold（触发阈值）",
+      "摘要：API 自动生成当前对话的摘要",
+      "创建 compaction block：将摘要封装为一个 `compaction` block——这是 compaction 的核心产物，后续请求中 API 会自动丢弃该 block 之前的所有消息",
+      "继续响应：使用压缩后的上下文继续生成 Claude 的回复"
+    ]
+  },
+  "body_en": {
+    "goal": "Understand the automatic trigger and execution flow of compaction",
+    "steps": [
+      "Detect: The API detects that input tokens exceed your configured trigger threshold",
+      "Summarize: The API automatically generates a summary of the current conversation",
+      "Create compaction block: The summary is packaged into a `compaction` block — the core artifact of compaction. On subsequent requests, the API automatically drops all message blocks prior to this block",
+      "Continue response: The response continues with the compacted context"
+    ]
+  },
+  "relatedIds": [
+    "compaction-automatic-context-summarization"
+  ],
+  "relationType": "details"
+}

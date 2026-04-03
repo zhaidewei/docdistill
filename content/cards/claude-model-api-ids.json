@@ -10,12 +10,12 @@
   ],
   "readingMinutes": 2,
   "body": {
-    "fact": "每个 Claude 模型在不同平台有不同的 ID。Claude API 使用简短别名（如 `claude-opus-4-6`），AWS Bedrock 带 `anthropic.` 前缀和版本后缀（如 `anthropic.claude-opus-4-6-v1`），GCP Vertex AI 的 ID 与 Claude API 别名相同。Haiku 的 API 别名是 `claude-haiku-4-5`，但完整 ID 包含日期戳 `claude-haiku-4-5-20251001`。",
-    "context": "调用 API 时务必使用对应平台的正确 ID，否则会返回模型不存在的错误。建议在代码中使用别名（alias），Anthropic 会将其指向最新稳定版本。"
+    "fact": "每个 Claude 模型在不同平台有不同的 ID，各平台的命名规则并不统一，需按平台逐项查表。以最新模型为例：\n\n| 模型 | Claude API | AWS Bedrock | GCP Vertex AI |\n|------|-----------|-------------|---------------|\n| Opus 4.6 | `claude-opus-4-6` | `anthropic.claude-opus-4-6-v1` | `claude-opus-4-6` |\n| Sonnet 4.6 | `claude-sonnet-4-6` | `anthropic.claude-sonnet-4-6` | `claude-sonnet-4-6` |\n| Haiku 4.5 | `claude-haiku-4-5-20251001`（别名 `claude-haiku-4-5`） | `anthropic.claude-haiku-4-5-20251001-v1:0` | `claude-haiku-4-5@20251001` |\n\n注意：Bedrock 的后缀格式不统一（Opus 用 `-v1`，Sonnet 无后缀，Haiku 用 `-v1:0`）；Vertex 对 Haiku 使用 `@日期` 格式而非简单别名。",
+    "context": "调用 API 时务必查表确认对应平台的正确 ID，不要凭规则推导——各平台命名规则不一致。在 Claude API 上可使用别名（alias），Anthropic 会将其指向最新稳定版本。"
   },
   "body_en": {
-    "fact": "Each Claude model has different IDs across platforms. The Claude API uses short aliases (e.g., `claude-opus-4-6`). AWS Bedrock adds an `anthropic.` prefix and version suffix (e.g., `anthropic.claude-opus-4-6-v1`). GCP Vertex AI IDs match the Claude API aliases. Haiku's alias is `claude-haiku-4-5`, but its full ID includes a datestamp: `claude-haiku-4-5-20251001`.",
-    "context": "Always use the correct ID for your platform — using the wrong one returns a 'model not found' error. Prefer aliases in your code; Anthropic points them to the latest stable version."
+    "fact": "Each Claude model has different IDs across platforms, and naming conventions are NOT uniform — always look up the table per platform. Latest models:\n\n| Model | Claude API | AWS Bedrock | GCP Vertex AI |\n|-------|-----------|-------------|---------------|\n| Opus 4.6 | `claude-opus-4-6` | `anthropic.claude-opus-4-6-v1` | `claude-opus-4-6` |\n| Sonnet 4.6 | `claude-sonnet-4-6` | `anthropic.claude-sonnet-4-6` | `claude-sonnet-4-6` |\n| Haiku 4.5 | `claude-haiku-4-5-20251001` (alias `claude-haiku-4-5`) | `anthropic.claude-haiku-4-5-20251001-v1:0` | `claude-haiku-4-5@20251001` |\n\nNote: Bedrock suffixes are inconsistent (Opus uses `-v1`, Sonnet has no suffix, Haiku uses `-v1:0`); Vertex uses `@date` format for Haiku instead of a plain alias.",
+    "context": "Always look up the correct ID per platform — do not derive it from a 'rule.' Naming conventions differ across platforms. On the Claude API, you can use aliases; Anthropic points them to the latest stable version."
   },
   "relatedIds": [
     "opus-sonnet-haiku-comparison"
