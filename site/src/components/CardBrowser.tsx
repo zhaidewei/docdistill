@@ -5,9 +5,21 @@ import CardList from "./CardList";
 import CardDetail from "./CardDetail";
 import LangToggle from "./LangToggle";
 
+function getCardIdFromUrl(): string | null {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  return params.get("card");
+}
+
 export default function CardBrowser({ cards }: { cards: Card[] }) {
   const [lang] = useLang();
-  const [selectedId, setSelectedId] = useState<string | null>(cards[0]?.id || null);
+  const [selectedId, setSelectedId] = useState<string | null>(
+    () => {
+      const fromUrl = getCardIdFromUrl();
+      if (fromUrl && cards.some((c) => c.id === fromUrl)) return fromUrl;
+      return cards[0]?.id || null;
+    }
+  );
   const [filter, setFilter] = useState("");
   const selectedCard = cards.find((c) => c.id === selectedId) || null;
 
