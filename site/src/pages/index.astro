@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import CardBrowser from "../components/CardBrowser.tsx";
+import SwipeMode from "../components/SwipeMode.tsx";
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 
@@ -12,8 +13,22 @@ try {
     JSON.parse(readFileSync(join(cardsDir, f), "utf-8"))
   );
 } catch {}
+
+const graphPath = join(process.cwd(), "../content/graph.json");
+let graph = { nodes: [], edges: [] };
+try {
+  graph = JSON.parse(readFileSync(graphPath, "utf-8"));
+} catch {}
 ---
 
-<Base title="卡片" activePage="cards">
-  <CardBrowser client:load cards={cards} />
-</Base>
+{/* Desktop: full layout with nav */}
+<div class="hidden md:block">
+  <Base title="卡片" activePage="cards">
+    <CardBrowser client:load cards={cards} />
+  </Base>
+</div>
+
+{/* Mobile: swipe-only, no nav */}
+<div class="block md:hidden">
+  <SwipeMode client:load cards={cards} graph={graph} />
+</div>
