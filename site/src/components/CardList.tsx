@@ -1,51 +1,62 @@
 import type { Card } from "../lib/types";
-import { useLang, t, cardTitle } from "../lib/i18n";
+import { useLang, cardTitle } from "../lib/i18n";
 
 interface Props {
-  cards: Card[];
+  groupMap: Map<string, Card[]>;
   selectedId: string | null;
   onSelect: (id: string) => void;
-  filter: string;
-  onFilterChange: (f: string) => void;
+  expandedGroups: Set<string>;
+  onToggleGroup: (group: string) => void;
 }
 
 const TYPE_COLORS: Record<string, string> = {
-  fact: "text-accent-blue",
-  "problem-solution": "text-accent-orange",
-  "concept-model": "text-purple-600",
-  "how-to": "text-accent-green",
-  comparison: "text-amber-600",
-  architecture: "text-cyan-600",
+  fact: "bg-accent-blue",
+  "problem-solution": "bg-accent-orange",
+  "concept-model": "bg-purple-500",
+  "how-to": "bg-accent-green",
+  comparison: "bg-amber-500",
+  architecture: "bg-cyan-500",
 };
 
-export default function CardList({ cards, selectedId, onSelect, filter, onFilterChange }: Props) {
+export default function CardList({ groupMap, selectedId, onSelect, expandedGroups, onToggleGroup }: Props) {
   const [lang] = useLang();
-  const allTags = [...new Set(cards.flatMap((c) => c.tags))].sort();
-  const filtered = filter ? cards.filter((c) => c.tags.includes(filter)) : cards;
+  const groups = [...groupMap.keys()];
 
   return (
-    <div class="h-full flex flex-col border-r border-surface-border">
-      <div class="p-3 border-b border-surface-border space-y-2">
-        <div class="flex gap-1 flex-wrap">
-          <button onClick={() => onFilterChange("")} class={`px-2 py-0.5 rounded text-xs transition-colors ${!filter ? "bg-accent-orange text-white" : "bg-surface-muted text-slate hover:text-charcoal"}`}>
-            {t("browser.all", lang)} ({cards.length})
-          </button>
-          {allTags.map((tag) => (
-            <button key={tag} onClick={() => onFilterChange(tag)} class={`px-2 py-0.5 rounded text-xs transition-colors ${filter === tag ? "bg-accent-orange text-white" : "bg-surface-muted text-slate hover:text-charcoal"}`}>
-              {tag}
+    <div class="h-full flex flex-col border-r border-surface-border overflow-y-auto">
+      {groups.map((group) => {
+        const groupCards = groupMap.get(group)!;
+        const isExpanded = expandedGroups.has(group);
+        const hasSelected = groupCards.some((c) => c.id === selectedId);
+
+        return (
+          <div key={group}>
+            {/* Group row */}
+            <button
+              onClick={() => onToggleGroup(group)}
+              class={`w-full flex items-center gap-2 px-3 py-2 text-left border-b border-surface-border transition-colors hover:bg-surface-muted ${hasSelected && !isExpanded ? "bg-surface-raised" : ""}`}
+            >
+              <span class={`text-[10px] transition-transform duration-150 text-slate ${isExpanded ? "rotate-90" : ""}`}>▶</span>
+              <span class={`flex-1 text-xs font-medium truncate ${hasSelected ? "text-accent-orange" : "text-charcoal"}`}>
+                {group}
+              </span>
+              <span class="text-[11px] text-slate-light tabular-nums">{groupCards.length}</span>
             </button>
-          ))}
-        </div>
-      </div>
-      <div class="flex-1 overflow-y-auto">
-        {filtered.map((card) => (
-          <button key={card.id} onClick={() => onSelect(card.id)} class={`w-full text-left p-3 border-b border-surface-border transition-colors ${selectedId === card.id ? "bg-surface-raised border-l-2 border-l-accent-orange" : "hover:bg-surface-muted"}`}>
-            <span class={`text-[11px] tracking-wider ${TYPE_COLORS[card.type] || "text-slate"}`}>{t(`type.${card.type}` as any, lang)}</span>
-            <div class="text-sm mt-1">{cardTitle(card, lang)}</div>
-            <div class="text-xs text-slate-light mt-1">{card.readingMinutes} min · {card.tags.join(", ")}</div>
-          </button>
-        ))}
-      </div>
+
+            {/* Card rows (expanded) */}
+            {isExpanded && groupCards.map((card) => (
+              <button
+                key={card.id}
+                onClick={() => onSelect(card.id)}
+                class={`w-full flex items-start gap-2 pl-6 pr-3 py-2 border-b border-surface-border text-left transition-colors ${selectedId === card.id ? "bg-surface-raised border-l-2 border-l-accent-orange" : "hover:bg-surface-muted"}`}
+              >
+                <span class={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${TYPE_COLORS[card.type] || "bg-slate"}`} />
+                <span class="text-xs leading-snug text-charcoal">{cardTitle(card, lang)}</span>
+              </button>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
