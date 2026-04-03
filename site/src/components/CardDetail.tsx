@@ -21,7 +21,7 @@ function renderBody(card: Card, lang: Lang) {
   switch (card.type) {
     case "fact": return <FactCard body={body} lang={lang} />;
     case "problem-solution": return <ProblemSolutionCard body={body} lang={lang} />;
-    case "concept-model": return <ConceptModelCard body={body} lang={lang} cardId={card.id} />;
+    case "concept-model": return <ConceptModelCard body={body} lang={lang} cardId={card.diagram ? card.id : undefined} />;
     case "how-to": return <HowToCard body={body} lang={lang} />;
     case "comparison": return <ComparisonCard body={body} lang={lang} />;
     case "architecture": return <ArchitectureCard body={body} lang={lang} />;

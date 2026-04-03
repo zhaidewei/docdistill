@@ -45,7 +45,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
     switch (card.type) {
       case "fact": return <FactCard body={body} lang={lang} />;
       case "problem-solution": return <ProblemSolutionCard body={body} lang={lang} />;
-      case "concept-model": return <ConceptModelCard body={body} lang={lang} cardId={card.id} />;
+      case "concept-model": return <ConceptModelCard body={body} lang={lang} cardId={card.diagram ? card.id : undefined} />;
       case "how-to": return <HowToCard body={body} lang={lang} />;
       case "comparison": return <ComparisonCard body={body} lang={lang} />;
       case "architecture": return <ArchitectureCard body={body} lang={lang} />;
@@ -172,7 +172,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
   }
 
   return (
-    <div class="flex flex-col h-full bg-surface overflow-hidden">
+    <div class="flex flex-col h-full bg-surface overflow-hidden max-w-2xl mx-auto w-full">
       {/* Header */}
       <div class="px-4 pt-4 pb-2">
         <div class="flex items-center justify-between mb-2">
