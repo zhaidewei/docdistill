@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import CollectionPage from "../components/CollectionPage.tsx";
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
+
+const cardsDir = join(process.cwd(), "../content/cards");
+let cards = [];
+try {
+  const files = readdirSync(cardsDir).filter((f) => f.endsWith(".json"));
+  cards = files.map((f) => JSON.parse(readFileSync(join(cardsDir, f), "utf-8")));
+} catch {}
+---
+
+<Base title="报错" activePage="reported">
+  <CollectionPage client:load cards={cards} mode="reported" />
+</Base>
