@@ -1,6 +1,4 @@
-import { useState } from "preact/hooks";
-import type { Card, Annotation } from "../lib/types";
-import { getAnnotation, saveAnnotation } from "../lib/annotations";
+import type { Card } from "../lib/types";
 import { useLang, t, cardTitle, cardBody, type Lang } from "../lib/i18n";
 import FactCard from "./card-renderers/FactCard";
 import ProblemSolutionCard from "./card-renderers/ProblemSolutionCard";
@@ -32,26 +30,6 @@ function renderBody(card: Card, lang: Lang) {
 
 export default function CardDetail({ card }: { card: Card }) {
   const [lang] = useLang();
-  const [annotation, setAnnotation] = useState<Annotation>(() => getAnnotation(card.id));
-  const [input, setInput] = useState("");
-  const [inputMode, setInputMode] = useState<"comment" | "question" | null>(null);
-
-  function update(patch: Partial<Annotation>) {
-    const next = { ...annotation, ...patch };
-    setAnnotation(next);
-    saveAnnotation(card.id, next);
-  }
-
-  function submitInput() {
-    if (!input.trim() || !inputMode) return;
-    if (inputMode === "comment") {
-      update({ comments: [...annotation.comments, input.trim()] });
-    } else {
-      update({ questions: [...annotation.questions, input.trim()] });
-    }
-    setInput("");
-    setInputMode(null);
-  }
 
   return (
     <div class="h-full flex flex-col">
@@ -66,28 +44,6 @@ export default function CardDetail({ card }: { card: Card }) {
         </div>
       </div>
       <div class="flex-1 overflow-y-auto p-5">{renderBody(card, lang)}</div>
-      {(annotation.comments.length > 0 || annotation.questions.length > 0) && (
-        <div class="px-5 pb-3 space-y-2">
-          {annotation.comments.map((c, i) => (
-            <div key={`c${i}`} class="text-xs bg-surface-raised p-2 rounded text-slate">💬 {c}</div>
-          ))}
-          {annotation.questions.map((q, i) => (
-            <div key={`q${i}`} class="text-xs bg-surface-raised p-2 rounded text-amber-600">❓ {q}</div>
-          ))}
-        </div>
-      )}
-      {inputMode && (
-        <div class="px-5 pb-3 flex gap-2">
-          <input type="text" value={input} onInput={(e) => setInput((e.target as HTMLInputElement).value)} onKeyDown={(e) => e.key === "Enter" && submitInput()} placeholder={inputMode === "comment" ? t("anno.writeNote", lang) : t("anno.writeQuestion", lang)} class="flex-1 bg-surface border border-surface-border rounded px-3 py-1.5 text-sm text-charcoal placeholder-slate-light focus:outline-none focus:border-accent-orange" autoFocus />
-          <button onClick={submitInput} class="px-3 py-1.5 bg-accent-orange text-white rounded text-sm hover:bg-accent-orange/80">{t("anno.save", lang)}</button>
-          <button onClick={() => { setInputMode(null); setInput(""); }} class="px-3 py-1.5 text-slate text-sm hover:text-charcoal">{t("anno.cancel", lang)}</button>
-        </div>
-      )}
-      <div class="flex gap-2 p-3 border-t border-surface-border">
-        <button onClick={() => update({ starred: !annotation.starred })} class={`px-3 py-1.5 rounded text-sm transition-colors ${annotation.starred ? "bg-accent-orange/10 text-accent-orange" : "bg-surface-muted text-slate hover:text-charcoal"}`}>{t("anno.star", lang)}</button>
-        <button onClick={() => setInputMode("comment")} class="px-3 py-1.5 rounded text-sm bg-surface-muted text-slate hover:text-charcoal">{t("anno.comment", lang)}</button>
-        <button onClick={() => setInputMode("question")} class="px-3 py-1.5 rounded text-sm bg-surface-muted text-slate hover:text-charcoal">{t("anno.question", lang)}</button>
-      </div>
     </div>
   );
 }

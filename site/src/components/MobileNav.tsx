@@ -3,10 +3,9 @@ import { useLang, t } from "../lib/i18n";
 const items = [
   { id: "cards", href: "/cards", icon: "📚", key: "nav.cards" as const },
   { id: "graph", href: "/graph", icon: "🗺️", key: "nav.graph" as const },
-  { id: "notes", href: "/notes", icon: "📝", key: "nav.notes" as const },
 ];
 
-export default function MobileNav({ activePage }: { activePage: "cards" | "graph" | "notes" }) {
+export default function MobileNav({ activePage }: { activePage: "cards" | "graph" }) {
   const [lang] = useLang();
   return (
     <nav class="fixed bottom-0 left-0 right-0 z-50 flex border-t border-surface-border bg-surface-raised md:hidden">
