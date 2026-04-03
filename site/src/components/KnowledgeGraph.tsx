@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Graph, Card, GraphNode } from "../lib/types";
+import { useLang, t } from "../lib/i18n";
 
 const RELATION_COLORS: Record<string, string> = {
   requires: "#f97316",
@@ -16,6 +17,7 @@ interface SimNode extends GraphNode {
 }
 
 export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: Card[] }) {
+  const [lang] = useLang();
   const svgRef = useRef<SVGSVGElement>(null);
   const [selected, setSelected] = useState<SimNode | null>(null);
 
@@ -125,21 +127,21 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       <svg ref={svgRef} class="w-full h-full" />
       {selected && (
         <div class="absolute top-4 right-4 w-56 bg-black/80 border border-accent-orange/30 rounded-lg p-4 text-sm">
-          <div class="text-[11px] text-accent-orange tracking-wider mb-1">SELECTED NODE</div>
+          <div class="text-[11px] text-accent-orange tracking-wider mb-1">{t("graph.selectedNode", lang)}</div>
           <div class="font-medium text-base mb-2">{selected.label}</div>
-          <div class="text-gray-500 text-xs mb-3">{selected.cardCount} 张卡片 · {selected.group}</div>
+          <div class="text-gray-500 text-xs mb-3">{selected.cardCount} {t("graph.cards", lang)} · {selected.group}</div>
           {requires.length > 0 && (
             <div class="text-gray-400 text-xs mb-1">
-              <span class="text-accent-orange">←</span> 需要先了解: {requires.join(", ")}
+              <span class="text-accent-orange">←</span> {t("graph.requires", lang)}: {requires.join(", ")}
             </div>
           )}
           {extends_.length > 0 && (
             <div class="text-gray-400 text-xs mb-3">
-              <span class="text-accent-green">→</span> 延伸: {extends_.join(", ")}
+              <span class="text-accent-green">→</span> {t("graph.extends", lang)}: {extends_.join(", ")}
             </div>
           )}
           <a href={`/?card=${selected.id}`} class="block text-center bg-surface-raised text-gray-200 px-3 py-1.5 rounded text-xs hover:bg-surface-raised/80">
-            查看相关卡片 →
+            {t("graph.viewCards", lang)}
           </a>
         </div>
       )}

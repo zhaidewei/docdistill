@@ -1,5 +1,6 @@
 import type { ComparisonBody } from "../../lib/types";
-export default function ComparisonCard({ body }: { body: ComparisonBody }) {
+import type { Lang } from "../../lib/i18n";
+export default function ComparisonCard({ body, lang }: { body: ComparisonBody; lang: Lang }) {
   return (
     <div class="space-y-3">
       <div class="overflow-x-auto">

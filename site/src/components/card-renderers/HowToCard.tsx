@@ -1,9 +1,10 @@
 import type { HowToBody } from "../../lib/types";
-export default function HowToCard({ body }: { body: HowToBody }) {
+import { t, type Lang } from "../../lib/i18n";
+export default function HowToCard({ body, lang }: { body: HowToBody; lang: Lang }) {
   return (
     <div class="space-y-3">
       <div class="bg-green-500/10 border-l-3 border-accent-green p-4 rounded-r">
-        <div class="text-[11px] text-accent-green tracking-wider mb-1">GOAL</div>
+        <div class="text-[11px] text-accent-green tracking-wider mb-1">{t("label.goal", lang)}</div>
         <div class="text-gray-200">{body.goal}</div>
       </div>
       <ol class="space-y-2 pl-0">

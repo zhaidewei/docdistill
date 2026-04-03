@@ -1,9 +1,12 @@
 import { useState } from "preact/hooks";
 import type { Card } from "../lib/types";
+import { useLang, t } from "../lib/i18n";
 import CardList from "./CardList";
 import CardDetail from "./CardDetail";
+import LangToggle from "./LangToggle";
 
 export default function CardBrowser({ cards }: { cards: Card[] }) {
+  const [lang] = useLang();
   const [selectedId, setSelectedId] = useState<string | null>(cards[0]?.id || null);
   const [filter, setFilter] = useState("");
   const selectedCard = cards.find((c) => c.id === selectedId) || null;
@@ -17,7 +20,12 @@ export default function CardBrowser({ cards }: { cards: Card[] }) {
         {selectedCard ? (
           <CardDetail key={selectedCard.id} card={selectedCard} />
         ) : (
-          <div class="flex items-center justify-center h-full text-gray-500">选择一张卡片开始阅读</div>
+          <div class="flex flex-col items-center justify-center h-full gap-4">
+            <div class="absolute top-4 right-4">
+              <LangToggle />
+            </div>
+            <div class="text-gray-500">{t("browser.select", lang)}</div>
+          </div>
         )}
       </div>
     </div>

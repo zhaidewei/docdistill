@@ -1,16 +1,13 @@
 ---
+import LangToggle from "../components/LangToggle.tsx";
+import NavLinks from "../components/NavLinks.tsx";
+
 interface Props {
   title: string;
   activePage: "cards" | "graph" | "notes";
 }
 
 const { title, activePage } = Astro.props;
-
-const navItems = [
-  { id: "cards", label: "卡片", href: "/" },
-  { id: "graph", label: "图谱", href: "/graph" },
-  { id: "notes", label: "笔记", href: "/notes" },
-] as const;
 ---
 
 <!doctype html>
@@ -23,20 +20,9 @@ const navItems = [
   <body class="bg-surface text-gray-200 min-h-screen flex flex-col">
     <nav class="flex items-center gap-6 px-6 py-3 border-b border-surface-border">
       <span class="text-accent-orange font-bold text-lg">Anthropic Learn</span>
-      <div class="flex gap-1">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              "px-3 py-1.5 rounded text-sm transition-colors",
-              activePage === item.id
-                ? "bg-surface-raised text-white"
-                : "text-gray-400 hover:text-gray-200",
-            ]}
-          >
-            {item.label}
-          </a>
-        ))}
+      <NavLinks client:load activePage={activePage} />
+      <div class="ml-auto">
+        <LangToggle client:load />
       </div>
     </nav>
     <main class="flex-1 overflow-hidden">

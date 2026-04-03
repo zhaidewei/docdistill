@@ -1,6 +1,8 @@
 import { useState, useEffect } from "preact/hooks";
 import { getAllAnnotations, exportToMarkdown } from "../lib/annotations";
 import type { Annotation } from "../lib/types";
+import { useLang, t } from "../lib/i18n";
+import LangToggle from "./LangToggle";
 
 type Tab = "starred" | "comments" | "questions";
 
@@ -10,6 +12,7 @@ interface CardMeta {
 }
 
 export default function NotesPage({ cards }: { cards: CardMeta[] }) {
+  const [lang] = useLang();
   const [tab, setTab] = useState<Tab>("starred");
   const [annotations, setAnnotations] = useState<Record<string, Annotation>>({});
   const [selected, setSelected] = useState<Set<string>>(new Set());
@@ -50,37 +53,46 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
     setTimeout(() => setCopyFeedback(false), 2000);
   }
 
-  const tabs: { id: Tab; label: string; icon: string }[] = [
-    { id: "starred", label: "收藏", icon: "⭐" },
-    { id: "comments", label: "笔记", icon: "💬" },
-    { id: "questions", label: "问题", icon: "❓" },
+  const tabs: { id: Tab; labelKey: "notes.starred" | "notes.comments" | "notes.questions"; icon: string }[] = [
+    { id: "starred", labelKey: "notes.starred", icon: "⭐" },
+    { id: "comments", labelKey: "notes.comments", icon: "💬" },
+    { id: "questions", labelKey: "notes.questions", icon: "❓" },
   ];
+
+  const emptyKeys: Record<Tab, "notes.empty.starred" | "notes.empty.comments" | "notes.empty.questions"> = {
+    starred: "notes.empty.starred",
+    comments: "notes.empty.comments",
+    questions: "notes.empty.questions",
+  };
 
   return (
     <div class="max-w-3xl mx-auto p-6">
-      <div class="flex gap-1 mb-6">
-        {tabs.map((t) => (
-          <button key={t.id} onClick={() => { setTab(t.id); setSelected(new Set()); }}
-            class={`px-4 py-2 rounded text-sm transition-colors ${tab === t.id ? "bg-accent-orange text-white" : "bg-surface-raised text-gray-400 hover:text-gray-200"}`}>
-            {t.icon} {t.label}
-          </button>
-        ))}
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex gap-1">
+          {tabs.map((tabItem) => (
+            <button key={tabItem.id} onClick={() => { setTab(tabItem.id); setSelected(new Set()); }}
+              class={`px-4 py-2 rounded text-sm transition-colors ${tab === tabItem.id ? "bg-accent-orange text-white" : "bg-surface-raised text-gray-400 hover:text-gray-200"}`}>
+              {tabItem.icon} {t(tabItem.labelKey, lang)}
+            </button>
+          ))}
+        </div>
+        <LangToggle />
       </div>
 
       <div class="flex items-center justify-between mb-4">
         <label class="flex items-center gap-2 text-sm text-gray-400">
           <input type="checkbox" checked={filteredCards.length > 0 && selected.size === filteredCards.length} onChange={selectAll} class="rounded" />
-          全选 ({filteredCards.length})
+          {t("notes.selectAll", lang)} ({filteredCards.length})
         </label>
         <button onClick={copyToClipboard}
           class="px-4 py-1.5 bg-accent-orange text-white rounded text-sm hover:bg-accent-orange/80 transition-colors">
-          {copyFeedback ? "✓ 已复制" : `📋 复制到剪贴板${selected.size > 0 ? ` (${selected.size})` : ""}`}
+          {copyFeedback ? t("notes.copied", lang) : `${t("notes.copy", lang)}${selected.size > 0 ? ` (${selected.size})` : ""}`}
         </button>
       </div>
 
       {filteredCards.length === 0 ? (
         <div class="text-center text-gray-500 py-16">
-          还没有{tabs.find((t) => t.id === tab)?.label}
+          {t(emptyKeys[tab], lang)}
         </div>
       ) : (
         <div class="space-y-2">
