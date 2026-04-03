@@ -22,5 +22,5 @@
     "system-prompt-right-altitude"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n    A([High Recall]) -->|gentle slope| B[Moderate Recall]\n    B --> DRZ{Diminishing Returns Zone}\n    DRZ -->|minimal gain| C([Lower Recall])\n\n    T1[Few Tokens in Context] -.->|x-axis| T2[Many Tokens in Context]\n```"
+  "diagram": "flowchart LR\n    A([High Recall]) -->|gentle slope| B[Moderate Recall]\n    B --> DRZ{Diminishing Returns Zone}\n    DRZ -->|minimal gain| C([Lower Recall])\n\n    T1[Few Tokens in Context] -.->|x-axis| T2[Many Tokens in Context]"
 }

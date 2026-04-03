@@ -23,5 +23,5 @@
     "claude-decides-tools-never-executes"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n  A([Caller]) --> B[Exact args]\n  B --> C[Function]\n  C --> D[Deterministic output]\n\n  E([Agent]) --> F{Decide if/how to call}\n  F --> G[Tool]\n  G --> H[Agent interprets result]\n```"
+  "diagram": "flowchart LR\n  A([Caller]) --> B[Exact args]\n  B --> C[Function]\n  C --> D[Deterministic output]\n\n  E([Agent]) --> F{Decide if/how to call}\n  F --> G[Tool]\n  G --> H[Agent interprets result]"
 }

@@ -21,5 +21,5 @@
     "opus-sonnet-haiku-comparison"
   ],
   "relationType": "complements",
-  "diagram": "```\nflowchart LR\n    shared[\"Shared by all —\\ntext+image, multilingual, vision\"]\n    opus([Highest Intelligence / Opus])\n    sonnet[Balanced / Sonnet]\n    haiku([Fastest Speed / Haiku])\n\n    opus --> sonnet --> haiku\n    shared -.-> opus\n    shared -.-> sonnet\n    shared -.-> haiku\n```"
+  "diagram": "flowchart LR\n    shared[\"Shared by all —\\ntext+image, multilingual, vision\"]\n    opus([Highest Intelligence / Opus])\n    sonnet[Balanced / Sonnet]\n    haiku([Fastest Speed / Haiku])\n\n    opus --> sonnet --> haiku\n    shared -.-> opus\n    shared -.-> sonnet\n    shared -.-> haiku"
 }

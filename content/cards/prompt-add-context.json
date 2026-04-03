@@ -21,5 +21,5 @@
     "prompt-clear-and-direct"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n    A([instruction]) -->|narrow| B([execution])\n    C([instruction + motivation]) -->|wide| D([understanding]) --> E([better execution])\n```"
+  "diagram": "flowchart LR\n    A([instruction]) -->|narrow| B([execution])\n    C([instruction + motivation]) -->|wide| D([understanding]) --> E([better execution])"
 }

@@ -22,5 +22,5 @@
     "effort-reduce-cost-simple-tasks"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([low]) --> B([medium]) --> C([high]) --> D([max])\n    A -->|cheaper, faster| L[ ]\n    D -->|deeper, higher quality| R[ ]\n\nHmm, that doesn't quite capture it. Let me think more carefully:\n\nflowchart LR\n    L[cheaper, faster] -->|←| A([low]) --> B([medium]) --> C([high]) --> D([max]) -->|→| R[deeper, higher quality]"
+  "diagram": "flowchart LR\n    L[cheaper, faster] -->|←| A([low]) --> B([medium]) --> C([high]) --> D([max]) -->|→| R[deeper, higher quality]"
 }

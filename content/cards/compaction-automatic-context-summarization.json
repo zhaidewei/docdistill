@@ -23,5 +23,5 @@
     "context-engineering-curating-what-model-sees"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n    A([Older messages]) --> B[Faded messages...]\n    B --> C[More messages...]\n    C --> D[Recent messages]\n    D -->|compaction| E[Summary]\n    E --> F[Recent message 1]\n    F --> G[Recent message 2]\n    G --> H([Latest message])\n```"
+  "diagram": "flowchart LR\n    A([Older messages]) --> B[Faded messages...]\n    B --> C[More messages...]\n    C --> D[Recent messages]\n    D -->|compaction| E[Summary]\n    E --> F[Recent message 1]\n    F --> G[Recent message 2]\n    G --> H([Latest message])"
 }

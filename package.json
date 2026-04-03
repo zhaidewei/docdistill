@@ -15,5 +15,8 @@
   "dependencies": {
     "cheerio": "^1.2.0",
     "playwright": "^1.59.1"
+  },
+  "devDependencies": {
+    "mermaid-isomorphic": "^3.1.0"
   }
 }

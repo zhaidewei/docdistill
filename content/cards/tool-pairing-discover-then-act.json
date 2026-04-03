@@ -23,5 +23,5 @@
     "client-tools-vs-server-tools"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n  subgraph Discovery\n    A[web_search]\n    B[text_editor]\n    C[MCP query tools]\n  end\n  subgraph Action\n    D[code_execution]\n    E[bash]\n    F[MCP write tools]\n  end\n  Discovery -->|Claude decides when to switch| Action\n```"
+  "diagram": "flowchart LR\n  subgraph Discovery\n    A[web_search]\n    B[text_editor]\n    C[MCP query tools]\n  end\n  subgraph Action\n    D[code_execution]\n    E[bash]\n    F[MCP write tools]\n  end\n  Discovery -->|Claude decides when to switch| Action"
 }

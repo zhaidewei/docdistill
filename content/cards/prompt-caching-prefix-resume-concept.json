@@ -23,5 +23,5 @@
     "cached-tokens-cost-90-percent-less"
   ],
   "relationType": "introduces",
-  "diagram": "```\nflowchart LR\n    SP[System Prompt] --> LD[Long Doc] --> CH[Chat History] --> NQ[New Question]\n    SP & LD & CH -->|cache hit| C[(Cache)]\n    NQ -->|fresh processing| F[New Tokens]\n```"
+  "diagram": "flowchart LR\n    SP[System Prompt] --> LD[Long Doc] --> CH[Chat History] --> NQ[New Question]\n    SP & LD & CH -->|cache hit| C[(Cache)]\n    NQ -->|fresh processing| F[New Tokens]"
 }

@@ -22,5 +22,5 @@
     "tools-minimal-viable-set"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n    A([Too rigid: brittle if-else]) --> B[Right altitude:\\nspecific heuristics\\n+ flexible judgment]\n    B --> C([Too vague: assumes\\nshared context])\n    style B fill:#4caf50,color:#fff,stroke:#388e3c\n```"
+  "diagram": "flowchart LR\n    A([Too rigid: brittle if-else]) --> B[Right altitude:\\nspecific heuristics\\n+ flexible judgment]\n    B --> C([Too vague: assumes\\nshared context])\n    style B fill:#4caf50,color:#fff,stroke:#388e3c"
 }
