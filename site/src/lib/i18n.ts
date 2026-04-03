@@ -38,6 +38,9 @@ const strings = {
   "nav.cards": { zh: "卡片", en: "Cards" },
   "nav.graph": { zh: "图谱", en: "Graph" },
   "nav.notes": { zh: "笔记", en: "Notes" },
+  "nav.swipe": { zh: "刷卡", en: "Swipe" },
+  "nav.starred": { zh: "⭐ 收藏", en: "⭐ Starred" },
+  "nav.reported": { zh: "🚩 报错", en: "🚩 Reported" },
 
   // Card types
   "type.fact": { zh: "事实", en: "FACT" },
@@ -85,6 +88,8 @@ const strings = {
   "swipe.allDoneDesc": { zh: "张卡片已掌握", en: "cards mastered" },
   "swipe.reviewPending": { zh: "张待复习", en: "to review" },
   "swipe.startReview": { zh: "复习待复习的卡片", en: "Review pending cards" },
+  "swipe.starLabel": { zh: "收藏", en: "Star" },
+  "swipe.reportLabel": { zh: "报错", en: "Report" },
 
   // Notes page
   "notes.starred": { zh: "收藏", en: "Starred" },
@@ -115,6 +120,13 @@ const strings = {
   "home.progress.review": { zh: "待复习", en: "to review" },
   "home.progress.unseen": { zh: "未学习", en: "unseen" },
   "home.progress.allDone": { zh: "全部掌握！去复习巩固吧", en: "All done! Time to review." },
+
+  // Collection pages
+  "collection.starred.title": { zh: "我的收藏", en: "Starred Cards" },
+  "collection.starred.empty": { zh: "还没有收藏的卡片", en: "No starred cards yet" },
+  "collection.reported.title": { zh: "报错卡片", en: "Reported Cards" },
+  "collection.reported.empty": { zh: "没有报错记录", en: "No reported cards" },
+  "collection.reported.desc": { zh: "以下卡片被标记为内容有误，供核查", en: "These cards have been flagged as potentially incorrect." },
 } as const;
 
 // Helper to pick localized card content
