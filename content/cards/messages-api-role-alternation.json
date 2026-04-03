@@ -10,14 +10,14 @@
   ],
   "readingMinutes": 2,
   "body": {
-    "problem": "调用 Messages API 时收到 400 错误，消息内容看起来没问题，但 API 就是拒绝。常见原因：messages 数组里出现了连续两条相同 role 的消息（比如两条 user 消息紧挨着），或者第一条消息不是 user 角色。",
-    "solution": "Messages API 强制要求：(1) 第一条消息必须是 role: user；(2) 之后 user 和 assistant 必须严格交替。如果你的应用逻辑会产生连续的 user 消息（比如用户连发两条），在调用 API 前把它们合并成一条。如果需要 Claude 先说话，用 system 参数而不是 assistant 消息开头。",
-    "keyTakeaway": "messages 数组 = 严格的 user → assistant → user → assistant 序列，第一条永远是 user。违反就是 400。"
+    "problem": "用 Messages API 构建多轮对话时，不确定 messages 数组该怎么组织。常见困惑：消息历史是否需要严格交替？assistant 消息是否必须来自真实的 Claude 响应？",
+    "solution": "Messages API 是无状态的——每次调用都需要发送完整的对话历史。关键规则：(1) 你可以使用 synthetic assistant messages（人工构造的 assistant 消息）来引导对话；(2) 对话历史中的 assistant 消息不必来自真实的 Claude 响应；(3) 如果需要 Claude 以特定方式开场，用 system 参数设定角色，或在末尾放一条 assistant 消息进行 prefill。注意：实践中连续相同 role 的消息可能导致 400 错误，建议保持 user/assistant 交替排列。",
+    "keyTakeaway": "Messages API 无状态，每次发完整历史。可以用 synthetic assistant messages 构造上下文，保持 user/assistant 交替排列。"
   },
   "body_en": {
-    "problem": "You get a 400 error from the Messages API even though the message content looks correct. Common cause: the messages array has two consecutive messages with the same role (e.g., two user messages in a row), or the first message isn't role: user.",
-    "solution": "The Messages API strictly requires: (1) first message must be role: user; (2) user and assistant must strictly alternate after that. If your app logic produces consecutive user messages (e.g., user sends two in a row), merge them into one before calling the API. If you need Claude to speak first, use the system parameter instead of starting with an assistant message.",
-    "keyTakeaway": "The messages array = strict user → assistant → user → assistant sequence, always starting with user. Violate this and you get a 400."
+    "problem": "When building multi-turn conversations with the Messages API, it's unclear how to organize the messages array. Common questions: must messages strictly alternate? Must assistant messages come from real Claude responses?",
+    "solution": "The Messages API is stateless — you send the full conversation history with every call. Key rules: (1) you can use synthetic assistant messages (manually constructed) to guide the conversation; (2) assistant messages in the history don't have to come from real Claude responses; (3) if you need Claude to start in a specific way, use the system parameter for role-setting, or place an assistant message at the end for prefill. Note: in practice, consecutive messages with the same role may cause 400 errors, so maintain user/assistant alternation.",
+    "keyTakeaway": "Messages API is stateless — send full history each time. You can use synthetic assistant messages to shape context; keep user/assistant alternation."
   },
   "relatedIds": [
     "messages-api-multi-turn-conversation"

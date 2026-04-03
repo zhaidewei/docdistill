@@ -183,8 +183,8 @@
       "cardCount": 3
     },
     {
-      "id": "compaction-how-it-works-three-steps",
-      "label": "Compaction 工作流程：三步自动压缩",
+      "id": "compaction-how-it-works-four-steps",
+      "label": "Compaction 工作流程：四步自动压缩",
       "group": "compaction",
       "type": "how-to",
       "cardCount": 3
@@ -1047,7 +1047,7 @@
       "relation": "extends"
     },
     {
-      "from": "compaction-how-it-works-three-steps",
+      "from": "compaction-how-it-works-four-steps",
       "to": "compaction-automatic-context-summarization",
       "relation": "details"
     },

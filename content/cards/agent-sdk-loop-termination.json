@@ -1,8 +1,8 @@
 {
   "id": "agent-sdk-loop-termination",
   "type": "concept-model",
-  "title": "Agent loop 何时结束：3 种终止条件",
-  "title_en": "When the Agent Loop Ends: 3 Termination Conditions",
+  "title": "Agent loop 何时结束：ResultMessage.subtype 决定终止状态",
+  "title_en": "When the Agent Loop Ends: ResultMessage.subtype Determines Termination State",
   "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
   "tags": [
     "agent-sdk",
@@ -11,14 +11,14 @@
   ],
   "readingMinutes": 2,
   "body": {
-    "concept": "Agent loop 有 3 种停止方式：(1) 正常完成——Claude 的响应不包含任何工具调用，表示任务做完了；(2) 费用/token 限制——累计费用或 token 用量达到你设定的上限，SDK 强制中止循环；(3) hooks 拦截——你注册的 hook 函数拒绝了某次工具调用，循环被中断。只有方式 1 是 Claude 主动判断「我做完了」，方式 2 和 3 都是外部强制停止。",
-    "analogy": "想象一个厨师在厨房做菜。正常完成 = 菜做好了端上桌；费用上限 = 食材预算用完了必须停手；hooks 拦截 = 经理走进来说「这个操作不允许」。厨师只有第一种情况是按自己意愿结束的。",
-    "visual": "循环运行 → [Claude 无工具调用？] → 是 → 正常结束(ResultMessage)。否 → [超出费用/token 限制？] → 是 → 强制中止。否 → [Hook 拒绝？] → 是 → 中断。否 → 继续下一个 turn。"
+    "concept": "Agent loop 结束时，SDK 产出 ResultMessage，其 `subtype` 字段标明终止原因。共 5 种 subtype：(1) `success`——Claude 的响应不含工具调用，任务正常完成，`result` 字段包含最终文本；(2) `error_max_turns`——触达 maxTurns 上限；(3) `error_max_budget_usd`——累计费用超出 maxBudgetUsd 限制；(4) `error_during_execution`——执行过程中出错（如 API 故障或请求被取消）；(5) `error_max_structured_output_retries`——结构化输出校验在重试上限后仍然失败。只有 `success` 时 `result` 字段可用，其余 subtype 均不含最终文本。注意：hook 的 PreToolUse 回调可以拒绝某次工具调用（Claude 会收到拒绝消息并尝试其他方式），但这不构成独立的终止 subtype。",
+    "analogy": "想象一个厨师在厨房做菜。success = 菜做好了端上桌；error_max_turns = 只允许翻炒 N 次，次数用完必须停；error_max_budget_usd = 食材预算用完；error_during_execution = 灶台突然坏了；error_max_structured_output_retries = 反复摆盘都不达标。经理走进来拦下某个动作（hook rejection）不会直接关厨房，厨师会换个做法继续。",
+    "visual": "循环运行 → Claude 响应 → [无工具调用？] → 是 → ResultMessage(success)。否 → [达到 maxTurns？] → 是 → ResultMessage(error_max_turns)。否 → [超出 maxBudgetUsd？] → 是 → ResultMessage(error_max_budget_usd)。否 → [执行出错？] → 是 → ResultMessage(error_during_execution)。否 → 继续下一个 turn。"
   },
   "body_en": {
-    "concept": "The agent loop stops in 3 ways: (1) Normal completion — Claude's response contains no tool calls, meaning the task is done; (2) Cost/token limit — cumulative cost or token usage hits your configured cap, and the SDK force-stops the loop; (3) Hook rejection — a hook you registered blocks a tool call, interrupting the loop. Only case 1 is Claude's own judgment that 'I'm finished.' Cases 2 and 3 are external force-stops.",
-    "analogy": "Imagine a chef cooking in a kitchen. Normal completion = dish is done, serve it. Cost limit = ingredient budget ran out, must stop. Hook rejection = the manager walks in and says 'that operation isn't allowed.' The chef only ends willingly in the first case.",
-    "visual": "Loop running → [Claude has no tool calls?] → Yes → Normal end (ResultMessage). No → [Cost/token limit exceeded?] → Yes → Force stop. No → [Hook rejected?] → Yes → Interrupt. No → Continue to next turn."
+    "concept": "When the agent loop ends, the SDK yields a ResultMessage whose `subtype` field indicates why. There are 5 subtypes: (1) `success` — Claude's response has no tool calls, task completed normally, `result` field contains final text; (2) `error_max_turns` — hit the maxTurns limit; (3) `error_max_budget_usd` — cumulative cost exceeded maxBudgetUsd; (4) `error_during_execution` — an error interrupted the loop (e.g., API failure or cancelled request); (5) `error_max_structured_output_retries` — structured output validation failed after the configured retry limit. Only `success` carries the `result` field; all other subtypes do not contain final text. Note: a PreToolUse hook can reject a specific tool call (Claude receives the rejection and tries a different approach), but this is not a separate termination subtype.",
+    "analogy": "Imagine a chef cooking in a kitchen. success = dish is done, serve it. error_max_turns = only allowed N stir-fry rounds, must stop when used up. error_max_budget_usd = ingredient budget ran out. error_during_execution = stove suddenly broke. error_max_structured_output_retries = repeated plating attempts all failed quality check. A manager blocking one specific action (hook rejection) doesn't shut down the kitchen — the chef switches to a different approach.",
+    "visual": "Loop running → Claude responds → [No tool calls?] → Yes → ResultMessage(success). No → [Hit maxTurns?] → Yes → ResultMessage(error_max_turns). No → [Exceeded maxBudgetUsd?] → Yes → ResultMessage(error_max_budget_usd). No → [Execution error?] → Yes → ResultMessage(error_during_execution). No → Continue to next turn."
   },
   "relatedIds": [
     "agent-sdk-loop-message-flow",
