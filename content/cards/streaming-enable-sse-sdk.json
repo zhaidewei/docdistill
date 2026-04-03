@@ -31,5 +31,6 @@
   "relatedIds": [
     "streaming-event-lifecycle"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

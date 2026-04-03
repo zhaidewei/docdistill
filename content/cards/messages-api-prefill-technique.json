@@ -33,5 +33,6 @@
     "messages-api-request-structure",
     "structured-outputs-json-how-to"
   ],
-  "relationType": "related"
+  "relationType": "related",
+  "scope": "Claude API"
 }

@@ -23,5 +23,6 @@
     "client-tools-vs-server-tools"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([You]) --> B[tools + user message]\n    B --> C[Claude]\n    C --> D[tool_use block]\n    D --> E[Your app executes]\n    E --> F[tool_result]\n    F --> C\n    C --> G{More calls needed?}\n    G -->|yes| D\n    G -->|no| H[final answer]"
+  "diagram": "flowchart LR\n    A([You]) --> B[tools + user message]\n    B --> C[Claude]\n    C --> D[tool_use block]\n    D --> E[Your app executes]\n    E --> F[tool_result]\n    F --> C\n    C --> G{More calls needed?}\n    G -->|yes| D\n    G -->|no| H[final answer]",
+  "scope": "Claude API · Tool Use"
 }

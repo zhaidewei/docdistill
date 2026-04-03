@@ -20,5 +20,6 @@
   "relatedIds": [
     "context-window-token-math"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

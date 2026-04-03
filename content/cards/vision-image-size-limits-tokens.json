@@ -21,5 +21,6 @@
   "relatedIds": [
     "vision-send-image-two-methods"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

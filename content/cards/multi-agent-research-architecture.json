@@ -50,5 +50,6 @@
     "multi-agent-performance-gains",
     "search-as-parallel-compression"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

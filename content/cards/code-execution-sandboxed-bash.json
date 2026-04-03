@@ -23,5 +23,6 @@
     "code-execution-free-with-web-tools"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([User Request]) --> B[Claude decides code needed]\n    B --> C[Runs Bash in sandbox]\n    C --> D[Results return to Claude]\n    D --> E([Claude integrates into response])"
+  "diagram": "flowchart LR\n    A([User Request]) --> B[Claude decides code needed]\n    B --> C[Runs Bash in sandbox]\n    C --> D[Results return to Claude]\n    D --> E([Claude integrates into response])",
+  "scope": "Claude API · Tool Use"
 }

@@ -22,5 +22,6 @@
     "multi-agent-research-architecture"
   ],
   "relationType": "supports",
-  "diagram": "flowchart LR\n    A([User Query]) --> B[LeadResearcher: decompose]\n    B --> C[SubAgent-A: angle 1]\n    B --> D[SubAgent-B: angle 2]\n    B --> E[SubAgent-C: angle 3]\n    C --> F[Compress findings]\n    D --> G[Compress findings]\n    E --> H[Compress findings]\n    F --> I[LeadResearcher: synthesize]\n    G --> I\n    H --> I\n    I --> J([Final Answer])"
+  "diagram": "flowchart LR\n    A([User Query]) --> B[LeadResearcher: decompose]\n    B --> C[SubAgent-A: angle 1]\n    B --> D[SubAgent-B: angle 2]\n    B --> E[SubAgent-C: angle 3]\n    C --> F[Compress findings]\n    D --> G[Compress findings]\n    E --> H[Compress findings]\n    F --> I[LeadResearcher: synthesize]\n    G --> I\n    H --> I\n    I --> J([Final Answer])",
+  "scope": "Anthropic Engineering"
 }

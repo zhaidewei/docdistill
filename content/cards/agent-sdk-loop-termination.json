@@ -23,5 +23,6 @@
     "agent-sdk-loop-turns-and-guardrails"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Loop running]) --> B[Claude responds]\n    B --> C{No tool calls?}\n    C -->|Yes| D[ResultMessage: success]\n    C -->|No| E{Hit maxTurns?}\n    E -->|Yes| F[ResultMessage: error_max_turns]\n    E -->|No| G{Exceeded maxBudgetUsd?}\n    G -->|Yes| H[ResultMessage: error_max_budget_usd]\n    G -->|No| I{Execution error?}\n    I -->|Yes| J[ResultMessage: error_during_execution]\n    I -->|No| A"
+  "diagram": "flowchart LR\n    A([Loop running]) --> B[Claude responds]\n    B --> C{No tool calls?}\n    C -->|Yes| D[ResultMessage: success]\n    C -->|No| E{Hit maxTurns?}\n    E -->|Yes| F[ResultMessage: error_max_turns]\n    E -->|No| G{Exceeded maxBudgetUsd?}\n    G -->|Yes| H[ResultMessage: error_max_budget_usd]\n    G -->|No| I{Execution error?}\n    I -->|Yes| J[ResultMessage: error_during_execution]\n    I -->|No| A",
+  "scope": "Agent SDK"
 }

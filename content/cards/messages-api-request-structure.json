@@ -21,5 +21,6 @@
     "claude-api-surface-five-areas"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n  req[\"{ model\\nmax_tokens\\nmessages[] }\"]\n  res[\"{ id\\nrole\\ncontent[]\\nstop_reason\\nusage: {input_tokens, output_tokens} }\"]\n  req --> res\n```"
+  "diagram": "```mermaid\nflowchart LR\n  req[\"{ model\\nmax_tokens\\nmessages[] }\"]\n  res[\"{ id\\nrole\\ncontent[]\\nstop_reason\\nusage: {input_tokens, output_tokens} }\"]\n  req --> res\n```",
+  "scope": "Claude API"
 }

@@ -24,5 +24,6 @@
     "tools-as-nondeterministic-contract"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Eval Agent]) --> B[Solve Tasks]\n    B --> C[Emit Results & Tool Feedback]\n    C --> D[Claude Code Analyzes Feedback]\n    D --> E[Rewrite Tool Descriptions]\n    E --> F[Re-run Eval]\n    F --> G{Performance Improved?}\n    G -->|yes| H([Done])\n    G -->|no| D"
+  "diagram": "flowchart LR\n    A([Eval Agent]) --> B[Solve Tasks]\n    B --> C[Emit Results & Tool Feedback]\n    C --> D[Claude Code Analyzes Feedback]\n    D --> E[Rewrite Tool Descriptions]\n    E --> F[Re-run Eval]\n    F --> G{Performance Improved?}\n    G -->|yes| H([Done])\n    G -->|no| D",
+  "scope": "Anthropic Engineering"
 }

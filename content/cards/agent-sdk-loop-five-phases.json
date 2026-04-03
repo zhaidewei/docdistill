@@ -58,5 +58,6 @@
     "agentic-loop-architecture",
     "agent-sdk-claude-code-loop-as-library"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Agent SDK"
 }

@@ -23,5 +23,6 @@
     "context-rot-attention-budget",
     "system-prompt-right-altitude"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

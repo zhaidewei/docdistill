@@ -34,5 +34,6 @@
     "tool-dev-prototype-eval-optimize-loop",
     "agent-sdk-loop-five-phases"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

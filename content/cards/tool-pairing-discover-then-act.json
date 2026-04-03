@@ -23,5 +23,6 @@
     "client-tools-vs-server-tools"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([discovery tools]):::disc --> |web_search| M{Claude decides\\nwhen to switch}\n    B([discovery tools]):::disc --> |text_editor| M\n    C([discovery tools]):::disc --> |MCP query tools| M\n    M --> |code_execution| X([action tools]):::act\n    M --> |bash| X\n    M --> |MCP write tools| X\n\n    classDef disc fill:#dbeafe,stroke:#3b82f6\n    classDef act fill:#dcfce7,stroke:#22c55e"
+  "diagram": "flowchart LR\n    A([discovery tools]):::disc --> |web_search| M{Claude decides\\nwhen to switch}\n    B([discovery tools]):::disc --> |text_editor| M\n    C([discovery tools]):::disc --> |MCP query tools| M\n    M --> |code_execution| X([action tools]):::act\n    M --> |bash| X\n    M --> |MCP write tools| X\n\n    classDef disc fill:#dbeafe,stroke:#3b82f6\n    classDef act fill:#dcfce7,stroke:#22c55e",
+  "scope": "Claude API · Tool Use"
 }

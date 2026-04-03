@@ -21,5 +21,6 @@
     "context-rot-attention-budget",
     "context-engineering-curating-what-model-sees"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

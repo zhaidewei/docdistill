@@ -23,5 +23,6 @@
   "relatedIds": [
     "web-fetch-how-it-works"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

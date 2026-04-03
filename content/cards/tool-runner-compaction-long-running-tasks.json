@@ -22,5 +22,6 @@
     "tool-runner-automatic-tool-execution"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Start]) --> B[Tokens accumulate]\n    B --> C{Hit threshold?}\n    C -->|no| B\n    C -->|yes| D[SDK summarizes context]\n    D --> E[Old messages replaced]\n    E --> F[Context space freed]\n    F --> G[Tool loop continues]\n    G --> B"
+  "diagram": "flowchart LR\n    A([Start]) --> B[Tokens accumulate]\n    B --> C{Hit threshold?}\n    C -->|no| B\n    C -->|yes| D[SDK summarizes context]\n    D --> E[Old messages replaced]\n    E --> F[Context space freed]\n    F --> G[Tool loop continues]\n    G --> B",
+  "scope": "Claude API · Tool Use"
 }

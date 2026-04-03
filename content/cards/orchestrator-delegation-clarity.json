@@ -24,5 +24,6 @@
     "multi-agent-prompting-principles",
     "multi-agent-research-architecture"
   ],
-  "relationType": "supports"
+  "relationType": "supports",
+  "scope": "Anthropic Engineering"
 }

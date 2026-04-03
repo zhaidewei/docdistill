@@ -22,5 +22,6 @@
     "effort-reduce-cost-simple-tasks"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    low --> medium --> high --> max\n    low -->|cheaper, faster| L[ ]\n    max -->|deeper, higher quality| R[ ]"
+  "diagram": "flowchart LR\n    low --> medium --> high --> max\n    low -->|cheaper, faster| L[ ]\n    max -->|deeper, higher quality| R[ ]",
+  "scope": "Claude API"
 }

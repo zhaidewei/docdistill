@@ -31,5 +31,6 @@
   "relatedIds": [
     "vision-image-size-limits-tokens"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

@@ -23,5 +23,6 @@
     "web-search-dynamic-filtering",
     "code-execution-sandboxed-bash"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

@@ -24,5 +24,6 @@
     "long-running-agent-harness-architecture",
     "agent-incremental-progress-clean-state"
   ],
-  "relationType": "part-of"
+  "relationType": "part-of",
+  "scope": "Anthropic Engineering"
 }

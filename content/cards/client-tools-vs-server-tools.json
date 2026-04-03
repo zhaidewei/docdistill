@@ -66,5 +66,6 @@
     "tool-use-lifecycle-four-steps",
     "claude-decides-tools-never-executes"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

@@ -23,5 +23,6 @@
     "client-tools-vs-server-tools"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n    A([API Request + tools]) --> B[Claude decides to run cmd]\n    B --> C[Anthropic server runs shell]\n    C --> D[Result returns to Claude]\n    D --> E{More commands needed?}\n    E -->|yes| B\n    E -->|no| F([Final answer to user])\n    C -.->|session persists| C\n```"
+  "diagram": "```mermaid\nflowchart LR\n    A([API Request + tools]) --> B[Claude decides to run cmd]\n    B --> C[Anthropic server runs shell]\n    C --> D[Result returns to Claude]\n    D --> E{More commands needed?}\n    E -->|yes| B\n    E -->|no| F([Final answer to user])\n    C -.->|session persists| C\n```",
+  "scope": "Claude API · Tool Use"
 }

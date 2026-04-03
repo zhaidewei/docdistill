@@ -86,5 +86,6 @@
     "web-search-dynamic-filtering",
     "web-search-tool-enable-and-usage"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

@@ -22,5 +22,6 @@
     "messages-api-prefill-technique",
     "structured-outputs-two-modes"
   ],
-  "relationType": "updates"
+  "relationType": "updates",
+  "scope": "Claude API · Testing"
 }

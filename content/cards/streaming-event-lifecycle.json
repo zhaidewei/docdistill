@@ -22,5 +22,6 @@
     "streaming-enable-sse-sdk"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n    A([message_start]) --> B[block_start]\n    B --> C[delta]\n    C --> D[delta ...]\n    D --> E[block_stop]\n    E -->|repeat × N| B\n    E --> F[message_delta]\n    F --> G([message_stop])\n```"
+  "diagram": "```mermaid\nflowchart LR\n    A([message_start]) --> B[block_start]\n    B --> C[delta]\n    C --> D[delta ...]\n    D --> E[block_stop]\n    E -->|repeat × N| B\n    E --> F[message_delta]\n    F --> G([message_stop])\n```",
+  "scope": "Claude API"
 }

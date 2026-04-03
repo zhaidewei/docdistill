@@ -21,5 +21,6 @@
     "context-window-token-math"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n  subgraph desk[\"🖥 Context Window (1M token limit)\"]\n    SP[System prompt]\n    CH[Conversation history]\n    CQ[Current query]\n    MR[Model response]\n  end\n  BS[/\"📚 Training data\\n(not in context)\"/]\n  desk -. outside .-> BS\n```"
+  "diagram": "```\nflowchart LR\n  subgraph desk[\"🖥 Context Window (1M token limit)\"]\n    SP[System prompt]\n    CH[Conversation history]\n    CQ[Current query]\n    MR[Model response]\n  end\n  BS[/\"📚 Training data\\n(not in context)\"/]\n  desk -. outside .-> BS\n```",
+  "scope": "Claude API"
 }

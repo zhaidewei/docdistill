@@ -42,5 +42,6 @@
     "web-search-tool-enable-and-usage",
     "code-execution-free-with-web-tools"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

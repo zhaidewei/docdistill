@@ -22,5 +22,6 @@
     "think-tool-vs-extended-thinking"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([tool_A result]) --> B[think: analyze & check policy]\n    B --> C[tool_B]\n    C --> D[think: confirm next step]\n    D --> E([final response])"
+  "diagram": "flowchart LR\n    A([tool_A result]) --> B[think: analyze & check policy]\n    B --> C[tool_B]\n    C --> D[think: confirm next step]\n    D --> E([final response])",
+  "scope": "Anthropic Engineering"
 }

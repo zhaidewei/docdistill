@@ -22,5 +22,6 @@
   "relatedIds": [
     "tool-use-lifecycle-four-steps"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

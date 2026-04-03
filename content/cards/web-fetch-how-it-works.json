@@ -50,5 +50,6 @@
     "web-fetch-vs-web-search",
     "web-fetch-dynamic-filtering"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

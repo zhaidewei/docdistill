@@ -24,5 +24,6 @@
     "web-fetch-how-it-works",
     "web-search-dynamic-filtering"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

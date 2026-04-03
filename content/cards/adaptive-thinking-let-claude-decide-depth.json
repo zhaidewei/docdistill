@@ -23,5 +23,6 @@
     "enable-extended-thinking-budget-tokens"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Request]) --> B{Complexity?}\n    B -->|Simple| C[Answer directly]\n    B -->|Complex| D[Deep thinking]\n    D --> E[Answer]\n    C --> F([Response])\n    E --> F"
+  "diagram": "flowchart LR\n    A([Request]) --> B{Complexity?}\n    B -->|Simple| C[Answer directly]\n    B -->|Complex| D[Deep thinking]\n    D --> E[Answer]\n    C --> F([Response])\n    E --> F",
+  "scope": "Claude API"
 }

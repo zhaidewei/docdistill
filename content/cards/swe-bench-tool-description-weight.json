@@ -22,5 +22,6 @@
     "swe-bench-agent-scaffold-design",
     "tools-minimal-viable-set"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

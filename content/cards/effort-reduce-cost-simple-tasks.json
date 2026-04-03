@@ -24,5 +24,6 @@
     "effort-parameter-concept",
     "effort-levels-comparison"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

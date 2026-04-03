@@ -22,5 +22,6 @@
   "relatedIds": [
     "prompt-clear-and-direct"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

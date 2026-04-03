@@ -23,5 +23,6 @@
     "memory-tool-file-based-persistence",
     "context-rot-attention-budget"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

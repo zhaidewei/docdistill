@@ -58,5 +58,6 @@
     "context-window-token-accounting",
     "tools-minimal-viable-set"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

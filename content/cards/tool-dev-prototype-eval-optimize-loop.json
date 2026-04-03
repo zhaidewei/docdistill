@@ -34,5 +34,6 @@
     "tools-as-nondeterministic-contract",
     "claude-optimize-own-tool-descriptions"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

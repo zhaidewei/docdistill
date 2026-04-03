@@ -21,5 +21,6 @@
   "relatedIds": [
     "swe-bench-agent-scaffold-design"
   ],
-  "relationType": "prerequisite"
+  "relationType": "prerequisite",
+  "scope": "Anthropic Engineering"
 }

@@ -66,5 +66,6 @@
     "agent-sdk-loop-five-phases",
     "agent-sdk-loop-turns-and-guardrails"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Agent SDK"
 }

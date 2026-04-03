@@ -31,5 +31,6 @@
   "relatedIds": [
     "tool-runner-vs-manual-agentic-loop"
   ],
-  "relationType": "complements"
+  "relationType": "complements",
+  "scope": "Claude API · Tool Use"
 }

@@ -65,5 +65,6 @@
   "relatedIds": [
     "tool-runner-automatic-tool-execution"
   ],
-  "relationType": "complements"
+  "relationType": "complements",
+  "scope": "Claude API · Tool Use"
 }

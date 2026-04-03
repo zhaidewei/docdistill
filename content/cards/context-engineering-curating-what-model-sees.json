@@ -22,5 +22,6 @@
     "context-rot-attention-budget"
   ],
   "relationType": "foundational",
-  "diagram": "flowchart LR\n    A([Universe of Information\\ntool results, history, data]) --> B{Funnel:\\nContext Window}\n    B -->|high-signal tokens only| C[Model Output]"
+  "diagram": "flowchart LR\n    A([Universe of Information\\ntool results, history, data]) --> B{Funnel:\\nContext Window}\n    B -->|high-signal tokens only| C[Model Output]",
+  "scope": "Anthropic Engineering"
 }

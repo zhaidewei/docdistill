@@ -66,5 +66,6 @@
     "adaptive-thinking-let-claude-decide-depth",
     "enable-extended-thinking-budget-tokens"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

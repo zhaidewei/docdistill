@@ -34,5 +34,6 @@
     "extended-thinking-concept",
     "extended-thinking-vs-standard"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

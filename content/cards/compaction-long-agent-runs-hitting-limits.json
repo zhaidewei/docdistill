@@ -23,5 +23,6 @@
   "relatedIds": [
     "compaction-automatic-context-summarization"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

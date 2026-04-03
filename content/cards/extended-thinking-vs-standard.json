@@ -76,5 +76,6 @@
     "extended-thinking-concept",
     "enable-extended-thinking-budget-tokens"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

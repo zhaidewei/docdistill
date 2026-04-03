@@ -76,5 +76,6 @@
     "web-search-how-it-works",
     "web-fetch-how-it-works"
   ],
-  "relationType": "complements"
+  "relationType": "complements",
+  "scope": "Claude API · Tool Use"
 }

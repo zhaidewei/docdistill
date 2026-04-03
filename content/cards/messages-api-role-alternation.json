@@ -22,5 +22,6 @@
   "relatedIds": [
     "messages-api-multi-turn-conversation"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

@@ -31,5 +31,6 @@
   "relatedIds": [
     "handle-parallel-tool-use-blocks"
   ],
-  "relationType": "supplements"
+  "relationType": "supplements",
+  "scope": "Claude API · Tool Use"
 }

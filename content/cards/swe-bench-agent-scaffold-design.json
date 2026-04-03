@@ -58,5 +58,6 @@
     "swe-bench-what-it-is",
     "swe-bench-tool-description-weight"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

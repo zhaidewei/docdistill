@@ -34,5 +34,6 @@
     "swe-bench-agent-scaffold-design",
     "system-prompt-right-altitude"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

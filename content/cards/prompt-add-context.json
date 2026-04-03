@@ -21,5 +21,6 @@
     "prompt-clear-and-direct"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n    A([Instruction]) -->|narrow| B([Execution])\n    A --> M[Motivation]\n    M --> U[Understanding]\n    U -->|wide| B\n```"
+  "diagram": "```mermaid\nflowchart LR\n    A([Instruction]) -->|narrow| B([Execution])\n    A --> M[Motivation]\n    M --> U[Understanding]\n    U -->|wide| B\n```",
+  "scope": "Claude API"
 }

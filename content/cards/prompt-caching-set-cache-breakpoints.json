@@ -31,5 +31,6 @@
     "prompt-caching-prefix-resume-concept",
     "cached-tokens-cost-90-percent-less"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

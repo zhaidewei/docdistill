@@ -21,5 +21,6 @@
   "relatedIds": [
     "bash-tool-persistent-shell-session"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

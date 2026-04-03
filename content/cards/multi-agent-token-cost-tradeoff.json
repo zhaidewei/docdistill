@@ -24,5 +24,6 @@
     "multi-agent-performance-gains",
     "multi-agent-research-architecture"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

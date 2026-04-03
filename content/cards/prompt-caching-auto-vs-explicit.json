@@ -64,5 +64,6 @@
   "relatedIds": [
     "prompt-caching-set-cache-breakpoints"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

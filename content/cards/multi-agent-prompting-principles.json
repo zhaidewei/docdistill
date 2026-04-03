@@ -34,5 +34,6 @@
     "orchestrator-delegation-clarity",
     "multi-agent-research-architecture"
   ],
-  "relationType": "supports"
+  "relationType": "supports",
+  "scope": "Anthropic Engineering"
 }

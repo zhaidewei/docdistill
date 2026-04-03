@@ -23,5 +23,6 @@
   "relatedIds": [
     "long-running-agent-harness-architecture"
   ],
-  "relationType": "part-of"
+  "relationType": "part-of",
+  "scope": "Anthropic Engineering"
 }

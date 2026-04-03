@@ -32,5 +32,6 @@
     "handle-tool-use-response-lifecycle",
     "tool-use-lifecycle-four-steps"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

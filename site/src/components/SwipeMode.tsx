@@ -257,6 +257,11 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
                 {t(`type.${current.type}` as any, lang)}
               </span>
               <span class="text-slate text-[10px]">{current.readingMinutes} min</span>
+              {current.scope && (
+                <span class="text-[10px] text-slate-light bg-surface-muted px-2 py-0.5 rounded ml-auto">
+                  {current.scope}
+                </span>
+              )}
             </div>
             <h2 class="text-lg font-medium leading-snug">{cardTitle(current, lang)}</h2>
             <div class="flex gap-1 mt-2">

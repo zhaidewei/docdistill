@@ -22,5 +22,6 @@
     "context-rot-curation"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n    SYS[System Prompt] --> U1[User]\n    U1 --> A1[Assistant]\n    A1 -->|next turn| U2[User]\n    U2 --> A2[Assistant]\n    A2 --> FREE[Space for new output]\n    A2 -->|water level rises| A2\n    FREE -->|shrinks each turn| FREE\n```"
+  "diagram": "```\nflowchart LR\n    SYS[System Prompt] --> U1[User]\n    U1 --> A1[Assistant]\n    A1 -->|next turn| U2[User]\n    U2 --> A2[Assistant]\n    A2 --> FREE[Space for new output]\n    A2 -->|water level rises| A2\n    FREE -->|shrinks each turn| FREE\n```",
+  "scope": "Claude API"
 }

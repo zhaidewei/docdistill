@@ -23,5 +23,6 @@
     "context-engineering-curating-what-model-sees"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Older messages]) -->|faded| B[Message N-4]\n    B --> C[Message N-3]\n    C --> D[Message N-2]\n    D --> E[Message N-1]\n    E -->|compaction| F[Summary]\n    F --> G[Recent Message 1]\n    G --> H[Recent Message 2]\n    H --> I([...bright recent msgs])"
+  "diagram": "flowchart LR\n    A([Older messages]) -->|faded| B[Message N-4]\n    B --> C[Message N-3]\n    C --> D[Message N-2]\n    D --> E[Message N-1]\n    E -->|compaction| F[Summary]\n    F --> G[Recent Message 1]\n    G --> H[Recent Message 2]\n    H --> I([...bright recent msgs])",
+  "scope": "Claude API"
 }

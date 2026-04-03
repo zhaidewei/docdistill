@@ -54,5 +54,6 @@
   "relatedIds": [
     "claude-model-capability-tiers"
   ],
-  "relationType": "complements"
+  "relationType": "complements",
+  "scope": "Claude Models"
 }

@@ -22,5 +22,6 @@
     "client-tools-vs-server-tools"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n    A([Start]) --> B[text block]\n    B --> C[server_tool_use block]\n    C --> D[server_tool_result block]\n    D --> E[text block]\n    E --> F([End])\n    \n    subgraph assistant_message[One Assistant Message]\n        B\n        C\n        D\n        E\n    end\n```"
+  "diagram": "```mermaid\nflowchart LR\n    A([Start]) --> B[text block]\n    B --> C[server_tool_use block]\n    C --> D[server_tool_result block]\n    D --> E[text block]\n    E --> F([End])\n    \n    subgraph assistant_message[One Assistant Message]\n        B\n        C\n        D\n        E\n    end\n```",
+  "scope": "Claude API · Tool Use"
 }

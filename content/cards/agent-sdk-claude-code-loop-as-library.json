@@ -21,5 +21,6 @@
     "agent-sdk-vs-raw-messages-api"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Your App]) --> B[query prompt, options]\n    B --> C[Agent Loop]\n    C --> D[Read]\n    D --> E[Think]\n    E --> F[Edit]\n    F --> G[Bash]\n    G --> H[...]\n    H --> C\n    C -->|streamed messages| A"
+  "diagram": "flowchart LR\n    A([Your App]) --> B[query prompt, options]\n    B --> C[Agent Loop]\n    C --> D[Read]\n    D --> E[Think]\n    E --> F[Edit]\n    F --> G[Bash]\n    G --> H[...]\n    H --> C\n    C -->|streamed messages| A",
+  "scope": "Agent SDK"
 }

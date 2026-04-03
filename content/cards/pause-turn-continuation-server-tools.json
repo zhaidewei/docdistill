@@ -23,5 +23,6 @@
   "relatedIds": [
     "server-tool-use-block-srvtoolu-prefix"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

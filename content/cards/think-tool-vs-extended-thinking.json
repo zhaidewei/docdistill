@@ -66,5 +66,6 @@
     "think-tool-structured-scratchpad",
     "extended-thinking-concept"
   ],
-  "relationType": "contrasts"
+  "relationType": "contrasts",
+  "scope": "Anthropic Engineering"
 }

@@ -32,5 +32,6 @@
     "client-tools-vs-server-tools",
     "web-search-dynamic-filtering"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

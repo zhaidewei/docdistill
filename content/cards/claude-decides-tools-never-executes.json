@@ -23,5 +23,6 @@
     "client-tools-vs-server-tools"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Claude = Brain]) -->|decides tool + args| B[Tool Call Request]\n    B --> C([Your App = Hands])\n    C -->|executes| D[Tool Action]\n    D -->|result| A\n    C -.->|never| E([Keyboard / Direct Access])"
+  "diagram": "flowchart LR\n    A([Claude = Brain]) -->|decides tool + args| B[Tool Call Request]\n    B --> C([Your App = Hands])\n    C -->|executes| D[Tool Action]\n    D -->|result| A\n    C -.->|never| E([Keyboard / Direct Access])",
+  "scope": "Claude API · Tool Use"
 }

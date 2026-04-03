@@ -20,5 +20,6 @@
   "relatedIds": [
     "handle-tool-use-response-lifecycle"
   ],
-  "relationType": "supplements"
+  "relationType": "supplements",
+  "scope": "Claude API · Tool Use"
 }

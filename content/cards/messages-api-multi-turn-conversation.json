@@ -33,5 +33,6 @@
     "messages-api-request-structure",
     "context-window-token-accounting"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

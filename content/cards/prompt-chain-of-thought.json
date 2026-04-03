@@ -21,5 +21,6 @@
     "prompt-clear-and-direct"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Question]) --> B[Analyze conditions]\n    B --> C[Eliminate options]\n    C --> D[Verify]\n    D --> E([Final answer])"
+  "diagram": "flowchart LR\n    A([Question]) --> B[Analyze conditions]\n    B --> C[Eliminate options]\n    C --> D[Verify]\n    D --> E([Final answer])",
+  "scope": "Claude API"
 }

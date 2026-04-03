@@ -22,5 +22,6 @@
     "agent-sdk-loop-five-phases"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Prompt]) --> B[Tool Call]\n    B --> C{Permissions Gate}\n    C -->|denied| F[Error / Halt]\n    C -->|allowed| D{Hook Intercept?}\n    D -->|intercepted| F\n    D -->|pass| E[Execute Tool]\n    E --> G{Cost Limit?}\n    G -->|exceeded| F\n    G -->|ok| H[Tool Result]\n    H --> I{More turns?}\n    I -->|yes| B\n    I -->|no| J([Final Answer])"
+  "diagram": "flowchart LR\n    A([Prompt]) --> B[Tool Call]\n    B --> C{Permissions Gate}\n    C -->|denied| F[Error / Halt]\n    C -->|allowed| D{Hook Intercept?}\n    D -->|intercepted| F\n    D -->|pass| E[Execute Tool]\n    E --> G{Cost Limit?}\n    G -->|exceeded| F\n    G -->|ok| H[Tool Result]\n    H --> I{More turns?}\n    I -->|yes| B\n    I -->|no| J([Final Answer])",
+  "scope": "Agent SDK"
 }

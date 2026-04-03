@@ -24,5 +24,6 @@
     "agent-loses-progress-across-context-windows",
     "feature-list-prevents-premature-completion"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

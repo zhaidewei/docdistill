@@ -24,5 +24,6 @@
     "agent-incremental-progress-clean-state",
     "feature-list-prevents-premature-completion"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

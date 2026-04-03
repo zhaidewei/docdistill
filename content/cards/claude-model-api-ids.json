@@ -20,5 +20,6 @@
   "relatedIds": [
     "opus-sonnet-haiku-comparison"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude Models"
 }

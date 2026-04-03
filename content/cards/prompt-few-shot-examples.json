@@ -32,5 +32,6 @@
   "relatedIds": [
     "prompt-xml-tags-structure"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

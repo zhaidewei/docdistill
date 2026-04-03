@@ -22,5 +22,6 @@
     "system-prompt-right-altitude"
   ],
   "relationType": "extends",
-  "diagram": "```\nflowchart LR\n    A([High Recall]) --> B[Few tokens in context]\n    B --> C[More tokens added]\n    C --> D{Diminishing returns zone}\n    D -->|still declining| E[Many tokens in context]\n    E --> F([Low Recall])\n\n    style A fill:#4caf50,color:#fff\n    style F fill:#f44336,color:#fff\n    style D fill:#fff,stroke:#999,stroke-dasharray: 5 5\n```"
+  "diagram": "```\nflowchart LR\n    A([High Recall]) --> B[Few tokens in context]\n    B --> C[More tokens added]\n    C --> D{Diminishing returns zone}\n    D -->|still declining| E[Many tokens in context]\n    E --> F([Low Recall])\n\n    style A fill:#4caf50,color:#fff\n    style F fill:#f44336,color:#fff\n    style D fill:#fff,stroke:#999,stroke-dasharray: 5 5\n```",
+  "scope": "Anthropic Engineering"
 }

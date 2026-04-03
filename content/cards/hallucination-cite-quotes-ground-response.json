@@ -31,5 +31,6 @@
   "relatedIds": [
     "hallucination-allow-i-dont-know"
   ],
-  "relationType": "complements"
+  "relationType": "complements",
+  "scope": "Claude API · Testing"
 }

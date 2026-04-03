@@ -23,5 +23,6 @@
     "effective-context-smallest-highest-signal"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Conversation A]) --> B[Claude writes\\n/memories/project-context.md]\n    B --> C([Session ends])\n    C --> D([Conversation B starts])\n    D --> E[Claude reads /memories/]\n    E --> F[Continues with prior knowledge]"
+  "diagram": "flowchart LR\n    A([Conversation A]) --> B[Claude writes\\n/memories/project-context.md]\n    B --> C([Session ends])\n    C --> D([Conversation B starts])\n    D --> E[Claude reads /memories/]\n    E --> F[Continues with prior knowledge]",
+  "scope": "Claude API · Tool Use"
 }

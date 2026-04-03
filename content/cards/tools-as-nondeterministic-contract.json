@@ -23,5 +23,6 @@
     "claude-decides-tools-never-executes"
   ],
   "relationType": "extends",
-  "diagram": "```mermaid\nflowchart LR\n    A([Caller]) -->|exact args| B[Function]\n    B --> C([Deterministic Output])\n\n    D([Agent]) --> E{Decide if/how to call}\n    E -->|call| F[Tool]\n    F --> G{Interpret result}\n    G --> H([Agent continues])\n```"
+  "diagram": "```mermaid\nflowchart LR\n    A([Caller]) -->|exact args| B[Function]\n    B --> C([Deterministic Output])\n\n    D([Agent]) --> E{Decide if/how to call}\n    E -->|call| F[Tool]\n    F --> G{Interpret result}\n    G --> H([Agent continues])\n```",
+  "scope": "Anthropic Engineering"
 }

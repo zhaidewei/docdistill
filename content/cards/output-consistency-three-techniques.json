@@ -24,5 +24,6 @@
     "structured-outputs-vs-prompt-json",
     "prompt-few-shot-examples"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Testing"
 }

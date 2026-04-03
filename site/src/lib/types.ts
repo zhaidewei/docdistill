@@ -67,6 +67,7 @@ export interface Card {
   tags: string[];
   readingMinutes: number;
   diagram?: string;
+  scope?: string;
   body: CardBody;
   body_en?: CardBody;
 }

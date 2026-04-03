@@ -23,5 +23,6 @@
     "web-search-basic-vs-dynamic"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Search Results\\n10 pages]) --> B[Claude writes filter code]\n    B --> C[Code executes]\n    C --> D[Extract relevant snippets]\n    D --> E[Filtered results enter context]\n    E --> F[Claude generates answer]"
+  "diagram": "flowchart LR\n    A([Search Results\\n10 pages]) --> B[Claude writes filter code]\n    B --> C[Code executes]\n    C --> D[Extract relevant snippets]\n    D --> E[Filtered results enter context]\n    E --> F[Claude generates answer]",
+  "scope": "Claude API · Tool Use"
 }

@@ -23,5 +23,6 @@
     "extended-thinking-vs-standard"
   ],
   "relationType": "introduces",
-  "diagram": "flowchart LR\n    A([Input]) --> B[Thinking: step-by-step]\n    B --> C[Final Answer]"
+  "diagram": "flowchart LR\n    A([Input]) --> B[Thinking: step-by-step]\n    B --> C[Final Answer]",
+  "scope": "Claude API"
 }

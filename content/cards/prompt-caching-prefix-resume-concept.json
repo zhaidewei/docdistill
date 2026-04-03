@@ -23,5 +23,6 @@
     "cached-tokens-cost-90-percent-less"
   ],
   "relationType": "introduces",
-  "diagram": "flowchart LR\n    A([Full Prompt]) --> B[System Prompt]\n    A --> C[Long Doc]\n    A --> D[Chat History]\n    A --> E[New Question]\n    B --> F[Cached]\n    C --> F\n    D --> F\n    E --> G[Fresh Processing]"
+  "diagram": "flowchart LR\n    A([Full Prompt]) --> B[System Prompt]\n    A --> C[Long Doc]\n    A --> D[Chat History]\n    A --> E[New Question]\n    B --> F[Cached]\n    C --> F\n    D --> F\n    E --> G[Fresh Processing]",
+  "scope": "Claude API"
 }

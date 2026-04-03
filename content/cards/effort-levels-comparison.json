@@ -75,5 +75,6 @@
   "relatedIds": [
     "effort-parameter-concept"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

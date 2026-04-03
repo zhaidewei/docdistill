@@ -65,5 +65,6 @@
     "context-engineering-curating-what-model-sees",
     "effective-context-smallest-highest-signal"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Anthropic Engineering"
 }

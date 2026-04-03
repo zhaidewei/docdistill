@@ -39,6 +39,18 @@ function sortByLayerAndDeps(survey) {
     });
 }
 
+function inferScope(url) {
+  const path = new URL(url).pathname;
+  if (path.startsWith("/docs/en/agent-sdk/")) return "Agent SDK";
+  if (path.startsWith("/docs/en/agents-and-tools/tool-use/")) return "Claude API · Tool Use";
+  if (path.startsWith("/docs/en/agents-and-tools/")) return "Claude API · Agents & Tools";
+  if (path.startsWith("/docs/en/build-with-claude/")) return "Claude API";
+  if (path.startsWith("/docs/en/about-claude/models/")) return "Claude Models";
+  if (path.startsWith("/docs/en/test-and-evaluate/")) return "Claude API · Testing";
+  if (path.startsWith("/engineering/")) return "Anthropic Engineering";
+  return "Claude Docs";
+}
+
 function buildPrompt(url, entry, surveyPage) {
   const template = readFileSync(PROMPT_PATH, "utf-8");
   const content = readFileSync(
@@ -105,6 +117,7 @@ function generateForUrl(url, manifest, surveyPage) {
   const cardIds = [];
   for (const card of cards) {
     card.source = url;
+    card.scope = inferScope(url);
     writeFileSync(join(CARDS_DIR, `${card.id}.json`), JSON.stringify(card, null, 2));
     cardIds.push(card.id);
   }

@@ -50,5 +50,6 @@
     "web-search-tool-enable-and-usage",
     "client-tools-vs-server-tools"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API · Tool Use"
 }

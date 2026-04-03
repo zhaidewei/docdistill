@@ -22,5 +22,6 @@
   "relatedIds": [
     "prompt-caching-prefix-resume-concept"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }

@@ -22,5 +22,6 @@
     "skills-vs-prompts-vs-tools"
   ],
   "relationType": "extends",
-  "diagram": "flowchart LR\n    A([Claude Agent]) --> B[Skill: TDD]\n    A --> C[Skill: Debugging]\n    A --> D[Skill: Frontend]\n    B -->|load on demand| E([Claude Specialist])\n    C -->|load on demand| E\n    D -->|load on demand| E"
+  "diagram": "flowchart LR\n    A([Claude Agent]) --> B[Skill: TDD]\n    A --> C[Skill: Debugging]\n    A --> D[Skill: Frontend]\n    B -->|load on demand| E([Claude Specialist])\n    C -->|load on demand| E\n    D -->|load on demand| E",
+  "scope": "Claude API · Agents & Tools"
 }

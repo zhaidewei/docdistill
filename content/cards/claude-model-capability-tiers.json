@@ -21,5 +21,6 @@
     "opus-sonnet-haiku-comparison"
   ],
   "relationType": "complements",
-  "diagram": "```\nflowchart LR\n    S[\"text+img, multilingual, vision\"]\n    O[\"Highest Intelligence · Opus\"]\n    B[\"Balanced · Sonnet\"]\n    H[\"Fastest Speed · Haiku\"]\n\n    S -.-> O & B & H\n    O --> B --> H\n```"
+  "diagram": "```\nflowchart LR\n    S[\"text+img, multilingual, vision\"]\n    O[\"Highest Intelligence · Opus\"]\n    B[\"Balanced · Sonnet\"]\n    H[\"Fastest Speed · Haiku\"]\n\n    S -.-> O & B & H\n    O --> B --> H\n```",
+  "scope": "Claude Models"
 }

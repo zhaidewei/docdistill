@@ -21,5 +21,6 @@
     "handle-tool-use-response-lifecycle"
   ],
   "relationType": "supplements",
-  "diagram": "flowchart LR\n    A([Claude]) --> B[tool_use id:A]\n    A --> C[tool_use id:B]\n    B --> D[Execute both tools]\n    C --> D\n    D --> E[tool_result id:A]\n    D --> F[tool_result id:B]\n    E --> G([Claude])\n    F --> G"
+  "diagram": "flowchart LR\n    A([Claude]) --> B[tool_use id:A]\n    A --> C[tool_use id:B]\n    B --> D[Execute both tools]\n    C --> D\n    D --> E[tool_result id:A]\n    D --> F[tool_result id:B]\n    E --> G([Claude])\n    F --> G",
+  "scope": "Claude API · Tool Use"
 }

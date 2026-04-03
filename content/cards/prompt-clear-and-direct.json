@@ -32,5 +32,6 @@
   "relatedIds": [
     "prompt-add-context"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "scope": "Claude API"
 }
