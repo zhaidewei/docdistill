@@ -128,14 +128,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
         renderClusterGraph(d3, clusterNodes, clusterEdges);
       }
     });
-  }, [expandedGroup]);
-
-  // Update text when lang changes
-  useEffect(() => {
-    if (textSelRef.current && expandedGroup) {
-      textSelRef.current.text((d: any) => getNodeLabel(d.id));
-    }
-  }, [lang]);
+  }, [expandedGroup, lang]);
 
   function renderClusterGraph(d3: typeof import("d3"), nodes: ClusterNode[], edges: ClusterEdge[]) {
     const svg = d3.select(svgRef.current!);
@@ -195,8 +188,8 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       .attr("font-size", "12px")
       .attr("font-weight", "600");
 
-    node.append("text")
-      .text((d: any) => `${d.cardCount} cards`)
+    const countTexts = node.append("text")
+      .text((d: any) => `${d.cardCount} ${lang === "zh" ? "张卡片" : "cards"}`)
       .attr("text-anchor", "middle")
       .attr("dy", "1.2em")
       .attr("fill", "rgba(0,0,0,0.4)")
