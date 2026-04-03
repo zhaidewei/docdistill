@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "preact/hooks";
 import type { Card, Graph } from "../lib/types";
 import { pickNextCard, setSwipeStatus, getSwipeStats } from "../lib/swipe";
 import { useLang, t, cardTitle, cardBody, type Lang } from "../lib/i18n";
+import { getAnnotation, saveAnnotation } from "../lib/annotations";
+import type { Annotation } from "../lib/types";
 import LangToggle from "./LangToggle";
 import FactCard from "./card-renderers/FactCard";
 import ProblemSolutionCard from "./card-renderers/ProblemSolutionCard";
@@ -27,8 +29,16 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
   const [swipeDir, setSwipeDir] = useState<"left" | "right" | null>(null);
   const [offsetX, setOffsetX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [annotation, setAnnotation] = useState<Annotation>(() =>
+    current ? getAnnotation(current.id) : { starred: false, reported: false, comments: [], questions: [] }
+  );
+  const [flashDir, setFlashDir] = useState<"up" | "down" | null>(null);
   const startX = useRef(0);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (current) setAnnotation(getAnnotation(current.id));
+  }, [current?.id]);
 
   function renderBody(card: Card, lang: Lang) {
     const body = cardBody(card, lang) as any;
@@ -55,6 +65,24 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
       setSwipeDir(null);
       setOffsetX(0);
     }, 300);
+  }
+
+  function toggleStar() {
+    if (!current) return;
+    const next = { ...annotation, starred: !annotation.starred };
+    setAnnotation(next);
+    saveAnnotation(current.id, next);
+    setFlashDir("up");
+    setTimeout(() => setFlashDir(null), 600);
+  }
+
+  function toggleReported() {
+    if (!current) return;
+    const next = { ...annotation, reported: !annotation.reported };
+    setAnnotation(next);
+    saveAnnotation(current.id, next);
+    setFlashDir("down");
+    setTimeout(() => setFlashDir(null), 600);
   }
 
   // Touch handlers
@@ -84,10 +112,12 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
     function onKey(e: KeyboardEvent) {
       if (e.key === "ArrowLeft") advance("mastered");
       if (e.key === "ArrowRight") advance("review");
+      if (e.key === "ArrowUp") { e.preventDefault(); toggleStar(); }
+      if (e.key === "ArrowDown") { e.preventDefault(); toggleReported(); }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [current]);
+  }, [current, annotation]);
 
   const total = cards.length;
   const progress = total > 0 ? ((stats.mastered / total) * 100) : 0;
@@ -109,7 +139,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
 
   if (!current) {
     return (
-      <div class="flex flex-col items-center justify-center h-screen bg-surface px-6 text-center">
+      <div class="flex flex-col items-center justify-center h-full bg-surface px-6 text-center">
         <div class="text-4xl mb-4">🎉</div>
         <div class="text-xl font-medium mb-2 text-charcoal">{t("swipe.allDone", lang)}</div>
         <div class="text-slate-light text-sm mb-6">
@@ -142,7 +172,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
   }
 
   return (
-    <div class="flex flex-col h-screen bg-surface select-none overflow-hidden">
+    <div class="flex flex-col h-full bg-surface select-none overflow-hidden">
       {/* Header */}
       <div class="px-4 pt-4 pb-2">
         <div class="flex items-center justify-between mb-2">
@@ -165,6 +195,28 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
 
       {/* Swipe indicators */}
       <div class="relative flex-1 overflow-hidden">
+        {/* Top indicator: star */}
+        <div
+          class="absolute top-3 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none transition-all duration-200"
+          style={{ opacity: flashDir === "up" ? 1 : annotation.starred ? 0.6 : 0.2 }}
+        >
+          <div class="text-lg leading-none">{annotation.starred ? "⭐" : "☆"}</div>
+          <div class="text-[9px] font-medium mt-0.5" style={{ color: annotation.starred ? "#d97706" : "#9b9b97" }}>
+            ↑ {t("swipe.starLabel", lang)}
+          </div>
+        </div>
+
+        {/* Bottom indicator: report */}
+        <div
+          class="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 text-center pointer-events-none transition-all duration-200"
+          style={{ opacity: flashDir === "down" ? 1 : annotation.reported ? 0.6 : 0.2 }}
+        >
+          <div class="text-lg leading-none">{annotation.reported ? "🚩" : "⚑"}</div>
+          <div class="text-[9px] font-medium mt-0.5" style={{ color: annotation.reported ? "#ef4444" : "#9b9b97" }}>
+            ↓ {t("swipe.reportLabel", lang)}
+          </div>
+        </div>
+
         {/* Left indicator: mastered */}
         <div
           class="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-center pointer-events-none transition-opacity"
@@ -224,18 +276,34 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
       </div>
 
       {/* Bottom buttons */}
-      <div class="flex gap-4 px-6 py-4 justify-center">
+      <div class="flex gap-2 px-4 py-3 justify-center">
         <button
           onClick={() => advance("mastered")}
-          class="flex-1 py-3 rounded-xl bg-accent-green/10 text-accent-green font-medium text-sm active:scale-95 transition-transform"
+          class="flex-1 py-2.5 rounded-xl bg-accent-green/10 text-accent-green font-medium text-sm active:scale-95 transition-transform flex flex-col items-center gap-0.5"
         >
-          {t("swipe.mastered", lang)}
+          <span>✓ {t("swipe.masteredLabel", lang)}</span>
+          <span class="text-[10px] opacity-40">←</span>
+        </button>
+        <button
+          onClick={toggleStar}
+          class={`flex-1 py-2.5 rounded-xl font-medium text-sm active:scale-95 transition-all flex flex-col items-center gap-0.5 ${annotation.starred ? "bg-yellow-100 text-yellow-600" : "bg-surface-muted text-slate"}`}
+        >
+          <span>{annotation.starred ? "⭐" : "☆"} {t("swipe.starLabel", lang)}</span>
+          <span class="text-[10px] opacity-40">↑</span>
+        </button>
+        <button
+          onClick={toggleReported}
+          class={`flex-1 py-2.5 rounded-xl font-medium text-sm active:scale-95 transition-all flex flex-col items-center gap-0.5 ${annotation.reported ? "bg-red-100 text-red-500" : "bg-surface-muted text-slate"}`}
+        >
+          <span>{annotation.reported ? "🚩" : "⚑"} {t("swipe.reportLabel", lang)}</span>
+          <span class="text-[10px] opacity-40">↓</span>
         </button>
         <button
           onClick={() => advance("review")}
-          class="flex-1 py-3 rounded-xl bg-accent-orange/10 text-accent-orange font-medium text-sm active:scale-95 transition-transform"
+          class="flex-1 py-2.5 rounded-xl bg-accent-orange/10 text-accent-orange font-medium text-sm active:scale-95 transition-transform flex flex-col items-center gap-0.5"
         >
-          {t("swipe.review", lang)}
+          <span>{t("swipe.reviewLabel", lang)} ↻</span>
+          <span class="text-[10px] opacity-40">→</span>
         </button>
       </div>
     </div>
