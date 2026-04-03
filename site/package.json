@@ -26,6 +26,7 @@
     "@testing-library/preact": "^3.2.4",
     "@types/d3": "^7.4.3",
     "jsdom": "^27.0.1",
+    "mermaid-isomorphic": "^3.1.0",
     "vitest": "^3.2.4"
   }
 }
