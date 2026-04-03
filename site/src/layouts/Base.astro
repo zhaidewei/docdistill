@@ -19,7 +19,7 @@ const { title, activePage } = Astro.props;
   </head>
   <body class="bg-surface text-gray-200 min-h-screen flex flex-col">
     <nav class="flex items-center gap-6 px-6 py-3 border-b border-surface-border">
-      <span class="text-accent-orange font-bold text-lg">Anthropic Learn</span>
+      <a href="/" class="text-accent-orange font-bold text-lg hover:opacity-80 transition-opacity">Anthropic Learn</a>
       <NavLinks client:load activePage={activePage} />
       <div class="ml-auto">
         <LangToggle client:load />
