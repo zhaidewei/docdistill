@@ -20,6 +20,8 @@ interface ClusterNode {
   label: string;
   cardCount: number;
   cardIds: string[];
+  masteredCount: number;
+  masteredPct: number;
   color: string;
   x?: number;
   y?: number;
@@ -49,8 +51,23 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
     return node?.label || nodeId;
   }
 
+  function getMasteredIds(): Set<string> {
+    const mastered = new Set<string>();
+    if (typeof localStorage === "undefined") return mastered;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key?.startsWith("swipe:")) {
+        try {
+          const val = JSON.parse(localStorage.getItem(key)!);
+          if (val.status === "mastered") mastered.add(key.slice(6));
+        } catch {}
+      }
+    }
+    return mastered;
+  }
+
   // Build cluster data: group cards by their group field
-  function buildClusters() {
+  function buildClusters(masteredIds: Set<string>) {
     const groups = new Map<string, string[]>();
     for (const node of graph.nodes) {
       const g = node.group || "other";
@@ -65,11 +82,14 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       const color = GROUP_COLORS[ci % GROUP_COLORS.length];
       colorMap.set(group, color);
       ci++;
+      const masteredCount = ids.filter((id) => masteredIds.has(id)).length;
       clusterNodes.push({
         id: `cluster:${group}`,
         label: group,
         cardCount: ids.length,
         cardIds: ids,
+        masteredCount,
+        masteredPct: ids.length > 0 ? masteredCount / ids.length : 0,
         color,
       });
     }
@@ -118,13 +138,14 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
 
   useEffect(() => {
     if (!svgRef.current) return;
+    const masteredIds = getMasteredIds();
     import("d3").then((d3) => {
       if (expandedGroup) {
-        const { colorMap } = buildClusters();
+        const { colorMap } = buildClusters(masteredIds);
         const { nodes, edges } = buildExpanded(expandedGroup, colorMap);
-        renderDetailGraph(d3, nodes, edges);
+        renderDetailGraph(d3, nodes, edges, masteredIds);
       } else {
-        const { clusterNodes, clusterEdges } = buildClusters();
+        const { clusterNodes, clusterEdges } = buildClusters(masteredIds);
         renderClusterGraph(d3, clusterNodes, clusterEdges);
       }
     });
@@ -179,11 +200,27 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
           })
       );
 
+    // Background circle
     node.append("circle")
       .attr("r", (d: any) => 16 + d.cardCount * 4)
-      .attr("fill", (d: any) => d.color + "25")
+      .attr("fill", (d: any) => d.color + "18")
       .attr("stroke", (d: any) => d.color)
       .attr("stroke-width", 2);
+
+    // Mastery fill: clipPath + rect from bottom
+    node.append("defs")
+      .append("clipPath")
+      .attr("id", (d: any) => `clip-${d.id.replace(/[^a-zA-Z0-9]/g, "_")}`)
+      .append("circle")
+      .attr("r", (d: any) => 16 + d.cardCount * 4);
+
+    node.append("rect")
+      .attr("clip-path", (d: any) => `url(#clip-${d.id.replace(/[^a-zA-Z0-9]/g, "_")})`)
+      .attr("x", (d: any) => -(16 + d.cardCount * 4))
+      .attr("width", (d: any) => (16 + d.cardCount * 4) * 2)
+      .attr("y", (d: any) => { const r = 16 + d.cardCount * 4; return r * (1 - 2 * d.masteredPct); })
+      .attr("height", (d: any) => { const r = 16 + d.cardCount * 4; return r * 2 * d.masteredPct; })
+      .attr("fill", (d: any) => d.color + "55");
 
     node.append("text")
       .text((d: any) => d.label)
@@ -215,7 +252,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
     textSelRef.current = null;
   }
 
-  function renderDetailGraph(d3: typeof import("d3"), nodes: (GraphNode & { color: string })[], edges: typeof graph.edges) {
+  function renderDetailGraph(d3: typeof import("d3"), nodes: (GraphNode & { color: string })[], edges: typeof graph.edges, masteredIds: Set<string>) {
     const svg = d3.select(svgRef.current!);
     const width = svgRef.current!.clientWidth;
     const height = svgRef.current!.clientHeight;
@@ -261,9 +298,9 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
 
     node.append("circle")
       .attr("r", 24)
-      .attr("fill", (d: any) => d.color + "20")
+      .attr("fill", (d: any) => masteredIds.has(d.id) ? d.color + "55" : d.color + "18")
       .attr("stroke", (d: any) => d.color)
-      .attr("stroke-width", 1.5);
+      .attr("stroke-width", (d: any) => masteredIds.has(d.id) ? 2.5 : 1.5);
 
     const texts = node.append("text")
       .text((d: any) => {
