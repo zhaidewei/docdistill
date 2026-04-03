@@ -1,0 +1,27 @@
+{
+  "id": "skills-filesystem-domain-expertise-on-demand",
+  "type": "concept-model",
+  "title": "Skills：基于文件系统的领域专长，按需加载",
+  "title_en": "Skills: Filesystem-Based Domain Expertise Loaded On-Demand",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+  "tags": [
+    "skills",
+    "agent-design",
+    "claude-code"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Skills 是存储在文件系统中的可复用资源，为 Claude 提供特定领域的专长——包括工作流程、背景知识和最佳实践。它们把一个通用 agent 变成某个领域的专家。Skills 在需要时自动加载，不占用常驻 context。你只需创建一次，之后在任何对话中都能自动生效。",
+    "analogy": "想象一个医生的工具箱：听诊器、血压计各有专用。医生不会随身携带所有设备，而是根据病人症状取用对应工具。Skills 就像这些专科工具——平时不占空间，需要时自动出现，让通用医生变成专科医生。",
+    "visual": "一个工具架：左边是通用的 Claude agent，中间是标注了不同领域的 Skill 文件（如 TDD、debugging、frontend），右边的箭头指向一个戴着专家帽子的 Claude。标题：'按需装载，即刻专精'。"
+  },
+  "body_en": {
+    "concept": "Skills are reusable, filesystem-based resources that give Claude domain-specific expertise: workflows, context, and best practices that transform a general-purpose agent into a specialist. They load on-demand—only when relevant—so they don't consume constant context. Create once, use automatically across conversations.",
+    "analogy": "Think of a doctor's toolkit: stethoscope, blood pressure cuff, each specialized. The doctor doesn't carry everything at once—they grab the right instrument based on symptoms. Skills work the same way: they sit on the shelf until needed, then automatically appear to turn a generalist into a specialist.",
+    "visual": "A tool rack: on the left, a generic Claude agent; in the middle, Skill files labeled for different domains (TDD, debugging, frontend); on the right, an arrow pointing to Claude wearing a specialist hat. Caption: 'Load on demand, specialize instantly.'"
+  },
+  "relatedIds": [
+    "skills-vs-prompts-vs-tools"
+  ],
+  "relationType": "extends"
+}

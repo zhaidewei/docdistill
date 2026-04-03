@@ -1,0 +1,34 @@
+{
+  "id": "handle-tool-use-response-lifecycle",
+  "type": "how-to",
+  "title": "读取 tool_use 块并构造 tool_result 响应",
+  "title_en": "Read tool_use Blocks and Format tool_result Responses",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+  "tags": [
+    "tool-use",
+    "api-lifecycle"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "手动处理 Claude 的工具调用请求，并将执行结果返回给 Claude",
+    "steps": [
+      "Claude 返回 stop_reason: \"tool_use\"，响应中包含一个或多个 tool_use 内容块，每块有三个字段：id（唯一标识符）、name（工具名）、input（符合 input_schema 的参数对象）",
+      "从 tool_use 块中提取 name、id、input，在你的代码中执行对应的工具逻辑",
+      "构造一条新的 user 消息，content 中放入 tool_result 块，包含：tool_use_id（对应请求的 id）、content（结果，可以是字符串、嵌套内容块、或 document 块）",
+      "将这条消息发送给 Claude，Claude 会根据工具结果继续生成回复"
+    ]
+  },
+  "body_en": {
+    "goal": "Manually handle Claude's tool call requests and return execution results",
+    "steps": [
+      "Claude returns stop_reason: \"tool_use\" with one or more tool_use content blocks, each containing: id (unique identifier), name (tool name), input (parameters matching input_schema)",
+      "Extract name, id, and input from the tool_use block. Run the corresponding tool logic in your codebase",
+      "Build a new user message with a tool_result content block containing: tool_use_id (matching the request id), content (result as string, nested content blocks, or document blocks)",
+      "Send this message back to Claude, which will use the tool results to continue generating its response"
+    ]
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps"
+  ],
+  "relationType": "extends"
+}

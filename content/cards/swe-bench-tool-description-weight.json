@@ -1,0 +1,26 @@
+{
+  "id": "swe-bench-tool-description-weight",
+  "type": "concept-model",
+  "title": "工具描述比 Schema 更重要",
+  "title_en": "Tool Description Carries More Weight Than Schema",
+  "source": "https://www.anthropic.com/engineering/swe-bench-sonnet",
+  "tags": [
+    "tool-use",
+    "prompt-engineering",
+    "agent"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "定义工具时，JSON Schema 只告诉模型「参数长什么样」，但工具的 description 字段才是真正影响模型行为的地方。Anthropic 的 Bash Tool 只有一个参数 `command`，但 description 里包含了：不需要转义、无法访问互联网、状态在调用间持久、如何在后台运行长命令等关键行为约束。",
+    "analogy": "Schema 是函数签名，description 是注释文档。新人工程师（模型）能从签名猜出参数类型，但真正知道「什么时候用、怎么用对」靠的是文档。"
+  },
+  "body_en": {
+    "concept": "When defining tools, the JSON Schema tells the model what parameters look like, but the description field is what actually shapes model behavior. Anthropic's Bash Tool has just one parameter (`command`), but its description contains key behavioral constraints: no XML escaping needed, no internet access, state persists across calls, how to background long-running commands.",
+    "analogy": "The schema is the function signature; the description is the documentation. A new engineer (the model) can infer types from the signature, but knowing when and how to use it correctly requires the docs."
+  },
+  "relatedIds": [
+    "swe-bench-agent-scaffold-design",
+    "tools-minimal-viable-set"
+  ],
+  "relationType": "extends"
+}

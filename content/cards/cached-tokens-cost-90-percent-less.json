@@ -1,0 +1,25 @@
+{
+  "id": "cached-tokens-cost-90-percent-less",
+  "type": "fact",
+  "title": "缓存 token 比未缓存便宜 90%",
+  "title_en": "Cached Tokens Cost 90% Less Than Uncached",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+  "tags": [
+    "prompt-caching",
+    "pricing"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "命中缓存的 input token 价格仅为正常 input token 的 10%（即节省 90%）。首次写入缓存时，token 价格比正常贵 25%（即 1.25 倍）。缓存的 TTL（存活时间）为 5 分钟，每次命中会重置计时器。",
+    "context": "这意味着：如果你的 prompt 中有一段 10,000 token 的固定内容（如长文档），第一次请求多花 25% 写入缓存；之后每次请求省 90%。只要 5 分钟内有后续请求，缓存就不会过期。对于高频调用场景，投入产出比极高。"
+  },
+  "body_en": {
+    "fact": "Cache-hit input tokens cost only 10% of the normal input token price (a 90% savings). Writing to cache costs 25% more than normal input tokens (1.25x). Cache TTL is 5 minutes, and each cache hit resets the timer.",
+    "context": "This means: if your prompt has a fixed 10,000-token block (e.g., a long document), the first request pays a 25% premium to write the cache; every subsequent request saves 90%. As long as another request comes within 5 minutes, the cache stays alive. For high-frequency use cases, the ROI is excellent."
+  },
+  "relatedIds": [
+    "prompt-caching-prefix-resume-concept",
+    "prompt-caching-auto-vs-explicit"
+  ],
+  "relationType": "extends"
+}

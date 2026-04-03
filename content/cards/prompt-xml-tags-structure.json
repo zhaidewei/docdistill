@@ -2,6 +2,7 @@
   "id": "prompt-xml-tags-structure",
   "type": "how-to",
   "title": "用 XML 标签组织复杂 prompt",
+  "title_en": "Use XML Tags to Structure Complex Prompts",
   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
   "tags": [
     "prompt-engineering",
@@ -16,6 +17,16 @@
       "标签名用小写英文，保持语义清晰，例如 <format>、<constraints>",
       "嵌套标签表达层级关系，例如 <examples> 里放多个 <example>",
       "好处：Claude 对 XML 标签有很强的识别能力，比纯文本分隔（如 '---'）更可靠地划分 prompt 的不同区域"
+    ]
+  },
+  "body_en": {
+    "goal": "Use XML tags to clearly separate different sections of a long prompt so Claude accurately identifies each part's purpose",
+    "steps": [
+      "Wrap core instructions in <instructions>, background material in <context>, and examples in <examples>",
+      "Wrap user-provided dynamic content in <input> or custom tags like <document>, <code>",
+      "Use lowercase English tag names with clear semantics, e.g. <format>, <constraints>",
+      "Nest tags to express hierarchy, e.g. multiple <example> elements inside <examples>",
+      "Why it works: Claude recognizes XML tags much more reliably than plain-text separators like '---' for delineating prompt sections"
     ]
   },
   "relatedIds": [

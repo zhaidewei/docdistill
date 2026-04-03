@@ -1,0 +1,28 @@
+{
+  "id": "tool-use-debug-wrong-tool-called",
+  "type": "problem-solution",
+  "title": "Claude 调错了工具 → 改进 description 的区分度",
+  "title_en": "Claude Calls the Wrong Tool → Sharpen Descriptions",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/troubleshooting-tool-use",
+  "tags": [
+    "tool-use",
+    "debugging",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "你定义了多个工具，Claude 却调了 A 而非你期望的 B。或者 Claude 根本不调你的工具——它像「看不见」一样。还有一种情况：Claude 传入了错误的参数类型（比如该传数字传了字符串）。",
+    "solution": "三个症状，三个对策：(1) 调错工具：description 太相似。重写 description，重点说明 WHEN（何时用），而不仅仅是 WHAT（做什么）。(2) 从不调用：检查工具列表中是否有重名，并添加 input_examples 让 Claude 理解该工具的典型用法。(3) 参数类型错：schema 有歧义。加上 strict: true（如果 schema 在支持范围内），或者用 input_examples 示范正确的参数格式。",
+    "keyTakeaway": "工具 description 要写「什么时候用」而非仅「这工具做什么」。用 input_examples 和 strict: true 消除歧义。"
+  },
+  "body_en": {
+    "problem": "You define multiple tools but Claude picks tool A instead of B. Or Claude never calls your tool at all. Or Claude sends wrong parameter types (e.g., string instead of number).",
+    "solution": "Three symptoms, three fixes: (1) Wrong tool called: descriptions are too similar. Rewrite them to emphasize WHEN to use the tool, not just WHAT it does. (2) Tool never called: check for duplicate names across your tool list and add input_examples to make usage concrete. (3) Wrong parameter types: schema is ambiguous. Add strict: true (if schema is in the supported subset) or add input_examples showing correct formats.",
+    "keyTakeaway": "Write tool descriptions that say WHEN to use the tool, not just WHAT it does. Use input_examples and strict: true to eliminate ambiguity."
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps",
+    "tool-use-contract-typed-interface"
+  ],
+  "relationType": "extends"
+}

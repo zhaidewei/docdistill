@@ -1,0 +1,26 @@
+{
+  "id": "prefill-deprecated-newer-models",
+  "type": "fact",
+  "title": "Prefill 在新模型上已弃用",
+  "title_en": "Prefill Is Deprecated on Newer Models",
+  "source": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency",
+  "tags": [
+    "prefill",
+    "deprecation",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "Prefill（在 assistant 消息中预填内容让 Claude 接着写）在 Claude Opus 4.6、Sonnet 4.6 和 Sonnet 4.5 上已弃用且不支持。这些新模型应改用 Structured Outputs 或 system prompt 指令来控制输出格式。",
+    "context": "Prefill 曾经是控制输出格式的常用技巧：在 messages 数组末尾加一条 role: assistant 的消息（如 content: '{'），迫使 Claude 从那个位置续写。这对旧模型有效，但新模型不再支持。如果你的代码还在用 prefill，迁移到新模型时需要替换为 Structured Outputs（适合严格 JSON）或在 system prompt 中详细描述格式要求。"
+  },
+  "body_en": {
+    "fact": "Prefill (pre-populating the assistant message to make Claude continue from a specific point) is deprecated and unsupported on Claude Opus 4.6, Sonnet 4.6, and Sonnet 4.5. Use Structured Outputs or system prompt instructions instead.",
+    "context": "Prefill was a popular formatting trick: append a role: assistant message (e.g., content: '{') at the end of the messages array to force Claude to continue from that point. This worked on older models but is no longer supported on newer ones. If your code still uses prefill, you'll need to migrate to Structured Outputs (for strict JSON) or detailed format instructions in the system prompt when upgrading to newer models."
+  },
+  "relatedIds": [
+    "messages-api-prefill-technique",
+    "structured-outputs-two-modes"
+  ],
+  "relationType": "updates"
+}

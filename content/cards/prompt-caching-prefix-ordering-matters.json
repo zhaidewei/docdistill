@@ -1,0 +1,26 @@
+{
+  "id": "prompt-caching-prefix-ordering-matters",
+  "type": "problem-solution",
+  "title": "缓存未命中？检查 prompt 中内容的顺序",
+  "title_en": "Cache Miss? Check the Ordering of Content in Your Prompt",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+  "tags": [
+    "prompt-caching",
+    "troubleshooting"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "启用了 prompt caching，但 cache_read_input_tokens 始终为 0，每次都重新写入缓存，没有省到钱。",
+    "solution": "Prompt caching 是严格的前缀匹配——从第一个 token 开始逐字比对，遇到不同就停止。把变化频繁的内容（如用户新消息）放在 prompt 末尾，固定内容（system prompt、工具定义、长文档）放在前面。只要前缀完全一致，就能命中缓存。",
+    "keyTakeaway": "缓存的黄金法则：固定内容靠前，变化内容靠后。顺序调整错误是缓存未命中的最常见原因。"
+  },
+  "body_en": {
+    "problem": "Prompt caching is enabled, but cache_read_input_tokens is always 0. Every request writes a new cache entry, saving nothing.",
+    "solution": "Prompt caching uses strict prefix matching — it compares token by token from the start and stops at the first difference. Place stable content (system prompt, tool definitions, long documents) at the beginning and variable content (new user messages) at the end. As long as the prefix is identical, the cache will hit.",
+    "keyTakeaway": "The golden rule: stable content first, variable content last. Incorrect ordering is the most common cause of cache misses."
+  },
+  "relatedIds": [
+    "prompt-caching-prefix-resume-concept"
+  ],
+  "relationType": "extends"
+}

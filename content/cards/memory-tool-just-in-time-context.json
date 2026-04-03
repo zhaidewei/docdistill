@@ -1,0 +1,27 @@
+{
+  "id": "memory-tool-just-in-time-context",
+  "type": "problem-solution",
+  "title": "Just-in-Time Context：按需检索而非预加载",
+  "title_en": "Just-in-Time Context: Retrieve on Demand, Not Upfront",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "tags": [
+    "memory-tool",
+    "context-engineering"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "长时间运行的 agent 会跨多轮对话积累大量知识（项目背景、用户偏好、历史决策）。如果每次都把所有信息预加载到 context window，会迅速耗尽 token 预算，导致 context rot——模型在海量信息中迷失，输出质量下降。",
+    "solution": "使用 memory tool 实现 just-in-time context：agent 在工作过程中把学到的知识写入 /memories 文件，下次需要时再按需读取相关文件。这样 context window 始终只包含当前任务真正需要的信息，而非所有历史信息。",
+    "keyTakeaway": "Memory tool 的核心模式是「先存后取」：写入时不占 context，读取时按需加载。这让 agent 拥有无限的知识积累能力，同时保持 context window 精简高效。"
+  },
+  "body_en": {
+    "problem": "Long-running agents accumulate knowledge across many conversations (project context, user preferences, past decisions). Preloading everything into the context window each time quickly exhausts the token budget and causes context rot — the model gets lost in a sea of information and output quality degrades.",
+    "solution": "Use the memory tool for just-in-time context: the agent writes what it learns to /memories files during work, then reads only the relevant files on demand next time. The context window always contains only what the current task actually needs, not all historical information.",
+    "keyTakeaway": "The core pattern of the memory tool is 'store then retrieve': writing doesn't consume context, reading loads on demand. This gives agents unlimited knowledge accumulation while keeping the context window lean and focused."
+  },
+  "relatedIds": [
+    "memory-tool-file-based-persistence",
+    "context-rot-attention-budget"
+  ],
+  "relationType": "extends"
+}

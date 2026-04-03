@@ -1,0 +1,35 @@
+{
+  "id": "prompt-caching-set-cache-breakpoints",
+  "type": "how-to",
+  "title": "设置 cache_control 启用 prompt caching",
+  "title_en": "Set cache_control Breakpoints for Prompt Caching",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+  "tags": [
+    "prompt-caching",
+    "api-usage"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "在 API 请求中启用 prompt caching，让重复前缀被自动缓存复用。",
+    "steps": [
+      "方式一（自动缓存）：在请求顶层加 \"cache_control\": {\"type\": \"ephemeral\"}。系统自动将缓存断点放在最后一个可缓存的 block 上，适合多轮对话。",
+      "方式二（显式断点）：在具体的 content block 上加 \"cache_control\": {\"type\": \"ephemeral\"}，精确控制哪些内容被缓存。适合需要细粒度控制的场景。",
+      "确保缓存前缀满足最小长度要求（不同模型不同，通常 1024 tokens 起）。",
+      "检查响应中的 usage 字段：cache_creation_input_tokens 表示首次写入缓存的 token 数，cache_read_input_tokens 表示命中缓存的 token 数。"
+    ]
+  },
+  "body_en": {
+    "goal": "Enable prompt caching in API requests so repeated prefixes are cached and reused.",
+    "steps": [
+      "Option 1 (automatic): Add \"cache_control\": {\"type\": \"ephemeral\"} at the top level of your request. The system places the cache breakpoint on the last cacheable block automatically. Best for multi-turn conversations.",
+      "Option 2 (explicit): Add \"cache_control\": {\"type\": \"ephemeral\"} on specific content blocks for fine-grained control over what gets cached.",
+      "Ensure the cached prefix meets the minimum length requirement (varies by model, typically starting at 1024 tokens).",
+      "Check the usage field in the response: cache_creation_input_tokens shows tokens written to cache; cache_read_input_tokens shows tokens served from cache."
+    ]
+  },
+  "relatedIds": [
+    "prompt-caching-prefix-resume-concept",
+    "cached-tokens-cost-90-percent-less"
+  ],
+  "relationType": "extends"
+}

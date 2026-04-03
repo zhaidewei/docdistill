@@ -1,0 +1,38 @@
+{
+  "id": "multi-agent-prompting-principles",
+  "type": "how-to",
+  "title": "多 Agent 系统的 Prompt 工程：5 条实战原则",
+  "title_en": "Prompt Engineering for Multi-Agent Systems: 5 Lessons Learned",
+  "source": "https://www.anthropic.com/engineering/multi-agent-research-system",
+  "tags": [
+    "prompt-engineering",
+    "multi-agent",
+    "best-practices"
+  ],
+  "readingMinutes": 4,
+  "body": {
+    "goal": "设计出让多 Agent 系统高效、可靠运行的 Prompt",
+    "steps": [
+      "**像 Agent 一样思考**：用真实的 Prompt 和工具在 Console 中模拟 Agent 的逐步执行，亲眼看到失败模式（如已有足够信息却继续搜索、查询词过于冗长），才能写出有效的 Prompt。",
+      "**明确指导主 Agent 如何分配任务**：每条子任务要包含目标、输出格式、工具建议和任务边界，避免子 Agent 重复劳动或互相干扰。",
+      "**按任务复杂度动态分配资源**：在 Prompt 中嵌入规则，例如「简单事实查询用 1 个 Agent + 3-10 次工具调用；复杂研究用 10+ 个子 Agent」。不设规则的 Agent 容易在简单问题上过度投入。",
+      "**把工具设计当成界面设计**：工具名称、描述、参数命名要清晰明确。Agent 会根据描述选择工具，模糊的描述会导致工具误用，且错误难以察觉。",
+      "**用端到端评测驱动迭代**：为每个关键 Agent 行为建立评测（Eval），通过单元测试和集成测试同时验证。避免只靠主观感受判断效果。"
+    ]
+  },
+  "body_en": {
+    "goal": "Design prompts that make multi-agent systems efficient and reliable",
+    "steps": [
+      "**Think like your agents**: Simulate agents step-by-step in the Console using the exact prompts and tools from your system. Watch for failure modes (e.g., continuing to search when results are sufficient, overly verbose queries) — you can't fix what you can't see.",
+      "**Teach the orchestrator to delegate precisely**: Each subtask must include objective, output format, tool guidance, and task boundaries to prevent duplication and gaps between subagents.",
+      "**Scale effort to query complexity**: Embed explicit scaling rules in the prompt — e.g., 'simple fact-finding: 1 agent + 3-10 tool calls; complex research: 10+ subagents with divided responsibilities.' Without rules, agents over-invest in simple tasks.",
+      "**Treat tool design as interface design**: Tool names, descriptions, and parameter names must be unambiguous. Agents select tools based on descriptions — vague descriptions cause tool misuse that is hard to detect.",
+      "**Drive iteration with end-to-end evals**: Build evaluations for each key agent behavior. Use both unit tests and integration tests. Don't rely on subjective impressions to judge whether the system is improving."
+    ]
+  },
+  "relatedIds": [
+    "orchestrator-delegation-clarity",
+    "multi-agent-research-architecture"
+  ],
+  "relationType": "supports"
+}

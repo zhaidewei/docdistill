@@ -1,47 +1,74 @@
 {
   "id": "extended-thinking-vs-standard",
   "type": "comparison",
-  "title": "Extended thinking vs standard responses",
+  "title": "Extended Thinking 与普通响应的区别",
+  "title_en": "Extended Thinking vs Standard Responses",
   "source": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
   "tags": [
     "extended-thinking",
-    "claude-api",
+    "api",
     "comparison"
   ],
   "readingMinutes": 3,
   "body": {
-    "itemA": "Standard response (no thinking)",
-    "itemB": "Extended thinking enabled",
+    "itemA": "普通响应（不开启 thinking）",
+    "itemB": "Extended Thinking 响应",
     "dimensions": [
       {
-        "name": "Reasoning",
-        "a": "Claude reasons internally with no visibility",
-        "b": "Explicit thinking block shows step-by-step reasoning"
+        "name": "推理深度",
+        "a": "单次生成，适合简单问答和创意写作",
+        "b": "多步深度推理，适合数学、编程、复杂分析"
       },
       {
-        "name": "Best for",
-        "a": "Simple Q&A, creative writing, quick tasks",
-        "b": "Math, coding, analysis, multi-step logic, complex instructions"
+        "name": "响应结构",
+        "a": "content 中只有 text block",
+        "b": "content 中先有 thinking block，再有 text block"
       },
       {
-        "name": "Token cost",
-        "a": "Only output tokens charged",
-        "b": "Thinking tokens + output tokens both charged"
+        "name": "延迟与成本",
+        "a": "更快、更便宜",
+        "b": "更慢、thinking tokens 计入输出 token 费用"
       },
       {
-        "name": "Latency",
-        "a": "Faster — no extra reasoning step",
-        "b": "Slower — Claude spends time thinking before responding"
+        "name": "透明度",
+        "a": "看不到推理过程",
+        "b": "可以看到（部分或全部）思考步骤"
       },
       {
-        "name": "Temperature",
-        "a": "Adjustable (0–1)",
-        "b": "Must be exactly 1"
+        "name": "API 限制",
+        "a": "可用 temperature、top_p 等采样参数",
+        "b": "temperature 必须为 1，不能用 top_k/top_p"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Standard response (thinking disabled)",
+    "itemB": "Extended Thinking response",
+    "dimensions": [
+      {
+        "name": "Reasoning depth",
+        "a": "Single-pass generation; suitable for simple Q&A and creative writing",
+        "b": "Multi-step deep reasoning; ideal for math, coding, and complex analysis"
       },
       {
-        "name": "Streaming",
-        "a": "Optional",
-        "b": "Required"
+        "name": "Response structure",
+        "a": "content contains only text blocks",
+        "b": "content contains thinking blocks first, then text blocks"
+      },
+      {
+        "name": "Latency & cost",
+        "a": "Faster and cheaper",
+        "b": "Slower; thinking tokens count toward output token billing"
+      },
+      {
+        "name": "Transparency",
+        "a": "No visibility into reasoning process",
+        "b": "Partial or full visibility into thinking steps"
+      },
+      {
+        "name": "API constraints",
+        "a": "Can use temperature, top_p, and other sampling params",
+        "b": "temperature must be 1; top_k/top_p not allowed"
       }
     ]
   },

@@ -1,7 +1,8 @@
 {
   "id": "tool-use-lifecycle-four-steps",
   "type": "concept-model",
-  "title": "Tool use lifecycle: define, call, execute, return",
+  "title": "Tool use 生命周期：定义、调用、执行、返回",
+  "title_en": "Tool Use Lifecycle: Define, Call, Execute, Return",
   "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
   "tags": [
     "tool-use",
@@ -10,8 +11,13 @@
   ],
   "readingMinutes": 3,
   "body": {
+    "concept": "Tool use 遵循四步循环。(1) 定义：你用 JSON Schema 描述工具（名称、参数、描述），放在 API 请求里发送。(2) 调用：Claude 分析用户请求，决定调用哪个工具，返回包含结构化参数的 tool_use block。(3) 执行：你的应用运行实际代码（client tool），或 Anthropic 运行它（server tool）。(4) 返回：工具结果作为 tool_result 消息发回，Claude 据此生成最终回答。这个循环可以重复——Claude 可能连续调用多个工具后才回答。",
+    "analogy": "像医生（Claude）开化验单（tool_use）。医生决定做什么检查，但从不亲自抽血——实验室（你的应用）执行检查并返回结果。医生再根据结果给出诊断建议。",
+    "visual": "你 → [tools + 用户消息] → Claude → [tool_use block] → 你的应用执行 → [tool_result] → Claude → [最终回答]。如需更多调用则循环回 tool_use。"
+  },
+  "body_en": {
     "concept": "Tool use follows a four-step cycle. (1) Define: you describe tools via JSON Schema (name, parameters, description) and send them in the API request. (2) Call: Claude analyzes the user's request and decides which tool(s) to call, returning tool_use blocks with structured arguments. (3) Execute: your application runs the actual code (for client tools) or Anthropic runs it (for server tools). (4) Return: the tool result is sent back as a tool_result message, and Claude uses it to produce its final answer. This cycle can repeat — Claude may chain multiple tool calls before answering.",
-    "analogy": "Like a doctor (Claude) writing a prescription (tool_use). The doctor decides what tests to order but never draws blood — the lab (your app) runs the test and sends results back. The doctor then interprets the results and advises the patient.",
+    "analogy": "Like a doctor (Claude) writing a lab order (tool_use). The doctor decides what tests to run but never draws blood — the lab (your app) runs the test and sends results back. The doctor then interprets the results and advises the patient.",
     "visual": "You → [tools + user message] → Claude → [tool_use block] → Your app executes → [tool_result] → Claude → [final answer]. Loop back to tool_use if more calls needed."
   },
   "relatedIds": [

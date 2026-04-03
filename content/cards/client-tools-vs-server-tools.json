@@ -1,7 +1,8 @@
 {
   "id": "client-tools-vs-server-tools",
   "type": "comparison",
-  "title": "Client tools vs server tools",
+  "title": "Client tools 与 server tools 的区别",
+  "title_en": "Client Tools vs Server Tools",
   "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
   "tags": [
     "tool-use",
@@ -10,8 +11,34 @@
   ],
   "readingMinutes": 3,
   "body": {
-    "itemA": "Client tools: tools that run in YOUR application. Includes user-defined tools (custom functions you write) and Anthropic-schema tools (bash, text_editor). Claude returns a tool_use block, you execute it locally, and send back a tool_result.",
-    "itemB": "Server tools: tools that run on Anthropic's infrastructure. Includes web_search, code_execution, web_fetch, and tool_search. You just declare them in the request — Anthropic handles execution and returns results directly in the response.",
+    "itemA": "Client tools：在你的应用中运行。包括你自定义的函数，以及 Anthropic 提供 schema 的工具（bash、text_editor）。Claude 返回 tool_use block，你本地执行后发回 tool_result。",
+    "itemB": "Server tools：在 Anthropic 基础设施上运行。包括 web_search、code_execution、web_fetch、tool_search。你只需在请求中声明它们，Anthropic 执行并直接在响应中返回结果。",
+    "dimensions": [
+      {
+        "name": "谁执行",
+        "a": "你的应用",
+        "b": "Anthropic 的服务器"
+      },
+      {
+        "name": "需要处理 tool_result？",
+        "a": "是——你必须发回结果",
+        "b": "否——结果自动出现在响应中"
+      },
+      {
+        "name": "示例",
+        "a": "自定义函数、bash、text_editor",
+        "b": "web_search、code_execution、web_fetch"
+      },
+      {
+        "name": "接入成本",
+        "a": "你需要编写执行逻辑",
+        "b": "只需在请求中声明工具类型"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Client tools: run in YOUR application. Includes user-defined functions and Anthropic-schema tools (bash, text_editor). Claude returns a tool_use block, you execute it locally, and send back a tool_result.",
+    "itemB": "Server tools: run on Anthropic's infrastructure. Includes web_search, code_execution, web_fetch, and tool_search. You just declare them in the request — Anthropic handles execution and returns results directly in the response.",
     "dimensions": [
       {
         "name": "Who executes",
@@ -19,7 +46,7 @@
         "b": "Anthropic's servers"
       },
       {
-        "name": "You handle tool_result?",
+        "name": "Handle tool_result?",
         "a": "Yes — you must send results back",
         "b": "No — results appear automatically"
       },

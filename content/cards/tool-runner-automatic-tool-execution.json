@@ -1,0 +1,35 @@
+{
+  "id": "tool-runner-automatic-tool-execution",
+  "type": "how-to",
+  "title": "使用 Tool Runner 自动执行工具",
+  "title_en": "Use Tool Runner for Automatic Tool Execution",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner",
+  "tags": [
+    "tool-use",
+    "sdk",
+    "python"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "用 SDK 的 Tool Runner 让 Claude 自动调用工具并循环执行，无需手写 agentic loop。",
+    "steps": [
+      "用 @beta_tool 装饰器定义工具函数（异步客户端用 @beta_async_tool + async def）。函数的 type hints 和 docstring 会自动转换为 tool schema。",
+      "将工具函数列表传给 Tool Runner，而非手动构造 tools 参数。",
+      "Tool Runner 自动完成：解析 Claude 返回的 tool_use → 调用对应函数 → 将结果作为 tool_result 发回 → 循环直到 Claude 给出最终文本回复。",
+      "如果工具函数抛出异常，SDK 会自动包装为 is_error=true 的 tool_result，Claude 会据此重试或报错。"
+    ]
+  },
+  "body_en": {
+    "goal": "Use the SDK's Tool Runner to let Claude automatically call tools in a loop, without writing a manual agentic loop.",
+    "steps": [
+      "Define tool functions with the @beta_tool decorator (use @beta_async_tool + async def for async clients). Type hints and docstrings are automatically converted into the tool schema.",
+      "Pass the list of tool functions to the Tool Runner instead of manually constructing the tools parameter.",
+      "The Tool Runner automatically: parses tool_use from Claude's response → calls the matching function → sends the result back as tool_result → loops until Claude produces a final text response.",
+      "If a tool function throws an exception, the SDK wraps it as an is_error=true tool_result, so Claude can retry or report the error."
+    ]
+  },
+  "relatedIds": [
+    "tool-runner-vs-manual-agentic-loop"
+  ],
+  "relationType": "complements"
+}

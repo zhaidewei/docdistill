@@ -1,8 +1,9 @@
 {
   "id": "agent-sdk-loop-five-phases",
   "type": "architecture",
-  "title": "Agent SDK loop: 5 phases from prompt to result",
-  "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
+  "title": "Agent SDK loop：从 prompt 到结果的 5 个阶段",
+  "title_en": "Agent SDK Loop: 5 Phases from Prompt to Result",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/overview",
   "tags": [
     "agent-sdk",
     "agentic-loop",
@@ -10,6 +11,28 @@
   ],
   "readingMinutes": 3,
   "body": {
+    "overview": "Agent SDK 运行一个托管循环，自动处理工具执行。你发送 prompt，SDK 驱动 Claude 经历「评估 → 工具调用 → 结果回传」的循环，直到 Claude 没有更多操作需要执行，然后返回包含费用和 token 用量的最终结果。",
+    "components": [
+      {
+        "name": "SystemMessage（初始化）",
+        "role": "循环开始时产出一次，携带 session 元数据（session ID、配置）"
+      },
+      {
+        "name": "AssistantMessage",
+        "role": "每次 Claude 响应时产出，包含文本和/或工具调用请求"
+      },
+      {
+        "name": "UserMessage（工具结果）",
+        "role": "SDK 自动执行工具后，将执行结果回传给 Claude 时产出"
+      },
+      {
+        "name": "ResultMessage",
+        "role": "循环结束时产出一次，包含最终文本、token 用量、费用和 session ID"
+      }
+    ],
+    "flow": "1. SDK 将 prompt + 工具定义 + 历史发给 Claude → 产出 SystemMessage。2. Claude 评估并响应 → SDK 产出 AssistantMessage（可能含工具调用）。3. 若有工具调用：SDK 执行之，产出 UserMessage，将结果回传 Claude。4. 步骤 2-3 重复（每一轮 = 一个 turn）。5. 当 Claude 响应不再包含工具调用 → SDK 产出最终 AssistantMessage + ResultMessage，循环结束。"
+  },
+  "body_en": {
     "overview": "The Agent SDK runs a managed loop that handles tool execution automatically. You send a prompt; the SDK drives Claude through evaluate → tool-call → result cycles until Claude has nothing left to do, then delivers a final result with cost and usage stats.",
     "components": [
       {

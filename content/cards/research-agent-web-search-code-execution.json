@@ -1,0 +1,46 @@
+{
+  "id": "research-agent-web-search-code-execution",
+  "type": "architecture",
+  "title": "研究型 agent：web_search + code_execution 组合",
+  "title_en": "Research Agent: web_search + code_execution Pairing",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-combinations",
+  "tags": [
+    "tool-combination",
+    "agent-pattern",
+    "web-search"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "overview": "研究型 agent 将两个 server tool 配对使用：web_search 负责从网上获取最新信息，code_execution 负责对信息进行计算和分析。适合既需要实时数据又需要复杂计算的任务，例如「比较五大云厂商本季度财报」。",
+    "components": [
+      {
+        "name": "web_search",
+        "role": "发现阶段——在网上搜索数据源和最新信息"
+      },
+      {
+        "name": "code_execution",
+        "role": "处理阶段——用 Python 对搜索结果做汇总、制表或可视化"
+      }
+    ],
+    "flow": "1. Claude 调用 web_search 搜索相关信息 → 2. Claude 编写 Python 代码调用 code_execution 处理数据 → 3. 如果第一轮搜索有遗漏，可再次搜索补充 → 4. 返回最终分析结果。两个工具都在服务端执行，客户端无需管理沙箱。"
+  },
+  "body_en": {
+    "overview": "A research agent pairs two server tools: web_search to find up-to-date information and code_execution to analyze it. This fits tasks that need both live data and nontrivial computation, such as 'compare this quarter's earnings across the top five cloud providers.'",
+    "components": [
+      {
+        "name": "web_search",
+        "role": "Discovery phase — search the web for data sources and current information"
+      },
+      {
+        "name": "code_execution",
+        "role": "Processing phase — write Python to tabulate, summarize, or visualize the results"
+      }
+    ],
+    "flow": "1. Claude calls web_search for relevant information → 2. Claude writes Python and invokes code_execution to process data → 3. Optionally searches again if the first pass had gaps → 4. Returns final analysis. Both tools run server-side, so there's no client sandbox to manage."
+  },
+  "relatedIds": [
+    "web-search-tool-enable-and-usage",
+    "code-execution-free-with-web-tools"
+  ],
+  "relationType": "extends"
+}

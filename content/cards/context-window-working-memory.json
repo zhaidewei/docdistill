@@ -1,0 +1,26 @@
+{
+  "id": "context-window-working-memory",
+  "type": "concept-model",
+  "title": "Context Window：模型的工作记忆",
+  "title_en": "Context Window: The Model's Working Memory",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+  "tags": [
+    "context-window",
+    "api-basics"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Context window 是模型生成回复时能参考的全部文本，包括回复本身。它不是模型的训练数据（长期记忆），而是「工作记忆」——当前对话中模型能看到的一切。Claude 最大支持 1M tokens。",
+    "analogy": "想象你在一张有限大小的桌子上工作。桌面就是 context window：你能同时摊开多少文件取决于桌面大小。你的大脑里存储的知识（训练数据）远比桌面上的多，但你只能根据桌面上看得到的材料来回答问题。",
+    "visual": "一张桌子，上面摆着 system prompt、历史对话、当前提问、模型回复，桌子边缘标注 '1M tokens 上限'。桌子旁边是一个巨大的书架，标注 '训练数据（不在 context window 中）'。"
+  },
+  "body_en": {
+    "concept": "The context window is all the text a model can reference when generating a response, including the response itself. It's not the training data (long-term memory) but rather 'working memory'—everything the model can see in the current conversation. Claude supports up to 1M tokens.",
+    "analogy": "Imagine working at a desk with limited surface area. The desk is the context window: how many documents you can spread out depends on the desk size. Your brain (training data) knows far more, but you can only answer based on what's visible on the desk.",
+    "visual": "A desk with system prompt, conversation history, current query, and model response laid out. The desk edge is labeled '1M token limit'. Next to it, a massive bookshelf labeled 'Training data (not in context window)'."
+  },
+  "relatedIds": [
+    "context-window-token-math"
+  ],
+  "relationType": "extends"
+}

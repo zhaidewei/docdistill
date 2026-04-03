@@ -2,6 +2,7 @@
   "id": "prompt-system-vs-user-message",
   "type": "problem-solution",
   "title": "什么时候用 system prompt，什么时候用 user message",
+  "title_en": "When to Use System Prompt vs User Message",
   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
   "tags": [
     "prompt-engineering",
@@ -12,6 +13,11 @@
     "problem": "开发者在调用 API 时不确定应该把指令放在 system prompt 还是 user message 里。放错位置可能导致 Claude 忽略指令或行为不一致。",
     "solution": "System prompt 放「角色定义 + 全局规则 + 输出格式」——这些在整个对话中保持不变的指令。User message 放「当前任务的具体输入和本轮特定要求」。类比：system prompt 是员工入职手册（读一次，一直生效），user message 是每天的工作任务单。",
     "keyTakeaway": "不变的规则放 system prompt，变化的输入放 user message。如果你把所有东西都堆在 user message 里，多轮对话时 Claude 容易「忘记」全局规则。"
+  },
+  "body_en": {
+    "problem": "Developers aren't sure whether to put instructions in the system prompt or user message when calling the API. Placing them in the wrong spot can cause Claude to ignore instructions or behave inconsistently.",
+    "solution": "System prompt holds 'role definition + global rules + output format' — instructions that stay constant throughout the conversation. User message holds 'current task input and turn-specific requirements'. Think of it this way: system prompt is the employee handbook (read once, always in effect), user message is the daily task assignment.",
+    "keyTakeaway": "Stable rules go in system prompt, changing inputs go in user message. If you pile everything into user messages, Claude tends to 'forget' global rules during multi-turn conversations."
   },
   "relatedIds": [
     "prompt-clear-and-direct"

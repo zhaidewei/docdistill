@@ -1,0 +1,35 @@
+{
+  "id": "hallucination-allow-i-dont-know",
+  "type": "how-to",
+  "title": "允许 Claude 说「我不知道」来减少幻觉",
+  "title_en": "Allow Claude to Say 'I Don't Know' to Reduce Hallucinations",
+  "source": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+  "tags": [
+    "hallucination",
+    "prompt-engineering",
+    "guardrails"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "减少 Claude 编造信息的概率",
+    "steps": [
+      "在 system prompt 中明确告诉 Claude：如果不确定答案，可以说「我不知道」或「我不确定」",
+      "例如加一句：'If you are not confident in your answer, say so rather than guessing'",
+      "原理：Claude 默认会尽量回答所有问题，即使没有足够依据。给它「退出通道」后，它会在不确定时选择诚实而非编造",
+      "在高风险场景（金融分析、法律、医疗）中，这一步尤为关键——一个错误的回答比不回答危害大得多"
+    ]
+  },
+  "body_en": {
+    "goal": "Reduce the probability of Claude fabricating information",
+    "steps": [
+      "Explicitly tell Claude in the system prompt that it can say 'I don't know' or 'I'm not sure' when uncertain",
+      "Example: add 'If you are not confident in your answer, say so rather than guessing'",
+      "Why it works: Claude defaults to answering every question, even without sufficient evidence. Giving it an 'exit ramp' lets it choose honesty over fabrication",
+      "This is especially critical in high-stakes domains (finance, legal, medical) — a wrong answer is far worse than no answer"
+    ]
+  },
+  "relatedIds": [
+    "hallucination-cite-quotes-ground-response"
+  ],
+  "relationType": "complements"
+}

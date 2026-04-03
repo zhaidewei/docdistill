@@ -1,7 +1,8 @@
 {
   "id": "context-engineering-curating-what-model-sees",
   "type": "concept-model",
-  "title": "Context engineering: curating what the model sees",
+  "title": "Context Engineering：策展模型所看到的一切",
+  "title_en": "Context Engineering: Curating What the Model Sees",
   "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
   "tags": [
     "context-engineering",
@@ -9,8 +10,13 @@
   ],
   "readingMinutes": 3,
   "body": {
-    "concept": "Context engineering is the art of curating the optimal set of tokens fed to an LLM at inference time. 'Context' means everything the model sees: system prompts, tools, MCP, external data, and message history. The engineering challenge is maximizing the utility of those tokens against inherent LLM constraints to consistently produce the desired behavior. Building effective agents requires 'thinking in context' — considering the holistic state available to the model at any given time and what behaviors that state might yield.",
-    "analogy": "Think of context like a chef's mise en place — the precisely selected and arranged ingredients on the counter before cooking. The kitchen (context window) is finite. Every unnecessary ingredient takes up counter space and makes it harder to find what you actually need. The chef's skill isn't just in the recipe (prompt), but in deciding what goes on the counter and what stays in the pantry.",
+    "concept": "Context engineering 是在 LLM 推理时，策展最优 token 集合的技术。这里的「context」指模型看到的一切：system prompt、tool 定义、MCP、外部数据、对话历史。工程挑战在于：在 LLM 固有约束下，最大化这些 token 的效用，以持续产生预期行为。构建高效 agent 需要「以 context 为中心思考」——时刻关注模型在任意时刻能看到什么，以及这些内容可能引发什么行为。",
+    "analogy": "把 context 想象成厨师的 mise en place（备料台）。厨房台面（context window）是有限的。每放一样多余的食材，就占掉一块空间，让你更难找到真正需要的东西。厨师的功力不只在于菜谱（prompt），更在于决定什么上台面、什么留在储藏室。",
+    "visual": "漏斗图：顶部是标注「可能的信息宇宙」的大云（tool 返回值、历史、外部数据、指令），漏斗收窄进入标注「context window」的方框，方框内只有高信号 token。箭头从方框指向「模型输出」。"
+  },
+  "body_en": {
+    "concept": "Context engineering is the art of curating the optimal set of tokens fed to an LLM at inference time. 'Context' means everything the model sees: system prompts, tools, MCP, external data, and message history. The engineering challenge is maximizing the utility of those tokens against inherent LLM constraints to consistently produce desired behavior. Building effective agents requires 'thinking in context'—considering the holistic state available to the model at any given time and what behaviors that state might yield.",
+    "analogy": "Think of context like a chef's mise en place—the precisely selected and arranged ingredients on the counter before cooking. The kitchen counter (context window) is finite. Every unnecessary ingredient takes up space and makes it harder to find what you actually need. The chef's skill isn't just in the recipe (prompt), but in deciding what goes on the counter and what stays in the pantry.",
     "visual": "A funnel diagram: at the top, a large cloud labeled 'universe of possible information' (tool results, history, external data, instructions). The funnel narrows into a box labeled 'context window' containing only high-signal tokens. An arrow from the box points to 'model output'."
   },
   "relatedIds": [

@@ -1,0 +1,27 @@
+{
+  "id": "tool-runner-compaction-long-running-tasks",
+  "type": "concept-model",
+  "title": "Tool Runner 的自动 compaction：突破上下文窗口限制",
+  "title_en": "Tool Runner Auto-Compaction: Breaking Past Context Window Limits",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner",
+  "tags": [
+    "tool-use",
+    "context-management",
+    "sdk"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "Tool Runner 支持自动 compaction（上下文压缩）。当对话的 token 使用量超过阈值时，SDK 会自动生成之前对话的摘要来替代原始内容，从而释放上下文空间。这让长时间运行的 agentic 任务可以超越单次上下文窗口的限制。",
+    "analogy": "就像笔记本写满了一页，你把要点摘抄到新的一页，然后翻过去继续写。旧页的细节丢失了，但关键信息保留了下来。",
+    "visual": "对话 token 增长 → 触达阈值 → SDK 生成摘要替换旧消息 → 上下文空间释放 → 继续工具循环"
+  },
+  "body_en": {
+    "concept": "Tool Runner supports automatic compaction. When token usage exceeds a threshold, the SDK generates summaries of earlier conversation turns to replace the original content, freeing up context space. This allows long-running agentic tasks to continue beyond a single context window.",
+    "analogy": "Like a notebook that's full—you copy the key points onto a fresh page, flip past the old one, and keep writing. The details of the old page are gone, but the essential information is preserved.",
+    "visual": "Conversation tokens grow → hit threshold → SDK generates summary replacing old messages → context space freed → tool loop continues"
+  },
+  "relatedIds": [
+    "tool-runner-automatic-tool-execution"
+  ],
+  "relationType": "extends"
+}

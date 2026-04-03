@@ -1,0 +1,80 @@
+{
+  "id": "web-fetch-vs-web-search",
+  "type": "comparison",
+  "title": "Web search 与 web fetch：何时用哪个",
+  "title_en": "Web Search vs Web Fetch: When to Use Each",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool",
+  "tags": [
+    "web-fetch",
+    "web-search",
+    "server-tool"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Web search（web_search）：Claude 自主搜索互联网，发现未知的信息来源。你不需要提供 URL，Claude 自己决定搜索什么关键词。适合「帮我查一下 X 的最新情况」这类需求。",
+    "itemB": "Web fetch（web_fetch）：Claude 抓取你指定 URL 的完整内容（网页或 PDF）。你必须提供具体的 URL。适合「帮我读一下这个链接的内容」这类需求。",
+    "dimensions": [
+      {
+        "name": "输入",
+        "a": "无需 URL，Claude 自主搜索",
+        "b": "必须提供具体 URL"
+      },
+      {
+        "name": "返回内容",
+        "a": "搜索结果摘要 + 引用来源",
+        "b": "指定页面的完整文本内容"
+      },
+      {
+        "name": "PDF 支持",
+        "a": "不直接支持",
+        "b": "支持，自动提取文本"
+      },
+      {
+        "name": "JS 渲染页面",
+        "a": "取决于搜索引擎",
+        "b": "不支持"
+      },
+      {
+        "name": "典型用途",
+        "a": "事实查询、时事新闻、研究调查",
+        "b": "阅读文档、解析 PDF、提取页面信息"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Web search (web_search): Claude autonomously searches the internet to discover unknown information sources. No URL needed — Claude decides what keywords to search. Best for 'find me the latest on X' type requests.",
+    "itemB": "Web fetch (web_fetch): Claude retrieves full content from a specific URL you provide (web page or PDF). You must supply the exact URL. Best for 'read this link for me' type requests.",
+    "dimensions": [
+      {
+        "name": "Input",
+        "a": "No URL needed, Claude searches autonomously",
+        "b": "Specific URL required"
+      },
+      {
+        "name": "Output",
+        "a": "Search result summaries with citations",
+        "b": "Full text content of the specified page"
+      },
+      {
+        "name": "PDF support",
+        "a": "Not directly supported",
+        "b": "Supported with automatic text extraction"
+      },
+      {
+        "name": "JS-rendered pages",
+        "a": "Depends on search engine",
+        "b": "Not supported"
+      },
+      {
+        "name": "Typical use",
+        "a": "Fact queries, current events, research",
+        "b": "Reading docs, parsing PDFs, extracting page info"
+      }
+    ]
+  },
+  "relatedIds": [
+    "web-search-how-it-works",
+    "web-fetch-how-it-works"
+  ],
+  "relationType": "complements"
+}

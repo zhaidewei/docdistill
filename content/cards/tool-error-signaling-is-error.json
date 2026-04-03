@@ -1,0 +1,26 @@
+{
+  "id": "tool-error-signaling-is-error",
+  "type": "problem-solution",
+  "title": "用 is_error: true 告知 Claude 工具执行失败",
+  "title_en": "Signal Tool Errors with is_error: true",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+  "tags": [
+    "tool-use",
+    "error-handling"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "工具执行可能失败（如 API 超时、参数无效）。如果你把错误信息当成正常结果返回，Claude 无法区分「成功但内容碰巧像错误」和「真正失败了」，可能给出错误的后续回答。",
+    "solution": "在 tool_result 块中设置 is_error: true，同时在 content 中放入错误描述。Claude 看到这个标志后，会知道工具调用失败了，从而采取合适的后续行动——比如换一种参数重试，或告诉用户出了什么问题。",
+    "keyTakeaway": "is_error 是一个语义信号，不只是日志。它改变 Claude 对结果的理解方式，让模型能做出正确的错误恢复决策。"
+  },
+  "body_en": {
+    "problem": "Tool execution can fail (e.g., API timeout, invalid params). If you return error messages as normal results, Claude can't distinguish 'success with error-like content' from 'actual failure', leading to incorrect follow-up responses.",
+    "solution": "Set is_error: true in the tool_result block, with an error description in content. Claude recognizes this flag as a failure signal and responds accordingly—retrying with different parameters or informing the user what went wrong.",
+    "keyTakeaway": "is_error is a semantic signal, not just logging. It changes how Claude interprets the result, enabling proper error recovery decisions."
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps"
+  ],
+  "relationType": "extends"
+}

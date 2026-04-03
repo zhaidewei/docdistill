@@ -1,0 +1,25 @@
+{
+  "id": "vision-image-size-limits-tokens",
+  "type": "fact",
+  "title": "Vision 限制：尺寸上限、token 消耗与支持格式",
+  "title_en": "Vision Limits: Max Size, Token Cost, and Supported Formats",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/vision",
+  "tags": [
+    "vision",
+    "claude-api",
+    "limits"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "支持格式：JPEG、PNG、GIF、WebP。单张图最大 8000×8000 px；一次请求超过 20 张图时，每张上限降为 2000×2000 px。请求总大小限制 32 MB（标准端点）。图片长边超过 1568 px 或超过约 1600 token 时，Claude 会自动缩放——这会增加首 token 延迟，但不提升质量。边长小于 200 px 的图片会降低输出质量。",
+    "context": "token 消耗取决于缩放后的实际像素量，而非原始文件大小。要控制成本和延迟，最佳实践是在上传前把图片长边缩到 1568 px 以内。如果需要发送大量图片，优先使用 Files API + file_id 引用，避免 base64 撑大请求体。"
+  },
+  "body_en": {
+    "fact": "Supported formats: JPEG, PNG, GIF, WebP. A single image can be up to 8000×8000 px; when sending more than 20 images per request, the per-image limit drops to 2000×2000 px. Total request size is capped at 32 MB (standard endpoints). If the long edge exceeds 1568 px or the image exceeds ~1600 tokens, Claude auto-scales it down — this adds latency to time-to-first-token without improving quality. Images smaller than 200 px on any edge may degrade output quality.",
+    "context": "Token cost depends on the post-scaling pixel count, not the original file size. To control cost and latency, resize images so the long edge is at most 1568 px before uploading. For many images, use the Files API with file_id references to keep request payloads small."
+  },
+  "relatedIds": [
+    "vision-send-image-two-methods"
+  ],
+  "relationType": "extends"
+}

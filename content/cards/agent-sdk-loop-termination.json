@@ -1,0 +1,28 @@
+{
+  "id": "agent-sdk-loop-termination",
+  "type": "concept-model",
+  "title": "Agent loop 何时结束：3 种终止条件",
+  "title_en": "When the Agent Loop Ends: 3 Termination Conditions",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
+  "tags": [
+    "agent-sdk",
+    "agentic-loop",
+    "guardrails"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "Agent loop 有 3 种停止方式：(1) 正常完成——Claude 的响应不包含任何工具调用，表示任务做完了；(2) 费用/token 限制——累计费用或 token 用量达到你设定的上限，SDK 强制中止循环；(3) hooks 拦截——你注册的 hook 函数拒绝了某次工具调用，循环被中断。只有方式 1 是 Claude 主动判断「我做完了」，方式 2 和 3 都是外部强制停止。",
+    "analogy": "想象一个厨师在厨房做菜。正常完成 = 菜做好了端上桌；费用上限 = 食材预算用完了必须停手；hooks 拦截 = 经理走进来说「这个操作不允许」。厨师只有第一种情况是按自己意愿结束的。",
+    "visual": "循环运行 → [Claude 无工具调用？] → 是 → 正常结束(ResultMessage)。否 → [超出费用/token 限制？] → 是 → 强制中止。否 → [Hook 拒绝？] → 是 → 中断。否 → 继续下一个 turn。"
+  },
+  "body_en": {
+    "concept": "The agent loop stops in 3 ways: (1) Normal completion — Claude's response contains no tool calls, meaning the task is done; (2) Cost/token limit — cumulative cost or token usage hits your configured cap, and the SDK force-stops the loop; (3) Hook rejection — a hook you registered blocks a tool call, interrupting the loop. Only case 1 is Claude's own judgment that 'I'm finished.' Cases 2 and 3 are external force-stops.",
+    "analogy": "Imagine a chef cooking in a kitchen. Normal completion = dish is done, serve it. Cost limit = ingredient budget ran out, must stop. Hook rejection = the manager walks in and says 'that operation isn't allowed.' The chef only ends willingly in the first case.",
+    "visual": "Loop running → [Claude has no tool calls?] → Yes → Normal end (ResultMessage). No → [Cost/token limit exceeded?] → Yes → Force stop. No → [Hook rejected?] → Yes → Interrupt. No → Continue to next turn."
+  },
+  "relatedIds": [
+    "agent-sdk-loop-message-flow",
+    "agent-sdk-loop-turns-and-guardrails"
+  ],
+  "relationType": "extends"
+}

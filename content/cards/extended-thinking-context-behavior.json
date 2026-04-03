@@ -1,20 +1,24 @@
 {
   "id": "extended-thinking-context-behavior",
-  "type": "concept-model",
-  "title": "Extended thinking uses context window space but gets auto-cleaned",
+  "type": "fact",
+  "title": "Extended Thinking 的 token 在 context window 中的特殊行为",
+  "title_en": "How Extended Thinking Tokens Behave in the Context Window",
   "source": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
   "tags": [
     "extended-thinking",
     "context-window"
   ],
-  "readingMinutes": 3,
+  "readingMinutes": 2,
   "body": {
-    "concept": "When extended thinking is enabled, thinking tokens count toward the context window limit and are billed as output tokens. The thinking budget is a subset of your max_tokens parameter. Key nuance: in multi-turn conversations, previous thinking blocks are automatically stripped from context by the API — Claude doesn't 'see' old thinking in subsequent turns. This preserves token capacity for actual conversation content.",
-    "analogy": "Imagine doing scratch work on sticky notes during an exam. The scratch notes take up desk space while you're writing (current turn), but after each question the teacher collects and discards them. Your final answer stays on the exam paper (conversation history), but the scratch work is gone, freeing desk space for the next question.",
-    "visual": "Two-turn diagram. Turn 1: input + thinking block + response all inside context window. Turn 2: input includes Turn 1's response but NOT Turn 1's thinking block — that space is reclaimed."
+    "fact": "Extended thinking 的 token 属于 max_tokens 的子集，按 output token 计费，并计入速率限制。但在多轮对话中，之前轮次的 thinking block 会被 API 自动从 context window 中移除——模型在后续轮次看不到之前的思考过程。这意味着 thinking token 只在当前轮次占用空间，不会累积挤压后续对话的可用容量。",
+    "context": "这是一个容易被忽视的优化：虽然 thinking token 在当前轮次消耗 context 且产生费用，但它不会像普通 assistant 消息那样在历史中持续累积，从而保护了后续轮次的可用 token 空间。"
+  },
+  "body_en": {
+    "fact": "Extended thinking tokens are a subset of max_tokens, billed as output tokens, and count toward rate limits. However, in multi-turn conversations, previous thinking blocks are automatically stripped from the context window by the API—the model doesn't 'see' prior thinking in subsequent turns. This means thinking tokens only consume space in the current turn and don't accumulate to squeeze future conversation capacity.",
+    "context": "This is an easily overlooked optimization: although thinking tokens consume context and incur costs in the current turn, they don't persist in history like regular assistant messages, preserving available token space for subsequent turns."
   },
   "relatedIds": [
-    "context-window-token-accounting"
+    "context-window-token-math"
   ],
   "relationType": "extends"
 }

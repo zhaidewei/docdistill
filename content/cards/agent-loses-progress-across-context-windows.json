@@ -1,0 +1,27 @@
+{
+  "id": "agent-loses-progress-across-context-windows",
+  "type": "problem-solution",
+  "title": "Agent 跨 Context Window 丢失进度",
+  "title_en": "Agent Loses Progress Across Context Windows",
+  "source": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  "tags": [
+    "agent",
+    "context-window",
+    "state"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "复杂任务跨多个 context window。每个新 session 从空白上下文开始——agent 不知道之前做了什么、做到哪里、下一步是什么。它要么重新猜测状态（浪费时间），要么继续写半实现的功能（留下烂摊子）。",
+    "solution": "用文件系统作为跨 session 的持久状态。具体做法：① 用 claude-progress.txt 记录已完成工作和下一步任务；② 每次 session 结束时 git commit，保留可回退的干净状态；③ 新 session 开始时先读进度文件和 git log，再行动。",
+    "keyTakeaway": "Context window 是无状态的，文件系统是有状态的。将状态外化到文件和 git history，agent 才能在会话间真正\"记住\"发生了什么。"
+  },
+  "body_en": {
+    "problem": "Complex tasks span multiple context windows. Each new session starts blank — the agent doesn't know what was done, how far along the project is, or what comes next. It either wastes time re-discovering state, or continues building on a half-finished, undocumented feature.",
+    "solution": "Use the file system as persistent cross-session state. Specifically: ① Write a claude-progress.txt with completed work and next steps; ② git commit at the end of every session for a clean, recoverable state; ③ At the start of each new session, read the progress file and git log before doing anything.",
+    "keyTakeaway": "Context windows are stateless; the file system is not. Externalizing state into files and git history gives agents real memory across sessions."
+  },
+  "relatedIds": [
+    "long-running-agent-harness-architecture"
+  ],
+  "relationType": "part-of"
+}

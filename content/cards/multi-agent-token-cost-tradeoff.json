@@ -1,0 +1,28 @@
+{
+  "id": "multi-agent-token-cost-tradeoff",
+  "type": "problem-solution",
+  "title": "多 Agent 的代价：Token 消耗是单聊天的 15 倍",
+  "title_en": "The Multi-Agent Tax: 15× Token Cost vs. Chat",
+  "source": "https://www.anthropic.com/engineering/multi-agent-research-system",
+  "tags": [
+    "multi-agent",
+    "cost",
+    "tradeoff"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "多 Agent 系统性能更强，但代价高昂：单 Agent 任务约消耗聊天的 4 倍 token，多 Agent 系统则约消耗 15 倍。如果任务价值不够高，这种架构在经济上不可行。",
+    "solution": "将多 Agent 架构用于满足以下条件的任务：① 任务价值足够高，能覆盖成本；② 存在大量真正可并行的子任务；③ 信息量超出单个上下文窗口；④ 需要与众多复杂工具交互。反之，**不适合**的场景包括：所有 Agent 需要共享同一上下文、Agent 间存在大量顺序依赖（如大多数编程任务）。",
+    "keyTakeaway": "多 Agent 是一种性能放大器，不是万能药。用在对的问题上，收益巨大；用错了，只是烧钱。"
+  },
+  "body_en": {
+    "problem": "Multi-agent systems are powerful but expensive: single-agent tasks use about 4× more tokens than chat, and multi-agent systems use about 15×. If the task value doesn't justify the cost, this architecture isn't economically viable.",
+    "solution": "Reserve multi-agent architectures for tasks that: ① have high enough value to justify the cost; ② involve heavily parallelizable subtasks; ③ require information exceeding a single context window; ④ need to interface with many complex tools. Avoid for tasks where all agents must share context or where there are many sequential dependencies between agents (most coding tasks fall here).",
+    "keyTakeaway": "Multi-agent is a performance amplifier, not a universal solution. Applied to the right problems, the gains are massive. Applied to the wrong ones, it just burns tokens."
+  },
+  "relatedIds": [
+    "multi-agent-performance-gains",
+    "multi-agent-research-architecture"
+  ],
+  "relationType": "extends"
+}

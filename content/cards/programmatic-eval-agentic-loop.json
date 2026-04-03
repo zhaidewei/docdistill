@@ -1,0 +1,38 @@
+{
+  "id": "programmatic-eval-agentic-loop",
+  "type": "how-to",
+  "title": "如何用程序化 Agent 循环运行工具评测",
+  "title_en": "How to Run Tool Evaluations with Programmatic Agent Loops",
+  "source": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+  "tags": [
+    "evaluation",
+    "agent",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "准确量化 Agent 使用工具的成功率，而非依赖主观感受。",
+    "steps": [
+      "1. 用 Anthropic API 直接调用 LLM，不要用 Claude Code 界面——这样可程序化、可重复。",
+      "2. 为每个评测任务写一个 while 循环：交替发送 LLM API 请求和执行工具调用，直到 Agent 停止或达到步数上限。",
+      "3. 在 Agent 的 system prompt 中要求它输出：结构化结果块（用于自动验证）+ 推理块 + 反馈块（描述工具的不足之处）。",
+      "4. 验证时避免过度严格：接受格式不同但语义等价的答案，可以让 Claude 作为评判者（而非精确字符串匹配）。",
+      "5. 保留 Agent 的推理和反馈，供后续用 Claude Code 分析哪些工具需要改进。"
+    ]
+  },
+  "body_en": {
+    "goal": "Accurately measure how well agents use your tools, replacing subjective impressions with numbers.",
+    "steps": [
+      "1. Use the Anthropic API directly — not the Claude Code UI — so evaluations are programmatic and repeatable.",
+      "2. Write a while-loop per evaluation task: alternate LLM API calls and tool execution until the agent stops or hits a step limit.",
+      "3. In the agent's system prompt, ask it to emit: a structured result block (for verification) + a reasoning block + a feedback block describing tool limitations.",
+      "4. Avoid overly strict verifiers: accept semantically equivalent answers in different formats. Use Claude as a judge rather than exact string matching.",
+      "5. Preserve agent reasoning and feedback for later analysis — Claude Code can read these to identify which tools need improvement."
+    ]
+  },
+  "relatedIds": [
+    "tool-dev-prototype-eval-optimize-loop",
+    "agent-sdk-loop-five-phases"
+  ],
+  "relationType": "extends"
+}

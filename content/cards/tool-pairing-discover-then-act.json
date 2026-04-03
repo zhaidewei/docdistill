@@ -1,0 +1,28 @@
+{
+  "id": "tool-pairing-discover-then-act",
+  "type": "concept-model",
+  "title": "工具配对原则：发现 + 行动",
+  "title_en": "Tool Pairing Principle: Discover + Act",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-combinations",
+  "tags": [
+    "tool-combination",
+    "agent-pattern",
+    "design-principle"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "concept": "Anthropic 的内置工具是按「配对使用」设计的。常见的 agent 模式中，工具组合遵循同一个原则：一个工具负责「发现/获取」信息，另一个负责「处理/执行」动作。例如 web_search（发现）+ code_execution（处理），text_editor（读取）+ bash（执行）。这些组合是起点，不是固定方案，可根据任务自由混搭。",
+    "analogy": "就像厨师的刀具总是成对使用——菜刀切配料（发现/准备），锅铲翻炒（执行/完成）。你不会只用一把刀做完整道菜，也不会把所有刀具全摆出来。选择覆盖当前工作流互补阶段的最小工具组合即可。",
+    "visual": "左侧是「发现类工具」（web_search、text_editor、MCP 查询工具），右侧是「行动类工具」（code_execution、bash、MCP 写入工具），中间箭头标注「Claude 决定何时从发现切换到行动」。"
+  },
+  "body_en": {
+    "concept": "Anthropic's built-in tools are designed to work in pairs. Common agent patterns follow one principle: one tool discovers or gathers information, another processes or acts on it. For example, web_search (discover) + code_execution (process), text_editor (read) + bash (execute). These combinations are starting points, not prescriptions — mix them to fit your task.",
+    "analogy": "Like a chef's tools used in pairs — a knife to prep ingredients (discover/prepare) and a spatula to cook (execute/finish). You wouldn't use just one tool for the whole dish, nor lay out every tool you own. Pick the minimal set that covers complementary stages of your workflow.",
+    "visual": "Left side shows 'discovery tools' (web_search, text_editor, MCP query tools), right side shows 'action tools' (code_execution, bash, MCP write tools), with an arrow in the middle labeled 'Claude decides when to switch from discovery to action.'"
+  },
+  "relatedIds": [
+    "tools-minimal-viable-set",
+    "client-tools-vs-server-tools"
+  ],
+  "relationType": "extends"
+}

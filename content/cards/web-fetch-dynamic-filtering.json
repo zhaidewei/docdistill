@@ -1,0 +1,28 @@
+{
+  "id": "web-fetch-dynamic-filtering",
+  "type": "problem-solution",
+  "title": "Web fetch dynamic filtering：只取所需，省 token",
+  "title_en": "Web Fetch Dynamic Filtering: Extract Only What You Need",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool",
+  "tags": [
+    "web-fetch",
+    "dynamic-filtering",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "Web fetch 抓取整个网页或 PDF 的全部文本，一个大文档可能消耗大量 token。如果你只需要其中一小部分信息（比如从一篇长论文中提取结论），大部分 token 都浪费了。",
+    "solution": "使用 web_fetch_20260209 版本，Claude 会先写代码过滤抓取内容，只将相关部分加载进 context window。这需要同时启用 code_execution tool，且仅限 Opus 4.6 和 Sonnet 4.6 模型。旧版本 web_fetch_20250910 不支持过滤。",
+    "keyTakeaway": "Dynamic filtering 让 web fetch 既省 token 又更精准——Claude 用代码「预处理」页面，丢弃无关内容，只保留你真正需要的信息。"
+  },
+  "body_en": {
+    "problem": "Web fetch retrieves full text of entire web pages or PDFs. A large document can consume massive tokens. If you only need a small portion (e.g., extracting conclusions from a long paper), most tokens are wasted.",
+    "solution": "Use the web_fetch_20260209 version — Claude writes and executes code to filter fetched content, loading only relevant parts into the context window. This requires code_execution tool to be enabled and only works with Opus 4.6 and Sonnet 4.6. The older web_fetch_20250910 version has no filtering.",
+    "keyTakeaway": "Dynamic filtering makes web fetch both token-efficient and more precise — Claude 'preprocesses' the page with code, discards irrelevant content, and keeps only what you actually need."
+  },
+  "relatedIds": [
+    "web-fetch-how-it-works",
+    "web-search-dynamic-filtering"
+  ],
+  "relationType": "extends"
+}

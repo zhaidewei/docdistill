@@ -1,0 +1,35 @@
+{
+  "id": "streaming-enable-sse-sdk",
+  "type": "how-to",
+  "title": "用 SDK 开启 SSE streaming",
+  "title_en": "Enable SSE Streaming with SDKs",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+  "tags": [
+    "streaming",
+    "claude-api",
+    "sdk"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "让 Claude 的回答逐字到达，而不是等整条消息生成完毕。适用于聊天 UI、长回答、实时展示等场景。",
+    "steps": [
+      "Python SDK：用 client.messages.stream() 上下文管理器，在 with 块里遍历 stream.text_stream 即可逐段拿到文本。",
+      "TypeScript SDK：调用 client.messages.stream()，用 on('text', callback) 监听文本增量，或 for await 遍历。",
+      "原始 HTTP：在 POST /v1/messages 请求体里设 \"stream\": true，响应为 SSE 格式（Content-Type: text/event-stream），每个 event 以 data: JSON 行到达。",
+      "不需要逐字处理？SDK 也提供 stream=True 后调 .get_final_message()，底层走 streaming 但最终返回完整 Message 对象——避免大 max_tokens 时的 HTTP 超时。"
+    ]
+  },
+  "body_en": {
+    "goal": "Get Claude's response token-by-token instead of waiting for the full message. Essential for chat UIs, long responses, and real-time display.",
+    "steps": [
+      "Python SDK: use client.messages.stream() as a context manager, then iterate over stream.text_stream to get text chunks incrementally.",
+      "TypeScript SDK: call client.messages.stream(), listen with on('text', callback) or use for await to iterate over chunks.",
+      "Raw HTTP: set \"stream\": true in the POST /v1/messages body. The response arrives as SSE (Content-Type: text/event-stream), with each event on a data: JSON line.",
+      "Don't need real-time text? SDKs let you call .get_final_message() after streaming — uses streaming under the hood but returns the complete Message object, avoiding HTTP timeouts on large max_tokens."
+    ]
+  },
+  "relatedIds": [
+    "streaming-event-lifecycle"
+  ],
+  "relationType": "extends"
+}

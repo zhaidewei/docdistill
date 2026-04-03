@@ -1,0 +1,28 @@
+{
+  "id": "tools-as-nondeterministic-contract",
+  "type": "concept-model",
+  "title": "工具是确定性与非确定性系统之间的新型契约",
+  "title_en": "Tools: A New Contract Between Deterministic and Non-Deterministic Systems",
+  "source": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+  "tags": [
+    "tool-use",
+    "agent",
+    "mental-model"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "传统软件的函数调用是确定性契约：`getWeather(\"NYC\")` 每次都以相同方式执行。但工具是全新的东西——它是确定性系统与非确定性 Agent 之间的契约。面对「今天要带伞吗？」，Agent 可能调用天气工具、凭常识回答、先反问位置——偶尔还会幻觉或误解工具用法。因此，写工具不能像写给其他开发者的 API，而是要专门为 Agent 设计。",
+    "analogy": "写给开发者的 API 就像操作说明书——读者会一字不差地执行。写给 Agent 的工具更像餐厅菜单——服务员（Agent）会根据顾客当下的需求自行判断推荐哪道菜，偶尔也会推荐错误。",
+    "visual": "传统函数：调用方 → [精确参数] → 函数 → [确定输出] | 工具：Agent → [根据语境判断是否调用、如何调用] → 工具 → [Agent 再解读结果]"
+  },
+  "body_en": {
+    "concept": "Traditional function calls are deterministic contracts: `getWeather(\"NYC\")` always executes identically. Tools are something new — a contract between deterministic systems and non-deterministic agents. Asked \"Should I bring an umbrella?\", an agent might call the weather tool, answer from knowledge, ask about location first, or occasionally misuse the tool entirely. This means tools can't be designed like APIs for developers — they must be designed for agents.",
+    "analogy": "An API for developers is like an instruction manual — readers follow it literally. A tool for agents is more like a restaurant menu — the server (agent) judges which dish to recommend based on the diner's needs, and occasionally gets it wrong.",
+    "visual": "Traditional: caller → [exact args] → function → [deterministic output] | Tool: Agent → [decides if/how to call based on context] → Tool → [Agent interprets result]"
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps",
+    "claude-decides-tools-never-executes"
+  ],
+  "relationType": "extends"
+}

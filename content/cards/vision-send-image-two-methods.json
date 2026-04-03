@@ -1,0 +1,35 @@
+{
+  "id": "vision-send-image-two-methods",
+  "type": "how-to",
+  "title": "向 Claude 发送图片：base64 与 URL 两种方式",
+  "title_en": "Send Images to Claude: Base64 vs URL",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/vision",
+  "tags": [
+    "vision",
+    "claude-api",
+    "image"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "通过 API 把图片传给 Claude 进行分析。有两种方式：base64 内联和 URL 引用。",
+    "steps": [
+      "方式一 · base64 内联：把图片文件读入内存，转成 base64 字符串，放在 content 数组里，type 设为 \"image\"，source.type 设为 \"base64\"，同时指定 media_type（如 image/png）。适合本地文件或需要离线使用的场景。",
+      "方式二 · URL 引用：将 source.type 设为 \"url\"，直接传入可公开访问的图片链接。Claude 会在处理请求时下载图片。适合图片已托管在 CDN 或对象存储的场景。",
+      "方式三 · Files API：先通过 Files API 上传图片，获得 file_id，然后在 content 里用 source.type=\"file\"、file_id 引用。适合多次复用同一张图或批量请求时减小 payload。",
+      "多图场景：在 content 数组中放入多个 image block 即可。API 最多支持 600 张图（200k context 的模型限 100 张），claude.ai 最多 20 张。"
+    ]
+  },
+  "body_en": {
+    "goal": "Send images to Claude via the API for analysis. Two inline methods plus the Files API are available.",
+    "steps": [
+      "Method 1 · Base64 inline: Read the image file, encode it as a base64 string, and place it in the content array with type \"image\", source.type \"base64\", and the appropriate media_type (e.g. image/png). Best for local files or offline use.",
+      "Method 2 · URL reference: Set source.type to \"url\" and pass a publicly accessible image link. Claude downloads the image at request time. Best when images are already hosted on a CDN or object storage.",
+      "Method 3 · Files API: Upload the image via the Files API to get a file_id, then reference it with source.type=\"file\". Best for reusing the same image across requests or reducing payload size in batch scenarios.",
+      "Multiple images: Include multiple image blocks in the content array. The API supports up to 600 images per request (100 for 200k-context models); claude.ai supports up to 20."
+    ]
+  },
+  "relatedIds": [
+    "vision-image-size-limits-tokens"
+  ],
+  "relationType": "extends"
+}

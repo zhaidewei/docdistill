@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import type { Card, Annotation } from "../lib/types";
 import { getAnnotation, saveAnnotation } from "../lib/annotations";
-import { useLang, t, type Lang } from "../lib/i18n";
+import { useLang, t, cardTitle, cardBody, type Lang } from "../lib/i18n";
 import FactCard from "./card-renderers/FactCard";
 import ProblemSolutionCard from "./card-renderers/ProblemSolutionCard";
 import ConceptModelCard from "./card-renderers/ConceptModelCard";
@@ -19,13 +19,14 @@ const TYPE_COLORS: Record<string, string> = {
 };
 
 function renderBody(card: Card, lang: Lang) {
+  const body = cardBody(card, lang) as any;
   switch (card.type) {
-    case "fact": return <FactCard body={card.body as any} lang={lang} />;
-    case "problem-solution": return <ProblemSolutionCard body={card.body as any} lang={lang} />;
-    case "concept-model": return <ConceptModelCard body={card.body as any} lang={lang} />;
-    case "how-to": return <HowToCard body={card.body as any} lang={lang} />;
-    case "comparison": return <ComparisonCard body={card.body as any} lang={lang} />;
-    case "architecture": return <ArchitectureCard body={card.body as any} lang={lang} />;
+    case "fact": return <FactCard body={body} lang={lang} />;
+    case "problem-solution": return <ProblemSolutionCard body={body} lang={lang} />;
+    case "concept-model": return <ConceptModelCard body={body} lang={lang} />;
+    case "how-to": return <HowToCard body={body} lang={lang} />;
+    case "comparison": return <ComparisonCard body={body} lang={lang} />;
+    case "architecture": return <ArchitectureCard body={body} lang={lang} />;
   }
 }
 
@@ -58,7 +59,7 @@ export default function CardDetail({ card }: { card: Card }) {
         <span class={`text-[11px] tracking-wider ${TYPE_COLORS[card.type] || "text-gray-400"}`}>
           {t(`type.${card.type}` as any, lang)}
         </span>
-        <h2 class="text-lg font-medium mt-1">{card.title}</h2>
+        <h2 class="text-lg font-medium mt-1">{cardTitle(card, lang)}</h2>
         <div class="text-xs text-gray-500 mt-1">
           {card.readingMinutes} min · {card.tags.join(", ")} ·{" "}
           <a href={card.source} target="_blank" class="text-accent-orange hover:underline">{t("label.source", lang)}</a>

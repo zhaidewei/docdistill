@@ -63,10 +63,12 @@ export interface Card {
   id: string;
   type: CardType;
   title: string;
+  title_en?: string;
   source: string;
   tags: string[];
   readingMinutes: number;
   body: CardBody;
+  body_en?: CardBody;
 }
 
 export interface GraphNode {

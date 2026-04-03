@@ -2,6 +2,7 @@
   "id": "prompt-add-context",
   "type": "concept-model",
   "title": "提供上下文让 Claude 理解「为什么」",
+  "title_en": "Add Context So Claude Understands the \"Why\"",
   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
   "tags": [
     "prompt-engineering",
@@ -12,6 +13,11 @@
     "concept": "Claude 在理解任务动机后表现更好。告诉它「为什么」要这样做，它就能在模糊地带做出更合理的判断，而不仅仅机械执行指令。",
     "analogy": "就像告诉设计师「这个页面是给老年用户看的」比「字号改大」更有效——前者传达了目标，后者只传达了一个操作。Claude 足够聪明，能从目标泛化出你没想到的细节。",
     "visual": "两个箭头：一条写着「指令 → 执行」（窄），另一条写着「指令 + 动机 → 理解 → 更好的执行」（宽）"
+  },
+  "body_en": {
+    "concept": "Claude performs better when it understands the motivation behind a task. Telling it \"why\" helps it make better judgment calls in ambiguous situations, rather than just mechanically following instructions.",
+    "analogy": "Like telling a designer 'this page is for elderly users' instead of just 'make the font bigger' — the former communicates the goal, the latter just one action. Claude is smart enough to generalize from goals to details you didn't think of.",
+    "visual": "Two arrows: one labeled 'instruction → execution' (narrow), another labeled 'instruction + motivation → understanding → better execution' (wide)"
   },
   "relatedIds": [
     "prompt-clear-and-direct"

@@ -1,0 +1,68 @@
+{
+  "id": "prompt-caching-auto-vs-explicit",
+  "type": "comparison",
+  "title": "自动缓存 vs 显式缓存断点",
+  "title_en": "Automatic Caching vs Explicit Cache Breakpoints",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+  "tags": [
+    "prompt-caching",
+    "api-usage"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "自动缓存（Automatic caching）",
+    "itemB": "显式缓存断点（Explicit breakpoints）",
+    "dimensions": [
+      {
+        "name": "配置方式",
+        "a": "在请求顶层加 cache_control，系统自动选择断点位置",
+        "b": "在特定 content block 上加 cache_control，手动指定断点"
+      },
+      {
+        "name": "断点行为",
+        "a": "自动放在最后一个可缓存 block 上，随对话增长自动前移",
+        "b": "固定在你指定的 block 上，不会自动移动"
+      },
+      {
+        "name": "适用场景",
+        "a": "多轮对话——历史消息不断增长，缓存自动跟进",
+        "b": "需要精确控制的场景，如只缓存 system prompt 或特定长文档"
+      },
+      {
+        "name": "断点数量",
+        "a": "系统管理一个断点",
+        "b": "可设置多个断点（最多 4 个）"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Automatic caching",
+    "itemB": "Explicit cache breakpoints",
+    "dimensions": [
+      {
+        "name": "Configuration",
+        "a": "Add cache_control at the request top level; system picks the breakpoint",
+        "b": "Add cache_control on specific content blocks; you choose the breakpoints"
+      },
+      {
+        "name": "Breakpoint behavior",
+        "a": "Automatically placed on the last cacheable block; moves forward as conversation grows",
+        "b": "Fixed at blocks you specify; does not move automatically"
+      },
+      {
+        "name": "Best for",
+        "a": "Multi-turn conversations where growing message history should be cached automatically",
+        "b": "Precise control — e.g., caching only the system prompt or a specific long document"
+      },
+      {
+        "name": "Number of breakpoints",
+        "a": "One breakpoint managed by the system",
+        "b": "Up to 4 breakpoints, manually placed"
+      }
+    ]
+  },
+  "relatedIds": [
+    "prompt-caching-set-cache-breakpoints"
+  ],
+  "relationType": "extends"
+}

@@ -1,7 +1,8 @@
 {
   "id": "agent-sdk-minimal-query-pattern",
   "type": "how-to",
-  "title": "Minimal Agent SDK: run a task in 10 lines",
+  "title": "最简 Agent SDK：10 行代码跑一个任务",
+  "title_en": "Minimal Agent SDK: Run a Task in 10 Lines",
   "source": "https://platform.claude.com/docs/en/agent-sdk/overview",
   "tags": [
     "agent-sdk",
@@ -9,6 +10,17 @@
   ],
   "readingMinutes": 2,
   "body": {
+    "goal": "用 Claude Agent SDK（Python）运行一个能读写文件、执行命令的自主 agent。",
+    "steps": [
+      "从 `claude_agent_sdk` 导入 `asyncio`、`query` 和 `ClaudeAgentOptions`。",
+      "定义一个 `async main()` 函数。",
+      "调用 `query(prompt='你的任务', options=ClaudeAgentOptions(allowed_tools=['Read', 'Edit', 'Bash']))` —— 返回一个异步迭代器。",
+      "用 `async for message in query(...)` 流式消费 Claude 工作过程中产生的每条消息。",
+      "用 `asyncio.run(main())` 启动执行。",
+      "Claude 会自动读文件、推理、改代码、跑命令——你只需消费输出流。"
+    ]
+  },
+  "body_en": {
     "goal": "Run an autonomous agent that can read, edit, and execute code using the Claude Agent SDK (Python).",
     "steps": [
       "Import `asyncio`, `query`, and `ClaudeAgentOptions` from `claude_agent_sdk`.",

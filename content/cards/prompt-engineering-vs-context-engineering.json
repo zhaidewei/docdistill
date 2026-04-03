@@ -1,7 +1,8 @@
 {
   "id": "prompt-engineering-vs-context-engineering",
   "type": "comparison",
-  "title": "Prompt engineering vs context engineering",
+  "title": "Prompt Engineering vs Context Engineering",
+  "title_en": "Prompt Engineering vs Context Engineering",
   "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
   "tags": [
     "context-engineering",
@@ -13,14 +14,40 @@
     "itemB": "Context engineering",
     "dimensions": [
       {
+        "name": "关注点",
+        "a": "如何写出有效的 prompt，尤其是 system prompt",
+        "b": "策展和维护推理过程中的整套 token"
+      },
+      {
+        "name": "范围",
+        "a": "一次性任务——写好指令即可",
+        "b": "迭代过程——每次决定传什么给模型时都要策展"
+      },
+      {
+        "name": "时代",
+        "a": "早期 LLM：单轮分类或文本生成",
+        "b": "Agent 时代：多轮循环、更长时间跨度"
+      },
+      {
+        "name": "管理对象",
+        "a": "prompt 中的措辞、结构和示例",
+        "b": "System prompt + tool + MCP + 外部数据 + 对话历史 + tool 返回值"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Prompt engineering",
+    "itemB": "Context engineering",
+    "dimensions": [
+      {
         "name": "Focus",
         "a": "How to write effective prompts, especially system prompts",
         "b": "Curating and maintaining the entire set of tokens during inference"
       },
       {
         "name": "Scope",
-        "a": "Discrete task — write good instructions once",
-        "b": "Iterative — curation happens every time you decide what to pass to the model"
+        "a": "Discrete task—write good instructions once",
+        "b": "Iterative—curation happens every time you decide what to pass to the model"
       },
       {
         "name": "Era",

@@ -1,0 +1,26 @@
+{
+  "id": "multi-agent-performance-gains",
+  "type": "fact",
+  "title": "多 Agent 系统的性能优势：数据说话",
+  "title_en": "Multi-Agent Performance Gains: What the Data Shows",
+  "source": "https://www.anthropic.com/engineering/multi-agent-research-system",
+  "tags": [
+    "multi-agent",
+    "performance",
+    "evaluation"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "在 Anthropic 内部评测中，以 Claude Opus 4 为主 Agent、Claude Sonnet 4 为子 Agent 的多 Agent 系统，比单独使用 Claude Opus 4 的性能高出 **90.2%**。在 BrowseComp 评测（测试浏览 Agent 定位难找信息的能力）中，三个因素解释了 95% 的性能差异：token 用量（解释 80%）、工具调用次数、模型选择。此外，将子 Agent 从 Claude Sonnet 3.7 升级到 Sonnet 4，比把 token 预算翻倍带来的性能提升更大。",
+    "context": "这验证了多 Agent 架构的核心价值：通过让各 Agent 拥有独立上下文窗口，系统可以投入更多 token 并行推理，突破单 Agent 的上下文限制。"
+  },
+  "body_en": {
+    "fact": "In Anthropic's internal evals, a multi-agent system with Claude Opus 4 as lead and Claude Sonnet 4 as subagents outperformed single-agent Claude Opus 4 by **90.2%**. In the BrowseComp benchmark, three factors explained 95% of performance variance: token usage alone explained 80%, with tool call count and model choice as the other two. Upgrading subagents from Sonnet 3.7 to Sonnet 4 delivered a larger performance gain than doubling the token budget.",
+    "context": "This validates the core architectural bet: giving each agent its own context window allows the system to invest more tokens in parallel reasoning, breaking through single-agent context limits."
+  },
+  "relatedIds": [
+    "multi-agent-research-architecture",
+    "multi-agent-token-cost-tradeoff"
+  ],
+  "relationType": "extends"
+}

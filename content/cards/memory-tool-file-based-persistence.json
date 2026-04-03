@@ -1,0 +1,28 @@
+{
+  "id": "memory-tool-file-based-persistence",
+  "type": "concept-model",
+  "title": "Memory Tool：基于文件的跨对话持久化",
+  "title_en": "Memory Tool: File-Based Persistence Across Conversations",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool",
+  "tags": [
+    "memory-tool",
+    "agent-design",
+    "persistence"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Memory tool 让 Claude 在 /memories 目录中创建、读取、更新和删除文件，这些文件在对话之间持久保存。启动新任务时，Claude 自动检查该目录，获取之前学到的信息。这是一个 client-side tool：Claude 发出文件操作的 tool call，你的应用在本地执行这些操作，你完全控制数据的存储位置和方式。",
+    "analogy": "想象你有一个专属的笔记本柜。每次和助手对话结束后，助手把关键信息写进笔记本放回柜子。下次对话开始时，助手先翻阅笔记本回顾之前的内容，再开始工作。柜子在你的办公室里（client-side），你决定谁能看、存在哪里。",
+    "visual": "对话 A → Claude 写入 /memories/project-context.md → 对话结束 → 对话 B 开始 → Claude 读取 /memories/ → 带着历史知识继续工作"
+  },
+  "body_en": {
+    "concept": "The memory tool lets Claude create, read, update, and delete files in a /memories directory that persists between conversations. When starting a new task, Claude automatically checks this directory to recall what it learned before. It's a client-side tool: Claude emits tool calls for file operations, your application executes them locally, and you have full control over where and how data is stored.",
+    "analogy": "Think of a dedicated filing cabinet. After each conversation, the assistant writes key information into notes and files them away. Next conversation, it reviews those notes before starting work. The cabinet sits in your office (client-side) — you decide who has access and where it's kept.",
+    "visual": "Conversation A → Claude writes /memories/project-context.md → session ends → Conversation B starts → Claude reads /memories/ → continues with prior knowledge"
+  },
+  "relatedIds": [
+    "agent-context-management-strategies",
+    "effective-context-smallest-highest-signal"
+  ],
+  "relationType": "extends"
+}

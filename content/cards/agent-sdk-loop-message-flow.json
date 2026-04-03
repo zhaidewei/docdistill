@@ -1,0 +1,62 @@
+{
+  "id": "agent-sdk-loop-message-flow",
+  "type": "architecture",
+  "title": "Agent loop 消息流：4 种消息类型驱动整个循环",
+  "title_en": "Agent Loop Message Flow: 4 Message Types Drive the Entire Cycle",
+  "source": "https://platform.claude.com/docs/en/agent-sdk/agent-loop",
+  "tags": [
+    "agent-sdk",
+    "agentic-loop",
+    "message-types"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "Agent loop 通过 4 种消息类型与你的代码通信。SDK 以异步流的方式产出（yield）这些消息，你的代码监听它们来了解循环进度。理解这 4 种消息就能读懂 agent 的完整生命周期。",
+    "components": [
+      {
+        "name": "SystemMessage (subtype: init)",
+        "role": "循环启动时产出一次。携带 session ID 和配置元数据，标志 agent 开始工作。"
+      },
+      {
+        "name": "AssistantMessage",
+        "role": "每次 Claude 响应时产出。内容可以是纯文本、纯工具调用，或两者兼有。最后一条 AssistantMessage 不含工具调用——这就是循环结束的信号。"
+      },
+      {
+        "name": "UserMessage（自动生成）",
+        "role": "SDK 执行完工具后，自动将结果包装为 UserMessage 回传给 Claude。你的代码不需要手动发送——这是 SDK 托管循环的核心。"
+      },
+      {
+        "name": "ResultMessage",
+        "role": "循环结束时产出。包含最终文本、累计 token 用量、总费用和 session ID。用它来获取计费信息和判断任务是否完成。"
+      }
+    ],
+    "flow": "SDK 启动 → yield SystemMessage(init) → Claude 响应 → yield AssistantMessage（含工具调用）→ SDK 执行工具 → yield UserMessage（工具结果）→ 结果自动回传 Claude → Claude 再次响应 → ... 循环 ... → Claude 响应纯文本（无工具调用）→ yield 最终 AssistantMessage → yield ResultMessage → 循环结束。"
+  },
+  "body_en": {
+    "overview": "The agent loop communicates with your code through 4 message types. The SDK yields them as an async stream; your code listens to understand loop progress. Knowing these 4 messages lets you read an agent's full lifecycle.",
+    "components": [
+      {
+        "name": "SystemMessage (subtype: init)",
+        "role": "Yielded once at loop start. Carries session ID and config metadata, signaling the agent has begun work."
+      },
+      {
+        "name": "AssistantMessage",
+        "role": "Yielded each time Claude responds. May contain text only, tool calls only, or both. The final AssistantMessage has no tool calls — that's the signal the loop is ending."
+      },
+      {
+        "name": "UserMessage (auto-generated)",
+        "role": "After the SDK executes tools, it automatically wraps results into a UserMessage and feeds it back to Claude. Your code doesn't send this manually — this is the core of the SDK's managed loop."
+      },
+      {
+        "name": "ResultMessage",
+        "role": "Yielded when the loop ends. Contains final text, cumulative token usage, total cost, and session ID. Use it for billing info and task completion status."
+      }
+    ],
+    "flow": "SDK starts → yield SystemMessage(init) → Claude responds → yield AssistantMessage (with tool calls) → SDK executes tools → yield UserMessage (tool results) → results auto-fed to Claude → Claude responds again → ... loop ... → Claude responds with text only (no tool calls) → yield final AssistantMessage → yield ResultMessage → loop ends."
+  },
+  "relatedIds": [
+    "agent-sdk-loop-five-phases",
+    "agent-sdk-loop-turns-and-guardrails"
+  ],
+  "relationType": "extends"
+}

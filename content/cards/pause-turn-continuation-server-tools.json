@@ -1,0 +1,27 @@
+{
+  "id": "pause-turn-continuation-server-tools",
+  "type": "problem-solution",
+  "title": "用 pause_turn 处理长时间运行的服务器工具",
+  "title_en": "Handling Long-Running Server Tools with pause_turn",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/server-tools",
+  "tags": [
+    "server-tools",
+    "pause-turn",
+    "api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "使用 web_search 等服务器工具时，API 可能返回 stop_reason 为 `pause_turn`，表示一个长时间运行的 turn 被暂停了。如果你只检查 `end_turn` 和 `tool_use`，就会丢失未完成的响应。",
+    "solution": "在消息循环中增加对 `pause_turn` 的处理：收到 `pause_turn` 时，将当前 assistant message 原样追加到 messages 数组，再发起一次 API 调用让 Claude 继续。这类似于客户端工具的 tool_use 循环，但你不需要提供任何 tool_result——只需让对话继续即可。",
+    "keyTakeaway": "消息循环必须处理三种 stop_reason：`end_turn`（结束）、`tool_use`（客户端工具需要执行）、`pause_turn`（服务器工具暂停，原样续传）。"
+  },
+  "body_en": {
+    "problem": "When using server tools like web_search, the API may return a `pause_turn` stop reason, meaning a long-running turn has been paused. If your message loop only checks for `end_turn` and `tool_use`, you'll drop the unfinished response.",
+    "solution": "Add `pause_turn` handling to your message loop: when you receive it, append the current assistant message as-is to your messages array and make another API call so Claude can continue. It's similar to the client tool_use loop, but you don't supply any tool_result—just let the conversation resume.",
+    "keyTakeaway": "Your message loop must handle three stop reasons: `end_turn` (done), `tool_use` (client tool needs execution), and `pause_turn` (server tool paused—re-send as-is to continue)."
+  },
+  "relatedIds": [
+    "server-tool-use-block-srvtoolu-prefix"
+  ],
+  "relationType": "extends"
+}

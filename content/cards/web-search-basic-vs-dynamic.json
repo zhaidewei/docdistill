@@ -1,0 +1,90 @@
+{
+  "id": "web-search-basic-vs-dynamic",
+  "type": "comparison",
+  "title": "基础 web search 与 dynamic filtering 对比",
+  "title_en": "Basic Web Search vs Dynamic Filtering",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+  "tags": [
+    "web-search",
+    "server-tool",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "基础 web search（web_search_20250305）：搜索结果全量加载进 context window，Claude 在完整 HTML 上推理。所有模型可用，不依赖 code execution。",
+    "itemB": "Dynamic filtering（web_search_20260209）：Claude 先写代码过滤搜索结果，只将相关内容放入 context。token 消耗更低，回答更精准。需要同时启用 code_execution tool，仅限 Opus 4.6 和 Sonnet 4.6。",
+    "dimensions": [
+      {
+        "name": "工具版本",
+        "a": "web_search_20250305",
+        "b": "web_search_20260209"
+      },
+      {
+        "name": "context 内容",
+        "a": "完整 HTML 页面",
+        "b": "经代码过滤后的相关片段"
+      },
+      {
+        "name": "token 消耗",
+        "a": "较高",
+        "b": "较低"
+      },
+      {
+        "name": "前置依赖",
+        "a": "无额外依赖",
+        "b": "需启用 code_execution tool"
+      },
+      {
+        "name": "模型支持",
+        "a": "所有支持 web search 的模型",
+        "b": "仅 Opus 4.6、Sonnet 4.6"
+      },
+      {
+        "name": "适合场景",
+        "a": "简单事实查询",
+        "b": "技术文档搜索、文献综述、研究验证"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Basic web search (web_search_20250305): Full search results are loaded into the context window. Claude reasons over complete HTML. Available on all supported models, no code execution dependency.",
+    "itemB": "Dynamic filtering (web_search_20260209): Claude writes code to filter search results, loading only relevant content into context. Lower token usage, more accurate answers. Requires code_execution tool, only Opus 4.6 and Sonnet 4.6.",
+    "dimensions": [
+      {
+        "name": "Tool version",
+        "a": "web_search_20250305",
+        "b": "web_search_20260209"
+      },
+      {
+        "name": "Context content",
+        "a": "Full HTML pages",
+        "b": "Code-filtered relevant snippets"
+      },
+      {
+        "name": "Token usage",
+        "a": "Higher",
+        "b": "Lower"
+      },
+      {
+        "name": "Prerequisites",
+        "a": "None",
+        "b": "code_execution tool must be enabled"
+      },
+      {
+        "name": "Model support",
+        "a": "All models with web search support",
+        "b": "Opus 4.6 and Sonnet 4.6 only"
+      },
+      {
+        "name": "Best for",
+        "a": "Simple factual queries",
+        "b": "Technical docs, literature review, research verification"
+      }
+    ]
+  },
+  "relatedIds": [
+    "web-search-dynamic-filtering",
+    "web-search-tool-enable-and-usage"
+  ],
+  "relationType": "extends"
+}

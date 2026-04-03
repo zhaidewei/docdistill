@@ -2,6 +2,7 @@
   "id": "prompt-clear-and-direct",
   "type": "how-to",
   "title": "给 Claude 一个角色和明确任务",
+  "title_en": "Give Claude a Role and Clear Task",
   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
   "tags": [
     "prompt-engineering",
@@ -16,6 +17,16 @@
       "用具体的指令说明期望的输出格式和约束条件，不要让 Claude 猜",
       "如果任务有多个步骤，用编号列表按顺序写出来",
       "黄金法则：把你的 prompt 给一个不了解背景的同事看，如果他们会困惑，Claude 也会"
+    ]
+  },
+  "body_en": {
+    "goal": "Write prompts that Claude executes accurately",
+    "steps": [
+      "Treat Claude like a brilliant new hire — it lacks your business context and needs explicit instructions",
+      "Assign a role in the system prompt, e.g. 'You are a senior code reviewer'",
+      "Specify the desired output format and constraints explicitly — don't make Claude guess",
+      "For multi-step tasks, use numbered lists to lay out each step in order",
+      "Golden rule: show your prompt to a colleague with no context. If they'd be confused, Claude will be too"
     ]
   },
   "relatedIds": [

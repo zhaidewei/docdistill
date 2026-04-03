@@ -1,0 +1,59 @@
+{
+  "id": "eval-tasks-strong-vs-weak",
+  "type": "comparison",
+  "title": "强评测任务 vs 弱评测任务",
+  "title_en": "Strong vs Weak Evaluation Tasks for Agent Tools",
+  "source": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+  "tags": [
+    "evaluation",
+    "agent",
+    "tool-use"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "itemA": "强任务：反映真实场景，含模糊信息，可能需要多步工具调用。例：「帮我约 Jane 下周讨论 Acme 项目，附上上次会议记录，并预订会议室。」",
+    "itemB": "弱任务：过于简单或精确，Agent 只需机械执行。例：「用 jane@acme.corp 约一个下周的会议。」",
+    "dimensions": [
+      {
+        "name": "复杂度",
+        "a": "多步骤，可能需要十几次工具调用",
+        "b": "单步骤，一次调用即可"
+      },
+      {
+        "name": "信息完整性",
+        "a": "含模糊/不完整信息，Agent 需自行判断",
+        "b": "所有参数都已明确给出"
+      },
+      {
+        "name": "测试价值",
+        "a": "能发现工具设计的真实瓶颈",
+        "b": "无法发现工具理解和组合问题"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Strong tasks: reflect real use cases, contain ambiguity, may require many tool calls. Example: \"Schedule a meeting with Jane next week about the Acme project, attach last meeting's notes, and book a room.\"",
+    "itemB": "Weak tasks: too simple or too explicit — agent just executes mechanically. Example: \"Schedule a meeting with jane@acme.corp next week.\"",
+    "dimensions": [
+      {
+        "name": "Complexity",
+        "a": "Multi-step, potentially dozens of tool calls",
+        "b": "Single-step, one tool call"
+      },
+      {
+        "name": "Information completeness",
+        "a": "Ambiguous/incomplete — agent must reason and decide",
+        "b": "All parameters spelled out explicitly"
+      },
+      {
+        "name": "Diagnostic value",
+        "a": "Reveals real bottlenecks in tool design",
+        "b": "Cannot surface tool comprehension or chaining issues"
+      }
+    ]
+  },
+  "relatedIds": [
+    "tool-dev-prototype-eval-optimize-loop"
+  ],
+  "relationType": "extends"
+}

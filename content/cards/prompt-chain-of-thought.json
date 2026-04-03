@@ -2,6 +2,7 @@
   "id": "prompt-chain-of-thought",
   "type": "concept-model",
   "title": "Chain of Thought：让 Claude 先想再答",
+  "title_en": "Chain of Thought: Make Claude Think Before Answering",
   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
   "tags": [
     "prompt-engineering",
@@ -12,6 +13,11 @@
     "concept": "Chain of Thought (CoT) 是让 Claude 在给出最终答案前，先逐步写出推理过程。这不是装饰——Claude 的推理质量会随着「写出思考」而真实提升，因为每一步输出都会影响下一步的生成。",
     "analogy": "就像数学考试要求写解题步骤而不是只写答案。写步骤不只是为了让老师检查——写的过程本身帮你发现计算错误。Claude 也一样：跳步容易出错，写出来就更准。",
     "visual": "一个流程图：问题 → 步骤1（分析条件）→ 步骤2（排除选项）→ 步骤3（验证）→ 最终答案。旁边标注：'每一步的输出成为下一步的输入'"
+  },
+  "body_en": {
+    "concept": "Chain of Thought (CoT) asks Claude to write out its reasoning step by step before giving the final answer. This isn't decoration — Claude's reasoning quality genuinely improves when it 'shows its work', because each output token influences the next.",
+    "analogy": "Like a math exam requiring you to show your work, not just the answer. Writing steps isn't just for the teacher to check — the process itself helps you catch calculation errors. Same for Claude: skipping steps leads to mistakes, writing them out improves accuracy.",
+    "visual": "A flowchart: Question → Step 1 (analyze conditions) → Step 2 (eliminate options) → Step 3 (verify) → Final answer. Side note: 'each step's output becomes the next step's input'"
   },
   "relatedIds": [
     "prompt-clear-and-direct"

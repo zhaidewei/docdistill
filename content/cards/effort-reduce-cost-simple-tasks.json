@@ -1,0 +1,28 @@
+{
+  "id": "effort-reduce-cost-simple-tasks",
+  "type": "problem-solution",
+  "title": "用 effort 降低简单任务的 API 成本",
+  "title_en": "Using Effort to Reduce Cost on Simple Tasks",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/effort",
+  "tags": [
+    "effort",
+    "cost-optimization",
+    "api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "你的应用同时处理简单请求（分类、提取）和复杂请求（分析、推理），但所有请求都用同一个模型、同样的 token 开销。简单任务浪费了大量 token。以前用 budget_tokens 控制 thinking 深度，但它只影响思考部分，不影响 tool call 和文本输出。",
+    "solution": "根据任务复杂度动态设置 effort。简单任务用 low 或 medium，复杂任务保持 high 或 max。在 API 请求顶层加 effort 字段即可：{\"effort\": \"low\"}。搭配 adaptive thinking（thinking: {type: \"adaptive\"}）效果最佳——low effort 时 Claude 可能直接跳过思考，进一步省 token。",
+    "keyTakeaway": "effort 是 budget_tokens 的升级替代。一个参数同时控制思考、文本和 tool call 的 token 开销，按任务复杂度动态调整就能显著降本。"
+  },
+  "body_en": {
+    "problem": "Your app handles both simple requests (classification, extraction) and complex ones (analysis, reasoning), but all hit the same model with the same token cost. Simple tasks waste tokens. The old budget_tokens only controlled thinking depth—it didn't affect tool calls or text output.",
+    "solution": "Set effort dynamically based on task complexity. Use low or medium for simple tasks, high or max for complex ones. Just add the effort field at the top level of your API request: {\"effort\": \"low\"}. Pair it with adaptive thinking (thinking: {type: \"adaptive\"}) for best results—at low effort, Claude may skip thinking entirely, saving even more tokens.",
+    "keyTakeaway": "effort is the upgraded replacement for budget_tokens. One parameter controls token spend across thinking, text, and tool calls. Adjusting it by task complexity can significantly cut costs."
+  },
+  "relatedIds": [
+    "effort-parameter-concept",
+    "effort-levels-comparison"
+  ],
+  "relationType": "extends"
+}

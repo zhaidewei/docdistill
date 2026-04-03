@@ -10,7 +10,7 @@ try {
   const files = readdirSync(cardsDir).filter((f) => f.endsWith(".json"));
   cards = files.map((f) => {
     const c = JSON.parse(readFileSync(join(cardsDir, f), "utf-8"));
-    return { id: c.id, title: c.title };
+    return { id: c.id, title: c.title, title_en: c.title_en };
   });
 } catch {}
 ---

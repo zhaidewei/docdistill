@@ -1,0 +1,35 @@
+{
+  "id": "disable-parallel-tool-use",
+  "type": "how-to",
+  "title": "用 disable_parallel_tool_use 限制为单次工具调用",
+  "title_en": "Disable Parallel Tool Use with disable_parallel_tool_use",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/parallel-tool-use",
+  "tags": [
+    "tool-use",
+    "parallel",
+    "api-config"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "强制 Claude 每次只调用一个工具，避免并行工具调用",
+    "steps": [
+      "在 API 请求的 tool_choice 字段中设置 disable_parallel_tool_use: true",
+      "当 tool_choice.type 为 \"auto\" 时，设置后 Claude 每次最多使用一个工具（也可能不调用任何工具）",
+      "当 tool_choice.type 为 \"any\" 或 \"tool\" 时，设置后 Claude 恰好使用一个工具（保证调用且只调用一次）",
+      "适用场景：工具有副作用且执行顺序重要时；工具结果之间有依赖时；或你的系统不支持并发执行时"
+    ]
+  },
+  "body_en": {
+    "goal": "Force Claude to call only one tool at a time, preventing parallel tool calls",
+    "steps": [
+      "Set disable_parallel_tool_use: true in the tool_choice field of your API request",
+      "When tool_choice.type is \"auto\", this ensures Claude uses at most one tool (it may also use none)",
+      "When tool_choice.type is \"any\" or \"tool\", this ensures Claude uses exactly one tool (guaranteed single call)",
+      "Use when: tools have side effects and order matters; tool results depend on each other; or your system cannot handle concurrent execution"
+    ]
+  },
+  "relatedIds": [
+    "handle-parallel-tool-use-blocks"
+  ],
+  "relationType": "supplements"
+}

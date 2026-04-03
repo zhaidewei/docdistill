@@ -1,0 +1,37 @@
+{
+  "id": "specify-output-format-template",
+  "type": "how-to",
+  "title": "用模板精确定义输出格式",
+  "title_en": "Specify Output Format with Explicit Templates",
+  "source": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency",
+  "tags": [
+    "output-format",
+    "prompt-engineering"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "让 Claude 每次都按你定义的结构返回，不多不少，不加额外解释。",
+    "steps": [
+      "选择一种结构格式：JSON（适合程序解析）、XML（适合嵌套层级多且需要人读的场景）、或自定义模板",
+      "在 prompt 里写出完整的输出样板，包含每个字段的名称、类型说明和一个具体值的示例",
+      "用 XML 标签包裹格式说明，例如 <output_format>...</output_format>，让 Claude 明确区分指令和格式",
+      "如果某些字段是可选的，明确说明「如果没有就填 null」而不是省略，这样输出结构始终一致",
+      "在 system prompt 末尾重申「严格按照上述格式返回，不要添加任何前言或结语」"
+    ]
+  },
+  "body_en": {
+    "goal": "Make Claude return a consistent structure every time — no more, no less, no extra explanations.",
+    "steps": [
+      "Choose a structure format: JSON (best for programmatic parsing), XML (good for deeply nested human-readable data), or a custom template",
+      "Write a complete output skeleton in the prompt, including each field's name, type description, and a concrete example value",
+      "Wrap format instructions in XML tags like <output_format>...</output_format> so Claude clearly separates instructions from format",
+      "For optional fields, explicitly say 'fill null if absent' rather than omitting — this keeps the output structure stable",
+      "Reiterate at the end of the system prompt: 'Return strictly in the format above with no preamble or postscript'"
+    ]
+  },
+  "relatedIds": [
+    "output-consistency-three-techniques",
+    "prompt-xml-tags-structure"
+  ],
+  "relationType": "related"
+}

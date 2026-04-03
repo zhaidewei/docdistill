@@ -1,0 +1,28 @@
+{
+  "id": "tool-use-debug-invented-parameters",
+  "type": "problem-solution",
+  "title": "Claude 凭空捏造工具参数 → 启用 strict mode",
+  "title_en": "Claude Invents Tool Parameters → Enable Strict Mode",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/troubleshooting-tool-use",
+  "tags": [
+    "tool-use",
+    "debugging",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "Claude 返回了你 schema 中根本不存在的参数名，或者参数值超出了你定义的 enum 范围。你的代码收到意料之外的字段，可能导致运行时错误。",
+    "solution": "(1) 凭空参数：模型在没有 strict mode 时会「过度生成」。给工具 schema 加上 strict: true，Claude 就只能输出 schema 中定义的字段。注意：strict mode 要求 schema 满足特定子集（不支持某些高级 JSON Schema 特性）。(2) enum 值越界：如果 enum 太大，模型可能猜错。缩小 enum 范围，或用 input_examples 展示合法取值。",
+    "keyTakeaway": "strict: true 是防止 Claude「发挥想象力」的开关——开启后，输出严格受限于你的 schema 定义。"
+  },
+  "body_en": {
+    "problem": "Claude returns parameters that don't exist in your schema, or parameter values outside your defined enums. Your code receives unexpected fields, potentially causing runtime errors.",
+    "solution": "(1) Invented parameters: the model over-generates without strict mode. Add strict: true to your tool schema so Claude can only output fields you defined. Note: strict mode requires your schema to be in a supported subset. (2) Enum values out of range: if the enum is too large, the model may guess wrong. Shrink the enum or add input_examples showing valid choices.",
+    "keyTakeaway": "strict: true is the switch that prevents Claude from 'using its imagination' — once enabled, output is strictly constrained to your schema definition."
+  },
+  "relatedIds": [
+    "tool-use-debug-wrong-tool-called",
+    "tool-use-contract-typed-interface"
+  ],
+  "relationType": "extends"
+}

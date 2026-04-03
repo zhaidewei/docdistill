@@ -1,0 +1,62 @@
+{
+  "id": "long-running-agent-harness-architecture",
+  "type": "architecture",
+  "title": "长时运行 Agent 的双段式 Harness 架构",
+  "title_en": "Two-Agent Harness for Long-Running Tasks",
+  "source": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  "tags": [
+    "agent",
+    "architecture",
+    "context-window"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "单个 context window 无法完成复杂任务，需要多轮 session 协作。核心方案：用两类 agent 分工——初始化 agent 建立环境，编码 agent 逐步推进。",
+    "components": [
+      {
+        "name": "初始化 Agent（Initializer Agent）",
+        "role": "首次运行时建立项目脚手架：生成 init.sh、功能清单文件、进度文件，并完成首次 git commit。只运行一次。"
+      },
+      {
+        "name": "编码 Agent（Coding Agent）",
+        "role": "后续每次 session 只做一件事：读取进度文件 → 实现一个功能 → 提交 git → 更新进度文件。循环执行直到完成。"
+      },
+      {
+        "name": "claude-progress.txt",
+        "role": "跨 session 的状态桥梁。记录已完成的工作和下一步任务，让新 session 无需猜测当前状态。"
+      },
+      {
+        "name": "功能清单（Feature List）",
+        "role": "JSON 文件，列出所有功能及其通过状态（passes: true/false）。防止 agent 过早宣告完成。"
+      }
+    ],
+    "flow": "1. 用户输入高层需求 → 2. 初始化 Agent 展开成完整功能清单 + 环境脚本 → 3. 编码 Agent 每轮选一个 failing 功能实现 → 4. 测试通过后标记 passes: true + git commit + 更新进度文件 → 5. 下一个 session 读取状态继续"
+  },
+  "body_en": {
+    "overview": "Complex tasks span multiple context windows. The solution: split work between two specialized agents — an initializer that sets up the environment once, and a coding agent that makes incremental progress each session.",
+    "components": [
+      {
+        "name": "Initializer Agent",
+        "role": "Runs once on first session. Creates init.sh, a feature list JSON, a progress file, and the initial git commit. Lays the foundation for all future sessions."
+      },
+      {
+        "name": "Coding Agent",
+        "role": "Runs every subsequent session. Reads progress file → implements one feature → commits to git → updates progress file. Loops until done."
+      },
+      {
+        "name": "claude-progress.txt",
+        "role": "The cross-session state bridge. Records completed work and next steps so each new session starts informed, not guessing."
+      },
+      {
+        "name": "Feature List (JSON)",
+        "role": "Lists every feature with a passes: true/false status. Prevents the agent from declaring the job done prematurely."
+      }
+    ],
+    "flow": "1. User provides high-level prompt → 2. Initializer Agent expands it into full feature list + env scripts → 3. Coding Agent picks one failing feature per session → 4. Tests pass → marks passes: true + git commit + updates progress → 5. Next session reads state and continues"
+  },
+  "relatedIds": [
+    "agent-loses-progress-across-context-windows",
+    "feature-list-prevents-premature-completion"
+  ],
+  "relationType": "extends"
+}

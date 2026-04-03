@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "preact/hooks";
 import type { Card, Graph } from "../lib/types";
 import { pickNextCard, setSwipeStatus, getSwipeStats } from "../lib/swipe";
-import { useLang, t } from "../lib/i18n";
+import { useLang, t, cardTitle, cardBody, type Lang } from "../lib/i18n";
 import LangToggle from "./LangToggle";
 import FactCard from "./card-renderers/FactCard";
 import ProblemSolutionCard from "./card-renderers/ProblemSolutionCard";
@@ -30,14 +30,15 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
   const startX = useRef(0);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  function renderBody(card: Card) {
+  function renderBody(card: Card, lang: Lang) {
+    const body = cardBody(card, lang) as any;
     switch (card.type) {
-      case "fact": return <FactCard body={card.body as any} lang={lang} />;
-      case "problem-solution": return <ProblemSolutionCard body={card.body as any} lang={lang} />;
-      case "concept-model": return <ConceptModelCard body={card.body as any} lang={lang} />;
-      case "how-to": return <HowToCard body={card.body as any} lang={lang} />;
-      case "comparison": return <ComparisonCard body={card.body as any} lang={lang} />;
-      case "architecture": return <ArchitectureCard body={card.body as any} lang={lang} />;
+      case "fact": return <FactCard body={body} lang={lang} />;
+      case "problem-solution": return <ProblemSolutionCard body={body} lang={lang} />;
+      case "concept-model": return <ConceptModelCard body={body} lang={lang} />;
+      case "how-to": return <HowToCard body={body} lang={lang} />;
+      case "comparison": return <ComparisonCard body={body} lang={lang} />;
+      case "architecture": return <ArchitectureCard body={body} lang={lang} />;
     }
   }
 
@@ -205,7 +206,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
               </span>
               <span class="text-gray-600 text-[10px]">{current.readingMinutes} min</span>
             </div>
-            <h2 class="text-lg font-medium leading-snug">{current.title}</h2>
+            <h2 class="text-lg font-medium leading-snug">{cardTitle(current, lang)}</h2>
             <div class="flex gap-1 mt-2">
               {current.tags.map((tag) => (
                 <span key={tag} class="text-[10px] text-gray-500 bg-surface px-1.5 py-0.5 rounded">
@@ -217,7 +218,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
 
           {/* Card body - scrollable */}
           <div class="flex-1 overflow-y-auto px-5 pb-5">
-            {renderBody(current)}
+            {renderBody(current, lang)}
           </div>
         </div>
       </div>

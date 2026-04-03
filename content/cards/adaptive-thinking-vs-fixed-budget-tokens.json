@@ -1,0 +1,70 @@
+{
+  "id": "adaptive-thinking-vs-fixed-budget-tokens",
+  "type": "comparison",
+  "title": "Adaptive Thinking vs 固定 budget_tokens：该选哪个？",
+  "title_en": "Adaptive Thinking vs Fixed budget_tokens: Which to Choose?",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking",
+  "tags": [
+    "adaptive-thinking",
+    "extended-thinking",
+    "migration"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Adaptive thinking（thinking.type: \"adaptive\"）— 推荐方式，适用于 Claude 4.6 系列",
+    "itemB": "固定 budget_tokens（thinking.type: \"enabled\"）— 已 deprecated（4.6 系列），旧模型仍需使用",
+    "dimensions": [
+      {
+        "name": "配置方式",
+        "a": "设 thinking.type 为 \"adaptive\"，用 effort 参数（low/medium/high）调节",
+        "b": "设 thinking.type 为 \"enabled\"，手动指定 budget_tokens 数值（最小 1024）"
+      },
+      {
+        "name": "思考行为",
+        "a": "Claude 自行判断是否思考及思考量，简单问题可能跳过思考",
+        "b": "始终进行思考，消耗 token 直到预算用完或问题解决"
+      },
+      {
+        "name": "最佳场景",
+        "a": "复杂度差异大的混合任务（bimodal tasks）、长链 agentic 工作流",
+        "b": "需要可预测延迟、精确控制思考成本的场景"
+      },
+      {
+        "name": "模型支持",
+        "a": "仅 Claude Opus 4.6 和 Sonnet 4.6",
+        "b": "所有支持 extended thinking 的模型（Sonnet 4.5、Opus 4.5 等仍需此方式）"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Adaptive thinking (thinking.type: \"adaptive\") — recommended for Claude 4.6 models",
+    "itemB": "Fixed budget_tokens (thinking.type: \"enabled\") — deprecated on 4.6, still required for older models",
+    "dimensions": [
+      {
+        "name": "Configuration",
+        "a": "Set thinking.type to \"adaptive\", control with effort parameter (low/medium/high)",
+        "b": "Set thinking.type to \"enabled\", manually specify budget_tokens (min 1024)"
+      },
+      {
+        "name": "Thinking behavior",
+        "a": "Claude decides whether to think and how much; may skip thinking for simple problems",
+        "b": "Always thinks, consuming tokens up to the budget or until the problem is solved"
+      },
+      {
+        "name": "Best for",
+        "a": "Mixed-complexity (bimodal) tasks, long-horizon agentic workflows",
+        "b": "Scenarios needing predictable latency or precise control over thinking costs"
+      },
+      {
+        "name": "Model support",
+        "a": "Claude Opus 4.6 and Sonnet 4.6 only",
+        "b": "All extended-thinking models (Sonnet 4.5, Opus 4.5, etc. still require this)"
+      }
+    ]
+  },
+  "relatedIds": [
+    "adaptive-thinking-let-claude-decide-depth",
+    "enable-extended-thinking-budget-tokens"
+  ],
+  "relationType": "extends"
+}

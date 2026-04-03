@@ -1,0 +1,28 @@
+{
+  "id": "output-consistency-three-techniques",
+  "type": "problem-solution",
+  "title": "输出格式不一致 → 三种控制技巧",
+  "title_en": "Inconsistent Output Format → Three Control Techniques",
+  "source": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency",
+  "tags": [
+    "output-format",
+    "prompt-engineering",
+    "consistency"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "同一个 prompt 多次调用 Claude，每次返回的格式不一样：有时有前言废话，有时字段缺失，有时结构乱了。这让下游解析代码很难处理。",
+    "solution": "按可靠程度从高到低选择：①如果需要严格 JSON schema，用 Structured Outputs（constrained decoding，100% 合规）；②在 prompt 中用 JSON/XML/自定义模板明确描述每个字段的格式、类型和示例；③提供 2-5 个 input→output 示例（few-shot），让 Claude 模仿你期望的格式。三种方式可以组合使用。",
+    "keyTakeaway": "Structured Outputs 解决「保证合法 JSON」的问题；prompt 模板和 few-shot 解决「风格和内容一致性」的问题。先选对工具，再调 prompt。"
+  },
+  "body_en": {
+    "problem": "Calling Claude multiple times with the same prompt yields inconsistent formats: sometimes preamble text, sometimes missing fields, sometimes broken structure. This makes downstream parsing fragile.",
+    "solution": "Choose by reliability (high to low): ① For strict JSON schema compliance, use Structured Outputs (constrained decoding, 100% conformance). ② Describe every field's format, type, and example explicitly in a JSON/XML/custom template within your prompt. ③ Provide 2-5 input→output examples (few-shot) so Claude mimics your desired format. These techniques can be combined.",
+    "keyTakeaway": "Structured Outputs guarantee valid JSON. Prompt templates and few-shot examples ensure style and content consistency. Pick the right tool first, then refine the prompt."
+  },
+  "relatedIds": [
+    "structured-outputs-vs-prompt-json",
+    "prompt-few-shot-examples"
+  ],
+  "relationType": "extends"
+}

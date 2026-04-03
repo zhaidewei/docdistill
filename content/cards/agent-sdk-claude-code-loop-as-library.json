@@ -1,7 +1,8 @@
 {
   "id": "agent-sdk-claude-code-loop-as-library",
   "type": "concept-model",
-  "title": "Agent SDK: Claude Code's agent loop as a library",
+  "title": "Agent SDK：把 Claude Code 的 agent loop 变成库",
+  "title_en": "Agent SDK: Claude Code's Agent Loop as a Library",
   "source": "https://platform.claude.com/docs/en/agent-sdk/overview",
   "tags": [
     "agent-sdk",
@@ -9,6 +10,11 @@
   ],
   "readingMinutes": 3,
   "body": {
+    "concept": "Claude Agent SDK 把驱动 Claude Code 的同一套 agent loop、工具集和上下文管理打包成 Python/TypeScript 库。你调用 `query()` 传入 prompt 和选项，就能拿到一个异步流式迭代器——Claude 会自动读文件、跑命令、改代码，和在 Claude Code 里的行为完全一样。",
+    "analogy": "Claude Code 是一辆组装好的汽车，你坐在驾驶座上操控。Agent SDK 则是同一套发动机、变速箱和轮子，以零件套装的形式出售——你把它们装进自己的底盘（你的应用），用代码控制方向盘。",
+    "visual": "你的应用 → query(prompt, options) → Agent Loop [Read → Think → Edit → Bash → ...] → 流式消息返回你的应用"
+  },
+  "body_en": {
     "concept": "The Claude Agent SDK packages the same agent loop, tools, and context management that power Claude Code into a Python/TypeScript library. You call `query()` with a prompt and options, and get back a streaming async iterator of messages — Claude autonomously reads files, runs commands, edits code, and more, just like it does inside Claude Code.",
     "analogy": "Think of Claude Code as a fully assembled car you drive from the driver's seat. The Agent SDK is the same engine, transmission, and wheels sold as a crate kit — you bolt them into your own chassis (your application) and control the steering programmatically.",
     "visual": "Your App → query(prompt, options) → Agent Loop [Read → Think → Edit → Bash → ...] → streamed messages back to your app"

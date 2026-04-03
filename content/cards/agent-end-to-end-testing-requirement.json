@@ -1,0 +1,28 @@
+{
+  "id": "agent-end-to-end-testing-requirement",
+  "type": "problem-solution",
+  "title": "Agent 标记功能完成但实际未通过端到端测试",
+  "title_en": "Agent Marks Features Done Without End-to-End Testing",
+  "source": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  "tags": [
+    "agent",
+    "testing",
+    "browser-automation"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "Agent 习惯于用单元测试或 curl 命令验证功能，认为通过即完成。但这些测试不能覆盖真实用户路径——功能在 UI 层面可能根本不工作，agent 却已标记为通过。",
+    "solution": "在 prompt 中明确要求使用浏览器自动化工具（如 Puppeteer MCP）进行测试，模拟真实用户的每一步操作。只有端到端流程跑通，才允许将功能标记为 passes: true。",
+    "keyTakeaway": "\"像用户一样测试\"不是建议，是必要条件。agent 的测试本能是\"技术层面能跑\"，而不是\"用户实际能用\"，需要 prompt 层面明确纠正。"
+  },
+  "body_en": {
+    "problem": "Agents naturally reach for unit tests or curl commands to validate features. These pass even when the feature is broken at the UI level. The agent marks it done, but a real user would immediately see it fail.",
+    "solution": "Explicitly instruct the agent to use browser automation tools (e.g., Puppeteer MCP server) and simulate every step a real user would take. Only after the full end-to-end flow succeeds can the feature be marked passes: true.",
+    "keyTakeaway": "\"Test like a user\" must be an explicit requirement, not a suggestion. Agents default to technical validation (does the code run?) rather than user validation (does the feature work?). Prompting must correct this directly."
+  },
+  "relatedIds": [
+    "agent-incremental-progress-clean-state",
+    "feature-list-prevents-premature-completion"
+  ],
+  "relationType": "extends"
+}

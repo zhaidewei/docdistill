@@ -1,0 +1,26 @@
+{
+  "id": "messages-api-role-alternation",
+  "type": "problem-solution",
+  "title": "消息角色交替规则：为什么 API 报错 400？",
+  "title_en": "Role Alternation Rule: Why Is the API Returning 400?",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
+  "tags": [
+    "messages-api",
+    "troubleshooting"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "调用 Messages API 时收到 400 错误，消息内容看起来没问题，但 API 就是拒绝。常见原因：messages 数组里出现了连续两条相同 role 的消息（比如两条 user 消息紧挨着），或者第一条消息不是 user 角色。",
+    "solution": "Messages API 强制要求：(1) 第一条消息必须是 role: user；(2) 之后 user 和 assistant 必须严格交替。如果你的应用逻辑会产生连续的 user 消息（比如用户连发两条），在调用 API 前把它们合并成一条。如果需要 Claude 先说话，用 system 参数而不是 assistant 消息开头。",
+    "keyTakeaway": "messages 数组 = 严格的 user → assistant → user → assistant 序列，第一条永远是 user。违反就是 400。"
+  },
+  "body_en": {
+    "problem": "You get a 400 error from the Messages API even though the message content looks correct. Common cause: the messages array has two consecutive messages with the same role (e.g., two user messages in a row), or the first message isn't role: user.",
+    "solution": "The Messages API strictly requires: (1) first message must be role: user; (2) user and assistant must strictly alternate after that. If your app logic produces consecutive user messages (e.g., user sends two in a row), merge them into one before calling the API. If you need Claude to speak first, use the system parameter instead of starting with an assistant message.",
+    "keyTakeaway": "The messages array = strict user → assistant → user → assistant sequence, always starting with user. Violate this and you get a 400."
+  },
+  "relatedIds": [
+    "messages-api-multi-turn-conversation"
+  ],
+  "relationType": "extends"
+}

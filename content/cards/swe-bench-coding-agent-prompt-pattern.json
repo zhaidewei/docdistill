@@ -1,0 +1,38 @@
+{
+  "id": "swe-bench-coding-agent-prompt-pattern",
+  "type": "how-to",
+  "title": "为编程 Agent 编写有效 Prompt 的五步模式",
+  "title_en": "Five-Step Prompt Pattern for Coding Agents",
+  "source": "https://www.anthropic.com/engineering/swe-bench-sonnet",
+  "tags": [
+    "prompt-engineering",
+    "agent",
+    "coding"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "设计一个让模型能自主解决真实代码 Bug 的 Agent Prompt",
+    "steps": [
+      "明确上下文：告诉模型代码在哪里、任务是什么（PR 描述或 Issue），以及已经做了什么（如测试文件不需要修改）",
+      "划定边界：明确说明哪些文件不能动（如测试文件），减少模型犯无效操作的概率",
+      "给建议步骤，而非强制流程：「先探索结构 → 复现错误 → 修改代码 → 验证修复」是建议，模型可自由调整",
+      "鼓励复现驱动：要求模型先写脚本复现 Bug，修复后再跑一次验证，形成闭环",
+      "允许长思考：明确告诉模型「可以深入思考，不需要简短」，对复杂任务尤其重要"
+    ]
+  },
+  "body_en": {
+    "goal": "Design an agent prompt that lets the model autonomously fix real code bugs",
+    "steps": [
+      "Set context: tell the model where the code is, what the task is (PR description or issue), and what's already done (e.g., test files don't need changes)",
+      "Set boundaries: explicitly state which files are off-limits (e.g., test files) to reduce wasted actions",
+      "Suggest steps, don't enforce them: 'explore structure → reproduce error → fix code → verify' is a suggestion; the model can adapt",
+      "Encourage reproduce-driven fixing: ask the model to write a reproduction script first, then re-run it after the fix to close the loop",
+      "Permit long thinking: explicitly tell the model it can think thoroughly and at length — this matters especially for complex tasks"
+    ]
+  },
+  "relatedIds": [
+    "swe-bench-agent-scaffold-design",
+    "system-prompt-right-altitude"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,70 @@
+{
+  "id": "think-tool-vs-extended-thinking",
+  "type": "comparison",
+  "title": "Think 工具 vs Extended Thinking：如何选择",
+  "title_en": "Think Tool vs Extended Thinking: Which to Use",
+  "source": "https://www.anthropic.com/engineering/claude-think-tool",
+  "tags": [
+    "tool-use",
+    "extended-thinking",
+    "reasoning"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Think 工具：Claude 开始生成回复之后，在工具调用链中间插入的推理步骤。聚焦于「刚刚拿到的新信息」，推理深度较浅，但能在每次工具返回时反复触发。",
+    "itemB": "Extended Thinking（扩展思考）：Claude 在开始生成任何回复之前的深度预推理。更全面、更系统，但只在开头运行一次。注意：2025 年 12 月后，Anthropic 建议大多数场景优先使用 Extended Thinking。",
+    "dimensions": [
+      {
+        "name": "触发时机",
+        "a": "回复生成过程中，每次工具调用后均可触发",
+        "b": "生成回复之前，仅触发一次"
+      },
+      {
+        "name": "适用场景",
+        "a": "长链工具调用、政策复杂的客服、每步依赖上一步结果的顺序决策",
+        "b": "非顺序工具调用、数学/代码/物理等不需要工具的推理任务"
+      },
+      {
+        "name": "推理深度",
+        "a": "较浅，专注于当前工具返回的新信息",
+        "b": "更深、更全面"
+      },
+      {
+        "name": "实现方式",
+        "a": "在工具列表中添加一个 think 工具定义（几行 JSON）",
+        "b": "在 API 请求中开启 extended thinking 参数"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Think Tool: reasoning injected mid-response, between tool calls. Focuses on newly returned information; shallower but can fire repeatedly throughout a long tool chain.",
+    "itemB": "Extended Thinking: deep pre-reasoning before Claude generates any response. More comprehensive and systematic, but runs only once upfront. Note: As of Dec 2025, Anthropic recommends Extended Thinking as the default in most cases.",
+    "dimensions": [
+      {
+        "name": "When it runs",
+        "a": "During response generation, after each tool call",
+        "b": "Before response generation begins, once"
+      },
+      {
+        "name": "Best for",
+        "a": "Long tool chains, policy-heavy agents, sequential decisions where each step depends on the last",
+        "b": "Non-sequential tool calls, math/code/physics tasks that don't need tools"
+      },
+      {
+        "name": "Reasoning depth",
+        "a": "Shallower — focused on the latest tool output",
+        "b": "Deeper and more comprehensive"
+      },
+      {
+        "name": "How to enable",
+        "a": "Add a think tool definition to your tools list (a few lines of JSON)",
+        "b": "Set the extended thinking parameter in your API request"
+      }
+    ]
+  },
+  "relatedIds": [
+    "think-tool-structured-scratchpad",
+    "extended-thinking-concept"
+  ],
+  "relationType": "contrasts"
+}

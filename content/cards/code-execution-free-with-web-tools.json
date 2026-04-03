@@ -1,0 +1,27 @@
+{
+  "id": "code-execution-free-with-web-tools",
+  "type": "fact",
+  "title": "Code Execution 搭配 Web Search/Fetch 时免费",
+  "title_en": "Code Execution Is Free When Paired with Web Search/Fetch",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool",
+  "tags": [
+    "code-execution",
+    "pricing",
+    "web-search"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "当请求中包含 web_search_20260209 或 web_fetch_20260209 时，code execution 的 tool call 不收额外费用——只按标准的 input/output token 计费。不搭配这两个工具时，code execution 按标准费率单独收费",
+    "context": "这个定价策略鼓励开发者将 code execution 与 web search/fetch 组合使用。组合后 Claude 可以用代码对搜索结果做 dynamic filtering（动态过滤），在结果进入 context window 之前先处理和筛选，既提升准确率又减少 token 消耗。tool 版本号统一为 code_execution_20250825，所有 Claude 模型（Opus/Sonnet/Haiku 各版本）均支持"
+  },
+  "body_en": {
+    "fact": "When web_search_20260209 or web_fetch_20260209 is included in your request, code execution tool calls incur no additional charges — you only pay standard input/output token costs. Without these tools, code execution is charged at its standard rate",
+    "context": "This pricing encourages combining code execution with web search/fetch. Together, Claude can dynamically filter search results with code before they enter the context window, improving accuracy while reducing token consumption. The tool version is code_execution_20250825, supported by all Claude models (Opus/Sonnet/Haiku across versions)"
+  },
+  "relatedIds": [
+    "web-search-tool-enable-and-usage",
+    "web-search-dynamic-filtering",
+    "code-execution-sandboxed-bash"
+  ],
+  "relationType": "extends"
+}

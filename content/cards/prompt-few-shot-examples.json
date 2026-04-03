@@ -2,6 +2,7 @@
   "id": "prompt-few-shot-examples",
   "type": "how-to",
   "title": "用示例（few-shot）提升输出质量",
+  "title_en": "Provide Examples (Few-Shot) for Output Quality",
   "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices",
   "tags": [
     "prompt-engineering",
@@ -16,6 +17,16 @@
       "把示例放在 <examples> 标签内，每个用 <example> 包裹，包含 <input> 和 <output>",
       "示例的输出要和你真正期望的格式完全一致（包括 JSON 结构、换行风格等）",
       "如果输出需要推理过程，在示例的 output 中展示推理步骤，Claude 会学习这个模式"
+    ]
+  },
+  "body_en": {
+    "goal": "Provide input-output examples so Claude precisely mimics your expected format, style, and reasoning",
+    "steps": [
+      "Prepare 2-5 input → expected output pairs covering common cases and edge cases",
+      "Diversify examples — if all examples follow the same pattern, Claude may overfit",
+      "Place examples inside <examples> tags, each wrapped in <example> with <input> and <output>",
+      "Example outputs must exactly match your desired format (including JSON structure, line breaks, etc.)",
+      "If output requires reasoning, show the reasoning steps in the example output — Claude will learn the pattern"
     ]
   },
   "relatedIds": [

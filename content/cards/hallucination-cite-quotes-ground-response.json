@@ -1,0 +1,35 @@
+{
+  "id": "hallucination-cite-quotes-ground-response",
+  "type": "how-to",
+  "title": "用引用和原文摘录来「锚定」回答",
+  "title_en": "Use Citations and Direct Quotes to Ground Responses",
+  "source": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+  "tags": [
+    "hallucination",
+    "prompt-engineering",
+    "guardrails"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "让 Claude 的回答有据可查，减少凭空编造",
+    "steps": [
+      "对于长文档（>20k tokens），先让 Claude 逐字摘录相关原文，再基于摘录回答问题",
+      "要求 Claude 为每个断言标注出处，例如 '根据第3段：\"原文...\"'",
+      "加入自我验证步骤：Claude 生成回答后，逐条检查——能否从原文中找到支持引用？找不到的必须撤回",
+      "这个方法本质上是把「自由生成」变成了「检索+摘要」，大幅收窄了幻觉空间"
+    ]
+  },
+  "body_en": {
+    "goal": "Make Claude's responses verifiable and reduce fabrication",
+    "steps": [
+      "For long documents (>20k tokens), ask Claude to extract word-for-word quotes first, then answer based on those quotes",
+      "Require Claude to cite sources for each claim, e.g. 'According to paragraph 3: \"exact quote...\"'",
+      "Add a self-verification step: after generating a response, Claude checks each claim — can it find a supporting quote? If not, it must retract",
+      "This essentially transforms 'free generation' into 'retrieval + summarization', drastically narrowing the hallucination space"
+    ]
+  },
+  "relatedIds": [
+    "hallucination-allow-i-dont-know"
+  ],
+  "relationType": "complements"
+}

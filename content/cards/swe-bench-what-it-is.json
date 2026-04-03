@@ -1,0 +1,25 @@
+{
+  "id": "swe-bench-what-it-is",
+  "type": "fact",
+  "title": "SWE-bench：用真实 GitHub Issue 评测编程能力",
+  "title_en": "SWE-bench: Real GitHub Issues as Coding Benchmark",
+  "source": "https://www.anthropic.com/engineering/swe-bench-sonnet",
+  "tags": [
+    "benchmark",
+    "agent",
+    "evaluation"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "SWE-bench 是一个 AI 评测基准，每道题给模型一个真实开源 Python 项目的快照（来自某个 GitHub Issue 被修复前的状态），要求模型理解、修改、测试代码并提交解决方案。评分标准是：原始 PR 的单元测试是否通过。SWE-bench Verified 是其中经过人工审核、确认可解的 500 道题子集。",
+    "context": "它评测的不是模型本身，而是「模型 + 脚手架」整体（称为 Agent）。同样的模型，换不同脚手架，分数差异很大。"
+  },
+  "body_en": {
+    "fact": "SWE-bench is an AI benchmark where each task gives the model a snapshot of a real open-source Python repo (taken just before a GitHub issue was fixed) and asks it to understand, modify, and test the code. Grading: does the original PR's unit test suite pass? SWE-bench Verified is a 500-problem human-reviewed subset guaranteed to be solvable.",
+    "context": "It benchmarks an entire 'agent' (model + scaffolding), not just the model. The same model with different scaffolding can score very differently."
+  },
+  "relatedIds": [
+    "swe-bench-agent-scaffold-design"
+  ],
+  "relationType": "prerequisite"
+}

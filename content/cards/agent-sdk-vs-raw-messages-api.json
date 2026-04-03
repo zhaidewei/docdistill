@@ -1,7 +1,8 @@
 {
   "id": "agent-sdk-vs-raw-messages-api",
   "type": "comparison",
-  "title": "Agent SDK vs raw Messages API for building agents",
+  "title": "Agent SDK vs Messages API：构建 agent 的两条路",
+  "title_en": "Agent SDK vs Raw Messages API for Building Agents",
   "source": "https://platform.claude.com/docs/en/agent-sdk/overview",
   "tags": [
     "agent-sdk",
@@ -10,6 +11,32 @@
   ],
   "readingMinutes": 3,
   "body": {
+    "itemA": "Claude Agent SDK",
+    "itemB": "原始 Messages API",
+    "dimensions": [
+      {
+        "name": "工具执行",
+        "a": "内置：Read、Edit、Bash 等工具由 SDK 提供并自动执行",
+        "b": "自建：你定义 tool schema，接收 tool_use block，自己执行，再把结果发回去"
+      },
+      {
+        "name": "Agent loop",
+        "a": "托管：SDK 自动运行「思考 → 行动 → 观察」循环，直到任务完成",
+        "b": "手动：你自己写 while 循环，处理 stop reason，决定何时继续"
+      },
+      {
+        "name": "上下文管理",
+        "a": "内置：SDK 管理对话历史、token 预算和 context window",
+        "b": "你的责任：自己追踪消息、计算 token、做截断或摘要"
+      },
+      {
+        "name": "适用场景",
+        "a": "想快速获得一个有能力的自主 agent，且 Claude Code 的工具集满足需求",
+        "b": "需要完全控制工具、循环逻辑，或需要使用非 Claude Code 工具"
+      }
+    ]
+  },
+  "body_en": {
     "itemA": "Claude Agent SDK",
     "itemB": "Raw Messages API",
     "dimensions": [

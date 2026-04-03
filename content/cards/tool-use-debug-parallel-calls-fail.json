@@ -1,0 +1,28 @@
+{
+  "id": "tool-use-debug-parallel-calls-fail",
+  "type": "problem-solution",
+  "title": "并行 tool call 不生效 → 检查 tool_result 的发送方式",
+  "title_en": "Parallel Tool Calls Don't Work → Check tool_result Message Format",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/troubleshooting-tool-use",
+  "tags": [
+    "tool-use",
+    "debugging",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "你希望 Claude 并行调用多个工具以提升效率，但它始终一个接一个地串行调用。或者你设置了 disable_parallel_tool_use 但似乎没有效果。",
+    "solution": "(1) 串行而非并行：问题出在你返回 tool_result 的方式。必须把多个 tool_result block 放在同一条 user message 里发送，而不是每个结果各发一条消息。如果你分成多条消息发，Claude 会把每次返回当成一个新「回合」，自然就变成了串行。(2) disable_parallel_tool_use 无效：这个参数必须在会返回 tool_use 的那次请求中设置。如果你在后续请求才加，它对之前已经返回的 tool call 没有任何影响。",
+    "keyTakeaway": "并行 tool use 的关键：多个 tool_result 要在同一条 user message 里返回，不要拆成多条消息。"
+  },
+  "body_en": {
+    "problem": "You want Claude to call multiple tools in parallel for efficiency, but it always calls them sequentially. Or you set disable_parallel_tool_use but it seems ignored.",
+    "solution": "(1) Sequential instead of parallel: the issue is how you return tool_results. You must send multiple tool_result blocks in ONE user message, not one per turn. If you split them into separate messages, Claude treats each return as a new 'turn' and naturally serializes. (2) disable_parallel_tool_use ignored: this parameter must be set on the request that returns tool_use. Setting it on a later request has no effect on earlier tool calls.",
+    "keyTakeaway": "The key to parallel tool use: return multiple tool_results in a single user message — don't split them across turns."
+  },
+  "relatedIds": [
+    "tool-use-lifecycle-four-steps",
+    "tool-use-debug-wrong-tool-called"
+  ],
+  "relationType": "extends"
+}

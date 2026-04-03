@@ -1,0 +1,27 @@
+{
+  "id": "think-tool-structured-scratchpad",
+  "type": "concept-model",
+  "title": "Think 工具：复杂工具调用中的结构化暂停思考",
+  "title_en": "Think Tool: Structured Scratchpad for Complex Tool-Use",
+  "source": "https://www.anthropic.com/engineering/claude-think-tool",
+  "tags": [
+    "tool-use",
+    "agent",
+    "reasoning"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "Think 工具是一个特殊的「空白工具」：Claude 在生成回复的过程中，遇到需要推理的节点时，可以调用它写下自己的思考过程。这个思考不会调用外部 API，也不改变任何数据库，只是把推理过程追加到日志里。",
+    "analogy": "就像数学考试时在草稿纸上列竖式——答案还是你写的，但草稿纸给了你一个不被打断的空间，把复杂步骤拆开算清楚，再写到答题纸上。",
+    "visual": "工具调用链：[tool_A 返回结果] → [think: 分析结果，检查是否符合政策] → [tool_B] → [think: 确认下一步] → [最终回复]"
+  },
+  "body_en": {
+    "concept": "The think tool is a special no-op tool: while generating a response, Claude can call it to write out its reasoning at any decision point. It doesn't call any external API or modify any data — it just appends the thought to the log.",
+    "analogy": "Like scratch paper during a math exam — the final answer is still yours, but the scratch space lets you work through complex steps without interruption before writing the clean answer.",
+    "visual": "Tool call chain: [tool_A result] → [think: analyze result, check policy] → [tool_B] → [think: confirm next step] → [final response]"
+  },
+  "relatedIds": [
+    "think-tool-vs-extended-thinking"
+  ],
+  "relationType": "extends"
+}

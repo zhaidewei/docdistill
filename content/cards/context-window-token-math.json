@@ -1,0 +1,27 @@
+{
+  "id": "context-window-token-math",
+  "type": "concept-model",
+  "title": "Token 计算：输入 + 输出 = 总量",
+  "title_en": "Token Math: Input + Output = Total",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+  "tags": [
+    "context-window",
+    "tokens"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "concept": "每轮对话包含输入阶段和输出阶段。输入 = 全部历史对话 + 当前用户消息；输出 = 模型生成的回复。两者都占用 context window 容量。随着对话轮次增加，token 线性增长——因为之前的所有轮次会被完整保留在输入中。",
+    "analogy": "像往一个固定容量的水杯里倒水。每轮对话既要倒入之前所有对话的水（输入），还要留空间给新回复的水（输出）。杯子越满，能装新水的空间就越少。对话越长，留给新回复的余量越紧张。",
+    "visual": "一个竖条形水杯，分成几段颜色：底部是 system prompt，中间交替是 user/assistant 历史消息（每轮比上一轮多一层），顶部留白标注 '可用于新输出的空间'，水位线逐轮上升。"
+  },
+  "body_en": {
+    "concept": "Each conversation turn has an input phase and an output phase. Input = all previous conversation history + current user message. Output = model's generated response. Both consume context window capacity. Token usage grows linearly with each turn because all previous turns are fully preserved in the input.",
+    "analogy": "Like pouring water into a fixed-size glass. Each turn pours in all prior conversation (input) and must leave room for the new response (output). The fuller the glass gets, the less room remains. Longer conversations mean tighter margins for new replies.",
+    "visual": "A vertical glass divided into colored segments: system prompt at the bottom, alternating user/assistant history in the middle (growing taller each turn), and whitespace at the top labeled 'space available for new output', with the water level rising each turn."
+  },
+  "relatedIds": [
+    "context-window-working-memory",
+    "context-rot-curation"
+  ],
+  "relationType": "extends"
+}

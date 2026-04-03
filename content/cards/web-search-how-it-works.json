@@ -1,0 +1,54 @@
+{
+  "id": "web-search-how-it-works",
+  "type": "architecture",
+  "title": "Web search 工作流程：从请求到引用回复",
+  "title_en": "Web Search Workflow: From Request to Cited Response",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+  "tags": [
+    "web-search",
+    "server-tool",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "overview": "Web search 是一种 server tool——你只需在请求中声明它，Anthropic 的服务器自动执行搜索并返回结果。整个流程对开发者透明，无需编写搜索执行逻辑。",
+    "components": [
+      {
+        "name": "你的应用",
+        "role": "发送 API 请求，在 tools 中声明 web_search，接收带引用的最终回复"
+      },
+      {
+        "name": "Claude",
+        "role": "分析 prompt，决定是否搜索、搜索什么关键词，可能在一次请求中多次搜索"
+      },
+      {
+        "name": "Anthropic 搜索服务",
+        "role": "执行实际的网页搜索，获取结果并返回给 Claude"
+      }
+    ],
+    "flow": "你的应用发送带 web_search tool 的请求 → Claude 分析 prompt，决定搜索关键词 → Anthropic 服务器执行搜索并返回结果 → （可选：dynamic filtering 时 Claude 写代码过滤结果）→ Claude 可能再次搜索（多轮） → Claude 综合所有结果，生成带引用来源的最终回复"
+  },
+  "body_en": {
+    "overview": "Web search is a server tool — you just declare it in the request, and Anthropic's servers execute searches and return results. The entire flow is transparent to developers with no search execution logic needed.",
+    "components": [
+      {
+        "name": "Your application",
+        "role": "Sends API request with web_search declared in tools, receives the final response with citations"
+      },
+      {
+        "name": "Claude",
+        "role": "Analyzes the prompt, decides whether and what to search, may search multiple times per request"
+      },
+      {
+        "name": "Anthropic search service",
+        "role": "Executes the actual web searches, fetches results and returns them to Claude"
+      }
+    ],
+    "flow": "Your app sends request with web_search tool → Claude analyzes prompt, determines search keywords → Anthropic servers execute search and return results → (Optional: with dynamic filtering, Claude writes code to filter results) → Claude may search again (multiple rounds) → Claude synthesizes all results into a final response with cited sources"
+  },
+  "relatedIds": [
+    "web-search-tool-enable-and-usage",
+    "client-tools-vs-server-tools"
+  ],
+  "relationType": "extends"
+}

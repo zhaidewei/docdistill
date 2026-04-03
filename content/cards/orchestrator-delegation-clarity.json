@@ -1,0 +1,28 @@
+{
+  "id": "orchestrator-delegation-clarity",
+  "type": "problem-solution",
+  "title": "教主 Agent 如何明确分配任务",
+  "title_en": "Teaching the Orchestrator to Delegate Clearly",
+  "source": "https://www.anthropic.com/engineering/multi-agent-research-system",
+  "tags": [
+    "multi-agent",
+    "prompt-engineering",
+    "delegation"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "主 Agent 给子 Agent 的指令太模糊时，子 Agent 会重复劳动或留下盲区。例如，指令「研究半导体短缺」导致一个子 Agent 探索 2021 年汽车芯片危机，另外两个重复调查 2025 年供应链现状，没有有效分工。",
+    "solution": "每条子任务描述必须包含四个要素：① **目标**（具体要找什么）；② **输出格式**（返回什么结构的结果）；③ **工具和信息源指导**（用哪些工具，去哪里找）；④ **任务边界**（明确不包括什么，与其他子 Agent 如何划分）。",
+    "keyTakeaway": "子 Agent 的任务描述越具体，重复劳动和盲区就越少。主 Agent 的「委托质量」是多 Agent 系统成败的核心杠杆之一。"
+  },
+  "body_en": {
+    "problem": "When a lead agent gives vague instructions to subagents, they duplicate work or leave gaps. For example, the instruction 'research the semiconductor shortage' caused one subagent to explore the 2021 automotive chip crisis while two others duplicated work investigating 2025 supply chains—no effective division of labor.",
+    "solution": "Every subtask description must include four elements: ① **Objective** (exactly what to find); ② **Output format** (what structure to return); ③ **Tool and source guidance** (which tools to use, where to look); ④ **Task boundaries** (what's explicitly out of scope, how this task divides from other subagents).",
+    "keyTakeaway": "The more specific the subagent's task description, the less duplication and fewer gaps. The lead agent's 'delegation quality' is one of the core levers for multi-agent system performance."
+  },
+  "relatedIds": [
+    "multi-agent-prompting-principles",
+    "multi-agent-research-architecture"
+  ],
+  "relationType": "supports"
+}

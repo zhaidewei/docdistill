@@ -1,0 +1,54 @@
+{
+  "id": "multi-agent-research-architecture",
+  "type": "architecture",
+  "title": "多 Agent 研究系统架构：协调者与专家分工",
+  "title_en": "Multi-Agent Research Architecture: Coordinator + Specialists",
+  "source": "https://www.anthropic.com/engineering/multi-agent-research-system",
+  "tags": [
+    "multi-agent",
+    "architecture",
+    "research"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "Anthropic 的 Research 功能采用「主导者-工作者」模式：一个主 Agent 负责规划和协调，多个子 Agent 并行探索不同方向，最后由 CitationAgent 处理引用。",
+    "components": [
+      {
+        "name": "LeadResearcher（主研究员）",
+        "role": "分析用户问题，制定策略，分配任务给子 Agent，综合所有结果，判断是否需要继续搜索"
+      },
+      {
+        "name": "Subagent（子 Agent）",
+        "role": "接收具体任务，独立执行网页搜索，通过 interleaved thinking 评估结果，将发现汇报给主研究员"
+      },
+      {
+        "name": "CitationAgent（引用处理员）",
+        "role": "在研究完成后，处理所有文档，为每条结论标注具体来源位置"
+      }
+    ],
+    "flow": "1. 用户提交问题 → 2. LeadResearcher 思考策略并将计划写入 Memory（防止超出 200K token 上下文被截断）→ 3. 生成若干个带明确任务的子 Agent → 4. 子 Agent 并行搜索 → 5. LeadResearcher 综合结果，决定是否继续 → 6. 退出研究循环 → 7. CitationAgent 添加引用 → 8. 返回最终报告"
+  },
+  "body_en": {
+    "overview": "Anthropic's Research feature uses an orchestrator-worker pattern: a lead agent plans and coordinates, parallel subagents explore different directions simultaneously, and a CitationAgent handles source attribution at the end.",
+    "components": [
+      {
+        "name": "LeadResearcher",
+        "role": "Analyzes the query, develops strategy, assigns tasks to subagents, synthesizes results, decides whether more research is needed"
+      },
+      {
+        "name": "Subagent",
+        "role": "Receives a specific task, independently runs web searches, evaluates results with interleaved thinking, reports findings back to the lead"
+      },
+      {
+        "name": "CitationAgent",
+        "role": "After research is complete, processes all documents to identify exact source locations for every claim"
+      }
+    ],
+    "flow": "1. User submits query → 2. LeadResearcher plans strategy, saves plan to Memory (context can exceed 200K tokens and get truncated) → 3. Spawns subagents with specific tasks → 4. Subagents search in parallel → 5. LeadResearcher synthesizes, decides if more research needed → 6. Exit research loop → 7. CitationAgent adds citations → 8. Return final report"
+  },
+  "relatedIds": [
+    "multi-agent-performance-gains",
+    "search-as-parallel-compression"
+  ],
+  "relationType": "extends"
+}

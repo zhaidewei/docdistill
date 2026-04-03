@@ -1,0 +1,37 @@
+{
+  "id": "messages-api-multi-turn-conversation",
+  "type": "how-to",
+  "title": "构建多轮对话：手动管理消息历史",
+  "title_en": "Build a Multi-Turn Conversation: Manual Message History",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/working-with-messages",
+  "tags": [
+    "messages-api",
+    "multi-turn"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "用 Messages API 实现多轮对话。API 本身是无状态的，你需要自己维护消息历史。",
+    "steps": [
+      "第一轮：发送 messages: [{role: 'user', content: '你的问题'}]",
+      "收到响应后，提取 assistant 的回复内容",
+      "第二轮：把之前的对话拼进去——messages: [{role: 'user', content: '第一个问题'}, {role: 'assistant', content: '第一个回答'}, {role: 'user', content: '第二个问题'}]",
+      "关键规则：messages 数组必须 user/assistant 严格交替，且第一条必须是 user",
+      "如果你需要合并连续的同角色消息，在发送前手动拼接成一条"
+    ]
+  },
+  "body_en": {
+    "goal": "Build multi-turn conversations with the Messages API. The API is stateless — you must manage message history yourself.",
+    "steps": [
+      "Turn 1: Send messages: [{role: 'user', content: 'your question'}]",
+      "Extract the assistant's reply content from the response",
+      "Turn 2: Include full history — messages: [{role: 'user', content: 'first question'}, {role: 'assistant', content: 'first answer'}, {role: 'user', content: 'second question'}]",
+      "Key rule: the messages array must strictly alternate user/assistant, and the first message must be user",
+      "If you need consecutive same-role messages, manually concatenate them into one before sending"
+    ]
+  },
+  "relatedIds": [
+    "messages-api-request-structure",
+    "context-window-token-accounting"
+  ],
+  "relationType": "extends"
+}

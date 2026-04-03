@@ -1,0 +1,36 @@
+{
+  "id": "web-search-tool-enable-and-usage",
+  "type": "how-to",
+  "title": "启用 web search 让 Claude 实时搜索网页",
+  "title_en": "Enable Web Search with web_search_20260209",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool",
+  "tags": [
+    "web-search",
+    "server-tool",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "在 API 请求中启用 web search server tool，让 Claude 能搜索实时网页内容并附带引用来源",
+    "steps": [
+      "在 tools 数组中添加 { \"type\": \"web_search_20260209\", \"name\": \"web_search\" }。这是最新版本，支持 dynamic filtering",
+      "发送你的 messages 请求。Claude 会根据 prompt 内容自动判断是否需要搜索——你不需要显式触发",
+      "API 在 Anthropic 服务器端执行搜索，一次请求中可能多次搜索。你不需要处理 tool_result",
+      "Claude 的最终回复会引用搜索来源。如需 dynamic filtering，确保同时启用 code_execution tool"
+    ]
+  },
+  "body_en": {
+    "goal": "Enable the web search server tool in your API request so Claude can search for real-time web content and cite sources",
+    "steps": [
+      "Add { \"type\": \"web_search_20260209\", \"name\": \"web_search\" } to your tools array. This is the latest version with dynamic filtering support",
+      "Send your messages request. Claude automatically decides when to search based on the prompt — no explicit trigger needed",
+      "The API executes searches on Anthropic's servers, possibly multiple times per request. You don't handle tool_result",
+      "Claude's final response includes cited sources. For dynamic filtering, also enable the code_execution tool"
+    ]
+  },
+  "relatedIds": [
+    "client-tools-vs-server-tools",
+    "web-search-dynamic-filtering"
+  ],
+  "relationType": "extends"
+}

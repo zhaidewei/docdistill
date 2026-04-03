@@ -1,0 +1,27 @@
+{
+  "id": "compaction-long-agent-runs-hitting-limits",
+  "type": "problem-solution",
+  "title": "长时间 Agent 运行撞上 context 上限怎么办",
+  "title_en": "Long Agent Runs Hitting Context Limits → Enable Compaction",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/compaction",
+  "tags": [
+    "compaction",
+    "agent",
+    "context-engineering"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "你的 agent 需要执行大量 tool call（比如代码搜索、文件读取、API 调用），每一步都消耗 token。几十轮之后，对话超出 context window 上限，agent 要么报错中断，要么你只能手动截断历史——丢失关键上下文。即使没超限，过长的 context 也会导致模型注意力分散、回忆不准确。",
+    "solution": "在 API 请求中启用 compaction（beta header: compact-2026-01-12）。设置一个 token 阈值（trigger threshold），当输入 token 超过该阈值时，API 自动生成对话摘要并替换旧消息。这样 agent 可以无限运行下去，始终保持合理的 context 大小。适用模型：Claude Opus 4.6 和 Sonnet 4.6。",
+    "keyTakeaway": "Compaction 是长时间 agent 运行的推荐方案——零额外集成工作，让 API 自动管理 context 长度。"
+  },
+  "body_en": {
+    "problem": "Your agent performs many tool calls (code search, file reads, API calls), each consuming tokens. After dozens of turns, the conversation exceeds the context window limit—the agent either errors out or you must manually truncate history, losing critical context. Even before hitting the limit, overly long context causes the model's attention to degrade and recall to become inaccurate.",
+    "solution": "Enable compaction in your API requests (beta header: compact-2026-01-12). Set a trigger threshold in tokens—when input tokens exceed it, the API automatically generates a conversation summary and replaces old messages. This lets agents run indefinitely while maintaining a reasonable context size. Supported on Claude Opus 4.6 and Sonnet 4.6.",
+    "keyTakeaway": "Compaction is the recommended strategy for long-running agents—zero extra integration work, letting the API automatically manage context length."
+  },
+  "relatedIds": [
+    "compaction-automatic-context-summarization"
+  ],
+  "relationType": "extends"
+}

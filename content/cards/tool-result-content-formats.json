@@ -1,0 +1,24 @@
+{
+  "id": "tool-result-content-formats",
+  "type": "fact",
+  "title": "tool_result 的三种 content 格式",
+  "title_en": "Three Content Formats for tool_result",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls",
+  "tags": [
+    "tool-use",
+    "api-format"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "fact": "tool_result 的 content 字段支持三种格式：(1) 纯字符串，如 \"content\": \"15 degrees\"；(2) 嵌套内容块数组，如 [{\"type\": \"text\", \"text\": \"15 degrees\"}]，支持 text、image、document 类型；(3) document 块数组，如 [{\"type\": \"document\", \"source\": {\"type\": \"text\", \"media_type\": \"text/plain\", \"data\": \"15 degrees\"}}]。",
+    "context": "简单场景用字符串即可。需要返回图片或多种类型混合结果时，用嵌套内容块。document 块适用于需要指定 media_type 的结构化文档数据。"
+  },
+  "body_en": {
+    "fact": "The tool_result content field supports three formats: (1) plain string, e.g., \"content\": \"15 degrees\"; (2) nested content block array, e.g., [{\"type\": \"text\", \"text\": \"15 degrees\"}], supporting text, image, and document types; (3) document block array with explicit media_type specification.",
+    "context": "Use a plain string for simple cases. Use nested content blocks when returning images or mixed-type results. Document blocks are for structured data where media_type matters."
+  },
+  "relatedIds": [
+    "handle-tool-use-response-lifecycle"
+  ],
+  "relationType": "supplements"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "compaction-how-it-works-three-steps",
+  "type": "how-to",
+  "title": "Compaction 工作流程：三步自动压缩",
+  "title_en": "How Compaction Works: Three Automatic Steps",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/compaction",
+  "tags": [
+    "compaction",
+    "api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "goal": "理解 compaction 的自动触发和执行流程",
+    "steps": [
+      "检测：API 检测到输入 token 数超过你设置的 trigger threshold（触发阈值）",
+      "摘要：API 自动生成当前对话的摘要，提炼关键信息、决策和上下文",
+      "替换：用精简的摘要替换旧的对话消息，保留最近的消息不变，然后正常返回 Claude 的回复"
+    ]
+  },
+  "body_en": {
+    "goal": "Understand the automatic trigger and execution flow of compaction",
+    "steps": [
+      "Detect: The API detects that input tokens exceed your configured trigger threshold",
+      "Summarize: The API automatically generates a summary of the current conversation, extracting key information, decisions, and context",
+      "Replace: Old conversation messages are replaced with the concise summary, recent messages are preserved intact, and Claude's response is returned normally"
+    ]
+  },
+  "relatedIds": [
+    "compaction-automatic-context-summarization"
+  ],
+  "relationType": "details"
+}

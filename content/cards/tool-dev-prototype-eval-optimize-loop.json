@@ -1,0 +1,38 @@
+{
+  "id": "tool-dev-prototype-eval-optimize-loop",
+  "type": "how-to",
+  "title": "工具开发三步法：原型 → 评测 → 优化循环",
+  "title_en": "Tool Development Workflow: Prototype → Evaluate → Optimize",
+  "source": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+  "tags": [
+    "tool-use",
+    "evaluation",
+    "agent"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "goal": "系统性地提升 Agent 使用你工具的效果，而非凭直觉猜测。",
+    "steps": [
+      "1. 快速搭建原型：用 Claude Code 生成工具代码（提供相关 SDK 文档或 llms.txt）。将工具包装成本地 MCP 服务器，连接到 Claude Code 或 Claude Desktop 进行手动测试。",
+      "2. 亲手测试：自己与工具交互，找到体验粗糙的地方。收集用户反馈，建立对真实使用场景的直觉。",
+      "3. 生成评测集：让 Claude Code 探索你的工具，生成几十对「用户请求 + 正确答案」。任务要基于真实数据，复杂度要足够高（可能需要多次工具调用）。",
+      "4. 运行评测：用 API 写程序化评测循环，逐一跑每个评测任务，收集准确率。",
+      "5. 用 Agent 分析结果，自动优化工具描述和设计。重复第 3-5 步直到性能满意。"
+    ]
+  },
+  "body_en": {
+    "goal": "Systematically improve how well agents use your tools, instead of guessing.",
+    "steps": [
+      "1. Build a quick prototype: use Claude Code to generate tool code (provide SDK docs or llms.txt). Wrap tools in a local MCP server and connect to Claude Code or Claude Desktop for manual testing.",
+      "2. Test it yourself: interact with the tools, find rough edges. Collect user feedback to build intuition for real use cases.",
+      "3. Generate an eval set: have Claude Code explore your tools and create dozens of (prompt, expected-answer) pairs. Tasks should use realistic data and be complex enough (potentially requiring multiple tool calls).",
+      "4. Run the evaluation: write a programmatic eval loop using the API — one loop per task, collect accuracy scores.",
+      "5. Use an agent to analyze results and auto-optimize tool descriptions and design. Repeat steps 3-5 until performance is satisfactory."
+    ]
+  },
+  "relatedIds": [
+    "tools-as-nondeterministic-contract",
+    "claude-optimize-own-tool-descriptions"
+  ],
+  "relationType": "extends"
+}

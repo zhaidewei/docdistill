@@ -1,4 +1,4 @@
-You are creating learning cards from a technical document. Each card should take 2-5 minutes to read and build one clear mental model.
+You are creating bilingual (Chinese + English) learning cards from a technical document. Each card should take 2-5 minutes to read and build one clear mental model.
 
 ## Card Types
 
@@ -16,8 +16,9 @@ Choose the best type for each piece of knowledge:
 1. Each card is SELF-CONTAINED. A reader should understand it without reading other cards. No "as mentioned above" references.
 2. Use simple words. If a technical term is unavoidable, define it inline.
 3. For problem-solution cards: state the problem from the developer's perspective, not abstractly.
-4. Keep cards to 150 words max. If content needs more, split into multiple cards.
+4. Keep cards to 150 words max per language. If content needs more, split into multiple cards.
 5. Tags should be lowercase, hyphenated, max 3 per card.
+6. **Bilingual**: `title` and `body` are in Chinese. `title_en` and `body_en` are in English. Both must convey the same information. The Chinese version should be natural Chinese (not machine-translated), and the English version should be natural English.
 
 ## Context
 
@@ -30,16 +31,18 @@ Suggested cards: {{SUGGESTED_CARDS}}
 
 ## Output
 
-Output valid JSON array of cards:
+Output valid JSON array of cards. Each card MUST have both `body` (Chinese) and `body_en` (English), and both `title` (Chinese) and `title_en` (English):
 [
   {
     "id": "kebab-case-id",
     "type": "problem-solution",
-    "title": "Human readable title",
+    "title": "中文标题",
+    "title_en": "English Title",
     "source": "{{SOURCE_URL}}",
     "tags": ["tag1", "tag2"],
     "readingMinutes": 3,
-    "body": { ... },
+    "body": { "problem": "中文问题", "solution": "中文方案", "keyTakeaway": "中文要点" },
+    "body_en": { "problem": "English problem", "solution": "English solution", "keyTakeaway": "English takeaway" },
     "relatedIds": ["other-card-id"],
     "relationType": "extends"
   }

@@ -1,0 +1,69 @@
+{
+  "id": "agent-context-management-strategies",
+  "type": "architecture",
+  "title": "Agent 有限 Context 的管理策略全景",
+  "title_en": "Strategies for Managing Finite Context in Agents",
+  "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+  "tags": [
+    "context-engineering",
+    "agent-design"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "Agent 在循环中运行，每轮推理都会产生更多数据（tool 返回值、对话历史、中间结果）。这些信息都可能与下一轮相关，但 context window 有限且存在 context rot。因此需要一套系统性策略来管理 context 的各个组成部分。",
+    "components": [
+      {
+        "name": "System Prompt",
+        "role": "用「正确高度」书写：比 if-else 灵活，比「做好就行」具体。用 XML/Markdown 分段组织。"
+      },
+      {
+        "name": "Tool 定义",
+        "role": "最小可行集合，无功能重叠，返回值精简。每个 tool 自包含、描述清晰。"
+      },
+      {
+        "name": "Few-shot 示例",
+        "role": "精选少量高质量示例，覆盖代表性场景。避免堆砌大量边界案例。"
+      },
+      {
+        "name": "对话历史",
+        "role": "循环精炼：每轮决定保留什么、丢弃什么。不是全部堆积，而是持续策展。"
+      },
+      {
+        "name": "外部数据",
+        "role": "按需拉取（通过 tool 或 MCP），而非预加载。只在需要时引入 context。"
+      }
+    ],
+    "flow": "用户请求 → system prompt + tool 定义构成初始 context → agent 调用 tool 获取外部数据 → tool 返回值加入 context → agent 生成回复 → 进入下一轮前，对 context 进行策展（精简历史、压缩 tool 结果）→ 循环继续"
+  },
+  "body_en": {
+    "overview": "An agent running in a loop generates more data each turn (tool results, conversation history, intermediate outputs). All of it could be relevant for the next turn, but the context window is finite and subject to context rot. A systematic strategy is needed for managing each component of context.",
+    "components": [
+      {
+        "name": "System Prompt",
+        "role": "Write at the 'right altitude': more flexible than if-else, more specific than 'be helpful'. Organize with XML/Markdown sections."
+      },
+      {
+        "name": "Tool Definitions",
+        "role": "Minimal viable set, no functional overlap, token-efficient returns. Each tool self-contained with clear descriptions."
+      },
+      {
+        "name": "Few-shot Examples",
+        "role": "Curate a small number of high-quality examples covering representative scenarios. Avoid stuffing edge cases."
+      },
+      {
+        "name": "Conversation History",
+        "role": "Cyclically refine: decide what to keep and what to discard each turn. Continuously curate, don't just accumulate."
+      },
+      {
+        "name": "External Data",
+        "role": "Pull on demand (via tools or MCP), don't preload. Only introduce into context when needed."
+      }
+    ],
+    "flow": "User request → system prompt + tool definitions form initial context → agent calls tools for external data → tool results enter context → agent generates response → before next turn, curate context (trim history, compress tool results) → loop continues"
+  },
+  "relatedIds": [
+    "context-engineering-curating-what-model-sees",
+    "effective-context-smallest-highest-signal"
+  ],
+  "relationType": "extends"
+}

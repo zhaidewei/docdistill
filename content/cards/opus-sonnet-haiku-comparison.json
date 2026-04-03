@@ -1,0 +1,58 @@
+{
+  "id": "opus-sonnet-haiku-comparison",
+  "type": "comparison",
+  "title": "Opus vs Sonnet vs Haiku：何时选用哪个模型",
+  "title_en": "Opus vs Sonnet vs Haiku: When to Use Each",
+  "source": "https://platform.claude.com/docs/en/about-claude/models/overview",
+  "tags": [
+    "model-selection",
+    "claude-family"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Claude Opus 4.6 — 最强智能，适合构建 agent 和复杂编码任务",
+    "itemB": "Claude Sonnet 4.6 / Haiku 4.5 — 在速度和智能之间做不同取舍",
+    "dimensions": [
+      {
+        "name": "定位",
+        "a": "Opus：最高智能，复杂推理和 agent 场景",
+        "b": "Sonnet：速度与智能的最佳平衡；Haiku：最快速度，接近前沿智能"
+      },
+      {
+        "name": "典型用途",
+        "a": "多步骤 agent 工作流、高难度代码生成、需要深度推理的任务",
+        "b": "Sonnet：日常开发辅助、RAG 管道；Haiku：实时聊天、分类、高吞吐批处理"
+      },
+      {
+        "name": "选择原则",
+        "a": "质量优先，不在乎延迟和成本时选 Opus",
+        "b": "在延迟或成本有约束时，先试 Sonnet；若仍不够快/便宜，降到 Haiku"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Claude Opus 4.6 — highest intelligence, built for agents and complex coding",
+    "itemB": "Claude Sonnet 4.6 / Haiku 4.5 — different speed-intelligence trade-offs",
+    "dimensions": [
+      {
+        "name": "Positioning",
+        "a": "Opus: peak intelligence for complex reasoning and agentic workflows",
+        "b": "Sonnet: best speed-intelligence balance; Haiku: fastest with near-frontier intelligence"
+      },
+      {
+        "name": "Typical use",
+        "a": "Multi-step agent workflows, hard coding tasks, deep reasoning",
+        "b": "Sonnet: daily dev assistance, RAG pipelines; Haiku: real-time chat, classification, high-throughput batch"
+      },
+      {
+        "name": "Selection rule",
+        "a": "Choose Opus when quality matters most and latency/cost are secondary",
+        "b": "Try Sonnet first when latency or cost is constrained; drop to Haiku if still too slow/expensive"
+      }
+    ]
+  },
+  "relatedIds": [
+    "claude-model-capability-tiers"
+  ],
+  "relationType": "complements"
+}

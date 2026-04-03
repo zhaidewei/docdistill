@@ -1,0 +1,27 @@
+{
+  "id": "web-fetch-security-exfiltration-risk",
+  "type": "problem-solution",
+  "title": "Web fetch 数据泄露风险与防护措施",
+  "title_en": "Web Fetch Data Exfiltration Risk and Mitigations",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool",
+  "tags": [
+    "web-fetch",
+    "security",
+    "claude-api"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "如果 Claude 同时处理不受信任的输入和敏感数据，恶意输入可能诱导 Claude 通过 web fetch 将敏感信息发送到外部 URL（数据泄露/exfiltration）。虽然 Claude 不允许自行构造 URL（只能用用户提供的或之前结果中的 URL），但仍有残余风险。",
+    "solution": "三种防护措施可叠加使用：(1) 完全禁用 web fetch tool；(2) 用 max_uses 参数限制抓取次数；(3) 用 allowed_domains 参数限制只能访问已知安全域名。根据你的安全需求选择组合。",
+    "keyTakeaway": "核心原则：不要在处理不受信任输入的同时让 Claude 访问外部 URL。如果必须共存，用 allowed_domains 白名单锁定可访问的域名。"
+  },
+  "body_en": {
+    "problem": "If Claude processes untrusted input alongside sensitive data, malicious input could trick Claude into sending sensitive information to external URLs via web fetch (data exfiltration). Although Claude cannot dynamically construct URLs (only user-provided or previously discovered URLs), residual risk remains.",
+    "solution": "Three mitigations that can be combined: (1) Disable web fetch entirely; (2) Use the max_uses parameter to limit fetch count; (3) Use the allowed_domains parameter to restrict access to known safe domains. Choose the combination based on your security requirements.",
+    "keyTakeaway": "Core principle: don't let Claude access external URLs while processing untrusted input. If both are needed, lock down accessible domains with the allowed_domains whitelist."
+  },
+  "relatedIds": [
+    "web-fetch-how-it-works"
+  ],
+  "relationType": "extends"
+}

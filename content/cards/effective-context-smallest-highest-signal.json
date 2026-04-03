@@ -1,7 +1,8 @@
 {
   "id": "effective-context-smallest-highest-signal",
   "type": "fact",
-  "title": "Good context = smallest set of highest-signal tokens",
+  "title": "好 Context = 最小的高信号 token 集合",
+  "title_en": "Good Context = Smallest Set of Highest-Signal Tokens",
   "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
   "tags": [
     "context-engineering",
@@ -9,8 +10,12 @@
   ],
   "readingMinutes": 2,
   "body": {
-    "fact": "Good context engineering means finding the smallest possible set of high-signal tokens that maximize the likelihood of the desired outcome. Minimal does not mean short — you still need sufficient information for the agent to adhere to desired behavior. But every unnecessary token depletes the model's finite attention budget with diminishing marginal returns.",
-    "context": "This is the guiding principle for all context engineering decisions: system prompts, tool design, example selection, and conversation history management. It applies because transformer attention creates n² pairwise relationships between tokens — more tokens means each relationship gets less attention."
+    "fact": "好的 context engineering 意味着找到最小的高信号 token 集合，以最大化实现预期结果的概率。「最小」不等于「短」——你仍然需要足够的信息让 agent 遵循预期行为。但每一个多余的 token 都在消耗模型有限的注意力预算，带来递减的边际回报。",
+    "context": "这是所有 context engineering 决策的指导原则：system prompt、tool 设计、示例选择、对话历史管理。之所以如此，是因为 transformer 的注意力机制会在 token 之间创建 n² 个配对关系——token 越多，每个关系获得的注意力越少。"
+  },
+  "body_en": {
+    "fact": "Good context engineering means finding the smallest possible set of high-signal tokens that maximize the likelihood of the desired outcome. Minimal does not mean short—you still need sufficient information for the agent to adhere to desired behavior. But every unnecessary token depletes the model's finite attention budget with diminishing marginal returns.",
+    "context": "This is the guiding principle for all context engineering decisions: system prompts, tool design, example selection, and conversation history management. It applies because transformer attention creates n² pairwise relationships between tokens—more tokens means each relationship gets less attention."
   },
   "relatedIds": [
     "context-rot-attention-budget",

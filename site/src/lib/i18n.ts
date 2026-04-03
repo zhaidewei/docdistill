@@ -105,6 +105,19 @@ const strings = {
   "graph.viewCards": { zh: "查看相关卡片 →", en: "View related cards →" },
 } as const;
 
+// Helper to pick localized card content
+import type { Card, CardBody } from "./types";
+
+export function cardTitle(card: Card, lang?: Lang): string {
+  const l = lang || getLang();
+  return (l === "en" && card.title_en) ? card.title_en : card.title;
+}
+
+export function cardBody(card: Card, lang?: Lang): CardBody {
+  const l = lang || getLang();
+  return (l === "en" && card.body_en) ? card.body_en : card.body;
+}
+
 export type StringKey = keyof typeof strings;
 
 export function t(key: StringKey, lang?: Lang): string {

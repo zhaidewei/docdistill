@@ -1,46 +1,102 @@
 {
   "nodes": [
     {
+      "id": "adaptive-thinking-let-claude-decide-depth",
+      "label": "Adaptive Thinking：让 Claude 自己决定思考深度",
+      "group": "adaptive-thinking",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "adaptive-thinking-vs-fixed-budget-tokens",
+      "label": "Adaptive Thinking vs 固定 budget_tokens：该选哪个？",
+      "group": "adaptive-thinking",
+      "type": "comparison",
+      "cardCount": 2
+    },
+    {
+      "id": "agent-context-management-strategies",
+      "label": "Agent 有限 Context 的管理策略全景",
+      "group": "context-engineering",
+      "type": "architecture",
+      "cardCount": 7
+    },
+    {
+      "id": "agent-end-to-end-testing-requirement",
+      "label": "Agent 标记功能完成但实际未通过端到端测试",
+      "group": "agent",
+      "type": "problem-solution",
+      "cardCount": 6
+    },
+    {
+      "id": "agent-incremental-progress-clean-state",
+      "label": "Agent 一次做太多，留下烂摊子",
+      "group": "agent",
+      "type": "problem-solution",
+      "cardCount": 6
+    },
+    {
+      "id": "agent-loses-progress-across-context-windows",
+      "label": "Agent 跨 Context Window 丢失进度",
+      "group": "agent",
+      "type": "problem-solution",
+      "cardCount": 6
+    },
+    {
       "id": "agent-sdk-claude-code-loop-as-library",
-      "label": "Agent SDK: Claude Code's agent loop as a library",
+      "label": "Agent SDK：把 Claude Code 的 agent loop 变成库",
       "group": "agent-sdk",
       "type": "concept-model",
-      "cardCount": 5
+      "cardCount": 7
     },
     {
       "id": "agent-sdk-loop-five-phases",
-      "label": "Agent SDK loop: 5 phases from prompt to result",
+      "label": "Agent SDK loop：从 prompt 到结果的 5 个阶段",
       "group": "agent-sdk",
       "type": "architecture",
-      "cardCount": 5
+      "cardCount": 7
+    },
+    {
+      "id": "agent-sdk-loop-message-flow",
+      "label": "Agent loop 消息流：4 种消息类型驱动整个循环",
+      "group": "agent-sdk",
+      "type": "architecture",
+      "cardCount": 7
+    },
+    {
+      "id": "agent-sdk-loop-termination",
+      "label": "Agent loop 何时结束：3 种终止条件",
+      "group": "agent-sdk",
+      "type": "concept-model",
+      "cardCount": 7
     },
     {
       "id": "agent-sdk-loop-turns-and-guardrails",
-      "label": "Turns, permissions, and cost limits in the agent loop",
+      "label": "Agent loop 中的 turn、权限和费用限制",
       "group": "agent-sdk",
       "type": "concept-model",
-      "cardCount": 5
+      "cardCount": 7
     },
     {
       "id": "agent-sdk-minimal-query-pattern",
-      "label": "Minimal Agent SDK: run a task in 10 lines",
+      "label": "最简 Agent SDK：10 行代码跑一个任务",
       "group": "agent-sdk",
       "type": "how-to",
-      "cardCount": 5
+      "cardCount": 7
     },
     {
       "id": "agent-sdk-vs-raw-messages-api",
-      "label": "Agent SDK vs raw Messages API for building agents",
+      "label": "Agent SDK vs Messages API：构建 agent 的两条路",
       "group": "agent-sdk",
       "type": "comparison",
-      "cardCount": 5
+      "cardCount": 7
     },
     {
       "id": "agentic-loop-architecture",
       "label": "The agentic loop: request → tool_use → tool_result → repeat",
       "group": "tool-use",
       "type": "architecture",
-      "cardCount": 8
+      "cardCount": 27
     },
     {
       "id": "agents-simple-patterns-over-frameworks",
@@ -54,7 +110,7 @@
       "label": "Why use Anthropic-schema tools instead of custom equivalents",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 8
+      "cardCount": 27
     },
     {
       "id": "augmented-llm-building-block",
@@ -62,6 +118,27 @@
       "group": "augmented-llm",
       "type": "architecture",
       "cardCount": 1
+    },
+    {
+      "id": "bash-tool-persistent-shell-session",
+      "label": "Bash tool：agent 的持久 Shell 会话",
+      "group": "bash-tool",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "bash-tool-use-cases",
+      "label": "Bash tool 的四类典型应用场景",
+      "group": "bash-tool",
+      "type": "fact",
+      "cardCount": 2
+    },
+    {
+      "id": "cached-tokens-cost-90-percent-less",
+      "label": "缓存 token 比未缓存便宜 90%",
+      "group": "prompt-caching",
+      "type": "fact",
+      "cardCount": 6
     },
     {
       "id": "claude-api-feature-availability",
@@ -79,24 +156,31 @@
     },
     {
       "id": "claude-decides-tools-never-executes",
-      "label": "Claude decides when to call tools, never executes them",
+      "label": "Claude 只决策不执行：tool use 的安全边界",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 8
+      "cardCount": 27
+    },
+    {
+      "id": "claude-model-api-ids",
+      "label": "Claude 模型在各平台的 API ID 速查",
+      "group": "api",
+      "type": "fact",
+      "cardCount": 1
     },
     {
       "id": "claude-model-capability-tiers",
-      "label": "Claude model capability tiers",
-      "group": "claude-models",
+      "label": "Claude 模型能力分层：一个选型心智模型",
+      "group": "model-selection",
       "type": "concept-model",
-      "cardCount": 2
+      "cardCount": 3
     },
     {
       "id": "claude-model-haiku-fast-tier",
       "label": "Haiku: the speed-first model",
       "group": "claude-models",
       "type": "fact",
-      "cardCount": 2
+      "cardCount": 1
     },
     {
       "id": "claude-model-ids-by-platform",
@@ -113,6 +197,13 @@
       "cardCount": 4
     },
     {
+      "id": "claude-optimize-own-tool-descriptions",
+      "label": "让 Claude 用 Claude 优化自己的工具描述",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 27
+    },
+    {
       "id": "claude-text-capabilities-overview",
       "label": "Claude's eight text capabilities at a glance",
       "group": "text-generation",
@@ -120,24 +211,80 @@
       "cardCount": 1
     },
     {
+      "id": "client-tool-response-structure",
+      "label": "tool_use 与 tool_result 的 ID 配对机制",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 27
+    },
+    {
       "id": "client-tools-vs-server-tools",
-      "label": "Client tools vs server tools",
+      "label": "Client tools 与 server tools 的区别",
       "group": "tool-use",
       "type": "comparison",
-      "cardCount": 8
+      "cardCount": 27
+    },
+    {
+      "id": "code-execution-free-with-web-tools",
+      "label": "Code Execution 搭配 Web Search/Fetch 时免费",
+      "group": "code-execution",
+      "type": "fact",
+      "cardCount": 2
+    },
+    {
+      "id": "code-execution-sandboxed-bash",
+      "label": "Code Execution：Claude 的沙箱 Bash 环境",
+      "group": "code-execution",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "coding-agent-text-editor-bash",
+      "label": "编程型 agent：text_editor + bash 组合",
+      "group": "tool-combination",
+      "type": "architecture",
+      "cardCount": 3
+    },
+    {
+      "id": "compaction-automatic-context-summarization",
+      "label": "Server-Side Compaction：自动压缩对话上下文",
+      "group": "compaction",
+      "type": "concept-model",
+      "cardCount": 3
+    },
+    {
+      "id": "compaction-how-it-works-three-steps",
+      "label": "Compaction 工作流程：三步自动压缩",
+      "group": "compaction",
+      "type": "how-to",
+      "cardCount": 3
+    },
+    {
+      "id": "compaction-long-agent-runs-hitting-limits",
+      "label": "长时间 Agent 运行撞上 context 上限怎么办",
+      "group": "compaction",
+      "type": "problem-solution",
+      "cardCount": 3
     },
     {
       "id": "context-engineering-curating-what-model-sees",
-      "label": "Context engineering: curating what the model sees",
+      "label": "Context Engineering：策展模型所看到的一切",
       "group": "context-engineering",
       "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 7
     },
     {
       "id": "context-rot-attention-budget",
-      "label": "Context rot: why more tokens isn't always better",
+      "label": "Context Rot：为什么更多 token 不一定更好",
       "group": "context-engineering",
       "type": "concept-model",
+      "cardCount": 7
+    },
+    {
+      "id": "context-rot-curation",
+      "label": "Context Rot：越长越不准",
+      "group": "context-window",
+      "type": "problem-solution",
       "cardCount": 6
     },
     {
@@ -145,7 +292,7 @@
       "label": "Context rot: why stuffing the context window hurts accuracy",
       "group": "context-window",
       "type": "problem-solution",
-      "cardCount": 3
+      "cardCount": 6
     },
     {
       "id": "context-window-fact",
@@ -159,49 +306,105 @@
       "label": "Context window is Claude's working memory, not its knowledge",
       "group": "context-window",
       "type": "concept-model",
-      "cardCount": 3
+      "cardCount": 6
     },
     {
       "id": "context-window-token-accounting",
       "label": "How tokens fill the context window: input + output = total",
       "group": "context-window",
       "type": "concept-model",
-      "cardCount": 3
-    },
-    {
-      "id": "effective-context-smallest-highest-signal",
-      "label": "Good context = smallest set of highest-signal tokens",
-      "group": "context-engineering",
-      "type": "fact",
       "cardCount": 6
     },
     {
+      "id": "context-window-token-math",
+      "label": "Token 计算：输入 + 输出 = 总量",
+      "group": "context-window",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "context-window-working-memory",
+      "label": "Context Window：模型的工作记忆",
+      "group": "context-window",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "disable-parallel-tool-use",
+      "label": "用 disable_parallel_tool_use 限制为单次工具调用",
+      "group": "tool-use",
+      "type": "how-to",
+      "cardCount": 27
+    },
+    {
+      "id": "effective-context-smallest-highest-signal",
+      "label": "好 Context = 最小的高信号 token 集合",
+      "group": "context-engineering",
+      "type": "fact",
+      "cardCount": 7
+    },
+    {
+      "id": "effort-levels-comparison",
+      "label": "effort 四个级别的行为差异",
+      "group": "effort",
+      "type": "comparison",
+      "cardCount": 3
+    },
+    {
+      "id": "effort-parameter-concept",
+      "label": "effort 参数：用一个旋钮换取成本与质量的平衡",
+      "group": "effort",
+      "type": "concept-model",
+      "cardCount": 3
+    },
+    {
+      "id": "effort-reduce-cost-simple-tasks",
+      "label": "用 effort 降低简单任务的 API 成本",
+      "group": "effort",
+      "type": "problem-solution",
+      "cardCount": 3
+    },
+    {
       "id": "enable-extended-thinking-budget-tokens",
-      "label": "Enable extended thinking with budget_tokens",
+      "label": "用 budget_tokens 开启 Extended Thinking",
       "group": "extended-thinking",
       "type": "how-to",
       "cardCount": 4
     },
     {
+      "id": "eval-tasks-strong-vs-weak",
+      "label": "强评测任务 vs 弱评测任务",
+      "group": "evaluation",
+      "type": "comparison",
+      "cardCount": 2
+    },
+    {
       "id": "extended-thinking-concept",
-      "label": "What extended thinking is and when it helps",
+      "label": "Extended Thinking：让 Claude 先想清楚再回答",
       "group": "extended-thinking",
       "type": "concept-model",
       "cardCount": 4
     },
     {
       "id": "extended-thinking-context-behavior",
-      "label": "Extended thinking uses context window space but gets auto-cleaned",
+      "label": "Extended Thinking 的 token 在 context window 中的特殊行为",
       "group": "extended-thinking",
-      "type": "concept-model",
+      "type": "fact",
       "cardCount": 4
     },
     {
       "id": "extended-thinking-vs-standard",
-      "label": "Extended thinking vs standard responses",
+      "label": "Extended Thinking 与普通响应的区别",
       "group": "extended-thinking",
       "type": "comparison",
       "cardCount": 4
+    },
+    {
+      "id": "feature-list-prevents-premature-completion",
+      "label": "Agent 过早宣告任务完成",
+      "group": "agent",
+      "type": "problem-solution",
+      "cardCount": 6
     },
     {
       "id": "five-agentic-workflow-patterns",
@@ -218,6 +421,90 @@
       "cardCount": 1
     },
     {
+      "id": "hallucination-advanced-verification-techniques",
+      "label": "三种高级反幻觉验证技术对比",
+      "group": "hallucination",
+      "type": "comparison",
+      "cardCount": 3
+    },
+    {
+      "id": "hallucination-allow-i-dont-know",
+      "label": "允许 Claude 说「我不知道」来减少幻觉",
+      "group": "hallucination",
+      "type": "how-to",
+      "cardCount": 3
+    },
+    {
+      "id": "hallucination-cite-quotes-ground-response",
+      "label": "用引用和原文摘录来「锚定」回答",
+      "group": "hallucination",
+      "type": "how-to",
+      "cardCount": 3
+    },
+    {
+      "id": "handle-parallel-tool-use-blocks",
+      "label": "处理一次响应中的多个 tool_use 块",
+      "group": "tool-use",
+      "type": "how-to",
+      "cardCount": 27
+    },
+    {
+      "id": "handle-tool-use-response-lifecycle",
+      "label": "读取 tool_use 块并构造 tool_result 响应",
+      "group": "tool-use",
+      "type": "how-to",
+      "cardCount": 27
+    },
+    {
+      "id": "long-running-agent-harness-architecture",
+      "label": "长时运行 Agent 的双段式 Harness 架构",
+      "group": "agent",
+      "type": "architecture",
+      "cardCount": 6
+    },
+    {
+      "id": "memory-tool-file-based-persistence",
+      "label": "Memory Tool：基于文件的跨对话持久化",
+      "group": "memory-tool",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "memory-tool-just-in-time-context",
+      "label": "Just-in-Time Context：按需检索而非预加载",
+      "group": "memory-tool",
+      "type": "problem-solution",
+      "cardCount": 2
+    },
+    {
+      "id": "messages-api-multi-turn-conversation",
+      "label": "构建多轮对话：手动管理消息历史",
+      "group": "messages-api",
+      "type": "how-to",
+      "cardCount": 4
+    },
+    {
+      "id": "messages-api-prefill-technique",
+      "label": "用 prefill 控制 Claude 的输出格式",
+      "group": "messages-api",
+      "type": "how-to",
+      "cardCount": 4
+    },
+    {
+      "id": "messages-api-request-structure",
+      "label": "Messages API 请求结构：三个必填字段",
+      "group": "messages-api",
+      "type": "concept-model",
+      "cardCount": 4
+    },
+    {
+      "id": "messages-api-role-alternation",
+      "label": "消息角色交替规则：为什么 API 报错 400？",
+      "group": "messages-api",
+      "type": "problem-solution",
+      "cardCount": 4
+    },
+    {
       "id": "model-capabilities-vs-tools-vs-infra",
       "label": "能力 vs 工具 vs 基础设施：三层理解 Claude API",
       "group": "api-surface",
@@ -225,11 +512,60 @@
       "cardCount": 4
     },
     {
+      "id": "multi-agent-performance-gains",
+      "label": "多 Agent 系统的性能优势：数据说话",
+      "group": "multi-agent",
+      "type": "fact",
+      "cardCount": 5
+    },
+    {
+      "id": "multi-agent-prompting-principles",
+      "label": "多 Agent 系统的 Prompt 工程：5 条实战原则",
+      "group": "prompt-engineering",
+      "type": "how-to",
+      "cardCount": 8
+    },
+    {
+      "id": "multi-agent-research-architecture",
+      "label": "多 Agent 研究系统架构：协调者与专家分工",
+      "group": "multi-agent",
+      "type": "architecture",
+      "cardCount": 5
+    },
+    {
+      "id": "multi-agent-token-cost-tradeoff",
+      "label": "多 Agent 的代价：Token 消耗是单聊天的 15 倍",
+      "group": "multi-agent",
+      "type": "problem-solution",
+      "cardCount": 5
+    },
+    {
+      "id": "opus-sonnet-haiku-comparison",
+      "label": "Opus vs Sonnet vs Haiku：何时选用哪个模型",
+      "group": "model-selection",
+      "type": "comparison",
+      "cardCount": 3
+    },
+    {
       "id": "opus-sonnet-haiku-when-to-use",
       "label": "Opus vs Sonnet vs Haiku: when to use each",
       "group": "model-selection",
       "type": "comparison",
-      "cardCount": 1
+      "cardCount": 3
+    },
+    {
+      "id": "orchestrator-delegation-clarity",
+      "label": "教主 Agent 如何明确分配任务",
+      "group": "multi-agent",
+      "type": "problem-solution",
+      "cardCount": 5
+    },
+    {
+      "id": "output-consistency-three-techniques",
+      "label": "输出格式不一致 → 三种控制技巧",
+      "group": "output-format",
+      "type": "problem-solution",
+      "cardCount": 2
     },
     {
       "id": "pattern-evaluator-optimizer",
@@ -267,10 +603,59 @@
       "cardCount": 1
     },
     {
+      "id": "pause-turn-continuation-server-tools",
+      "label": "用 pause_turn 处理长时间运行的服务器工具",
+      "group": "server-tools",
+      "type": "problem-solution",
+      "cardCount": 2
+    },
+    {
+      "id": "prefill-deprecated-newer-models",
+      "label": "Prefill 在新模型上已弃用",
+      "group": "prefill",
+      "type": "fact",
+      "cardCount": 1
+    },
+    {
+      "id": "programmatic-eval-agentic-loop",
+      "label": "如何用程序化 Agent 循环运行工具评测",
+      "group": "evaluation",
+      "type": "how-to",
+      "cardCount": 2
+    },
+    {
       "id": "prompt-add-context",
       "label": "提供上下文让 Claude 理解「为什么」",
       "group": "prompt-engineering",
       "type": "concept-model",
+      "cardCount": 8
+    },
+    {
+      "id": "prompt-caching-auto-vs-explicit",
+      "label": "自动缓存 vs 显式缓存断点",
+      "group": "prompt-caching",
+      "type": "comparison",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-caching-prefix-ordering-matters",
+      "label": "缓存未命中？检查 prompt 中内容的顺序",
+      "group": "prompt-caching",
+      "type": "problem-solution",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-caching-prefix-resume-concept",
+      "label": "Prompt caching：从前缀恢复，省钱省时间",
+      "group": "prompt-caching",
+      "type": "concept-model",
+      "cardCount": 6
+    },
+    {
+      "id": "prompt-caching-set-cache-breakpoints",
+      "label": "设置 cache_control 启用 prompt caching",
+      "group": "prompt-caching",
+      "type": "how-to",
       "cardCount": 6
     },
     {
@@ -278,35 +663,35 @@
       "label": "Prompt Caching vs Context Window",
       "group": "prompt-caching",
       "type": "comparison",
-      "cardCount": 1
+      "cardCount": 6
     },
     {
       "id": "prompt-chain-of-thought",
       "label": "Chain of Thought：让 Claude 先想再答",
       "group": "prompt-engineering",
       "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 8
     },
     {
       "id": "prompt-clear-and-direct",
       "label": "给 Claude 一个角色和明确任务",
       "group": "prompt-engineering",
       "type": "how-to",
-      "cardCount": 6
+      "cardCount": 8
     },
     {
       "id": "prompt-engineering-vs-context-engineering",
-      "label": "Prompt engineering vs context engineering",
+      "label": "Prompt Engineering vs Context Engineering",
       "group": "context-engineering",
       "type": "comparison",
-      "cardCount": 6
+      "cardCount": 7
     },
     {
       "id": "prompt-few-shot-examples",
       "label": "用示例（few-shot）提升输出质量",
       "group": "prompt-engineering",
       "type": "how-to",
-      "cardCount": 6
+      "cardCount": 8
     },
     {
       "id": "prompt-natural-language-with-detail",
@@ -320,14 +705,70 @@
       "label": "什么时候用 system prompt，什么时候用 user message",
       "group": "prompt-engineering",
       "type": "problem-solution",
-      "cardCount": 6
+      "cardCount": 8
     },
     {
       "id": "prompt-xml-tags-structure",
       "label": "用 XML 标签组织复杂 prompt",
       "group": "prompt-engineering",
       "type": "how-to",
-      "cardCount": 6
+      "cardCount": 8
+    },
+    {
+      "id": "research-agent-web-search-code-execution",
+      "label": "研究型 agent：web_search + code_execution 组合",
+      "group": "tool-combination",
+      "type": "architecture",
+      "cardCount": 3
+    },
+    {
+      "id": "search-as-parallel-compression",
+      "label": "搜索的本质是压缩：子 Agent 作为并行过滤器",
+      "group": "multi-agent",
+      "type": "concept-model",
+      "cardCount": 5
+    },
+    {
+      "id": "server-tool-use-block-srvtoolu-prefix",
+      "label": "server_tool_use block 与 srvtoolu_ 前缀",
+      "group": "server-tools",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "skills-filesystem-domain-expertise-on-demand",
+      "label": "Skills：基于文件系统的领域专长，按需加载",
+      "group": "skills",
+      "type": "concept-model",
+      "cardCount": 2
+    },
+    {
+      "id": "skills-vs-prompts-vs-tools",
+      "label": "Skills vs Prompts vs Tools：三种给 Claude 赋能的方式",
+      "group": "skills",
+      "type": "comparison",
+      "cardCount": 2
+    },
+    {
+      "id": "specify-output-format-template",
+      "label": "用模板精确定义输出格式",
+      "group": "output-format",
+      "type": "how-to",
+      "cardCount": 2
+    },
+    {
+      "id": "streaming-enable-sse-sdk",
+      "label": "用 SDK 开启 SSE streaming",
+      "group": "streaming",
+      "type": "how-to",
+      "cardCount": 2
+    },
+    {
+      "id": "streaming-event-lifecycle",
+      "label": "Streaming 事件类型与消息生命周期",
+      "group": "streaming",
+      "type": "concept-model",
+      "cardCount": 2
     },
     {
       "id": "structured-outputs-json-how-to",
@@ -351,39 +792,242 @@
       "cardCount": 3
     },
     {
+      "id": "swe-bench-agent-scaffold-design",
+      "label": "SWE-bench Agent 架构：最小脚手架 + 两个工具",
+      "group": "agent",
+      "type": "architecture",
+      "cardCount": 6
+    },
+    {
+      "id": "swe-bench-coding-agent-prompt-pattern",
+      "label": "为编程 Agent 编写有效 Prompt 的五步模式",
+      "group": "prompt-engineering",
+      "type": "how-to",
+      "cardCount": 8
+    },
+    {
+      "id": "swe-bench-tool-description-weight",
+      "label": "工具描述比 Schema 更重要",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 27
+    },
+    {
+      "id": "swe-bench-what-it-is",
+      "label": "SWE-bench：用真实 GitHub Issue 评测编程能力",
+      "group": "benchmark",
+      "type": "fact",
+      "cardCount": 1
+    },
+    {
       "id": "system-prompt-right-altitude",
-      "label": "System prompts: finding the right altitude",
+      "label": "System Prompt：找到正确的「高度」",
       "group": "context-engineering",
       "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 7
+    },
+    {
+      "id": "think-tool-structured-scratchpad",
+      "label": "Think 工具：复杂工具调用中的结构化暂停思考",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 27
+    },
+    {
+      "id": "think-tool-vs-extended-thinking",
+      "label": "Think 工具 vs Extended Thinking：如何选择",
+      "group": "tool-use",
+      "type": "comparison",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-context-pressure-four-approaches",
+      "label": "工具上下文压力的四种应对策略",
+      "group": "context-management",
+      "type": "architecture",
+      "cardCount": 1
+    },
+    {
+      "id": "tool-dev-prototype-eval-optimize-loop",
+      "label": "工具开发三步法：原型 → 评测 → 优化循环",
+      "group": "tool-use",
+      "type": "how-to",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-error-signaling-is-error",
+      "label": "用 is_error: true 告知 Claude 工具执行失败",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-pairing-discover-then-act",
+      "label": "工具配对原则：发现 + 行动",
+      "group": "tool-combination",
+      "type": "concept-model",
+      "cardCount": 3
+    },
+    {
+      "id": "tool-result-content-formats",
+      "label": "tool_result 的三种 content 格式",
+      "group": "tool-use",
+      "type": "fact",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-runner-automatic-tool-execution",
+      "label": "使用 Tool Runner 自动执行工具",
+      "group": "tool-use",
+      "type": "how-to",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-runner-compaction-long-running-tasks",
+      "label": "Tool Runner 的自动 compaction：突破上下文窗口限制",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-runner-vs-manual-agentic-loop",
+      "label": "Tool Runner 与手动 agentic loop 的对比",
+      "group": "tool-use",
+      "type": "comparison",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-search-reduce-upfront-definitions",
+      "label": "工具太多撑爆上下文？用 Tool Search 按需加载",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 27
     },
     {
       "id": "tool-use-basics",
       "label": "让 Claude 调用外部工具",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 8
+      "cardCount": 27
     },
     {
       "id": "tool-use-contract-typed-interface",
       "label": "The tool-use contract: you define, Claude decides, you execute",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 8
+      "cardCount": 27
+    },
+    {
+      "id": "tool-use-debug-invented-parameters",
+      "label": "Claude 凭空捏造工具参数 → 启用 strict mode",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-use-debug-parallel-calls-fail",
+      "label": "并行 tool call 不生效 → 检查 tool_result 的发送方式",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 27
+    },
+    {
+      "id": "tool-use-debug-wrong-tool-called",
+      "label": "Claude 调错了工具 → 改进 description 的区分度",
+      "group": "tool-use",
+      "type": "problem-solution",
+      "cardCount": 27
     },
     {
       "id": "tool-use-lifecycle-four-steps",
-      "label": "Tool use lifecycle: define, call, execute, return",
+      "label": "Tool use 生命周期：定义、调用、执行、返回",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 8
+      "cardCount": 27
+    },
+    {
+      "id": "tools-as-nondeterministic-contract",
+      "label": "工具是确定性与非确定性系统之间的新型契约",
+      "group": "tool-use",
+      "type": "concept-model",
+      "cardCount": 27
     },
     {
       "id": "tools-minimal-viable-set",
-      "label": "Bloated tool sets confuse agents",
+      "label": "Tool 集合臃肿会让 Agent 困惑",
       "group": "context-engineering",
       "type": "problem-solution",
-      "cardCount": 6
+      "cardCount": 7
+    },
+    {
+      "id": "vision-image-size-limits-tokens",
+      "label": "Vision 限制：尺寸上限、token 消耗与支持格式",
+      "group": "vision",
+      "type": "fact",
+      "cardCount": 2
+    },
+    {
+      "id": "vision-send-image-two-methods",
+      "label": "向 Claude 发送图片：base64 与 URL 两种方式",
+      "group": "vision",
+      "type": "how-to",
+      "cardCount": 2
+    },
+    {
+      "id": "web-fetch-dynamic-filtering",
+      "label": "Web fetch dynamic filtering：只取所需，省 token",
+      "group": "web-fetch",
+      "type": "problem-solution",
+      "cardCount": 4
+    },
+    {
+      "id": "web-fetch-how-it-works",
+      "label": "Web fetch 工作流程：从 URL 到内容提取",
+      "group": "web-fetch",
+      "type": "architecture",
+      "cardCount": 4
+    },
+    {
+      "id": "web-fetch-security-exfiltration-risk",
+      "label": "Web fetch 数据泄露风险与防护措施",
+      "group": "web-fetch",
+      "type": "problem-solution",
+      "cardCount": 4
+    },
+    {
+      "id": "web-fetch-vs-web-search",
+      "label": "Web search 与 web fetch：何时用哪个",
+      "group": "web-fetch",
+      "type": "comparison",
+      "cardCount": 4
+    },
+    {
+      "id": "web-search-basic-vs-dynamic",
+      "label": "基础 web search 与 dynamic filtering 对比",
+      "group": "web-search",
+      "type": "comparison",
+      "cardCount": 4
+    },
+    {
+      "id": "web-search-dynamic-filtering",
+      "label": "Dynamic filtering：Claude 用代码过滤搜索结果",
+      "group": "web-search",
+      "type": "concept-model",
+      "cardCount": 4
+    },
+    {
+      "id": "web-search-how-it-works",
+      "label": "Web search 工作流程：从请求到引用回复",
+      "group": "web-search",
+      "type": "architecture",
+      "cardCount": 4
+    },
+    {
+      "id": "web-search-tool-enable-and-usage",
+      "label": "启用 web search 让 Claude 实时搜索网页",
+      "group": "web-search",
+      "type": "how-to",
+      "cardCount": 4
     },
     {
       "id": "when-not-to-use-agents",
@@ -397,7 +1041,7 @@
       "label": "When tool use is the right approach vs prompt-only",
       "group": "tool-use",
       "type": "comparison",
-      "cardCount": 8
+      "cardCount": 27
     },
     {
       "id": "workflows-vs-agents-decision",
@@ -408,6 +1052,61 @@
     }
   ],
   "edges": [
+    {
+      "from": "adaptive-thinking-let-claude-decide-depth",
+      "to": "extended-thinking-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "adaptive-thinking-let-claude-decide-depth",
+      "to": "enable-extended-thinking-budget-tokens",
+      "relation": "extends"
+    },
+    {
+      "from": "adaptive-thinking-vs-fixed-budget-tokens",
+      "to": "adaptive-thinking-let-claude-decide-depth",
+      "relation": "extends"
+    },
+    {
+      "from": "adaptive-thinking-vs-fixed-budget-tokens",
+      "to": "enable-extended-thinking-budget-tokens",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-context-management-strategies",
+      "to": "context-engineering-curating-what-model-sees",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-context-management-strategies",
+      "to": "effective-context-smallest-highest-signal",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-end-to-end-testing-requirement",
+      "to": "agent-incremental-progress-clean-state",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-end-to-end-testing-requirement",
+      "to": "feature-list-prevents-premature-completion",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-incremental-progress-clean-state",
+      "to": "agent-loses-progress-across-context-windows",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-incremental-progress-clean-state",
+      "to": "feature-list-prevents-premature-completion",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-loses-progress-across-context-windows",
+      "to": "long-running-agent-harness-architecture",
+      "relation": "part-of"
+    },
     {
       "from": "agent-sdk-claude-code-loop-as-library",
       "to": "agent-sdk-vs-raw-messages-api",
@@ -421,6 +1120,26 @@
     {
       "from": "agent-sdk-loop-five-phases",
       "to": "agent-sdk-claude-code-loop-as-library",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-message-flow",
+      "to": "agent-sdk-loop-five-phases",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-message-flow",
+      "to": "agent-sdk-loop-turns-and-guardrails",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-termination",
+      "to": "agent-sdk-loop-message-flow",
+      "relation": "extends"
+    },
+    {
+      "from": "agent-sdk-loop-termination",
+      "to": "agent-sdk-loop-turns-and-guardrails",
       "relation": "extends"
     },
     {
@@ -474,6 +1193,31 @@
       "relation": "extends"
     },
     {
+      "from": "bash-tool-persistent-shell-session",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "bash-tool-persistent-shell-session",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "bash-tool-use-cases",
+      "to": "bash-tool-persistent-shell-session",
+      "relation": "extends"
+    },
+    {
+      "from": "cached-tokens-cost-90-percent-less",
+      "to": "prompt-caching-prefix-resume-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "cached-tokens-cost-90-percent-less",
+      "to": "prompt-caching-auto-vs-explicit",
+      "relation": "extends"
+    },
+    {
       "from": "claude-api-feature-availability",
       "to": "claude-api-surface-five-areas",
       "relation": "extends"
@@ -494,9 +1238,14 @@
       "relation": "extends"
     },
     {
-      "from": "claude-model-capability-tiers",
-      "to": "opus-sonnet-haiku-when-to-use",
+      "from": "claude-model-api-ids",
+      "to": "opus-sonnet-haiku-comparison",
       "relation": "extends"
+    },
+    {
+      "from": "claude-model-capability-tiers",
+      "to": "opus-sonnet-haiku-comparison",
+      "relation": "complements"
     },
     {
       "from": "claude-model-haiku-fast-tier",
@@ -514,9 +1263,29 @@
       "relation": "extends"
     },
     {
+      "from": "claude-optimize-own-tool-descriptions",
+      "to": "tool-dev-prototype-eval-optimize-loop",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-optimize-own-tool-descriptions",
+      "to": "programmatic-eval-agentic-loop",
+      "relation": "extends"
+    },
+    {
+      "from": "claude-optimize-own-tool-descriptions",
+      "to": "tools-as-nondeterministic-contract",
+      "relation": "extends"
+    },
+    {
       "from": "claude-text-capabilities-overview",
       "to": "prompt-natural-language-with-detail",
       "relation": "extends"
+    },
+    {
+      "from": "client-tool-response-structure",
+      "to": "handle-tool-use-response-lifecycle",
+      "relation": "supplements"
     },
     {
       "from": "client-tools-vs-server-tools",
@@ -526,6 +1295,61 @@
     {
       "from": "client-tools-vs-server-tools",
       "to": "claude-decides-tools-never-executes",
+      "relation": "extends"
+    },
+    {
+      "from": "code-execution-free-with-web-tools",
+      "to": "web-search-tool-enable-and-usage",
+      "relation": "extends"
+    },
+    {
+      "from": "code-execution-free-with-web-tools",
+      "to": "web-search-dynamic-filtering",
+      "relation": "extends"
+    },
+    {
+      "from": "code-execution-free-with-web-tools",
+      "to": "code-execution-sandboxed-bash",
+      "relation": "extends"
+    },
+    {
+      "from": "code-execution-sandboxed-bash",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "code-execution-sandboxed-bash",
+      "to": "code-execution-free-with-web-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "coding-agent-text-editor-bash",
+      "to": "bash-tool-use-cases",
+      "relation": "extends"
+    },
+    {
+      "from": "coding-agent-text-editor-bash",
+      "to": "bash-tool-persistent-shell-session",
+      "relation": "extends"
+    },
+    {
+      "from": "compaction-automatic-context-summarization",
+      "to": "context-rot-attention-budget",
+      "relation": "extends"
+    },
+    {
+      "from": "compaction-automatic-context-summarization",
+      "to": "context-engineering-curating-what-model-sees",
+      "relation": "extends"
+    },
+    {
+      "from": "compaction-how-it-works-three-steps",
+      "to": "compaction-automatic-context-summarization",
+      "relation": "details"
+    },
+    {
+      "from": "compaction-long-agent-runs-hitting-limits",
+      "to": "compaction-automatic-context-summarization",
       "relation": "extends"
     },
     {
@@ -549,6 +1373,11 @@
       "relation": "extends"
     },
     {
+      "from": "context-rot-curation",
+      "to": "context-window-token-math",
+      "relation": "extends"
+    },
+    {
       "from": "context-rot-more-isnt-better",
       "to": "context-window-is-working-memory",
       "relation": "extends"
@@ -564,6 +1393,26 @@
       "relation": "extends"
     },
     {
+      "from": "context-window-token-math",
+      "to": "context-window-working-memory",
+      "relation": "extends"
+    },
+    {
+      "from": "context-window-token-math",
+      "to": "context-rot-curation",
+      "relation": "extends"
+    },
+    {
+      "from": "context-window-working-memory",
+      "to": "context-window-token-math",
+      "relation": "extends"
+    },
+    {
+      "from": "disable-parallel-tool-use",
+      "to": "handle-parallel-tool-use-blocks",
+      "relation": "supplements"
+    },
+    {
       "from": "effective-context-smallest-highest-signal",
       "to": "context-rot-attention-budget",
       "relation": "extends"
@@ -574,6 +1423,26 @@
       "relation": "extends"
     },
     {
+      "from": "effort-levels-comparison",
+      "to": "effort-parameter-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "effort-parameter-concept",
+      "to": "effort-reduce-cost-simple-tasks",
+      "relation": "extends"
+    },
+    {
+      "from": "effort-reduce-cost-simple-tasks",
+      "to": "effort-parameter-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "effort-reduce-cost-simple-tasks",
+      "to": "effort-levels-comparison",
+      "relation": "extends"
+    },
+    {
       "from": "enable-extended-thinking-budget-tokens",
       "to": "extended-thinking-concept",
       "relation": "extends"
@@ -584,18 +1453,23 @@
       "relation": "extends"
     },
     {
-      "from": "extended-thinking-concept",
-      "to": "enable-extended-thinking-budget-tokens",
+      "from": "eval-tasks-strong-vs-weak",
+      "to": "tool-dev-prototype-eval-optimize-loop",
       "relation": "extends"
     },
     {
       "from": "extended-thinking-concept",
+      "to": "enable-extended-thinking-budget-tokens",
+      "relation": "introduces"
+    },
+    {
+      "from": "extended-thinking-concept",
       "to": "extended-thinking-vs-standard",
-      "relation": "extends"
+      "relation": "introduces"
     },
     {
       "from": "extended-thinking-context-behavior",
-      "to": "context-window-token-accounting",
+      "to": "context-window-token-math",
       "relation": "extends"
     },
     {
@@ -607,6 +1481,16 @@
       "from": "extended-thinking-vs-standard",
       "to": "enable-extended-thinking-budget-tokens",
       "relation": "extends"
+    },
+    {
+      "from": "feature-list-prevents-premature-completion",
+      "to": "long-running-agent-harness-architecture",
+      "relation": "part-of"
+    },
+    {
+      "from": "feature-list-prevents-premature-completion",
+      "to": "agent-incremental-progress-clean-state",
+      "relation": "part-of"
     },
     {
       "from": "five-agentic-workflow-patterns",
@@ -629,13 +1513,168 @@
       "relation": "extends"
     },
     {
+      "from": "hallucination-advanced-verification-techniques",
+      "to": "hallucination-cite-quotes-ground-response",
+      "relation": "extends"
+    },
+    {
+      "from": "hallucination-allow-i-dont-know",
+      "to": "hallucination-cite-quotes-ground-response",
+      "relation": "complements"
+    },
+    {
+      "from": "hallucination-cite-quotes-ground-response",
+      "to": "hallucination-allow-i-dont-know",
+      "relation": "complements"
+    },
+    {
+      "from": "handle-parallel-tool-use-blocks",
+      "to": "handle-tool-use-response-lifecycle",
+      "relation": "extends"
+    },
+    {
+      "from": "handle-parallel-tool-use-blocks",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "handle-tool-use-response-lifecycle",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "long-running-agent-harness-architecture",
+      "to": "agent-loses-progress-across-context-windows",
+      "relation": "extends"
+    },
+    {
+      "from": "long-running-agent-harness-architecture",
+      "to": "feature-list-prevents-premature-completion",
+      "relation": "extends"
+    },
+    {
+      "from": "memory-tool-file-based-persistence",
+      "to": "agent-context-management-strategies",
+      "relation": "extends"
+    },
+    {
+      "from": "memory-tool-file-based-persistence",
+      "to": "effective-context-smallest-highest-signal",
+      "relation": "extends"
+    },
+    {
+      "from": "memory-tool-just-in-time-context",
+      "to": "memory-tool-file-based-persistence",
+      "relation": "extends"
+    },
+    {
+      "from": "memory-tool-just-in-time-context",
+      "to": "context-rot-attention-budget",
+      "relation": "extends"
+    },
+    {
+      "from": "messages-api-multi-turn-conversation",
+      "to": "messages-api-request-structure",
+      "relation": "extends"
+    },
+    {
+      "from": "messages-api-multi-turn-conversation",
+      "to": "context-window-token-accounting",
+      "relation": "extends"
+    },
+    {
+      "from": "messages-api-prefill-technique",
+      "to": "messages-api-request-structure",
+      "relation": "related"
+    },
+    {
+      "from": "messages-api-prefill-technique",
+      "to": "structured-outputs-json-how-to",
+      "relation": "related"
+    },
+    {
+      "from": "messages-api-request-structure",
+      "to": "claude-api-surface-five-areas",
+      "relation": "extends"
+    },
+    {
+      "from": "messages-api-role-alternation",
+      "to": "messages-api-multi-turn-conversation",
+      "relation": "extends"
+    },
+    {
       "from": "model-capabilities-vs-tools-vs-infra",
       "to": "claude-api-surface-five-areas",
       "relation": "extends"
     },
     {
+      "from": "multi-agent-performance-gains",
+      "to": "multi-agent-research-architecture",
+      "relation": "extends"
+    },
+    {
+      "from": "multi-agent-performance-gains",
+      "to": "multi-agent-token-cost-tradeoff",
+      "relation": "extends"
+    },
+    {
+      "from": "multi-agent-prompting-principles",
+      "to": "orchestrator-delegation-clarity",
+      "relation": "supports"
+    },
+    {
+      "from": "multi-agent-prompting-principles",
+      "to": "multi-agent-research-architecture",
+      "relation": "supports"
+    },
+    {
+      "from": "multi-agent-research-architecture",
+      "to": "multi-agent-performance-gains",
+      "relation": "extends"
+    },
+    {
+      "from": "multi-agent-research-architecture",
+      "to": "search-as-parallel-compression",
+      "relation": "extends"
+    },
+    {
+      "from": "multi-agent-token-cost-tradeoff",
+      "to": "multi-agent-performance-gains",
+      "relation": "extends"
+    },
+    {
+      "from": "multi-agent-token-cost-tradeoff",
+      "to": "multi-agent-research-architecture",
+      "relation": "extends"
+    },
+    {
+      "from": "opus-sonnet-haiku-comparison",
+      "to": "claude-model-capability-tiers",
+      "relation": "complements"
+    },
+    {
       "from": "opus-sonnet-haiku-when-to-use",
       "to": "claude-model-capability-tiers",
+      "relation": "extends"
+    },
+    {
+      "from": "orchestrator-delegation-clarity",
+      "to": "multi-agent-prompting-principles",
+      "relation": "supports"
+    },
+    {
+      "from": "orchestrator-delegation-clarity",
+      "to": "multi-agent-research-architecture",
+      "relation": "supports"
+    },
+    {
+      "from": "output-consistency-three-techniques",
+      "to": "structured-outputs-vs-prompt-json",
+      "relation": "extends"
+    },
+    {
+      "from": "output-consistency-three-techniques",
+      "to": "prompt-few-shot-examples",
       "relation": "extends"
     },
     {
@@ -684,8 +1723,63 @@
       "relation": "sibling"
     },
     {
+      "from": "pause-turn-continuation-server-tools",
+      "to": "server-tool-use-block-srvtoolu-prefix",
+      "relation": "extends"
+    },
+    {
+      "from": "prefill-deprecated-newer-models",
+      "to": "messages-api-prefill-technique",
+      "relation": "updates"
+    },
+    {
+      "from": "prefill-deprecated-newer-models",
+      "to": "structured-outputs-two-modes",
+      "relation": "updates"
+    },
+    {
+      "from": "programmatic-eval-agentic-loop",
+      "to": "tool-dev-prototype-eval-optimize-loop",
+      "relation": "extends"
+    },
+    {
+      "from": "programmatic-eval-agentic-loop",
+      "to": "agent-sdk-loop-five-phases",
+      "relation": "extends"
+    },
+    {
       "from": "prompt-add-context",
       "to": "prompt-clear-and-direct",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-caching-auto-vs-explicit",
+      "to": "prompt-caching-set-cache-breakpoints",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-caching-prefix-ordering-matters",
+      "to": "prompt-caching-prefix-resume-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-caching-prefix-resume-concept",
+      "to": "prompt-caching-set-cache-breakpoints",
+      "relation": "introduces"
+    },
+    {
+      "from": "prompt-caching-prefix-resume-concept",
+      "to": "cached-tokens-cost-90-percent-less",
+      "relation": "introduces"
+    },
+    {
+      "from": "prompt-caching-set-cache-breakpoints",
+      "to": "prompt-caching-prefix-resume-concept",
+      "relation": "extends"
+    },
+    {
+      "from": "prompt-caching-set-cache-breakpoints",
+      "to": "cached-tokens-cost-90-percent-less",
       "relation": "extends"
     },
     {
@@ -724,6 +1818,56 @@
       "relation": "extends"
     },
     {
+      "from": "research-agent-web-search-code-execution",
+      "to": "web-search-tool-enable-and-usage",
+      "relation": "extends"
+    },
+    {
+      "from": "research-agent-web-search-code-execution",
+      "to": "code-execution-free-with-web-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "search-as-parallel-compression",
+      "to": "multi-agent-research-architecture",
+      "relation": "supports"
+    },
+    {
+      "from": "server-tool-use-block-srvtoolu-prefix",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "skills-filesystem-domain-expertise-on-demand",
+      "to": "skills-vs-prompts-vs-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "skills-vs-prompts-vs-tools",
+      "to": "skills-filesystem-domain-expertise-on-demand",
+      "relation": "complements"
+    },
+    {
+      "from": "specify-output-format-template",
+      "to": "output-consistency-three-techniques",
+      "relation": "related"
+    },
+    {
+      "from": "specify-output-format-template",
+      "to": "prompt-xml-tags-structure",
+      "relation": "related"
+    },
+    {
+      "from": "streaming-enable-sse-sdk",
+      "to": "streaming-event-lifecycle",
+      "relation": "extends"
+    },
+    {
+      "from": "streaming-event-lifecycle",
+      "to": "streaming-enable-sse-sdk",
+      "relation": "extends"
+    },
+    {
       "from": "structured-outputs-json-how-to",
       "to": "structured-outputs-two-modes",
       "relation": "extends"
@@ -752,6 +1896,41 @@
       "from": "structured-outputs-vs-prompt-json",
       "to": "structured-outputs-json-how-to",
       "relation": "extends"
+    },
+    {
+      "from": "swe-bench-agent-scaffold-design",
+      "to": "swe-bench-what-it-is",
+      "relation": "extends"
+    },
+    {
+      "from": "swe-bench-agent-scaffold-design",
+      "to": "swe-bench-tool-description-weight",
+      "relation": "extends"
+    },
+    {
+      "from": "swe-bench-coding-agent-prompt-pattern",
+      "to": "swe-bench-agent-scaffold-design",
+      "relation": "extends"
+    },
+    {
+      "from": "swe-bench-coding-agent-prompt-pattern",
+      "to": "system-prompt-right-altitude",
+      "relation": "extends"
+    },
+    {
+      "from": "swe-bench-tool-description-weight",
+      "to": "swe-bench-agent-scaffold-design",
+      "relation": "extends"
+    },
+    {
+      "from": "swe-bench-tool-description-weight",
+      "to": "tools-minimal-viable-set",
+      "relation": "extends"
+    },
+    {
+      "from": "swe-bench-what-it-is",
+      "to": "swe-bench-agent-scaffold-design",
+      "relation": "prerequisite"
     },
     {
       "from": "system-prompt-right-altitude",
@@ -760,6 +1939,86 @@
     },
     {
       "from": "system-prompt-right-altitude",
+      "to": "tools-minimal-viable-set",
+      "relation": "extends"
+    },
+    {
+      "from": "think-tool-structured-scratchpad",
+      "to": "think-tool-vs-extended-thinking",
+      "relation": "extends"
+    },
+    {
+      "from": "think-tool-vs-extended-thinking",
+      "to": "think-tool-structured-scratchpad",
+      "relation": "contrasts"
+    },
+    {
+      "from": "think-tool-vs-extended-thinking",
+      "to": "extended-thinking-concept",
+      "relation": "contrasts"
+    },
+    {
+      "from": "tool-context-pressure-four-approaches",
+      "to": "context-window-token-accounting",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-context-pressure-four-approaches",
+      "to": "tools-minimal-viable-set",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-dev-prototype-eval-optimize-loop",
+      "to": "tools-as-nondeterministic-contract",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-dev-prototype-eval-optimize-loop",
+      "to": "claude-optimize-own-tool-descriptions",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-error-signaling-is-error",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-pairing-discover-then-act",
+      "to": "tools-minimal-viable-set",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-pairing-discover-then-act",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-result-content-formats",
+      "to": "handle-tool-use-response-lifecycle",
+      "relation": "supplements"
+    },
+    {
+      "from": "tool-runner-automatic-tool-execution",
+      "to": "tool-runner-vs-manual-agentic-loop",
+      "relation": "complements"
+    },
+    {
+      "from": "tool-runner-compaction-long-running-tasks",
+      "to": "tool-runner-automatic-tool-execution",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-runner-vs-manual-agentic-loop",
+      "to": "tool-runner-automatic-tool-execution",
+      "relation": "complements"
+    },
+    {
+      "from": "tool-search-reduce-upfront-definitions",
+      "to": "tool-context-pressure-four-approaches",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-search-reduce-upfront-definitions",
       "to": "tools-minimal-viable-set",
       "relation": "extends"
     },
@@ -774,6 +2033,36 @@
       "relation": "extends"
     },
     {
+      "from": "tool-use-debug-invented-parameters",
+      "to": "tool-use-debug-wrong-tool-called",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-debug-invented-parameters",
+      "to": "tool-use-contract-typed-interface",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-debug-parallel-calls-fail",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-debug-parallel-calls-fail",
+      "to": "tool-use-debug-wrong-tool-called",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-debug-wrong-tool-called",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "tool-use-debug-wrong-tool-called",
+      "to": "tool-use-contract-typed-interface",
+      "relation": "extends"
+    },
+    {
       "from": "tool-use-lifecycle-four-steps",
       "to": "tool-use-basics",
       "relation": "extends"
@@ -784,6 +2073,16 @@
       "relation": "extends"
     },
     {
+      "from": "tools-as-nondeterministic-contract",
+      "to": "tool-use-lifecycle-four-steps",
+      "relation": "extends"
+    },
+    {
+      "from": "tools-as-nondeterministic-contract",
+      "to": "claude-decides-tools-never-executes",
+      "relation": "extends"
+    },
+    {
       "from": "tools-minimal-viable-set",
       "to": "context-rot-attention-budget",
       "relation": "extends"
@@ -791,6 +2090,91 @@
     {
       "from": "tools-minimal-viable-set",
       "to": "system-prompt-right-altitude",
+      "relation": "extends"
+    },
+    {
+      "from": "vision-image-size-limits-tokens",
+      "to": "vision-send-image-two-methods",
+      "relation": "extends"
+    },
+    {
+      "from": "vision-send-image-two-methods",
+      "to": "vision-image-size-limits-tokens",
+      "relation": "extends"
+    },
+    {
+      "from": "web-fetch-dynamic-filtering",
+      "to": "web-fetch-how-it-works",
+      "relation": "extends"
+    },
+    {
+      "from": "web-fetch-dynamic-filtering",
+      "to": "web-search-dynamic-filtering",
+      "relation": "extends"
+    },
+    {
+      "from": "web-fetch-how-it-works",
+      "to": "web-fetch-vs-web-search",
+      "relation": "extends"
+    },
+    {
+      "from": "web-fetch-how-it-works",
+      "to": "web-fetch-dynamic-filtering",
+      "relation": "extends"
+    },
+    {
+      "from": "web-fetch-security-exfiltration-risk",
+      "to": "web-fetch-how-it-works",
+      "relation": "extends"
+    },
+    {
+      "from": "web-fetch-vs-web-search",
+      "to": "web-search-how-it-works",
+      "relation": "complements"
+    },
+    {
+      "from": "web-fetch-vs-web-search",
+      "to": "web-fetch-how-it-works",
+      "relation": "complements"
+    },
+    {
+      "from": "web-search-basic-vs-dynamic",
+      "to": "web-search-dynamic-filtering",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-basic-vs-dynamic",
+      "to": "web-search-tool-enable-and-usage",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-dynamic-filtering",
+      "to": "web-search-tool-enable-and-usage",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-dynamic-filtering",
+      "to": "web-search-basic-vs-dynamic",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-how-it-works",
+      "to": "web-search-tool-enable-and-usage",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-how-it-works",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-tool-enable-and-usage",
+      "to": "client-tools-vs-server-tools",
+      "relation": "extends"
+    },
+    {
+      "from": "web-search-tool-enable-and-usage",
+      "to": "web-search-dynamic-filtering",
       "relation": "extends"
     },
     {

@@ -1,0 +1,28 @@
+{
+  "id": "feature-list-prevents-premature-completion",
+  "type": "problem-solution",
+  "title": "Agent 过早宣告任务完成",
+  "title_en": "Agent Declares Task Complete Too Early",
+  "source": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  "tags": [
+    "agent",
+    "feature-list",
+    "progress"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "在项目中期，agent 看到已有不少功能实现，便认为任务已完成——即使还有大量功能未做。这是因为它没有全局的\"完成标准\"，只能靠主观判断。",
+    "solution": "由初始化 agent 在项目开始时生成完整功能清单（JSON 格式），每条功能初始标记为 passes: false。编码 agent 只能在真正实现并测试后将其改为 passes: true，不得删除或修改测试描述。只有所有功能通过，项目才算完成。",
+    "keyTakeaway": "用明确的、可机器检查的完成标准替代模糊的主观判断。JSON 格式比 Markdown 更难被 agent 意外篡改，是更安全的选择。"
+  },
+  "body_en": {
+    "problem": "Partway through a project, the agent sees that several features exist, concludes the job is done, and stops — even though many features remain unbuilt. Without a global definition of \"done,\" it relies on subjective judgment and gets it wrong.",
+    "solution": "Have the initializer agent generate a comprehensive feature list in JSON at the start. Every feature is marked passes: false initially. The coding agent may only flip a feature to passes: true after actually implementing and testing it — deleting or editing feature descriptions is forbidden. The project is complete only when all features pass.",
+    "keyTakeaway": "Replace vague subjective judgment with explicit, machine-checkable completion criteria. JSON is preferred over Markdown because models are less likely to accidentally overwrite or corrupt it."
+  },
+  "relatedIds": [
+    "long-running-agent-harness-architecture",
+    "agent-incremental-progress-clean-state"
+  ],
+  "relationType": "part-of"
+}

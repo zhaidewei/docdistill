@@ -1,7 +1,8 @@
 {
   "id": "tools-minimal-viable-set",
   "type": "problem-solution",
-  "title": "Bloated tool sets confuse agents",
+  "title": "Tool 集合臃肿会让 Agent 困惑",
+  "title_en": "Bloated Tool Sets Confuse Agents",
   "source": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
   "tags": [
     "context-engineering",
@@ -9,9 +10,14 @@
   ],
   "readingMinutes": 2,
   "body": {
-    "problem": "Your agent has access to many tools with overlapping functionality. It frequently picks the wrong tool or wastes turns trying different tools. Adding more tool descriptions also eats into the finite context window, reducing attention available for the actual task.",
-    "solution": "Curate a minimal viable set of tools. Each tool should be self-contained, have no functional overlap with others, and be unambiguous about when to use it. A simple test: if a human engineer can't definitively say which tool should be used in a given situation, an AI agent can't be expected to do better. Tool descriptions and input parameters must be descriptive and unambiguous. Return token-efficient results to avoid bloating context further.",
-    "keyTakeaway": "Tools define the contract between agents and their action space. Fewer, clearer tools beat many overlapping ones — both for decision quality and for preserving the attention budget."
+    "problem": "你的 agent 拥有大量功能重叠的 tool。它经常选错 tool，或者浪费多个轮次尝试不同 tool。过多的 tool 描述还会占用有限的 context window，减少注意力预算中留给实际任务的部分。",
+    "solution": "策展一个最小可行 tool 集合。每个 tool 应自包含、与其他 tool 无功能重叠、使用场景清晰无歧义。简单测试：如果一个人类工程师都无法明确判断该用哪个 tool，AI agent 也不可能做得更好。Tool 描述和输入参数必须描述清晰、无歧义。返回值应尽量精简以避免 context 膨胀。",
+    "keyTakeaway": "Tool 定义了 agent 与其行动空间之间的契约。更少、更清晰的 tool 优于大量重叠的 tool——无论是决策质量还是注意力预算保护。"
+  },
+  "body_en": {
+    "problem": "Your agent has access to many tools with overlapping functionality. It frequently picks the wrong tool or wastes turns trying different tools. Too many tool descriptions also eat into the finite context window, reducing attention available for the actual task.",
+    "solution": "Curate a minimal viable set of tools. Each tool should be self-contained, have no functional overlap, and be unambiguous about when to use it. Simple test: if a human engineer can't definitively say which tool to use in a given situation, an AI agent can't do better. Tool descriptions and input parameters must be descriptive and unambiguous. Return token-efficient results to avoid bloating context.",
+    "keyTakeaway": "Tools define the contract between agents and their action space. Fewer, clearer tools beat many overlapping ones—both for decision quality and for preserving the attention budget."
   },
   "relatedIds": [
     "context-rot-attention-budget",

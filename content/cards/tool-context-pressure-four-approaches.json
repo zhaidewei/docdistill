@@ -1,0 +1,62 @@
+{
+  "id": "tool-context-pressure-four-approaches",
+  "type": "architecture",
+  "title": "工具上下文压力的四种应对策略",
+  "title_en": "Four Approaches to Tool Context Pressure",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/manage-tool-context",
+  "tags": [
+    "context-management",
+    "tool-use",
+    "agent"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "工具定义和 tool_result 会持续消耗上下文窗口。工具多或对话轮次多的 agent 可能在任务完成前就耗尽上下文。四种策略分别针对不同的 token 消耗来源。",
+    "components": [
+      {
+        "name": "Tool Search（工具搜索）",
+        "role": "减少预加载的工具定义。不一次性发送所有 tool schema，而是只发一个 tool_search 工具，让 Claude 按需查找。适合 20+ 工具的场景。"
+      },
+      {
+        "name": "Programmatic Tool Calling（编程式调用）",
+        "role": "减少 tool_result 往返。Claude 写一段脚本在沙箱中批量执行多个工具调用，中间结果不进入对话历史。适合可以组合为一个脚本的连续调用链。"
+      },
+      {
+        "name": "Prompt Caching（提示缓存）",
+        "role": "不减少上下文中的 token 数量，但降低重复工具定义的费用。工具集稳定时，缓存一次可复用于数千次请求。"
+      },
+      {
+        "name": "Context Editing（上下文编辑）",
+        "role": "清理对话历史中不再需要的旧 tool_result。适合长对话中早期结果已失去参考价值的场景。"
+      }
+    ],
+    "flow": "识别 token 消耗来源 → 工具定义过多？用 Tool Search → 往返调用过多？用 Programmatic Calling → 定义稳定但请求量大？用 Prompt Caching → 旧结果堆积？用 Context Editing"
+  },
+  "body_en": {
+    "overview": "Tool definitions and tool_result blocks consume context window tokens. Agents with many tools or many turns can exhaust available context before the task is done. Four approaches target different sources of token consumption.",
+    "components": [
+      {
+        "name": "Tool Search",
+        "role": "Reduces upfront tool definitions. Instead of sending all tool schemas, send a single tool_search tool and let Claude discover others on demand. Best for 20+ tool scenarios."
+      },
+      {
+        "name": "Programmatic Tool Calling",
+        "role": "Reduces tool_result roundtrips. Claude writes a script that runs multiple tool calls in a sandbox; intermediate results never enter conversation history. Best for chainable call sequences."
+      },
+      {
+        "name": "Prompt Caching",
+        "role": "Doesn't reduce token count but cuts cost of repeated tool definitions. Cache stable tool definitions once and reuse the prefix across thousands of requests."
+      },
+      {
+        "name": "Context Editing",
+        "role": "Removes old tool_result blocks from conversation history. Best for long conversations where early results are no longer relevant."
+      }
+    ],
+    "flow": "Identify token source → Too many definitions? Tool Search → Too many roundtrips? Programmatic Calling → Stable but high-volume? Prompt Caching → Stale results piling up? Context Editing"
+  },
+  "relatedIds": [
+    "context-window-token-accounting",
+    "tools-minimal-viable-set"
+  ],
+  "relationType": "extends"
+}

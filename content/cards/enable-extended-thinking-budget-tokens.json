@@ -1,23 +1,33 @@
 {
   "id": "enable-extended-thinking-budget-tokens",
   "type": "how-to",
-  "title": "Enable extended thinking with budget_tokens",
+  "title": "用 budget_tokens 开启 Extended Thinking",
+  "title_en": "Enable Extended Thinking with budget_tokens",
   "source": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
   "tags": [
     "extended-thinking",
-    "claude-api",
-    "how-to"
+    "api",
+    "configuration"
   ],
   "readingMinutes": 3,
   "body": {
-    "goal": "Enable extended thinking in a Claude API call so the model reasons step-by-step before answering.",
+    "goal": "在 API 请求中开启 extended thinking，让 Claude 进行深度推理",
     "steps": [
-      "Add a `thinking` object to your API request: `thinking: { type: \"enabled\", budget_tokens: 10000 }`",
-      "`budget_tokens` sets the max tokens Claude can use for internal reasoning (minimum 1024, must be less than `max_tokens`)",
-      "Set `max_tokens` high enough to cover both thinking and the final response",
-      "The API response includes `thinking` content blocks (Claude's reasoning) and `text` content blocks (the final answer)",
-      "For Claude Opus 4.6 and Sonnet 4.6: prefer `thinking: { type: \"adaptive\" }` with the `effort` parameter instead — manual `budget_tokens` mode is deprecated on these newer models",
-      "Note: streaming is required when using extended thinking; `temperature` must be 1 (the default)"
+      "在请求体中添加 thinking 参数：{\"thinking\": {\"type\": \"enabled\", \"budget_tokens\": 10000}}",
+      "budget_tokens 设置 Claude 可用于思考的最大 token 数（不含最终回答），最小值为 1024",
+      "确保 max_tokens 大于 budget_tokens —— max_tokens 是总预算（思考 + 回答），budget_tokens 是思考部分的上限",
+      "解析响应：content 数组中会包含 type 为 'thinking' 的 block（思考过程）和 type 为 'text' 的 block（最终回答）",
+      "注意：对 Claude 4.6 系列模型，推荐改用 adaptive thinking（{\"thinking\": {\"type\": \"adaptive\"}}），手动模式已被标记为 deprecated"
+    ]
+  },
+  "body_en": {
+    "goal": "Enable extended thinking in API requests so Claude performs deep reasoning",
+    "steps": [
+      "Add the thinking parameter to your request body: {\"thinking\": {\"type\": \"enabled\", \"budget_tokens\": 10000}}",
+      "budget_tokens sets the maximum tokens Claude can use for thinking (excluding the final answer); minimum is 1024",
+      "Ensure max_tokens > budget_tokens — max_tokens covers both thinking and response, while budget_tokens caps only the thinking portion",
+      "Parse the response: the content array will contain blocks with type 'thinking' (reasoning) and type 'text' (final answer)",
+      "Note: For Claude 4.6 models, use adaptive thinking ({\"thinking\": {\"type\": \"adaptive\"}}) instead — manual mode is deprecated"
     ]
   },
   "relatedIds": [

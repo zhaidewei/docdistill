@@ -1,0 +1,28 @@
+{
+  "id": "tool-search-reduce-upfront-definitions",
+  "type": "problem-solution",
+  "title": "工具太多撑爆上下文？用 Tool Search 按需加载",
+  "title_en": "Too Many Tools Exhausting Context? Use Tool Search",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/manage-tool-context",
+  "tags": [
+    "tool-use",
+    "context-management",
+    "agent"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "你的 agent 有 50 个工具，每个工具的 JSON Schema 定义都要放进 API 请求。即使 Claude 只需要其中 2-3 个，全部定义也会一直占用上下文窗口，留给实际对话的空间大幅缩减。工具越多，agent 能运行的轮次就越少。",
+    "solution": "用 Tool Search：不发送 50 个工具定义，只发送一个 tool_search 工具。Claude 需要某个工具时，先调用 tool_search 查找并获取其 schema，然后再正常调用。代价是多一轮往返（查找 → 调用），但大幅减少了基线上下文占用。",
+    "keyTakeaway": "Tool Search 是用少量延迟换大量上下文空间——对 20+ 工具的 agent 几乎是必选项。"
+  },
+  "body_en": {
+    "problem": "Your agent has 50 tools, and every JSON Schema definition must be included in the API request. Even if Claude only needs 2-3 tools, all 50 definitions permanently occupy context window space, leaving much less room for actual conversation. More tools means fewer turns before context runs out.",
+    "solution": "Use Tool Search: instead of sending all 50 definitions, send only a single tool_search tool. When Claude needs a tool, it first calls tool_search to discover the schema, then calls the tool normally. The cost is one extra roundtrip (search → call), but the baseline context usage drops dramatically.",
+    "keyTakeaway": "Tool Search trades a small amount of latency for a large reduction in context usage — nearly essential for agents with 20+ tools."
+  },
+  "relatedIds": [
+    "tool-context-pressure-four-approaches",
+    "tools-minimal-viable-set"
+  ],
+  "relationType": "extends"
+}

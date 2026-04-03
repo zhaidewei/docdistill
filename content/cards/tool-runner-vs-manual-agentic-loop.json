@@ -1,0 +1,69 @@
+{
+  "id": "tool-runner-vs-manual-agentic-loop",
+  "type": "comparison",
+  "title": "Tool Runner 与手动 agentic loop 的对比",
+  "title_en": "Tool Runner vs Manual Agentic Loop",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-runner",
+  "tags": [
+    "tool-use",
+    "sdk",
+    "agentic-loop"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Tool Runner：SDK 内置的自动化工具执行器。自动处理工具调用、响应循环、对话状态管理和类型校验。适用于大多数场景。",
+    "itemB": "手动 agentic loop：开发者自己编写 while 循环，逐步解析 tool_use、调用函数、拼装 tool_result、再次请求 Claude。适用于需要人工审批、自定义日志或条件执行的场景。",
+    "dimensions": [
+      {
+        "name": "代码量",
+        "a": "几行即可完成",
+        "b": "需要编写完整的循环逻辑"
+      },
+      {
+        "name": "错误处理",
+        "a": "SDK 自动包装错误",
+        "b": "需手动捕获并格式化错误"
+      },
+      {
+        "name": "灵活性",
+        "a": "较低，适合标准流程",
+        "b": "完全可控，可插入审批、日志等"
+      },
+      {
+        "name": "上下文管理",
+        "a": "支持自动 compaction（压缩摘要）",
+        "b": "需自行实现"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Tool Runner: A built-in SDK automation layer. Automatically handles tool calls, request/response cycles, conversation state, and type validation. Recommended for most use cases.",
+    "itemB": "Manual agentic loop: You write the while-loop yourself—parse tool_use blocks, call functions, assemble tool_result, send back to Claude. Use when you need human-in-the-loop approval, custom logging, or conditional execution.",
+    "dimensions": [
+      {
+        "name": "Code volume",
+        "a": "A few lines",
+        "b": "Full loop logic required"
+      },
+      {
+        "name": "Error handling",
+        "a": "SDK wraps errors automatically",
+        "b": "Must catch and format errors yourself"
+      },
+      {
+        "name": "Flexibility",
+        "a": "Lower—suited for standard flows",
+        "b": "Full control—insert approvals, logging, etc."
+      },
+      {
+        "name": "Context management",
+        "a": "Supports automatic compaction",
+        "b": "Must implement yourself"
+      }
+    ]
+  },
+  "relatedIds": [
+    "tool-runner-automatic-tool-execution"
+  ],
+  "relationType": "complements"
+}

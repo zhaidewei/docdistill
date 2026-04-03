@@ -1,7 +1,7 @@
 import { useState, useEffect } from "preact/hooks";
 import { getAllAnnotations, exportToMarkdown } from "../lib/annotations";
 import type { Annotation } from "../lib/types";
-import { useLang, t } from "../lib/i18n";
+import { useLang, t, type Lang } from "../lib/i18n";
 import LangToggle from "./LangToggle";
 
 type Tab = "starred" | "comments" | "questions";
@@ -9,6 +9,7 @@ type Tab = "starred" | "comments" | "questions";
 interface CardMeta {
   id: string;
   title: string;
+  title_en?: string;
 }
 
 export default function NotesPage({ cards }: { cards: CardMeta[] }) {
@@ -103,7 +104,7 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
                 class={`flex items-start gap-3 p-4 rounded-lg border transition-colors ${selected.has(card.id) ? "border-accent-orange bg-accent-orange/5" : "border-surface-border bg-surface-raised"}`}>
                 <input type="checkbox" checked={selected.has(card.id)} onChange={() => toggleSelect(card.id)} class="mt-1 rounded" />
                 <div class="flex-1 min-w-0">
-                  <div class="font-medium text-sm">{card.title}</div>
+                  <div class="font-medium text-sm">{(lang === "en" && card.title_en) ? card.title_en : card.title}</div>
                   {tab === "comments" && a.comments.map((c, i) => (
                     <div key={i} class="text-xs text-gray-400 mt-1">💬 {c}</div>
                   ))}

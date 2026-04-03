@@ -1,0 +1,59 @@
+{
+  "id": "hallucination-advanced-verification-techniques",
+  "type": "comparison",
+  "title": "三种高级反幻觉验证技术对比",
+  "title_en": "Three Advanced Anti-Hallucination Verification Techniques",
+  "source": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations",
+  "tags": [
+    "hallucination",
+    "guardrails",
+    "verification"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Chain-of-Thought 验证",
+    "itemB": "Best-of-N 验证 / 迭代精炼",
+    "dimensions": [
+      {
+        "name": "做法",
+        "a": "让 Claude 先逐步展示推理过程，再给出最终答案，暴露错误逻辑",
+        "b": "Best-of-N：同一 prompt 跑多次，对比输出找不一致；迭代精炼：把前一轮输出作为下一轮输入，让 Claude 验证和修正"
+      },
+      {
+        "name": "适用场景",
+        "a": "逻辑推理、数学计算等需要严密推导的任务",
+        "b": "Best-of-N 适合事实性问答；迭代精炼适合长文生成和复杂分析"
+      },
+      {
+        "name": "成本",
+        "a": "单次调用，成本低，但输出更长",
+        "b": "Best-of-N 成本是 N 倍；迭代精炼需要多轮调用"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Chain-of-Thought Verification",
+    "itemB": "Best-of-N Verification / Iterative Refinement",
+    "dimensions": [
+      {
+        "name": "Method",
+        "a": "Ask Claude to show step-by-step reasoning before the final answer, exposing faulty logic",
+        "b": "Best-of-N: run the same prompt multiple times and compare outputs for inconsistencies. Iterative refinement: feed previous output as input for follow-up, asking Claude to verify and correct"
+      },
+      {
+        "name": "Best for",
+        "a": "Tasks requiring rigorous reasoning: logic, math, multi-step deduction",
+        "b": "Best-of-N for factual Q&A; iterative refinement for long-form generation and complex analysis"
+      },
+      {
+        "name": "Cost",
+        "a": "Single call, low cost, but longer output",
+        "b": "Best-of-N costs N times more; iterative refinement requires multiple round-trips"
+      }
+    ]
+  },
+  "relatedIds": [
+    "hallucination-cite-quotes-ground-response"
+  ],
+  "relationType": "extends"
+}

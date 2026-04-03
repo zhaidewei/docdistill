@@ -1,0 +1,26 @@
+{
+  "id": "context-rot-curation",
+  "type": "problem-solution",
+  "title": "Context Rot：越长越不准",
+  "title_en": "Context Rot: Longer Isn't Always Better",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+  "tags": [
+    "context-window",
+    "context-engineering"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "problem": "开发者以为 context window 越大越好，于是把所有信息一股脑塞进去。结果发现随着 token 数量增长，模型的准确率和信息检索能力反而下降——这种现象叫做 context rot。",
+    "solution": "主动管理 context window 中的内容质量，而不只是关注容量。使用 server-side compaction（服务端压缩）来自动精简长对话；使用 context editing（上下文编辑）来手动清理不需要的 tool result 和 thinking block。核心原则：精选放进 context 的内容，和拥有多大空间一样重要。",
+    "keyTakeaway": "Context window 管理的关键不是「能塞多少」，而是「该放什么」。"
+  },
+  "body_en": {
+    "problem": "Developers assume bigger context windows are always better and stuff everything in. But as token count grows, accuracy and recall degrade—a phenomenon called context rot.",
+    "solution": "Actively curate what's in the context window, not just how much fits. Use server-side compaction to automatically trim long conversations; use context editing to manually clear unnecessary tool results and thinking blocks. Core principle: what you put in context matters as much as how much space you have.",
+    "keyTakeaway": "Context window management is about 'what to include', not just 'how much fits'."
+  },
+  "relatedIds": [
+    "context-window-token-math"
+  ],
+  "relationType": "extends"
+}

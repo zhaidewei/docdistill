@@ -1,0 +1,54 @@
+{
+  "id": "web-fetch-how-it-works",
+  "type": "architecture",
+  "title": "Web fetch 工作流程：从 URL 到内容提取",
+  "title_en": "Web Fetch Workflow: From URL to Content Extraction",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool",
+  "tags": [
+    "web-fetch",
+    "server-tool",
+    "claude-api"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "overview": "Web fetch 是一种 server tool——你在请求中声明它并提供 URL，Anthropic 服务器自动抓取页面内容并返回给 Claude。Claude 不能自行构造 URL，只能抓取用户明确提供的或从之前搜索/抓取结果中获得的 URL。",
+    "components": [
+      {
+        "name": "你的应用",
+        "role": "发送 API 请求，在 tools 中声明 web_fetch，提供待抓取的 URL"
+      },
+      {
+        "name": "Claude",
+        "role": "根据 prompt 决定何时抓取，分析返回的内容，生成回复（可选带引用）"
+      },
+      {
+        "name": "Anthropic 抓取服务",
+        "role": "请求目标 URL，获取网页文本或提取 PDF 文本，返回给 Claude"
+      }
+    ],
+    "flow": "你的应用发送带 web_fetch tool 和 URL 的请求 → Claude 分析 prompt 决定是否需要抓取 → Anthropic 服务器请求目标 URL，获取页面文本（PDF 自动提取文本）→ Claude 分析内容并生成带引用的回复"
+  },
+  "body_en": {
+    "overview": "Web fetch is a server tool — you declare it in the request and provide URLs, and Anthropic's servers automatically retrieve page content for Claude. Claude cannot construct URLs dynamically; it can only fetch URLs explicitly provided by the user or obtained from prior search/fetch results.",
+    "components": [
+      {
+        "name": "Your application",
+        "role": "Sends API request with web_fetch declared in tools, provides URLs to fetch"
+      },
+      {
+        "name": "Claude",
+        "role": "Decides when to fetch based on prompt, analyzes returned content, generates response with optional citations"
+      },
+      {
+        "name": "Anthropic fetch service",
+        "role": "Requests the target URL, retrieves web page text or extracts PDF text, returns to Claude"
+      }
+    ],
+    "flow": "Your app sends request with web_fetch tool and URL → Claude analyzes prompt to decide if fetch is needed → Anthropic servers request target URL, retrieve page text (PDF text auto-extracted) → Claude analyzes content and generates response with citations"
+  },
+  "relatedIds": [
+    "web-fetch-vs-web-search",
+    "web-fetch-dynamic-filtering"
+  ],
+  "relationType": "extends"
+}

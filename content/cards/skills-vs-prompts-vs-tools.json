@@ -1,0 +1,69 @@
+{
+  "id": "skills-vs-prompts-vs-tools",
+  "type": "comparison",
+  "title": "Skills vs Prompts vs Tools：三种给 Claude 赋能的方式",
+  "title_en": "Skills vs Prompts vs Tools: Three Ways to Empower Claude",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+  "tags": [
+    "skills",
+    "prompt-engineering",
+    "tool-use"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "Prompts（提示词）：在对话中直接给 Claude 的指令，属于一次性使用。每次新对话都需要重新提供。",
+    "itemB": "Skills（技能）：存储在文件系统中的可复用领域专长，按需自动加载。创建一次，跨对话复用。",
+    "dimensions": [
+      {
+        "name": "生命周期",
+        "a": "Prompts 只在当前对话有效",
+        "b": "Skills 持久存储，跨对话自动可用"
+      },
+      {
+        "name": "加载方式",
+        "a": "Prompts 由用户手动输入或预设在 system prompt 中",
+        "b": "Skills 由 Claude 根据任务自动匹配加载"
+      },
+      {
+        "name": "复杂度",
+        "a": "Prompts 适合简单、一次性的指令",
+        "b": "Skills 可封装完整的工作流、检查清单和领域知识"
+      },
+      {
+        "name": "与 Tools 的关系",
+        "a": "Prompts 告诉 Claude「做什么」",
+        "b": "Skills 告诉 Claude「如何做」，常常编排 Tools 的使用方式"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "Prompts: Direct instructions given to Claude in a conversation for one-off tasks. Must be re-provided in each new conversation.",
+    "itemB": "Skills: Reusable domain expertise stored in the filesystem, automatically loaded on demand. Create once, reuse across conversations.",
+    "dimensions": [
+      {
+        "name": "Lifecycle",
+        "a": "Prompts live only in the current conversation",
+        "b": "Skills persist and are automatically available across conversations"
+      },
+      {
+        "name": "Loading",
+        "a": "Prompts are manually typed or preset in system prompts",
+        "b": "Skills are auto-matched and loaded by Claude based on the task"
+      },
+      {
+        "name": "Complexity",
+        "a": "Prompts suit simple, one-off instructions",
+        "b": "Skills can package full workflows, checklists, and domain knowledge"
+      },
+      {
+        "name": "Relation to Tools",
+        "a": "Prompts tell Claude 'what to do'",
+        "b": "Skills tell Claude 'how to do it', often orchestrating Tool usage"
+      }
+    ]
+  },
+  "relatedIds": [
+    "skills-filesystem-domain-expertise-on-demand"
+  ],
+  "relationType": "complements"
+}

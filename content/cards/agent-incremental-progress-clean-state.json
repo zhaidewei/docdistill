@@ -1,0 +1,28 @@
+{
+  "id": "agent-incremental-progress-clean-state",
+  "type": "problem-solution",
+  "title": "Agent 一次做太多，留下烂摊子",
+  "title_en": "Agent Tries to Do Too Much at Once",
+  "source": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  "tags": [
+    "agent",
+    "incremental",
+    "git"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "problem": "没有约束时，agent 倾向于\"一次性实现\"整个应用。这导致 context window 在实现到一半时耗尽，下一个 session 接手的是半成品、没有文档的代码——既不能运行，也不知道做到哪里。",
+    "solution": "在 prompt 中强制要求：① 每次 session 只实现功能清单中的一个功能；② 实现后用浏览器自动化工具做端到端测试（像真实用户一样操作）；③ 测试通过后 git commit（附描述性 commit message）；④ 更新进度文件后再结束 session。",
+    "keyTakeaway": "\"干净收尾\"的标准：代码无重大 bug、有文档、可以 merge 到主分支。每次 session 结束时要达到这个标准，而不是\"做得差不多\"。"
+  },
+  "body_en": {
+    "problem": "Without constraints, agents try to one-shot an entire application. The context window runs out mid-implementation, leaving the next session with half-built, undocumented code that neither runs nor clearly explains what was attempted.",
+    "solution": "Prompt the agent to: ① implement only one feature per session from the feature list; ② test end-to-end using browser automation (as a real user would, not just unit tests or curl); ③ git commit with a descriptive message after tests pass; ④ update the progress file before ending the session.",
+    "keyTakeaway": "\"Clean state\" means: no major bugs, well-documented code, mergeable to main. Each session must end at this bar — not \"mostly done.\" Git history becomes a safety net the agent can use to revert bad changes."
+  },
+  "relatedIds": [
+    "agent-loses-progress-across-context-windows",
+    "feature-list-prevents-premature-completion"
+  ],
+  "relationType": "extends"
+}

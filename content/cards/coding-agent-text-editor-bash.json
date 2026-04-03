@@ -1,0 +1,46 @@
+{
+  "id": "coding-agent-text-editor-bash",
+  "type": "architecture",
+  "title": "编程型 agent：text_editor + bash 组合",
+  "title_en": "Coding Agent: text_editor + bash Pairing",
+  "source": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-combinations",
+  "tags": [
+    "tool-combination",
+    "agent-pattern",
+    "coding-agent"
+  ],
+  "readingMinutes": 2,
+  "body": {
+    "overview": "编程型 agent 使用经典的软件开发循环：text_editor 读写文件，bash 运行测试和构建命令。这是最标准的 coding agent 模式——查看代码、编辑、运行测试、重复。两个工具都是 client-executed（客户端执行），你的应用控制哪些文件和命令可被访问。",
+    "components": [
+      {
+        "name": "text_editor",
+        "role": "读取和修改源代码文件"
+      },
+      {
+        "name": "bash",
+        "role": "运行测试、构建命令和其他 shell 操作"
+      }
+    ],
+    "flow": "1. Claude 用 text_editor 查看代码 → 2. 用 text_editor 进行编辑 → 3. 用 bash 运行测试或构建 → 4. 根据测试结果决定是否继续修改，循环往复直到任务完成。"
+  },
+  "body_en": {
+    "overview": "A coding agent uses the classic software development loop: text_editor reads and modifies files, bash runs tests and build commands. This is the canonical coding-agent pattern — inspect code, make an edit, run tests, repeat. Both tools are client-executed, so your application controls which files and commands are accessible.",
+    "components": [
+      {
+        "name": "text_editor",
+        "role": "Read and modify source code files"
+      },
+      {
+        "name": "bash",
+        "role": "Run tests, build commands, and other shell operations"
+      }
+    ],
+    "flow": "1. Claude inspects code with text_editor → 2. Makes edits with text_editor → 3. Runs tests or builds with bash → 4. Decides whether to continue editing based on results, looping until the task is complete."
+  },
+  "relatedIds": [
+    "bash-tool-use-cases",
+    "bash-tool-persistent-shell-session"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "effort-levels-comparison",
+  "type": "comparison",
+  "title": "effort 四个级别的行为差异",
+  "title_en": "Behavior Differences Across Four Effort Levels",
+  "source": "https://platform.claude.com/docs/en/build-with-claude/effort",
+  "tags": [
+    "effort",
+    "api",
+    "extended-thinking"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "itemA": "low / medium effort",
+    "itemB": "high / max effort",
+    "dimensions": [
+      {
+        "name": "thinking 行为",
+        "a": "可能跳过 thinking（简单问题直接回答）",
+        "b": "几乎总是进行 thinking"
+      },
+      {
+        "name": "tool call",
+        "a": "倾向于更少的 tool call",
+        "b": "按需调用，不吝啬"
+      },
+      {
+        "name": "回复长度",
+        "a": "更简洁",
+        "b": "更详细、更完整"
+      },
+      {
+        "name": "适用场景",
+        "a": "分类、提取、简单问答",
+        "b": "推理、分析、复杂编码"
+      },
+      {
+        "name": "默认行为",
+        "a": "需要显式设置",
+        "b": "high 是默认值，等同于不传 effort"
+      }
+    ]
+  },
+  "body_en": {
+    "itemA": "low / medium effort",
+    "itemB": "high / max effort",
+    "dimensions": [
+      {
+        "name": "Thinking behavior",
+        "a": "May skip thinking entirely for simple problems",
+        "b": "Almost always engages thinking"
+      },
+      {
+        "name": "Tool calls",
+        "a": "Tends to make fewer tool calls",
+        "b": "Calls tools as needed without holding back"
+      },
+      {
+        "name": "Response length",
+        "a": "More concise",
+        "b": "More detailed and thorough"
+      },
+      {
+        "name": "Best for",
+        "a": "Classification, extraction, simple Q&A",
+        "b": "Reasoning, analysis, complex coding"
+      },
+      {
+        "name": "Default behavior",
+        "a": "Must be set explicitly",
+        "b": "high is the default (same as omitting effort)"
+      }
+    ]
+  },
+  "relatedIds": [
+    "effort-parameter-concept"
+  ],
+  "relationType": "extends"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "swe-bench-agent-scaffold-design",
+  "type": "architecture",
+  "title": "SWE-bench Agent 架构：最小脚手架 + 两个工具",
+  "title_en": "SWE-bench Agent Architecture: Minimal Scaffold with Two Tools",
+  "source": "https://www.anthropic.com/engineering/swe-bench-sonnet",
+  "tags": [
+    "agent",
+    "architecture",
+    "scaffold"
+  ],
+  "readingMinutes": 3,
+  "body": {
+    "overview": "Anthropic 为 Claude 3.5 Sonnet 设计的 SWE-bench Agent 刻意保持最小化：一个 prompt、一个 Bash 工具、一个 Edit 工具。设计原则是把控制权交给模型，让模型自己决定如何解题，而不是用脚手架把流程硬编码死。",
+    "components": [
+      {
+        "name": "Prompt",
+        "role": "描述任务背景和建议步骤，但不强制每步的具体做法"
+      },
+      {
+        "name": "Bash Tool",
+        "role": "执行任意 bash 命令：搜索代码、运行测试、复现错误"
+      },
+      {
+        "name": "Edit Tool",
+        "role": "查看和编辑文件与目录"
+      },
+      {
+        "name": "采样循环",
+        "role": "持续采样直到模型决定完成，或超出 200k context 上限"
+      }
+    ],
+    "flow": "1. 收到 PR 描述和仓库路径。2. 模型自主探索仓库结构（Bash）。3. 写脚本复现错误并运行（Bash）。4. 修改源码（Edit）。5. 重新运行复现脚本验证修复（Bash）。6. 考虑边界情况，继续修改直到满意。7. 模型主动宣告完成，循环终止。"
+  },
+  "body_en": {
+    "overview": "Anthropic's SWE-bench agent for Claude 3.5 Sonnet is intentionally minimal: one prompt, one Bash tool, one Edit tool. The design philosophy is to give the model maximum control — let it decide how to approach the problem rather than hardcoding a rigid workflow in the scaffold.",
+    "components": [
+      {
+        "name": "Prompt",
+        "role": "Describes the task and suggests steps, but doesn't enforce strict transitions"
+      },
+      {
+        "name": "Bash Tool",
+        "role": "Execute any bash command: search code, run tests, reproduce errors"
+      },
+      {
+        "name": "Edit Tool",
+        "role": "View and edit files and directories"
+      },
+      {
+        "name": "Sampling loop",
+        "role": "Keep sampling until the model decides it's done or hits the 200k context limit"
+      }
+    ],
+    "flow": "1. Receive PR description and repo path. 2. Model explores repo structure (Bash). 3. Write and run a script to reproduce the error (Bash). 4. Modify source code (Edit). 5. Re-run reproduce script to verify the fix (Bash). 6. Handle edge cases, continue iterating. 7. Model announces completion, loop exits."
+  },
+  "relatedIds": [
+    "swe-bench-what-it-is",
+    "swe-bench-tool-description-weight"
+  ],
+  "relationType": "extends"
+}
