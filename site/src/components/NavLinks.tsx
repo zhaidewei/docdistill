@@ -5,6 +5,9 @@ export default function NavLinks({ activePage }: { activePage: string }) {
   const items = [
     { id: "cards", href: "/cards", key: "nav.cards" as const },
     { id: "graph", href: "/graph", key: "nav.graph" as const },
+    { id: "swipe", href: "/swipe", key: "nav.swipe" as const },
+    { id: "starred", href: "/starred", key: "nav.starred" as const },
+    { id: "reported", href: "/reported", key: "nav.reported" as const },
   ];
 
   return (

@@ -9,6 +9,7 @@ describe("NavLinks", () => {
 
     expect(screen.getByRole("link", { name: "Cards" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Graph" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Swipe" })).toBeInTheDocument();
   });
 
   it("marks the active link with the active style", () => {
