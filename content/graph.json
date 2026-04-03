@@ -92,34 +92,6 @@
       "cardCount": 7
     },
     {
-      "id": "agentic-loop-architecture",
-      "label": "The agentic loop: request → tool_use → tool_result → repeat",
-      "group": "tool-use",
-      "type": "architecture",
-      "cardCount": 27
-    },
-    {
-      "id": "agents-simple-patterns-over-frameworks",
-      "label": "Agents = LLM + tools in a loop, not frameworks",
-      "group": "agents",
-      "type": "concept-model",
-      "cardCount": 2
-    },
-    {
-      "id": "anthropic-schema-tools-trained-in",
-      "label": "Why use Anthropic-schema tools instead of custom equivalents",
-      "group": "tool-use",
-      "type": "problem-solution",
-      "cardCount": 27
-    },
-    {
-      "id": "augmented-llm-building-block",
-      "label": "The augmented LLM: foundation of all agent patterns",
-      "group": "augmented-llm",
-      "type": "architecture",
-      "cardCount": 1
-    },
-    {
       "id": "bash-tool-persistent-shell-session",
       "label": "Bash tool：agent 的持久 Shell 会话",
       "group": "bash-tool",
@@ -138,28 +110,14 @@
       "label": "缓存 token 比未缓存便宜 90%",
       "group": "prompt-caching",
       "type": "fact",
-      "cardCount": 6
-    },
-    {
-      "id": "claude-api-feature-availability",
-      "label": "API 功能的 4 种状态：Beta → GA → Deprecated → Retired",
-      "group": "api-surface",
-      "type": "comparison",
-      "cardCount": 4
-    },
-    {
-      "id": "claude-api-surface-five-areas",
-      "label": "Claude API 的 5 大区域",
-      "group": "api-surface",
-      "type": "architecture",
-      "cardCount": 4
+      "cardCount": 5
     },
     {
       "id": "claude-decides-tools-never-executes",
       "label": "Claude 只决策不执行：tool use 的安全边界",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "claude-model-api-ids",
@@ -173,56 +131,28 @@
       "label": "Claude 模型能力分层：一个选型心智模型",
       "group": "model-selection",
       "type": "concept-model",
-      "cardCount": 3
-    },
-    {
-      "id": "claude-model-haiku-fast-tier",
-      "label": "Haiku: the speed-first model",
-      "group": "claude-models",
-      "type": "fact",
-      "cardCount": 1
-    },
-    {
-      "id": "claude-model-ids-by-platform",
-      "label": "Find the right Claude model ID for your platform",
-      "group": "claude-api",
-      "type": "how-to",
-      "cardCount": 1
-    },
-    {
-      "id": "claude-models-api-discovery",
-      "label": "用 Models API 查询模型支持的能力",
-      "group": "api-surface",
-      "type": "how-to",
-      "cardCount": 4
+      "cardCount": 2
     },
     {
       "id": "claude-optimize-own-tool-descriptions",
       "label": "让 Claude 用 Claude 优化自己的工具描述",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
-    },
-    {
-      "id": "claude-text-capabilities-overview",
-      "label": "Claude's eight text capabilities at a glance",
-      "group": "text-generation",
-      "type": "concept-model",
-      "cardCount": 1
+      "cardCount": 22
     },
     {
       "id": "client-tool-response-structure",
       "label": "tool_use 与 tool_result 的 ID 配对机制",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "client-tools-vs-server-tools",
       "label": "Client tools 与 server tools 的区别",
       "group": "tool-use",
       "type": "comparison",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "code-execution-free-with-web-tools",
@@ -285,56 +215,28 @@
       "label": "Context Rot：越长越不准",
       "group": "context-window",
       "type": "problem-solution",
-      "cardCount": 6
-    },
-    {
-      "id": "context-rot-more-isnt-better",
-      "label": "Context rot: why stuffing the context window hurts accuracy",
-      "group": "context-window",
-      "type": "problem-solution",
-      "cardCount": 6
-    },
-    {
-      "id": "context-window-fact",
-      "label": "Claude 的 Context Window",
-      "group": "model",
-      "type": "fact",
-      "cardCount": 1
-    },
-    {
-      "id": "context-window-is-working-memory",
-      "label": "Context window is Claude's working memory, not its knowledge",
-      "group": "context-window",
-      "type": "concept-model",
-      "cardCount": 6
-    },
-    {
-      "id": "context-window-token-accounting",
-      "label": "How tokens fill the context window: input + output = total",
-      "group": "context-window",
-      "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 3
     },
     {
       "id": "context-window-token-math",
       "label": "Token 计算：输入 + 输出 = 总量",
       "group": "context-window",
       "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 3
     },
     {
       "id": "context-window-working-memory",
       "label": "Context Window：模型的工作记忆",
       "group": "context-window",
       "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 3
     },
     {
       "id": "disable-parallel-tool-use",
       "label": "用 disable_parallel_tool_use 限制为单次工具调用",
       "group": "tool-use",
       "type": "how-to",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "effective-context-smallest-highest-signal",
@@ -407,20 +309,6 @@
       "cardCount": 6
     },
     {
-      "id": "five-agentic-workflow-patterns",
-      "label": "Five workflow patterns from simple to complex",
-      "group": "workflows",
-      "type": "architecture",
-      "cardCount": 2
-    },
-    {
-      "id": "frameworks-understand-the-code-beneath",
-      "label": "Frameworks hide prompts — understand what's underneath",
-      "group": "frameworks",
-      "type": "problem-solution",
-      "cardCount": 1
-    },
-    {
       "id": "hallucination-advanced-verification-techniques",
       "label": "三种高级反幻觉验证技术对比",
       "group": "hallucination",
@@ -446,14 +334,14 @@
       "label": "处理一次响应中的多个 tool_use 块",
       "group": "tool-use",
       "type": "how-to",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "handle-tool-use-response-lifecycle",
       "label": "读取 tool_use 块并构造 tool_result 响应",
       "group": "tool-use",
       "type": "how-to",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "long-running-agent-harness-architecture",
@@ -505,13 +393,6 @@
       "cardCount": 4
     },
     {
-      "id": "model-capabilities-vs-tools-vs-infra",
-      "label": "能力 vs 工具 vs 基础设施：三层理解 Claude API",
-      "group": "api-surface",
-      "type": "concept-model",
-      "cardCount": 4
-    },
-    {
       "id": "multi-agent-performance-gains",
       "label": "多 Agent 系统的性能优势：数据说话",
       "group": "multi-agent",
@@ -544,14 +425,7 @@
       "label": "Opus vs Sonnet vs Haiku：何时选用哪个模型",
       "group": "model-selection",
       "type": "comparison",
-      "cardCount": 3
-    },
-    {
-      "id": "opus-sonnet-haiku-when-to-use",
-      "label": "Opus vs Sonnet vs Haiku: when to use each",
-      "group": "model-selection",
-      "type": "comparison",
-      "cardCount": 3
+      "cardCount": 2
     },
     {
       "id": "orchestrator-delegation-clarity",
@@ -566,41 +440,6 @@
       "group": "output-format",
       "type": "problem-solution",
       "cardCount": 2
-    },
-    {
-      "id": "pattern-evaluator-optimizer",
-      "label": "Evaluator-optimizer: generate then critique in a loop",
-      "group": "evaluator",
-      "type": "concept-model",
-      "cardCount": 1
-    },
-    {
-      "id": "pattern-orchestrator-workers",
-      "label": "Orchestrator-workers: when subtasks are unpredictable",
-      "group": "orchestrator",
-      "type": "concept-model",
-      "cardCount": 1
-    },
-    {
-      "id": "pattern-parallelization",
-      "label": "Parallelization: sectioning vs voting",
-      "group": "parallelization",
-      "type": "comparison",
-      "cardCount": 1
-    },
-    {
-      "id": "pattern-prompt-chaining",
-      "label": "Prompt chaining: trade latency for accuracy",
-      "group": "prompt-chaining",
-      "type": "how-to",
-      "cardCount": 1
-    },
-    {
-      "id": "pattern-routing",
-      "label": "Routing: one prompt can't serve all input types",
-      "group": "routing",
-      "type": "problem-solution",
-      "cardCount": 1
     },
     {
       "id": "pause-turn-continuation-server-tools",
@@ -635,35 +474,28 @@
       "label": "自动缓存 vs 显式缓存断点",
       "group": "prompt-caching",
       "type": "comparison",
-      "cardCount": 6
+      "cardCount": 5
     },
     {
       "id": "prompt-caching-prefix-ordering-matters",
       "label": "缓存未命中？检查 prompt 中内容的顺序",
       "group": "prompt-caching",
       "type": "problem-solution",
-      "cardCount": 6
+      "cardCount": 5
     },
     {
       "id": "prompt-caching-prefix-resume-concept",
       "label": "Prompt caching：从前缀恢复，省钱省时间",
       "group": "prompt-caching",
       "type": "concept-model",
-      "cardCount": 6
+      "cardCount": 5
     },
     {
       "id": "prompt-caching-set-cache-breakpoints",
       "label": "设置 cache_control 启用 prompt caching",
       "group": "prompt-caching",
       "type": "how-to",
-      "cardCount": 6
-    },
-    {
-      "id": "prompt-caching-vs-context",
-      "label": "Prompt Caching vs Context Window",
-      "group": "prompt-caching",
-      "type": "comparison",
-      "cardCount": 6
+      "cardCount": 5
     },
     {
       "id": "prompt-chain-of-thought",
@@ -692,13 +524,6 @@
       "group": "prompt-engineering",
       "type": "how-to",
       "cardCount": 8
-    },
-    {
-      "id": "prompt-natural-language-with-detail",
-      "label": "Write effective prompts using natural language with detail",
-      "group": "prompting",
-      "type": "how-to",
-      "cardCount": 1
     },
     {
       "id": "prompt-system-vs-user-message",
@@ -771,27 +596,6 @@
       "cardCount": 2
     },
     {
-      "id": "structured-outputs-json-how-to",
-      "label": "Get guaranteed JSON output with output_config",
-      "group": "structured-outputs",
-      "type": "how-to",
-      "cardCount": 3
-    },
-    {
-      "id": "structured-outputs-two-modes",
-      "label": "Two structured output modes: JSON outputs vs strict tool use",
-      "group": "structured-outputs",
-      "type": "concept-model",
-      "cardCount": 3
-    },
-    {
-      "id": "structured-outputs-vs-prompt-json",
-      "label": "Structured outputs vs prompt-based JSON extraction",
-      "group": "structured-outputs",
-      "type": "comparison",
-      "cardCount": 3
-    },
-    {
       "id": "swe-bench-agent-scaffold-design",
       "label": "SWE-bench Agent 架构：最小脚手架 + 两个工具",
       "group": "agent",
@@ -810,7 +614,7 @@
       "label": "工具描述比 Schema 更重要",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "swe-bench-what-it-is",
@@ -831,14 +635,14 @@
       "label": "Think 工具：复杂工具调用中的结构化暂停思考",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "think-tool-vs-extended-thinking",
       "label": "Think 工具 vs Extended Thinking：如何选择",
       "group": "tool-use",
       "type": "comparison",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-context-pressure-four-approaches",
@@ -852,14 +656,14 @@
       "label": "工具开发三步法：原型 → 评测 → 优化循环",
       "group": "tool-use",
       "type": "how-to",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-error-signaling-is-error",
       "label": "用 is_error: true 告知 Claude 工具执行失败",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-pairing-discover-then-act",
@@ -873,84 +677,70 @@
       "label": "tool_result 的三种 content 格式",
       "group": "tool-use",
       "type": "fact",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-runner-automatic-tool-execution",
       "label": "使用 Tool Runner 自动执行工具",
       "group": "tool-use",
       "type": "how-to",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-runner-compaction-long-running-tasks",
       "label": "Tool Runner 的自动 compaction：突破上下文窗口限制",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-runner-vs-manual-agentic-loop",
       "label": "Tool Runner 与手动 agentic loop 的对比",
       "group": "tool-use",
       "type": "comparison",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-search-reduce-upfront-definitions",
       "label": "工具太多撑爆上下文？用 Tool Search 按需加载",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 27
-    },
-    {
-      "id": "tool-use-basics",
-      "label": "让 Claude 调用外部工具",
-      "group": "tool-use",
-      "type": "problem-solution",
-      "cardCount": 27
-    },
-    {
-      "id": "tool-use-contract-typed-interface",
-      "label": "The tool-use contract: you define, Claude decides, you execute",
-      "group": "tool-use",
-      "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-use-debug-invented-parameters",
       "label": "Claude 凭空捏造工具参数 → 启用 strict mode",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-use-debug-parallel-calls-fail",
       "label": "并行 tool call 不生效 → 检查 tool_result 的发送方式",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-use-debug-wrong-tool-called",
       "label": "Claude 调错了工具 → 改进 description 的区分度",
       "group": "tool-use",
       "type": "problem-solution",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tool-use-lifecycle-four-steps",
       "label": "Tool use 生命周期：定义、调用、执行、返回",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tools-as-nondeterministic-contract",
       "label": "工具是确定性与非确定性系统之间的新型契约",
       "group": "tool-use",
       "type": "concept-model",
-      "cardCount": 27
+      "cardCount": 22
     },
     {
       "id": "tools-minimal-viable-set",
@@ -1028,27 +818,6 @@
       "group": "web-search",
       "type": "how-to",
       "cardCount": 4
-    },
-    {
-      "id": "when-not-to-use-agents",
-      "label": "When NOT to use an agent: simpler approaches first",
-      "group": "agents",
-      "type": "concept-model",
-      "cardCount": 2
-    },
-    {
-      "id": "when-tool-use-vs-prompt-only",
-      "label": "When tool use is the right approach vs prompt-only",
-      "group": "tool-use",
-      "type": "comparison",
-      "cardCount": 27
-    },
-    {
-      "id": "workflows-vs-agents-decision",
-      "label": "Workflows vs agents: predictability vs flexibility",
-      "group": "workflows",
-      "type": "comparison",
-      "cardCount": 2
     }
   ],
   "edges": [
@@ -1158,41 +927,6 @@
       "relation": "extends"
     },
     {
-      "from": "agentic-loop-architecture",
-      "to": "tool-use-contract-typed-interface",
-      "relation": "extends"
-    },
-    {
-      "from": "agentic-loop-architecture",
-      "to": "tool-use-lifecycle-four-steps",
-      "relation": "extends"
-    },
-    {
-      "from": "agents-simple-patterns-over-frameworks",
-      "to": "when-not-to-use-agents",
-      "relation": "foundational"
-    },
-    {
-      "from": "agents-simple-patterns-over-frameworks",
-      "to": "five-agentic-workflow-patterns",
-      "relation": "foundational"
-    },
-    {
-      "from": "anthropic-schema-tools-trained-in",
-      "to": "client-tools-vs-server-tools",
-      "relation": "extends"
-    },
-    {
-      "from": "anthropic-schema-tools-trained-in",
-      "to": "tool-use-contract-typed-interface",
-      "relation": "extends"
-    },
-    {
-      "from": "augmented-llm-building-block",
-      "to": "agents-simple-patterns-over-frameworks",
-      "relation": "extends"
-    },
-    {
       "from": "bash-tool-persistent-shell-session",
       "to": "tool-use-lifecycle-four-steps",
       "relation": "extends"
@@ -1218,16 +952,6 @@
       "relation": "extends"
     },
     {
-      "from": "claude-api-feature-availability",
-      "to": "claude-api-surface-five-areas",
-      "relation": "extends"
-    },
-    {
-      "from": "claude-api-surface-five-areas",
-      "to": "model-capabilities-vs-tools-vs-infra",
-      "relation": "extends"
-    },
-    {
       "from": "claude-decides-tools-never-executes",
       "to": "tool-use-lifecycle-four-steps",
       "relation": "extends"
@@ -1248,21 +972,6 @@
       "relation": "complements"
     },
     {
-      "from": "claude-model-haiku-fast-tier",
-      "to": "claude-model-capability-tiers",
-      "relation": "extends"
-    },
-    {
-      "from": "claude-model-ids-by-platform",
-      "to": "claude-model-capability-tiers",
-      "relation": "extends"
-    },
-    {
-      "from": "claude-models-api-discovery",
-      "to": "claude-api-surface-five-areas",
-      "relation": "extends"
-    },
-    {
       "from": "claude-optimize-own-tool-descriptions",
       "to": "tool-dev-prototype-eval-optimize-loop",
       "relation": "extends"
@@ -1275,11 +984,6 @@
     {
       "from": "claude-optimize-own-tool-descriptions",
       "to": "tools-as-nondeterministic-contract",
-      "relation": "extends"
-    },
-    {
-      "from": "claude-text-capabilities-overview",
-      "to": "prompt-natural-language-with-detail",
       "relation": "extends"
     },
     {
@@ -1375,21 +1079,6 @@
     {
       "from": "context-rot-curation",
       "to": "context-window-token-math",
-      "relation": "extends"
-    },
-    {
-      "from": "context-rot-more-isnt-better",
-      "to": "context-window-is-working-memory",
-      "relation": "extends"
-    },
-    {
-      "from": "context-window-is-working-memory",
-      "to": "context-window-token-accounting",
-      "relation": "extends"
-    },
-    {
-      "from": "context-window-token-accounting",
-      "to": "context-window-is-working-memory",
       "relation": "extends"
     },
     {
@@ -1493,26 +1182,6 @@
       "relation": "part-of"
     },
     {
-      "from": "five-agentic-workflow-patterns",
-      "to": "agents-simple-patterns-over-frameworks",
-      "relation": "extends"
-    },
-    {
-      "from": "five-agentic-workflow-patterns",
-      "to": "pattern-prompt-chaining",
-      "relation": "extends"
-    },
-    {
-      "from": "five-agentic-workflow-patterns",
-      "to": "pattern-routing",
-      "relation": "extends"
-    },
-    {
-      "from": "frameworks-understand-the-code-beneath",
-      "to": "agents-simple-patterns-over-frameworks",
-      "relation": "extends"
-    },
-    {
       "from": "hallucination-advanced-verification-techniques",
       "to": "hallucination-cite-quotes-ground-response",
       "relation": "extends"
@@ -1603,11 +1272,6 @@
       "relation": "extends"
     },
     {
-      "from": "model-capabilities-vs-tools-vs-infra",
-      "to": "claude-api-surface-five-areas",
-      "relation": "extends"
-    },
-    {
       "from": "multi-agent-performance-gains",
       "to": "multi-agent-research-architecture",
       "relation": "extends"
@@ -1653,11 +1317,6 @@
       "relation": "complements"
     },
     {
-      "from": "opus-sonnet-haiku-when-to-use",
-      "to": "claude-model-capability-tiers",
-      "relation": "extends"
-    },
-    {
       "from": "orchestrator-delegation-clarity",
       "to": "multi-agent-prompting-principles",
       "relation": "supports"
@@ -1676,51 +1335,6 @@
       "from": "output-consistency-three-techniques",
       "to": "prompt-few-shot-examples",
       "relation": "extends"
-    },
-    {
-      "from": "pattern-evaluator-optimizer",
-      "to": "five-agentic-workflow-patterns",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-evaluator-optimizer",
-      "to": "pattern-orchestrator-workers",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-orchestrator-workers",
-      "to": "five-agentic-workflow-patterns",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-orchestrator-workers",
-      "to": "pattern-evaluator-optimizer",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-parallelization",
-      "to": "five-agentic-workflow-patterns",
-      "relation": "extends"
-    },
-    {
-      "from": "pattern-prompt-chaining",
-      "to": "five-agentic-workflow-patterns",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-prompt-chaining",
-      "to": "pattern-routing",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-routing",
-      "to": "five-agentic-workflow-patterns",
-      "relation": "sibling"
-    },
-    {
-      "from": "pattern-routing",
-      "to": "pattern-prompt-chaining",
-      "relation": "sibling"
     },
     {
       "from": "pause-turn-continuation-server-tools",
@@ -1803,11 +1417,6 @@
       "relation": "extends"
     },
     {
-      "from": "prompt-natural-language-with-detail",
-      "to": "claude-text-capabilities-overview",
-      "relation": "supports"
-    },
-    {
       "from": "prompt-system-vs-user-message",
       "to": "prompt-clear-and-direct",
       "relation": "extends"
@@ -1865,36 +1474,6 @@
     {
       "from": "streaming-event-lifecycle",
       "to": "streaming-enable-sse-sdk",
-      "relation": "extends"
-    },
-    {
-      "from": "structured-outputs-json-how-to",
-      "to": "structured-outputs-two-modes",
-      "relation": "extends"
-    },
-    {
-      "from": "structured-outputs-json-how-to",
-      "to": "structured-outputs-vs-prompt-json",
-      "relation": "extends"
-    },
-    {
-      "from": "structured-outputs-two-modes",
-      "to": "structured-outputs-json-how-to",
-      "relation": "extends"
-    },
-    {
-      "from": "structured-outputs-two-modes",
-      "to": "structured-outputs-vs-prompt-json",
-      "relation": "extends"
-    },
-    {
-      "from": "structured-outputs-vs-prompt-json",
-      "to": "structured-outputs-two-modes",
-      "relation": "extends"
-    },
-    {
-      "from": "structured-outputs-vs-prompt-json",
-      "to": "structured-outputs-json-how-to",
       "relation": "extends"
     },
     {
@@ -2020,16 +1599,6 @@
     {
       "from": "tool-search-reduce-upfront-definitions",
       "to": "tools-minimal-viable-set",
-      "relation": "extends"
-    },
-    {
-      "from": "tool-use-contract-typed-interface",
-      "to": "claude-decides-tools-never-executes",
-      "relation": "extends"
-    },
-    {
-      "from": "tool-use-contract-typed-interface",
-      "to": "tool-use-lifecycle-four-steps",
       "relation": "extends"
     },
     {
@@ -2175,31 +1744,6 @@
     {
       "from": "web-search-tool-enable-and-usage",
       "to": "web-search-dynamic-filtering",
-      "relation": "extends"
-    },
-    {
-      "from": "when-not-to-use-agents",
-      "to": "agents-simple-patterns-over-frameworks",
-      "relation": "extends"
-    },
-    {
-      "from": "when-tool-use-vs-prompt-only",
-      "to": "tool-use-contract-typed-interface",
-      "relation": "extends"
-    },
-    {
-      "from": "when-tool-use-vs-prompt-only",
-      "to": "agentic-loop-architecture",
-      "relation": "extends"
-    },
-    {
-      "from": "workflows-vs-agents-decision",
-      "to": "when-not-to-use-agents",
-      "relation": "extends"
-    },
-    {
-      "from": "workflows-vs-agents-decision",
-      "to": "five-agentic-workflow-patterns",
       "relation": "extends"
     }
   ]
