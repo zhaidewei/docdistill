@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Graph, Card, GraphNode } from "../lib/types";
-import { useLang, t } from "../lib/i18n";
+import { useLang, t, cardTitle } from "../lib/i18n";
 
 const RELATION_COLORS: Record<string, string> = {
   requires: "#f97316",
@@ -19,14 +19,35 @@ interface SimNode extends GraphNode {
 export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: Card[] }) {
   const [lang] = useLang();
   const svgRef = useRef<SVGSVGElement>(null);
+  const textSelRef = useRef<any>(null);
+  const d3Ref = useRef<typeof import("d3") | null>(null);
   const [selected, setSelected] = useState<SimNode | null>(null);
+
+  // Build a lookup: card id → Card for bilingual titles
+  const cardMap = new Map(cards.map((c) => [c.id, c]));
+
+  function getNodeLabel(nodeId: string): string {
+    const card = cardMap.get(nodeId);
+    if (card) return cardTitle(card, lang);
+    // fallback to graph node label
+    const node = graph.nodes.find((n) => n.id === nodeId);
+    return node?.label || nodeId;
+  }
 
   useEffect(() => {
     if (!svgRef.current) return;
     import("d3").then((d3) => {
+      d3Ref.current = d3;
       renderGraph(d3);
     });
   }, []);
+
+  // Update text labels when lang changes
+  useEffect(() => {
+    if (textSelRef.current) {
+      textSelRef.current.text((d: SimNode) => getNodeLabel(d.id));
+    }
+  }, [lang]);
 
   function renderGraph(d3: typeof import("d3")) {
     const svg = d3.select(svgRef.current!);
@@ -87,12 +108,13 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       .attr("stroke", "#f97316")
       .attr("stroke-width", 1.5);
 
-    node.append("text")
-      .text((d) => d.label)
+    const texts = node.append("text")
+      .text((d) => getNodeLabel(d.id))
       .attr("text-anchor", "middle")
       .attr("dy", "0.35em")
       .attr("fill", "white")
       .attr("font-size", "11px");
+    textSelRef.current = texts;
 
     node.on("click", (event: any, d: SimNode) => {
       setSelected(d);
@@ -114,12 +136,12 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
 
   const requires = relatedEdges
     .filter((e) => e.to === selected?.id && e.relation === "requires")
-    .map((e) => graph.nodes.find((n) => n.id === e.from)?.label)
+    .map((e) => getNodeLabel(e.from))
     .filter(Boolean);
 
   const extends_ = relatedEdges
     .filter((e) => e.from === selected?.id && e.relation === "extends")
-    .map((e) => graph.nodes.find((n) => n.id === e.to)?.label)
+    .map((e) => getNodeLabel(e.to))
     .filter(Boolean);
 
   return (
@@ -128,7 +150,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
       {selected && (
         <div class="absolute top-4 right-4 w-56 bg-black/80 border border-accent-orange/30 rounded-lg p-4 text-sm">
           <div class="text-[11px] text-accent-orange tracking-wider mb-1">{t("graph.selectedNode", lang)}</div>
-          <div class="font-medium text-base mb-2">{selected.label}</div>
+          <div class="font-medium text-base mb-2">{getNodeLabel(selected.id)}</div>
           <div class="text-gray-500 text-xs mb-3">{selected.cardCount} {t("graph.cards", lang)} · {selected.group}</div>
           {requires.length > 0 && (
             <div class="text-gray-400 text-xs mb-1">
