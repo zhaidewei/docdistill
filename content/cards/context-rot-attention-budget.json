@@ -11,17 +11,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "Context rot 是指随着 context window 中 token 数量增加，模型准确回忆信息的能力反而下降。原因在于 transformer 架构让每个 token 都与其他 token 交互，产生 n² 个配对关系。context 增长时，模型捕捉这些关系的能力被稀释。此外，模型在训练时更多接触短序列，对长距离依赖的参数较少。结果是性能梯度式下降——不是断崖，而是在更长 context 下检索和推理精度逐渐降低。",
-    "analogy": "就像人类的工作记忆：你大约能同时记住 7 个条目。让一个人记 50 个条目，他不会全忘——但准确率稳步下降。LLM 也有类似的「注意力预算」。每个新 token 都在消耗这份预算，因此精心策展至关重要。",
-    "visual": "一张图表：x 轴是「context 中的 token 数」，y 轴是「回忆准确率」。曲线从高处缓慢下降——是梯度而非断崖。一条虚线竖线标注「收益递减区域」。"
+    "analogy": "就像人类的工作记忆：你大约能同时记住 7 个条目。让一个人记 50 个条目，他不会全忘——但准确率稳步下降。LLM 也有类似的「注意力预算」。每个新 token 都在消耗这份预算，因此精心策展至关重要。"
   },
   "body_en": {
     "concept": "Context rot means that as the number of tokens in the context window increases, the model's ability to accurately recall information decreases. Transformers let every token attend to every other token, creating n² pairwise relationships. As context grows, the model's ability to capture these relationships gets stretched thin. Models also trained more on shorter sequences, so they have fewer specialized parameters for long-range dependencies. The result is a performance gradient—not a hard cliff, but reduced precision for retrieval and reasoning at longer contexts.",
-    "analogy": "Like human working memory: you can hold about 7 items in your head at once. Ask someone to remember 50 items, and they won't forget everything—but accuracy drops steadily. LLMs have a similar 'attention budget'. Every new token depletes it, making careful curation essential.",
-    "visual": "A graph with x-axis 'tokens in context' and y-axis 'recall accuracy'. The line starts high and slopes gently downward—a gradient, not a cliff. A dotted vertical line marks 'diminishing returns zone'."
+    "analogy": "Like human working memory: you can hold about 7 items in your head at once. Ask someone to remember 50 items, and they won't forget everything—but accuracy drops steadily. LLMs have a similar 'attention budget'. Every new token depletes it, making careful curation essential."
   },
   "relatedIds": [
     "context-engineering-curating-what-model-sees",
     "system-prompt-right-altitude"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "```\nflowchart LR\n    A([High Recall]) -->|gentle slope| B[Moderate Recall]\n    B --> DRZ{Diminishing Returns Zone}\n    DRZ -->|minimal gain| C([Lower Recall])\n\n    T1[Few Tokens in Context] -.->|x-axis| T2[Many Tokens in Context]\n```"
 }

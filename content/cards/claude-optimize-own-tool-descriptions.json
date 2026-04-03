@@ -12,18 +12,17 @@
   "readingMinutes": 3,
   "body": {
     "concept": "工具描述是 Agent 理解「这个工具是干什么的、何时该用它」的唯一线索。写得差，Agent 会误用或忽略工具。核心思路：让评测 Agent 在解任务时输出对工具的反馈，再让 Claude Code 读取这些反馈、重写工具描述，最后重跑评测验证提升效果。这形成了自我优化闭环——用同一个模型来评估并改进它自己的工具接口。",
-    "analogy": "就像让一位新员工（Agent）在使用公司内部系统时随手记下「这个按钮不清楚」「这个流程太隐蔽」的反馈，再让有经验的工程师（Claude Code）根据这些真实反馈重写操作手册。",
-    "visual": "评测 Agent 解任务 → 输出 [结果 + 工具反馈] → Claude Code 分析反馈 → 重写工具描述/设计 → 重跑评测 → 性能提升 → 循环"
+    "analogy": "就像让一位新员工（Agent）在使用公司内部系统时随手记下「这个按钮不清楚」「这个流程太隐蔽」的反馈，再让有经验的工程师（Claude Code）根据这些真实反馈重写操作手册。"
   },
   "body_en": {
     "concept": "Tool descriptions are the only signal agents have for understanding what a tool does and when to use it. Poor descriptions lead to misuse or the tool being ignored. The key insight: have evaluation agents emit feedback about tools while solving tasks, then have Claude Code read that feedback and rewrite tool descriptions, then re-run evals to confirm improvement. This creates a self-optimization loop — using the same model to evaluate and improve its own tool interfaces.",
-    "analogy": "Like having a new employee (agent) jot down \"this button is confusing\" or \"this workflow is too hidden\" while using internal systems, then having an experienced engineer (Claude Code) rewrite the manual based on that real-world feedback.",
-    "visual": "Eval agent solves tasks → emits [results + tool feedback] → Claude Code analyzes feedback → rewrites tool descriptions/design → re-runs eval → performance improves → repeat"
+    "analogy": "Like having a new employee (agent) jot down \"this button is confusing\" or \"this workflow is too hidden\" while using internal systems, then having an experienced engineer (Claude Code) rewrite the manual based on that real-world feedback."
   },
   "relatedIds": [
     "tool-dev-prototype-eval-optimize-loop",
     "programmatic-eval-agentic-loop",
     "tools-as-nondeterministic-contract"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([Eval Agent]) --> B[Solve Tasks]\n    B --> C[Emit Results & Tool Feedback]\n    C --> D[Claude Code Analyzes Feedback]\n    D --> E[Rewrite Tool Descriptions]\n    E --> F[Re-run Eval]\n    F --> G{Performance Improved?}\n    G -->|yes| H([Done])\n    G -->|no| D"
 }

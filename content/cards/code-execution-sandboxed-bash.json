@@ -12,17 +12,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "Code execution 是一个 server tool，让 Claude 在安全的沙箱中运行 Bash 命令。它能做数据分析、生成可视化图表、执行复杂计算、操作文件。Claude 自己写代码、自己执行、自己读取结果——开发者不需要搭建任何运行环境",
-    "analogy": "就像给 Claude 配了一台只能在隔离房间里使用的电脑。它可以在里面自由编程和计算，但无法访问外部网络或你的真实系统。你只需要把数据送进去，拿结果出来",
-    "visual": "用户请求 → Claude 决定需要执行代码 → 沙箱中运行 Bash（Python/shell 等）→ 结果返回给 Claude → Claude 整合结果回复用户"
+    "analogy": "就像给 Claude 配了一台只能在隔离房间里使用的电脑。它可以在里面自由编程和计算，但无法访问外部网络或你的真实系统。你只需要把数据送进去，拿结果出来"
   },
   "body_en": {
     "concept": "Code execution is a server tool that lets Claude run Bash commands in a secure sandbox. It can analyze data, create visualizations, perform complex calculations, and manipulate files. Claude writes code, executes it, and reads the results — developers don't need to set up any runtime environment",
-    "analogy": "It's like giving Claude a computer that only works in an isolated room. It can freely code and compute inside, but can't access external networks or your real system. You just send data in and get results out",
-    "visual": "User request → Claude decides code is needed → Runs Bash in sandbox (Python/shell etc.) → Results return to Claude → Claude integrates results into response"
+    "analogy": "It's like giving Claude a computer that only works in an isolated room. It can freely code and compute inside, but can't access external networks or your real system. You just send data in and get results out"
   },
   "relatedIds": [
     "client-tools-vs-server-tools",
     "code-execution-free-with-web-tools"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([User request]) --> B[Claude decides code needed]\n    B --> C[Runs Bash in sandbox]\n    C --> D[Results return to Claude]\n    D --> E([Claude integrates into response])"
 }

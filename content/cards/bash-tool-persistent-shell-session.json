@@ -12,17 +12,16 @@
   "readingMinutes": 3,
   "body": {
     "concept": "Bash tool 让 Claude 在一个持久的 bash 会话中执行 shell 命令。\"持久\"意味着会话状态（环境变量、工作目录、变量赋值）在多次命令调用之间保持不变。它是 server tool（由 Anthropic 托管执行），你不需要自己运行命令——只需在 API 请求中声明这个工具，Claude 会自动决定何时使用它。它提供四项核心能力：持久会话状态、运行任意 shell 命令、访问环境变量和工作目录、命令链式调用和脚本编写。",
-    "analogy": "想象给 Claude 一台远程电脑的 SSH 终端。Claude 可以 cd 到某个目录、设环境变量、运行脚本——下一次调用时这些状态还在，就像你自己开着终端窗口一样。和 client tool（你在本地执行）不同，这个终端由 Anthropic 管理。",
-    "visual": "API 请求 [tools: bash_tool] → Claude 决定运行命令 → Anthropic 服务器执行 shell → 结果返回 Claude → Claude 可链式继续执行更多命令 → 最终回答用户。整个过程中 shell 会话保持不变。"
+    "analogy": "想象给 Claude 一台远程电脑的 SSH 终端。Claude 可以 cd 到某个目录、设环境变量、运行脚本——下一次调用时这些状态还在，就像你自己开着终端窗口一样。和 client tool（你在本地执行）不同，这个终端由 Anthropic 管理。"
   },
   "body_en": {
     "concept": "The Bash tool lets Claude execute shell commands in a persistent bash session. 'Persistent' means session state — environment variables, working directory, variable assignments — survives across multiple tool calls. It's a server tool (hosted and executed by Anthropic), so you don't run the commands yourself — just declare the tool in your API request, and Claude decides when to use it. Four core capabilities: persistent session state, arbitrary shell commands, access to env vars and working directory, and command chaining/scripting.",
-    "analogy": "Imagine giving Claude an SSH terminal to a remote machine. Claude can cd into directories, set env vars, run scripts — and on the next call, all that state is still there, just like leaving a terminal window open. Unlike a client tool (where you execute locally), this terminal is managed by Anthropic.",
-    "visual": "API request [tools: bash_tool] → Claude decides to run command → Anthropic server executes shell → result returns to Claude → Claude can chain more commands → final answer to user. The shell session persists throughout."
+    "analogy": "Imagine giving Claude an SSH terminal to a remote machine. Claude can cd into directories, set env vars, run scripts — and on the next call, all that state is still there, just like leaving a terminal window open. Unlike a client tool (where you execute locally), this terminal is managed by Anthropic."
   },
   "relatedIds": [
     "tool-use-lifecycle-four-steps",
     "client-tools-vs-server-tools"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A([API Request\\nbash_tool enabled]) --> B[Claude decides\\nto run command]\n    B --> C[Anthropic server\\nexecutes shell]\n    C --> D[Result returns\\nto Claude]\n    D --> E{More commands\\nneeded?}\n    E -->|yes| B\n    E -->|no| F([Final answer\\nto user])\n    C -.->|session persists| C"
 }

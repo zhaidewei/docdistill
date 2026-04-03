@@ -11,16 +11,15 @@
   "readingMinutes": 2,
   "body": {
     "concept": "Claude 可能在一次响应中发出多个 tool_use 请求，每个请求都有唯一的 id。你必须为每个请求返回一个 tool_result，通过 tool_use_id 字段精确配对。这是一个请求-响应配对协议。",
-    "analogy": "就像餐厅的点单系统：每道菜（tool_use）有一个唯一单号（id），厨房做完后必须把菜放在对应单号的托盘上（tool_result.tool_use_id），服务员才能把菜送到正确的桌子。如果单号搞混，菜就送错桌了。",
-    "visual": "Claude → [tool_use id:A, tool_use id:B] → 你的代码执行两个工具 → [tool_result tool_use_id:A, tool_result tool_use_id:B] → Claude"
+    "analogy": "就像餐厅的点单系统：每道菜（tool_use）有一个唯一单号（id），厨房做完后必须把菜放在对应单号的托盘上（tool_result.tool_use_id），服务员才能把菜送到正确的桌子。如果单号搞混，菜就送错桌了。"
   },
   "body_en": {
     "concept": "Claude may issue multiple tool_use requests in a single response, each with a unique id. You must return a tool_result for each, matched precisely via the tool_use_id field. This is a request-response pairing protocol.",
-    "analogy": "Like a restaurant order system: each dish (tool_use) has a unique order number (id). The kitchen must place the finished dish on the tray matching that order number (tool_result.tool_use_id). If numbers get mixed up, dishes go to the wrong table.",
-    "visual": "Claude → [tool_use id:A, tool_use id:B] → Your code executes both tools → [tool_result tool_use_id:A, tool_result tool_use_id:B] → Claude"
+    "analogy": "Like a restaurant order system: each dish (tool_use) has a unique order number (id). The kitchen must place the finished dish on the tray matching that order number (tool_result.tool_use_id). If numbers get mixed up, dishes go to the wrong table."
   },
   "relatedIds": [
     "handle-tool-use-response-lifecycle"
   ],
-  "relationType": "supplements"
+  "relationType": "supplements",
+  "diagram": "```\nflowchart LR\n    A([Claude]) --> B[tool_use id:A]\n    A --> C[tool_use id:B]\n    B --> D[Execute both tools]\n    C --> D\n    D --> E[tool_result id:A]\n    D --> F[tool_result id:B]\n    E --> G([Claude])\n    F --> G\n```"
 }

@@ -11,16 +11,15 @@
   "readingMinutes": 2,
   "body": {
     "concept": "Claude 模型家族按「智能-速度」谱系排列：Opus 在智能端，Haiku 在速度端，Sonnet 居中。所有模型共享相同的基础能力（文本/图像输入、多语言、视觉理解），区别在于推理深度和响应速度。",
-    "analogy": "像汽车的挡位：Opus 是低挡（扭矩大、爬陡坡用），Haiku 是高挡（高速巡航、省油），Sonnet 是中间挡位，覆盖大多数路况。选错挡位不会抛锚，但会浪费动力或速度。",
-    "visual": "一条水平轴，左端标「最高智能 / Opus」，右端标「最快速度 / Haiku」，中间标「平衡 / Sonnet」。轴上方标注：所有模型共享 — 文本+图像输入、多语言、视觉。"
+    "analogy": "像汽车的挡位：Opus 是低挡（扭矩大、爬陡坡用），Haiku 是高挡（高速巡航、省油），Sonnet 是中间挡位，覆盖大多数路况。选错挡位不会抛锚，但会浪费动力或速度。"
   },
   "body_en": {
     "concept": "The Claude model family is arranged on an intelligence-speed spectrum: Opus at the intelligence end, Haiku at the speed end, Sonnet in the middle. All models share the same base capabilities (text/image input, multilingual, vision) — they differ in reasoning depth and response speed.",
-    "analogy": "Think of car gears: Opus is low gear (maximum torque for steep hills), Haiku is high gear (highway cruising, fuel-efficient), and Sonnet is mid gear covering most driving conditions. Using the wrong gear won't break the car, but you'll waste either power or speed.",
-    "visual": "A horizontal axis: left end labeled 'Highest Intelligence / Opus', right end 'Fastest Speed / Haiku', middle 'Balanced / Sonnet'. Above the axis: 'Shared by all — text+image input, multilingual, vision'."
+    "analogy": "Think of car gears: Opus is low gear (maximum torque for steep hills), Haiku is high gear (highway cruising, fuel-efficient), and Sonnet is mid gear covering most driving conditions. Using the wrong gear won't break the car, but you'll waste either power or speed."
   },
   "relatedIds": [
     "opus-sonnet-haiku-comparison"
   ],
-  "relationType": "complements"
+  "relationType": "complements",
+  "diagram": "```\nflowchart LR\n    shared[\"Shared by all —\\ntext+image, multilingual, vision\"]\n    opus([Highest Intelligence / Opus])\n    sonnet[Balanced / Sonnet]\n    haiku([Fastest Speed / Haiku])\n\n    opus --> sonnet --> haiku\n    shared -.-> opus\n    shared -.-> sonnet\n    shared -.-> haiku\n```"
 }

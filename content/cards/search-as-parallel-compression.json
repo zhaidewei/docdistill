@@ -12,16 +12,15 @@
   "readingMinutes": 2,
   "body": {
     "concept": "搜索的本质是「压缩」——从海量语料中提炼洞见。子 Agent 的作用是「并行过滤器」：每个子 Agent 独立探索问题的某个维度，将各自上下文窗口中最重要的 token 压缩后汇报给主 Agent。这样既实现了并行，也做到了关注点分离（不同工具、不同探索路径），减少了路径依赖。",
-    "analogy": "就像一个研究团队：团队负责人（LeadResearcher）把大课题拆分给多位专家，每位专家深入研究自己的方向，最后各自写一份简报交给负责人综合。负责人不需要亲自读所有原始资料，只需要整合专家的提炼成果。",
-    "visual": "用户问题 → LeadResearcher（分解） → [子Agent-A: 方向1] [子Agent-B: 方向2] [子Agent-C: 方向3] → 各自压缩 → LeadResearcher（综合） → 最终答案"
+    "analogy": "就像一个研究团队：团队负责人（LeadResearcher）把大课题拆分给多位专家，每位专家深入研究自己的方向，最后各自写一份简报交给负责人综合。负责人不需要亲自读所有原始资料，只需要整合专家的提炼成果。"
   },
   "body_en": {
     "concept": "The essence of search is compression: distilling insights from a vast corpus. Subagents act as parallel filters—each one independently explores a slice of the problem, compresses the most important information from its context window, and reports back to the lead agent. This achieves parallelism and separation of concerns (distinct tools and exploration paths), which reduces path dependency.",
-    "analogy": "Like a research team: the lead researcher breaks a big question into domains and assigns each to a specialist. Each specialist dives deep, then writes a brief summary for the lead to synthesize. The lead doesn't read every source directly—they integrate the compressed expertise from each specialist.",
-    "visual": "User query → LeadResearcher (decompose) → [SubAgent-A: angle 1] [SubAgent-B: angle 2] [SubAgent-C: angle 3] → each compresses findings → LeadResearcher (synthesize) → final answer"
+    "analogy": "Like a research team: the lead researcher breaks a big question into domains and assigns each to a specialist. Each specialist dives deep, then writes a brief summary for the lead to synthesize. The lead doesn't read every source directly—they integrate the compressed expertise from each specialist."
   },
   "relatedIds": [
     "multi-agent-research-architecture"
   ],
-  "relationType": "supports"
+  "relationType": "supports",
+  "diagram": "flowchart LR\n    A([User Query]) --> B[LeadResearcher: decompose]\n    B --> C[SubAgent-A: angle 1]\n    B --> D[SubAgent-B: angle 2]\n    B --> E[SubAgent-C: angle 3]\n    C --> F[Compress findings]\n    D --> G[Compress findings]\n    E --> H[Compress findings]\n    F --> I[LeadResearcher: synthesize]\n    G --> I\n    H --> I\n    I --> J([Final Answer])"
 }

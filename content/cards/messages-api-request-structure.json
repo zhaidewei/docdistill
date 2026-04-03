@@ -11,16 +11,15 @@
   "readingMinutes": 3,
   "body": {
     "concept": "每个 Messages API 请求只需要三个必填字段：model（选哪个模型）、max_tokens（最多生成多少 token）、messages（对话内容数组）。响应返回一个 message 对象，包含 role: assistant、content 数组（每个元素有 type 和 text）、以及 usage 字段（统计输入/输出 token 数）。stop_reason 告诉你模型为什么停止：end_turn 表示自然结束，max_tokens 表示达到上限被截断。",
-    "analogy": "就像点餐：你告诉服务员「我要什么菜」（model）、「最多花多少钱」（max_tokens）、「具体要哪几道」（messages）。服务员回来时会告诉你上了什么菜（content）、花了多少钱（usage）、以及为什么停了——菜上齐了还是预算用完了（stop_reason）。",
-    "visual": "左边是请求 JSON：{ model, max_tokens, messages[] }。箭头指向右边的响应 JSON：{ id, role, content[], stop_reason, usage: {input_tokens, output_tokens} }。"
+    "analogy": "就像点餐：你告诉服务员「我要什么菜」（model）、「最多花多少钱」（max_tokens）、「具体要哪几道」（messages）。服务员回来时会告诉你上了什么菜（content）、花了多少钱（usage）、以及为什么停了——菜上齐了还是预算用完了（stop_reason）。"
   },
   "body_en": {
     "concept": "Every Messages API request needs just three required fields: model (which Claude model to use), max_tokens (maximum tokens to generate), and messages (array of conversation turns). The response returns a message object with role: assistant, a content array (each element has type and text), and a usage field (counting input/output tokens). stop_reason tells you why the model stopped: end_turn means it finished naturally, max_tokens means it was cut off.",
-    "analogy": "Like ordering at a restaurant: you tell the waiter what cuisine (model), your budget cap (max_tokens), and your specific dishes (messages). The waiter returns with what was served (content), the bill (usage), and why service stopped — all dishes served, or budget reached (stop_reason).",
-    "visual": "Left side shows request JSON: { model, max_tokens, messages[] }. Arrow points to response JSON: { id, role, content[], stop_reason, usage: {input_tokens, output_tokens} }."
+    "analogy": "Like ordering at a restaurant: you tell the waiter what cuisine (model), your budget cap (max_tokens), and your specific dishes (messages). The waiter returns with what was served (content), the bill (usage), and why service stopped — all dishes served, or budget reached (stop_reason)."
   },
   "relatedIds": [
     "claude-api-surface-five-areas"
   ],
-  "relationType": "extends"
+  "relationType": "extends",
+  "diagram": "flowchart LR\n    A[\"Request JSON\\nmodel, max_tokens\\nmessages[]\"] --> B[\"Response JSON\\nid, role, content[]\\nstop_reason, usage{}\"]"
 }
