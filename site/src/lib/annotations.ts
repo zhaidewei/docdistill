@@ -5,10 +5,12 @@ const PREFIX = "annotations:";
 const isBrowser = typeof localStorage !== "undefined";
 
 export function getAnnotation(cardId: string): Annotation {
-  if (!isBrowser) return { starred: false, comments: [], questions: [] };
+  if (!isBrowser) return { starred: false, comments: [], questions: [], reported: false };
   const raw = localStorage.getItem(PREFIX + cardId);
-  if (!raw) return { starred: false, comments: [], questions: [] };
-  return JSON.parse(raw);
+  if (!raw) return { starred: false, comments: [], questions: [], reported: false };
+  const parsed = JSON.parse(raw);
+  // backfill reported for annotations saved before this field existed
+  return { reported: false, ...parsed };
 }
 
 export function saveAnnotation(cardId: string, annotation: Annotation) {

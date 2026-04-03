@@ -94,4 +94,5 @@ export interface Annotation {
   starred: boolean;
   comments: string[];
   questions: string[];
+  reported: boolean;
 }

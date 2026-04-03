@@ -11,6 +11,7 @@ describe("annotations", () => {
       starred: false,
       comments: [],
       questions: [],
+      reported: false,
     });
   });
 
@@ -19,6 +20,7 @@ describe("annotations", () => {
       starred: true,
       comments: ["important note"],
       questions: ["why does this matter?"],
+      reported: false,
     };
 
     saveAnnotation("card-1", annotation);
@@ -39,11 +41,13 @@ describe("annotations", () => {
         starred: true,
         comments: ["comment a"],
         questions: [],
+        reported: false,
       },
       "card-2": {
         starred: false,
         comments: [],
         questions: ["question b"],
+        reported: false,
       },
     };
 
@@ -62,5 +66,16 @@ describe("annotations", () => {
     expect(exportToMarkdown(cards, annotations, "comments")).not.toContain(
       "### Second card"
     );
+  });
+
+  it("saves and reads the reported flag", () => {
+    const annotation = {
+      starred: false,
+      comments: [],
+      questions: [],
+      reported: true,
+    };
+    saveAnnotation("card-reported", annotation);
+    expect(getAnnotation("card-reported").reported).toBe(true);
   });
 });
