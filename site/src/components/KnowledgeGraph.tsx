@@ -149,8 +149,10 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
     const simulation = d3
       .forceSimulation(simNodes as any)
       .force("link", d3.forceLink(simEdges as any).id((d: any) => d.id).distance(80))
-      .force("charge", d3.forceManyBody().strength(-200))
-      .force("center", d3.forceCenter(width / 2, height / 2).strength(0.15))
+      .force("charge", d3.forceManyBody().strength(-150))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("x", d3.forceX(width / 2).strength(0.08))
+      .force("y", d3.forceY(height / 2).strength(0.08))
       .force("collision", d3.forceCollide().radius((d: any) => 16 + d.cardCount * 4));
 
     const link = g.selectAll("line").data(simEdges).join("line")
