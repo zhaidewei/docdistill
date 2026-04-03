@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import type { Card } from "../lib/types";
+import type { Card, Annotation } from "../lib/types";
 import { getAllAnnotations } from "../lib/annotations";
 import { useLang, t, cardTitle } from "../lib/i18n";
 
@@ -19,7 +19,7 @@ interface Props {
 
 export default function CollectionPage({ cards, mode }: Props) {
   const [lang] = useLang();
-  const [annotations, setAnnotations] = useState<Record<string, any>>({});
+  const [annotations, setAnnotations] = useState<Record<string, Annotation>>({});
 
   useEffect(() => {
     setAnnotations(getAllAnnotations());
