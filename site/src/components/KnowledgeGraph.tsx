@@ -345,7 +345,7 @@ export default function KnowledgeGraph({ graph, cards }: { graph: Graph; cards: 
               <span class="text-accent-green">→</span> {t("graph.extends", lang)}: {extends_.join(", ")}
             </div>
           )}
-          <a href={`/?card=${selected.id}`} class="block text-center bg-surface-muted text-charcoal px-3 py-1.5 rounded text-xs hover:bg-surface-border">
+          <a href={`/cards?card=${selected.id}`} class="block text-center bg-surface-muted text-charcoal px-3 py-1.5 rounded text-xs hover:bg-surface-border">
             {t("graph.viewCards", lang)}
           </a>
         </div>
