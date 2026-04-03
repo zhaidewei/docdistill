@@ -2,6 +2,9 @@
 import LangToggle from "../components/LangToggle.tsx";
 import NavLinks from "../components/NavLinks.tsx";
 import MobileNav from "../components/MobileNav.tsx";
+import ProgressBar from "../components/ProgressBar.tsx";
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
 
 interface Props {
   title: string;
@@ -9,6 +12,13 @@ interface Props {
 }
 
 const { title, activePage } = Astro.props;
+
+const cardsDir = join(process.cwd(), "../content/cards");
+let cards: any[] = [];
+try {
+  const files = readdirSync(cardsDir).filter((f: string) => f.endsWith(".json"));
+  cards = files.map((f: string) => JSON.parse(readFileSync(join(cardsDir, f), "utf-8")));
+} catch {}
 ---
 
 <!doctype html>
@@ -26,6 +36,7 @@ const { title, activePage } = Astro.props;
         <LangToggle client:load />
       </div>
     </nav>
+    <ProgressBar client:load cards={cards} />
     <main class="flex-1 overflow-hidden">
       <slot />
     </main>

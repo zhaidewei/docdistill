@@ -103,6 +103,9 @@ const strings = {
   "graph.requires": { zh: "需要先了解", en: "Requires" },
   "graph.extends": { zh: "延伸", en: "Extends" },
   "graph.viewCards": { zh: "查看相关卡片 →", en: "View related cards →" },
+
+  // Progress bar
+  "progress.mastered": { zh: "已掌握", en: "mastered" },
 } as const;
 
 // Helper to pick localized card content
