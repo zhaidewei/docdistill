@@ -172,7 +172,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
   }
 
   return (
-    <div class="flex flex-col h-full bg-surface select-none overflow-hidden">
+    <div class="flex flex-col h-full bg-surface overflow-hidden">
       {/* Header */}
       <div class="px-4 pt-4 pb-2">
         <div class="flex items-center justify-between mb-2">
@@ -238,7 +238,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
         {/* Card */}
         <div
           ref={cardRef}
-          class="absolute inset-3 bg-surface-raised rounded-2xl border border-surface-border overflow-hidden flex flex-col"
+          class="absolute inset-3 bg-surface-raised rounded-2xl border border-surface-border overflow-hidden flex flex-col select-none"
           style={swipeStyle}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -269,7 +269,7 @@ export default function SwipeMode({ cards, graph }: { cards: Card[]; graph: Grap
           </div>
 
           {/* Card body - scrollable */}
-          <div class="flex-1 overflow-y-auto px-5 pb-5">
+          <div class="flex-1 overflow-y-auto px-5 pb-5 select-text">
             {renderBody(current, lang)}
           </div>
         </div>
