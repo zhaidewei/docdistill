@@ -6,3 +6,4 @@ site/.astro/
 .DS_Store
 site/node_modules/
 site/.astro/
+.worktrees/
