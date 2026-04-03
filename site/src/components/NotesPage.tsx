@@ -104,7 +104,12 @@ export default function NotesPage({ cards }: { cards: CardMeta[] }) {
                 class={`flex items-start gap-3 p-4 rounded-lg border transition-colors ${selected.has(card.id) ? "border-accent-orange bg-accent-orange/5" : "border-surface-border bg-surface-raised"}`}>
                 <input type="checkbox" checked={selected.has(card.id)} onChange={() => toggleSelect(card.id)} class="mt-1 rounded" />
                 <div class="flex-1 min-w-0">
-                  <div class="font-medium text-sm">{(lang === "en" && card.title_en) ? card.title_en : card.title}</div>
+                  <a
+                    href={`/cards?card=${card.id}`}
+                    class="font-medium text-sm hover:text-accent-orange transition-colors"
+                  >
+                    {(lang === "en" && card.title_en) ? card.title_en : card.title}
+                  </a>
                   {tab === "comments" && a.comments.map((c, i) => (
                     <div key={i} class="text-xs text-slate mt-1">💬 {c}</div>
                   ))}
